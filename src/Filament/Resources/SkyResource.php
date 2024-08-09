@@ -17,7 +17,7 @@ class SkyResource extends Resource
 
     public static function shouldRegisterNavigation(): bool
     {
-        return ! in_array(static::class, SkyPlugin::get()->hiddenResources());
+        return ! in_array(static::class, SkyPlugin::get()->getHiddenResources());
     }
 
     public static function getNavigationBadge(): ?string

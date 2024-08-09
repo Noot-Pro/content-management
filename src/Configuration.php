@@ -5,16 +5,30 @@ namespace LaraZeus\Sky;
 use Closure;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
+use Filament\Support\Concerns\EvaluatesClosures;
 use Illuminate\Support\Str;
+use LaraZeus\Core\Concerns\CanGloballySearch;
+use LaraZeus\Core\Concerns\CanStickyActions;
+use LaraZeus\Core\Concerns\HasModels;
+use LaraZeus\Core\Concerns\HasNavigationGroupLabel;
+use LaraZeus\Core\Concerns\CanHideResources;
+use LaraZeus\Core\Concerns\HasNavigationBadges;
+use LaraZeus\Core\Concerns\HasUploads;
+use LaraZeus\Core\Concerns\CanDisableResources;
 
 trait Configuration
 {
-    protected Closure | string $navigationGroupLabel = 'Sky';
+    use CanGloballySearch;
+    use EvaluatesClosures;
+    use HasModels;
+    use HasNavigationGroupLabel;
+    use CanHideResources;
+    use CanStickyActions;
+    use HasNavigationBadges;
+    use HasUploads;
+    use CanDisableResources;
 
-    /**
-     * you can overwrite any model and use your own
-     */
-    protected array $skyModels = [];
+    protected Closure | string $navigationGroupLabel = 'Sky';
 
     protected ?array $libraryTypes = [
         'FILE' => 'File',
@@ -29,162 +43,19 @@ trait Configuration
         'faq' => 'Faq',
     ];
 
-    protected array $hiddenResources = [];
-
-    /**
-     * where to upload all files when using the file upload field
-     */
-    protected Closure | string $uploadDisk = 'public';
-
-    /**
-     * the directory name
-     */
-    protected Closure | string $uploadDirectory = '';
-
-    protected bool $hasPostResource = true;
-
-    protected bool $hasPageResource = true;
-
-    protected bool $hasFaqResource = true;
-
-    protected bool $hasLibraryResource = true;
-
-    protected bool $hasTagResource = true;
-
-    protected bool $hasNavigationResource = true;
-
     protected array $itemTypes = [];
 
     protected array | Closure $extraFields = [];
 
     protected Closure | string | null $routeNamePrefix = null;
 
-    public function navigationGroupLabel(Closure | string $lable): static
+    private ?array $translatedTagTypes = null;
+
+    private ?array $translatedLibraryTypes = null;
+
+    public static function getDefaultModelsToMerge():array
     {
-        $this->navigationGroupLabel = $lable;
-
-        return $this;
-    }
-
-    public function getNavigationGroupLabel(): Closure | string
-    {
-        return $this->evaluate($this->navigationGroupLabel);
-    }
-
-    public function skyModels(array $models): static
-    {
-        $this->skyModels = $models;
-
-        return $this;
-    }
-
-    public function getSkyModels(): array
-    {
-        return $this->skyModels;
-    }
-
-    public static function getModel(string $model): string
-    {
-        return array_merge(
-            config('zeus-sky.models'),
-            (new static())::get()->getSkyModels()
-        )[$model];
-    }
-
-    public function uploadDisk(Closure | string $disk): static
-    {
-        $this->uploadDisk = $disk;
-
-        return $this;
-    }
-
-    public function getUploadDisk(): Closure | string
-    {
-        return $this->evaluate($this->uploadDisk);
-    }
-
-    public function uploadDirectory(Closure | string $dir): static
-    {
-        $this->uploadDirectory = $dir;
-
-        return $this;
-    }
-
-    public function getUploadDirectory(): Closure | string
-    {
-        return $this->evaluate($this->uploadDirectory);
-    }
-
-    public function postResource(bool $condition = true): static
-    {
-        $this->hasPostResource = $condition;
-
-        return $this;
-    }
-
-    public function hasPostResource(): bool
-    {
-        return $this->hasPostResource;
-    }
-
-    public function pageResource(bool $condition = true): static
-    {
-        $this->hasPageResource = $condition;
-
-        return $this;
-    }
-
-    public function hasPageResource(): bool
-    {
-        return $this->hasPageResource;
-    }
-
-    public function faqResource(bool $condition = true): static
-    {
-        $this->hasFaqResource = $condition;
-
-        return $this;
-    }
-
-    public function hasFaqResource(): bool
-    {
-        return $this->hasFaqResource;
-    }
-
-    public function libraryResource(bool $condition = true): static
-    {
-        $this->hasLibraryResource = $condition;
-
-        return $this;
-    }
-
-    public function hasLibraryResource(): bool
-    {
-        return $this->hasLibraryResource;
-    }
-
-    public function tagResource(bool $condition = true): static
-    {
-        $this->hasTagResource = $condition;
-
-        return $this;
-    }
-
-    public function hasTagResource(): bool
-    {
-        return $this->hasTagResource;
-    }
-
-    public function navigationResource(bool $condition = true): static
-    {
-        $this->hasNavigationResource = $condition;
-
-        return $this;
-    }
-
-    public function hasNavigationResource(): bool
-    {
-        return $this->hasNavigationResource;
+        return config('zeus-sky.models');
     }
 
     public function libraryTypes(array $types): static
@@ -193,8 +64,6 @@ trait Configuration
 
         return $this;
     }
-
-    private ?array $translatedLibraryTypes = null;
 
     public function getLibraryTypes(): ?array
     {
@@ -211,8 +80,6 @@ trait Configuration
 
         return $this;
     }
-
-    private ?array $translatedTagTypes = null;
 
     public function getTagTypes(): ?array
     {
@@ -268,18 +135,6 @@ trait Configuration
             ],
             $this->itemTypes
         );
-    }
-
-    public function hiddenResources(): array
-    {
-        return $this->hiddenResources;
-    }
-
-    public function hideResources(array $resources = []): static
-    {
-        $this->hiddenResources = $resources;
-
-        return $this;
     }
 
     public function routeNamePrefix(Closure | string | null $prefix): static
