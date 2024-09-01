@@ -32,12 +32,12 @@
     "require": {
         "php": "^8.1",
         "doctrine/dbal": "^3.5.1",
-        "filament/spatie-laravel-media-library-plugin": "^3.0",
-        "filament/spatie-laravel-tags-plugin": "^3.0",
+        "filament/spatie-laravel-media-library-plugin": "4.x-dev",
+        "filament/spatie-laravel-tags-plugin": "4.x-dev",
         "spatie/laravel-medialibrary": "^11.0",
         "spatie/laravel-sluggable": "^3.3",
         "spatie/laravel-tags": "^4.6",
-        "lara-zeus/core": "^4.0"
+        "lara-zeus/core": "4.x-dev"
     },
     "require-dev": {
         "phpunit/phpunit": "^10.1",
@@ -88,5 +88,15 @@
         }
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../../filament/packages/*"
+        },
+        {
+            "type": "path",
+            "url": "../*"
+        }
+    ]
 }
