@@ -2,6 +2,103 @@
 
 All notable changes to `sky` will be documented in this file
 
+## v3.4.22 - 2025-03-13
+
+### What's Changed
+
+* fix unique slug validation by @atmonshi in https://github.com/lara-zeus/sky/pull/227
+
+**Full Changelog**: https://github.com/lara-zeus/sky/compare/v3.4.21...v3.4.22
+
+## v3.4.21 - 2025-03-07
+
+### What's Changed
+
+* remove blade iconpark by @atmonshi in https://github.com/lara-zeus/sky/pull/230
+
+**Full Changelog**: https://github.com/lara-zeus/sky/compare/v3.4.20...v3.4.21
+
+## v3.4.20 - 2025-03-07
+
+#### What's Changed
+
+* update sky models by @atmonshi in https://github.com/lara-zeus/sky/pull/229
+
+### if you're customizing the models using: `->skyModels([...])` please change the method to `->models([...])`
+
+**Full Changelog**: https://github.com/lara-zeus/sky/compare/v3.4.19...v3.4.20
+
+## v3.4.19 - 2025-03-07
+
+### What's Changed
+
+* remove doctrine/dbal by @atmonshi in https://github.com/lara-zeus/sky/pull/226
+* refactor plugin configuration and use filament tools package by @atmonshi in https://github.com/lara-zeus/sky/pull/228
+
+**Full Changelog**: https://github.com/lara-zeus/sky/compare/v3.4.18...v3.4.19
+
+## v3.4.18 - 2025-03-03
+
+### What's Changed
+
+* Bump dependabot/fetch-metadata from 2.2.0 to 2.3.0 by @dependabot in https://github.com/lara-zeus/sky/pull/222
+* Bump aglipanci/laravel-pint-action from 2.4 to 2.5 by @dependabot in https://github.com/lara-zeus/sky/pull/223
+* add support for laravel 12 by @atmonshi in https://github.com/lara-zeus/sky/pull/225
+
+**Full Changelog**: https://github.com/lara-zeus/sky/compare/v3.4.17...v3.4.18
+
+## v3.4.17 - 2024-12-25
+
+### What's Changed
+
+* update doctrine/dbal by @atmonshi in https://github.com/lara-zeus/sky/pull/221
+
+**Full Changelog**: https://github.com/lara-zeus/sky/compare/v3.4.16...v3.4.17
+
+## v3.4.16 - 2024-10-29
+
+### What's Changed
+
+* allow to show/hide badges by @atmonshi in https://github.com/lara-zeus/sky/pull/218
+
+**Full Changelog**: https://github.com/lara-zeus/sky/compare/v3.4.15...v3.4.16
+
+## v3.4.15 - 2024-10-06
+
+### What's Changed
+
+* Fix content by @atmonshi in https://github.com/lara-zeus/sky/pull/216
+
+**Full Changelog**: https://github.com/lara-zeus/sky/compare/v3.4.14...v3.4.15
+
+## v3.4.14 - 2024-10-02
+
+### What's Changed
+
+* refactor routeNamePrefix to core trait by @atmonshi in https://github.com/lara-zeus/sky/pull/215
+
+**Full Changelog**: https://github.com/lara-zeus/sky/compare/v3.4.13...v3.4.14
+
+## v3.4.13 - 2024-09-29
+
+### What's Changed
+
+* Change Text from Post to Page by @rabol in https://github.com/lara-zeus/sky/pull/214
+
+### New Contributors
+
+* @rabol made their first contribution in https://github.com/lara-zeus/sky/pull/214
+
+**Full Changelog**: https://github.com/lara-zeus/sky/compare/v3.4.12...v3.4.13
+
+## v3.4.12 - 2024-09-28
+
+### What's Changed
+
+* use sky without the frontend scaffolding by @atmonshi in https://github.com/lara-zeus/sky/pull/212
+
+**Full Changelog**: https://github.com/lara-zeus/sky/compare/v3.4.11...v3.4.12
+
 ## v3.4.11 - 2024-08-11
 
 ### What's Changed
@@ -188,6 +285,17 @@ in your panel provider you can hide any resource from the side nav
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 ```
 for more check out the docs:
 https://larazeus.com/docs/sky/v3/getting-started/configuration
@@ -258,13 +366,24 @@ Since [tiptap editor](https://github.com/awcodes/filament-tiptap-editor) still i
 #### ⚠️⚠️ the configuration for models has been changed to:
 
 ```php
-->skyModels([
+->models([
         'Faq' => \LaraZeus\Sky\Models\Faq::class,
         'Post' => \LaraZeus\Sky\Models\Post::class,
         'PostStatus' => \LaraZeus\Sky\Models\PostStatus::class,
         'Tag' => \LaraZeus\Sky\Models\Tag::class,
         'Library' => \LaraZeus\Sky\Models\Library::class,
     ])
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -356,11 +475,33 @@ Make sure to add this to your config:
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 ```
 You can copy that class and create your own parser, too, then add it to the array, and Sky will loop them all.
 
 ```I
 Of course, it will be visible only if you install Sky with Bolt :)
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -420,31 +561,20 @@ Of course, it will be visible only if you install Sky with Bolt :)
 ### What's Changed
 - Update configuration.md by @atmonshi in https://github.com/lara-zeus/sky/pull/70
 - refactor getNavigationGroup by @atmonshi in https://github.com/lara-zeus/sky/pull/71
-
 **Full Changelog**: https://github.com/lara-zeus/sky/compare/2.4.0...2.4.1
-
 ## 2.4.0 - 2023-04-10
-
 ### What's Changed
-
 - Bump dependabot/fetch-metadata from 1.3.5 to 1.3.6 by @dependabot in https://github.com/lara-zeus/sky/pull/65
 - Bump aglipanci/laravel-pint-action from 1.0.0 to 2.2.0 by @dependabot in https://github.com/lara-zeus/sky/pull/68
 - Bump ramsey/composer-install from 1 to 2 by @dependabot in https://github.com/lara-zeus/sky/pull/63
 - Added config for Navigation Group Label by @chahal26 in https://github.com/lara-zeus/sky/pull/66
 - support laravel 10 by @atmonshi in https://github.com/lara-zeus/sky/pull/69
-
 ### New Contributors
-
 - @chahal26 made their first contribution in https://github.com/lara-zeus/sky/pull/66
-
 **Full Changelog**: https://github.com/lara-zeus/sky/compare/2.3.7...2.4.0
-
 ## 2.3.7 - 2022-11-12
-
 ### What's Changed
-
 - small fixes in FAQ by @atmonshi in https://github.com/lara-zeus/sky/pull/62
-
 **Full Changelog**: https://github.com/lara-zeus/sky/compare/2.3.6...2.3.7
 
 ## 2.3.6 - 2022-11-12

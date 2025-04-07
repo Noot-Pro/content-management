@@ -18,18 +18,6 @@ use LaraZeus\Core\Concerns\CanDisableResources;
 
 trait Configuration
 {
-    use CanGloballySearch;
-    use EvaluatesClosures;
-    use HasModels;
-    use HasNavigationGroupLabel;
-    use CanHideResources;
-    use CanStickyActions;
-    use HasNavigationBadges;
-    use HasUploads;
-    use CanDisableResources;
-
-    protected Closure | string $navigationGroupLabel = 'Sky';
-
     protected ?array $libraryTypes = [
         'FILE' => 'File',
         'IMAGE' => 'Image',
@@ -43,19 +31,96 @@ trait Configuration
         'faq' => 'Faq',
     ];
 
+    protected bool $hasPostResource = true;
+
+    protected bool $hasPageResource = true;
+
+    protected bool $hasFaqResource = true;
+
+    protected bool $hasLibraryResource = true;
+
+    protected bool $hasTagResource = true;
+
+    protected bool $hasNavigationResource = true;
+
     protected array $itemTypes = [];
 
     protected array | Closure $extraFields = [];
 
-    protected Closure | string | null $routeNamePrefix = null;
+    private ?array $translatedLibraryTypes = null;
 
     private ?array $translatedTagTypes = null;
 
-    private ?array $translatedLibraryTypes = null;
-
-    public static function getDefaultModelsToMerge():array
+    public function postResource(bool $condition = true): static
     {
-        return config('zeus-sky.models');
+        $this->hasPostResource = $condition;
+
+        return $this;
+    }
+
+    public function hasPostResource(): bool
+    {
+        return $this->hasPostResource;
+    }
+
+    public function pageResource(bool $condition = true): static
+    {
+        $this->hasPageResource = $condition;
+
+        return $this;
+    }
+
+    public function hasPageResource(): bool
+    {
+        return $this->hasPageResource;
+    }
+
+    public function faqResource(bool $condition = true): static
+    {
+        $this->hasFaqResource = $condition;
+
+        return $this;
+    }
+
+    public function hasFaqResource(): bool
+    {
+        return $this->hasFaqResource;
+    }
+
+    public function libraryResource(bool $condition = true): static
+    {
+        $this->hasLibraryResource = $condition;
+
+        return $this;
+    }
+
+    public function hasLibraryResource(): bool
+    {
+        return $this->hasLibraryResource;
+    }
+
+    public function tagResource(bool $condition = true): static
+    {
+        $this->hasTagResource = $condition;
+
+        return $this;
+    }
+
+    public function hasTagResource(): bool
+    {
+        return $this->hasTagResource;
+    }
+
+    public function navigationResource(bool $condition = true): static
+    {
+        $this->hasNavigationResource = $condition;
+
+        return $this;
+    }
+
+    public function hasNavigationResource(): bool
+    {
+        return $this->hasNavigationResource;
     }
 
     public function libraryTypes(array $types): static
@@ -135,17 +200,5 @@ trait Configuration
             ],
             $this->itemTypes
         );
-    }
-
-    public function routeNamePrefix(Closure | string | null $prefix): static
-    {
-        $this->routeNamePrefix = $prefix;
-
-        return $this;
-    }
-
-    public function getRouteNamePrefix(): Closure | string | null
-    {
-        return $this->evaluate($this->routeNamePrefix);
     }
 }

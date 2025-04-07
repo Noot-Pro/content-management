@@ -59,7 +59,7 @@ class LibraryResource extends SkyResource
                             }),
 
                         TextInput::make('slug')
-                            ->unique(ignorable: fn (?Library $record): ?Library => $record)
+                            ->unique(ignoreRecord: true)
                             ->required()
                             ->maxLength(255)
                             ->label(__('Library Slug')),
@@ -195,14 +195,18 @@ class LibraryResource extends SkyResource
                 ->color('warning')
                 ->icon('heroicon-o-arrow-top-right-on-square')
                 ->label(__('Open'))
+                ->visible(! config('zeus-sky.headless'))
                 ->url(fn (Library $record): string => route(SkyPlugin::get()->getRouteNamePrefix() . 'library.item', ['slug' => $record->slug]))
                 ->openUrlInNewTab(),
             DeleteAction::make('delete')
                 ->label(__('Delete')),
         ];
 
-        if (class_exists(\LaraZeus\Helen\HelenServiceProvider::class)) {
-            //@phpstan-ignore-next-line
+        if (
+            class_exists(\LaraZeus\Helen\HelenServiceProvider::class)
+            && ! config('zeus-sky.headless')
+        ) {
+            // @phpstan-ignore-next-line
             $action[] = \LaraZeus\Helen\Actions\ShortUrlAction::make('get-link')
                 ->distUrl(fn (Library $record): string => route(SkyPlugin::get()->getRouteNamePrefix() . 'library.item', ['slug' => $record->slug]));
         }

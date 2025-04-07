@@ -29,7 +29,7 @@ SkyPlugin::make()
 
     // the default models, by default Sky will read from the config file 'zeus-sky'.
     // but if you want to customize the models per panel, you can do it here 
-    ->skyModels([
+    ->models([
         // ...
         'Tag' => \LaraZeus\Sky\Models\Tag::class,
     ])
@@ -54,6 +54,11 @@ SkyPlugin::make()
     ->hideResources([
         FaqResource::class,
     ])
+
+    // hide/show nav badges
+    ->hideNavigationBadges(resource: LaraZeus\Sky\Resources::CollectionResource)
+    ->showNavigationBadges(resource: LaraZeus\Sky\Resources::CollectionResource)
+
 ```
 
 ## Customize Filament Resources
@@ -64,6 +69,30 @@ you can customize all Sky resources icons and sorting by adding the following co
 PostResource::navigationSort(100);
 PostResource::navigationIcon('heroicon-o-home');
 PostResource::navigationGroup('New Name');
+```
+
+
+### Show or Hide Badges
+
+To show all navigation badges (default)
+```
+    ->showNavigationBadges()
+```
+
+To hide all navigation badges
+```
+    ->hideNavigationBadges()
+```
+
+This will hide only the CollectionResource navigation badge
+```
+    ->hideNavigationBadges(resource: LaraZeus\Sky\Resources::CollectionResource)
+```
+
+This will show only the FormResource navigation badge
+```
+    ->hideNavigationBadges()
+    ->showNavigationBadges(resource: LaraZeus\Sky\Resources::CollectionResource)
 ```
 
 available resources:
@@ -91,6 +120,13 @@ and here is the config content:
 <?php
 
 return [
+    'domain' => null,
+
+    /**
+     * disable all sky frontend routes.
+     */
+    'headless' => false,
+    
     /**
      * set the default path for the blog homepage.
      */
@@ -115,7 +151,7 @@ return [
     /**
      * you can overwrite any model and use your own
      * you can also configure the model per panel in your panel provider using:
-     * ->skyModels([ ... ])
+     * ->models([ ... ])
      */
     'models' => [
         'Faq' => \LaraZeus\Sky\Models\Faq::class,

@@ -97,8 +97,11 @@ class FaqResource extends SkyResource
                 ->label(__('Delete')),
         ];
 
-        if (class_exists(\LaraZeus\Helen\HelenServiceProvider::class)) {
-            //@phpstan-ignore-next-line
+        if (
+            class_exists(\LaraZeus\Helen\HelenServiceProvider::class)
+            && ! config('zeus-sky.headless')
+        ) {
+            // @phpstan-ignore-next-line
             $action[] = \LaraZeus\Helen\Actions\ShortUrlAction::make('get-link')
                 ->distUrl(fn (): string => route(SkyPlugin::get()->getRouteNamePrefix() . 'faq'));
         }

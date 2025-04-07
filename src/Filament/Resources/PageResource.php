@@ -65,7 +65,7 @@ class PageResource extends SkyResource
             Tabs::make('post_tabs')->schema([
                 Tabs\Tab::make(__('Title & Content'))->schema([
                     TextInput::make('title')
-                        ->label(__('Post Title'))
+                        ->label(__('Page Title'))
                         ->required()
                         ->maxLength(255)
                         ->live(onBlur: true)
@@ -86,13 +86,13 @@ class PageResource extends SkyResource
                     Textarea::make('description')
                         ->maxLength(255)
                         ->label(__('Description'))
-                        ->hint(__('Write an excerpt for your post')),
+                        ->hint(__('Write an excerpt for your page')),
 
                     TextInput::make('slug')
-                        ->unique(ignorable: fn (?Post $record): ?Post => $record)
+                        ->unique(ignoreRecord: true)
                         ->required()
                         ->maxLength(255)
-                        ->label(__('Post Slug')),
+                        ->label(__('Page Slug')),
 
                     Select::make('parent_id')
                         ->options(SkyPlugin::get()->getModel('Post')::where('post_type', 'page')->pluck(
@@ -218,6 +218,10 @@ class PageResource extends SkyResource
 
     public static function getNavigationBadge(): ?string
     {
+        if (! SkyPlugin::getNavigationBadgesVisibility(static::class)) {
+            return null;
+        }
+
         return (string) SkyPlugin::get()->getModel('Post')::page()->count();
     }
 
@@ -229,6 +233,7 @@ class PageResource extends SkyResource
                 ->color('warning')
                 ->icon('heroicon-o-arrow-top-right-on-square')
                 ->label(__('Open'))
+                ->visible(! config('zeus-sky.headless'))
                 ->url(fn (Post $record): string => route(SkyPlugin::get()->getRouteNamePrefix() . 'page', ['slug' => $record]))
                 ->openUrlInNewTab(),
             DeleteAction::make('delete'),
@@ -236,8 +241,11 @@ class PageResource extends SkyResource
             RestoreAction::make(),
         ];
 
-        if (class_exists(\LaraZeus\Helen\HelenServiceProvider::class)) {
-            //@phpstan-ignore-next-line
+        if (
+            class_exists(\LaraZeus\Helen\HelenServiceProvider::class)
+            && ! config('zeus-sky.headless')
+        ) {
+            // @phpstan-ignore-next-line
             $action[] = \LaraZeus\Helen\Actions\ShortUrlAction::make('get-link')
                 ->distUrl(fn (Post $record): string => route(SkyPlugin::get()->getRouteNamePrefix() . 'page', ['slug' => $record]));
         }

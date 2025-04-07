@@ -4,6 +4,11 @@ return [
     'domain' => null,
 
     /**
+     * disable all sky frontend routes.
+     */
+    'headless' => false,
+
+    /**
      * set the default path for the blog homepage.
      */
     'prefix' => 'sky',
@@ -27,7 +32,7 @@ return [
     /**
      * you can overwrite any model and use your own
      * you can also configure the model per panel in your panel provider using:
-     * ->skyModels([ ... ])
+     * ->models([ ... ])
      */
     'models' => [
         'Faq' => \LaraZeus\Sky\Models\Faq::class,
