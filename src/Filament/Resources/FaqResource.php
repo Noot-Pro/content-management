@@ -3,13 +3,13 @@
 namespace LaraZeus\Sky\Filament\Resources;
 
 use Filament\Forms\Components\RichEditor;
-use Filament\Forms\Components\Section;
 use Filament\Forms\Components\SpatieTagsInput;
 use Filament\Forms\Components\Textarea;
-use Filament\Forms\Form;
-use Filament\Tables\Actions\ActionGroup;
-use Filament\Tables\Actions\DeleteAction;
-use Filament\Tables\Actions\EditAction;
+use Filament\Schemas\Components\Section;
+use Filament\Schemas\Schema;
+use Filament\Actions\ActionGroup;
+use Filament\Actions\DeleteAction;
+use Filament\Actions\EditAction;
 use Filament\Tables\Columns\SpatieTagsColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
@@ -19,7 +19,7 @@ use LaraZeus\Sky\SkyPlugin;
 
 class FaqResource extends SkyResource
 {
-    protected static ?string $navigationIcon = 'heroicon-o-folder-open';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-folder-open';
 
     protected static ?int $navigationSort = 3;
 
@@ -43,12 +43,13 @@ class FaqResource extends SkyResource
         return __('FAQs');
     }
 
-    public static function form(Form $form): Form
+    public static function form(Schema $schema): Schema
     {
-        return $form
+        return $schema
             ->schema([
-                Section::make(__('Library File'))
-                    ->columns(2)
+                Section::make()
+                    ->columnSpanFull()
+                    ->columns()
                     ->schema([
                         Textarea::make('question')
                             ->label(__('Question'))

@@ -2,20 +2,20 @@
 
 namespace LaraZeus\Sky\Filament\Resources;
 
-use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Forms\Components\SpatieTagsInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\ToggleButtons;
-use Filament\Forms\Form;
-use Filament\Forms\Get;
-use Filament\Forms\Set;
-use Filament\Tables\Actions\Action;
-use Filament\Tables\Actions\ActionGroup;
-use Filament\Tables\Actions\DeleteAction;
-use Filament\Tables\Actions\EditAction;
+use Filament\Schemas\Components\Section;
+use Filament\Schemas\Components\Utilities\Get;
+use Filament\Schemas\Components\Utilities\Set;
+use Filament\Schemas\Schema;
+use Filament\Actions\Action;
+use Filament\Actions\ActionGroup;
+use Filament\Actions\DeleteAction;
+use Filament\Actions\EditAction;
 use Filament\Tables\Columns\SpatieTagsColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
@@ -29,7 +29,7 @@ class LibraryResource extends SkyResource
 {
     protected static ?string $slug = 'library';
 
-    protected static ?string $navigationIcon = 'heroicon-o-folder';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-folder';
 
     protected static ?int $navigationSort = 4;
 
@@ -38,9 +38,9 @@ class LibraryResource extends SkyResource
         return SkyPlugin::get()->getModel('Library');
     }
 
-    public static function form(Form $form): Form
+    public static function form(Schema $schema): Schema
     {
-        return $form
+        return $schema
             ->schema([
                 Section::make(__('Library File'))
                     ->columns(2)
@@ -80,6 +80,7 @@ class LibraryResource extends SkyResource
                     ]),
 
                 Section::make(__('Library File'))
+                    ->columnSpanFull()
                     ->collapsible()
                     ->compact()
                     ->schema([

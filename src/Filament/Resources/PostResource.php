@@ -4,27 +4,28 @@ namespace LaraZeus\Sky\Filament\Resources;
 
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\Hidden;
-use Filament\Forms\Components\Placeholder;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Forms\Components\SpatieTagsInput;
-use Filament\Forms\Components\Tabs;
-use Filament\Forms\Components\Tabs\Tab;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\ToggleButtons;
-use Filament\Forms\Form;
-use Filament\Forms\Get;
-use Filament\Forms\Set;
-use Filament\Tables\Actions\Action;
-use Filament\Tables\Actions\ActionGroup;
-use Filament\Tables\Actions\DeleteAction;
-use Filament\Tables\Actions\DeleteBulkAction;
-use Filament\Tables\Actions\EditAction;
-use Filament\Tables\Actions\ForceDeleteAction;
-use Filament\Tables\Actions\ForceDeleteBulkAction;
-use Filament\Tables\Actions\RestoreAction;
-use Filament\Tables\Actions\RestoreBulkAction;
+use Filament\Infolists\Components\TextEntry;
+use Filament\Schemas\Components\Form;
+use Filament\Schemas\Components\Tabs;
+use Filament\Schemas\Components\Tabs\Tab;
+use Filament\Schemas\Components\Utilities\Get;
+use Filament\Schemas\Components\Utilities\Set;
+use Filament\Schemas\Schema;
+use Filament\Actions\Action;
+use Filament\Actions\ActionGroup;
+use Filament\Actions\DeleteAction;
+use Filament\Actions\DeleteBulkAction;
+use Filament\Actions\EditAction;
+use Filament\Actions\ForceDeleteAction;
+use Filament\Actions\ForceDeleteBulkAction;
+use Filament\Actions\RestoreAction;
+use Filament\Actions\RestoreBulkAction;
 use Filament\Tables\Columns\SpatieTagsColumn;
 use Filament\Tables\Columns\ViewColumn;
 use Filament\Tables\Filters\Filter;
@@ -40,7 +41,7 @@ use LaraZeus\Sky\SkyPlugin;
 // @mixin Builder<PostScope>
 class PostResource extends SkyResource
 {
-    protected static ?string $navigationIcon = 'heroicon-o-document-text';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-document-text';
 
     protected static ?int $navigationSort = 1;
 
@@ -49,9 +50,9 @@ class PostResource extends SkyResource
         return SkyPlugin::get()->getModel('Post');
     }
 
-    public static function form(Form $form): Form
+    public static function form(Schema $schema): Schema
     {
-        return $form
+        return $schema
             ->schema([
                 Tabs::make('post_tabs')
                     ->schema([
@@ -75,7 +76,7 @@ class PostResource extends SkyResource
 
                         Tab::make(__('SEO'))
                             ->schema([
-                                Placeholder::make(__('SEO Settings')),
+                                //TextEntry::make(__('SEO Settings')),
 
                                 Hidden::make('user_id')
                                     ->default(auth()->user()?->id ?? 0)
@@ -99,7 +100,7 @@ class PostResource extends SkyResource
 
                         Tab::make(__('Tags'))
                             ->schema([
-                                Placeholder::make(__('Tags and Categories')),
+                                //TextEntry::make(__('Tags and Categories')),
                                 SpatieTagsInput::make('tags')
                                     ->type('tag')
                                     ->label(__('Tags')),
@@ -111,7 +112,7 @@ class PostResource extends SkyResource
 
                         Tab::make(__('Visibility'))
                             ->schema([
-                                Placeholder::make(__('Visibility Options')),
+                                //TextEntry::make(__('Visibility Options')),
                                 Select::make('status')
                                     ->label(__('status'))
                                     ->default('publish')
@@ -136,7 +137,7 @@ class PostResource extends SkyResource
 
                         Tab::make(__('Image'))
                             ->schema([
-                                Placeholder::make(__('Featured Image')),
+                                //TextEntry::make(__('Featured Image')),
 
                                 ToggleButtons::make('featured_image_type')
                                     ->dehydrated(false)
