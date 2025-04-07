@@ -2,15 +2,15 @@
 
 namespace LaraZeus\Sky\Filament\Resources;
 
-use Filament\Forms\Components\Placeholder;
-use Filament\Forms\Components\Section;
+use Filament\Actions\DeleteAction;
+use Filament\Actions\EditAction;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\View;
 use Filament\Forms\Components\ViewField;
-use Filament\Forms\Form;
-use Filament\Forms\Set;
-use Filament\Tables\Actions\DeleteAction;
-use Filament\Tables\Actions\EditAction;
+use Filament\Infolists\Components\TextEntry;
+use Filament\Schemas\Components\Section;
+use Filament\Schemas\Components\Utilities\Set;
+use Filament\Schemas\Components\View;
+use Filament\Schemas\Schema;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Support\HtmlString;
@@ -20,7 +20,7 @@ use LaraZeus\Sky\SkyPlugin;
 
 class NavigationResource extends SkyResource
 {
-    protected static ?string $navigationIcon = 'heroicon-o-queue-list';
+    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-queue-list';
 
     protected static ?int $navigationSort = 99;
 
@@ -28,31 +28,33 @@ class NavigationResource extends SkyResource
 
     public static function disableTimestamps(bool $condition = true): void
     {
-        static::$showTimestamps = ! $condition;
+        static::$showTimestamps = !$condition;
     }
 
-    public static function form(Form $form): Form
+    public static function form(Schema $schema): Schema
     {
-        return $form
+        return $schema
             ->schema([
-                Section::make('')->schema([
-                    TextInput::make('name')
-                        ->label(__('zeus-sky::filament-navigation.attributes.name'))
-                        ->reactive()
-                        ->debounce()
-                        ->afterStateUpdated(function (?string $state, Set $set) {
-                            if (! $state) {
-                                return;
-                            }
+                Section::make()
+                    ->columnSpanFull()
+                    ->schema([
+                        TextInput::make('name')
+                            ->label(__('zeus-sky::filament-navigation.attributes.name'))
+                            ->reactive()
+                            ->debounce()
+                            ->afterStateUpdated(function (?string $state, Set $set) {
+                                if (!$state) {
+                                    return;
+                                }
 
-                            $set('handle', Str::slug($state));
-                        })
-                        ->required(),
-                    ViewField::make('items')
-                        ->label(__('zeus-sky::filament-navigation.attributes.items'))
-                        ->default([])
-                        ->view('zeus::filament.navigation-builder'),
-                ])
+                                $set('handle', Str::slug($state));
+                            })
+                            ->required(),
+                        ViewField::make('items')
+                            ->label(__('zeus-sky::filament-navigation.attributes.items'))
+                            ->default([])
+                            ->view('zeus::filament.navigation-builder'),
+                    ])
                     ->columnSpan([
                         12,
                         'lg' => 8,
@@ -66,14 +68,16 @@ class NavigationResource extends SkyResource
                             ->unique(ignoreRecord: true),
                         View::make('zeus::filament.card-divider')
                             ->visible(static::$showTimestamps),
-                        Placeholder::make('created_at')
+                        /*TextEntry::make('created_at')
                             ->label(__('zeus-sky::filament-navigation.attributes.created_at'))
                             ->visible(static::$showTimestamps)
-                            ->content(fn (?Navigation $record) => $record ? $record->created_at->translatedFormat(Table::$defaultDateTimeDisplayFormat) : new HtmlString('&mdash;')),
-                        Placeholder::make('updated_at')
+                        //    ->content(fn(?Navigation $record) => $record ? $record->created_at->translatedFormat(Table::$defaultDateTimeDisplayFormat) : new HtmlString('&mdash;'))
+                        ,
+                        TextEntry::make('updated_at')
                             ->label(__('zeus-sky::filament-navigation.attributes.updated_at'))
                             ->visible(static::$showTimestamps)
-                            ->content(fn (?Navigation $record) => $record ? $record->updated_at->translatedFormat(Table::$defaultDateTimeDisplayFormat) : new HtmlString('&mdash;')),
+                        //    ->content(fn(?Navigation $record) => $record ? $record->updated_at->translatedFormat(Table::$defaultDateTimeDisplayFormat) : new HtmlString('&mdash;'))
+                        ,*/
                     ])
                     ->columnSpan([
                         12,
@@ -118,13 +122,8 @@ class NavigationResource extends SkyResource
                     ->sortable(),
             ])
             ->actions([
-                EditAction::make()
-                    ->icon(null),
-                DeleteAction::make()
-                    ->icon(null),
-            ])
-            ->filters([
-
+                EditAction::make()->icon(null),
+                DeleteAction::make()->icon(null),
             ]);
     }
 

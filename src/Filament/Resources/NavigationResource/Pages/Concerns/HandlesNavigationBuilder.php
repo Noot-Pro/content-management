@@ -3,15 +3,14 @@
 namespace LaraZeus\Sky\Filament\Resources\NavigationResource\Pages\Concerns;
 
 use Filament\Actions\Action;
-use Filament\Forms\ComponentContainer;
-use Filament\Forms\Components\Component;
-use Filament\Forms\Components\Group;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Get;
+use Filament\Schemas\Components\Group;
+use Filament\Schemas\Components\Utilities\Get;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use LaraZeus\Sky\SkyPlugin;
+use Livewire\Component;
 
 trait HandlesNavigationBuilder
 {
@@ -75,7 +74,7 @@ trait HandlesNavigationBuilder
     {
         return [
             Action::make('item')
-                ->mountUsing(function (ComponentContainer $form) {
+                ->mountUsing(function ($form) {
                     if (! $this->mountedItem) {
                         $form->fill([
                             'label' => '',
@@ -87,7 +86,7 @@ trait HandlesNavigationBuilder
                     $form->fill($this->mountedItemData);
                 })
                 ->view('zeus::filament.hidden-action')
-                ->form([
+                ->schema([
                     TextInput::make('label')
                         ->label(__('zeus-sky::filament-navigation.items-modal.label'))
                         ->required(),
@@ -109,7 +108,7 @@ trait HandlesNavigationBuilder
                             $component
                                 ->getContainer()
                                 ->getComponent(fn (Component $component) => $component instanceof Group)
-                                ->getChildComponentContainer()
+                                ->getChildSchema()
                                 ->fill();
                         })
                         ->reactive(),

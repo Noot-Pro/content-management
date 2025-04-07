@@ -2,9 +2,9 @@
 
 namespace LaraZeus\Sky\Editors;
 
-use Filament\Forms\Components\Component;
 use Filament\Forms\Components\RichEditor as RichEditorAlias;
 use Filament\Forms\Components\Textarea;
+use Filament\Support\Components\Component;
 use LaraZeus\Sky\Classes\ContentEditor;
 
 class RichEditor implements ContentEditor

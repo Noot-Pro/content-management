@@ -2,7 +2,7 @@
 
 namespace LaraZeus\Sky\Classes;
 
-use Filament\Forms\Components\Component;
+use Filament\Support\Components\Component;
 
 interface ContentEditor
 {
