@@ -20,7 +20,7 @@ use LaraZeus\Sky\SkyPlugin;
 
 class NavigationResource extends SkyResource
 {
-    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-queue-list';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-queue-list';
 
     protected static ?int $navigationSort = 99;
 
@@ -28,7 +28,7 @@ class NavigationResource extends SkyResource
 
     public static function disableTimestamps(bool $condition = true): void
     {
-        static::$showTimestamps = !$condition;
+        static::$showTimestamps = ! $condition;
     }
 
     public static function form(Schema $schema): Schema
@@ -43,7 +43,7 @@ class NavigationResource extends SkyResource
                             ->reactive()
                             ->debounce()
                             ->afterStateUpdated(function (?string $state, Set $set) {
-                                if (!$state) {
+                                if (! $state) {
                                     return;
                                 }
 
