@@ -5,16 +5,7 @@ namespace LaraZeus\Sky;
 use Closure;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
-use Filament\Support\Concerns\EvaluatesClosures;
 use Illuminate\Support\Str;
-use LaraZeus\Core\Concerns\CanGloballySearch;
-use LaraZeus\Core\Concerns\CanStickyActions;
-use LaraZeus\Core\Concerns\HasModels;
-use LaraZeus\Core\Concerns\HasNavigationGroupLabel;
-use LaraZeus\Core\Concerns\CanHideResources;
-use LaraZeus\Core\Concerns\HasNavigationBadges;
-use LaraZeus\Core\Concerns\HasUploads;
-use LaraZeus\Core\Concerns\CanDisableResources;
 
 trait Configuration
 {

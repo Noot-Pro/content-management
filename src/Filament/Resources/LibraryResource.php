@@ -2,6 +2,10 @@
 
 namespace LaraZeus\Sky\Filament\Resources;
 
+use Filament\Actions\Action;
+use Filament\Actions\ActionGroup;
+use Filament\Actions\DeleteAction;
+use Filament\Actions\EditAction;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Forms\Components\SpatieTagsInput;
@@ -12,10 +16,6 @@ use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Utilities\Get;
 use Filament\Schemas\Components\Utilities\Set;
 use Filament\Schemas\Schema;
-use Filament\Actions\Action;
-use Filament\Actions\ActionGroup;
-use Filament\Actions\DeleteAction;
-use Filament\Actions\EditAction;
 use Filament\Tables\Columns\SpatieTagsColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
