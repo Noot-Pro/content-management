@@ -39,27 +39,27 @@ final class SkyPlugin implements Plugin
 
     public function register(Panel $panel): void
     {
-        if (!in_array(PostResource::class,$this->getHiddenResources())) {
+        if (! in_array(PostResource::class, $this->getHiddenResources())) {
             $panel->resources([PostResource::class]);
         }
 
-        if (!in_array(PageResource::class,$this->getHiddenResources())) {
+        if (! in_array(PageResource::class, $this->getHiddenResources())) {
             $panel->resources([PageResource::class]);
         }
 
-        if (!in_array(FaqResource::class,$this->getHiddenResources())) {
+        if (! in_array(FaqResource::class, $this->getHiddenResources())) {
             $panel->resources([FaqResource::class]);
         }
 
-        if (!in_array(LibraryResource::class,$this->getHiddenResources())) {
+        if (! in_array(LibraryResource::class, $this->getHiddenResources())) {
             $panel->resources([LibraryResource::class]);
         }
 
-        if (!in_array(TagResource::class,$this->getHiddenResources())) {
+        if (! in_array(TagResource::class, $this->getHiddenResources())) {
             $panel->resources([TagResource::class]);
         }
 
-        if (!in_array(NavigationResource::class,$this->getHiddenResources())) {
+        if (! in_array(NavigationResource::class, $this->getHiddenResources())) {
             $panel->resources([NavigationResource::class]);
         }
     }
