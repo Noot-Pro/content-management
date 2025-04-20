@@ -4,10 +4,10 @@ namespace LaraZeus\Sky\Filament\Resources\FaqResource\Pages;
 
 use Filament\Actions\Action;
 use Filament\Actions\CreateAction;
-use LaraZeus\SpatieTranslatable\Actions\LocaleSwitcher;
 use Filament\Resources\Pages\ListRecords;
 use LaraZeus\Sky\Filament\Resources\FaqResource;
 use LaraZeus\Sky\SkyPlugin;
+use LaraZeus\SpatieTranslatable\Actions\LocaleSwitcher;
 use LaraZeus\SpatieTranslatable\Resources\Pages\ListRecords\Concerns\Translatable;
 
 class ListFaqs extends ListRecords

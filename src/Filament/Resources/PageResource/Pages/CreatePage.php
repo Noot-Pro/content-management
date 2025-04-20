@@ -2,9 +2,9 @@
 
 namespace LaraZeus\Sky\Filament\Resources\PageResource\Pages;
 
-use LaraZeus\SpatieTranslatable\Actions\LocaleSwitcher;
 use Filament\Resources\Pages\CreateRecord;
 use LaraZeus\Sky\Filament\Resources\PageResource;
+use LaraZeus\SpatieTranslatable\Actions\LocaleSwitcher;
 use LaraZeus\SpatieTranslatable\Resources\Pages\CreateRecord\Concerns\Translatable;
 
 class CreatePage extends CreateRecord

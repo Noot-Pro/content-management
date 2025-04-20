@@ -2,9 +2,9 @@
 
 namespace LaraZeus\Sky\Filament\Resources;
 
-use LaraZeus\SpatieTranslatable\Resources\Concerns\Translatable;
 use Filament\Resources\Resource;
 use LaraZeus\Sky\SkyPlugin;
+use LaraZeus\SpatieTranslatable\Resources\Concerns\Translatable;
 
 class SkyResource extends Resource
 {
