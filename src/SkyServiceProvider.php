@@ -58,7 +58,6 @@ class SkyServiceProvider extends PackageServiceProvider
         return [
             'create_posts_table',
             'create_faqs_table',
-            'modify_posts_columns',
             'create_library_table',
             'create_navigations_table',
         ];
