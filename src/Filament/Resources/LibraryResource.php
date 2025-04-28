@@ -43,7 +43,8 @@ class LibraryResource extends SkyResource
         return $schema
             ->schema([
                 Section::make(__('Library File'))
-                    ->columns(2)
+                    ->columnSpanFull()
+                    ->columns()
                     ->schema([
                         TextInput::make('title')
                             ->label(__('Library Title'))
