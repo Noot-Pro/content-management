@@ -6,7 +6,7 @@ use Filament\Support\Contracts\HasColor;
 use Filament\Support\Contracts\HasIcon;
 use Filament\Support\Contracts\HasLabel;
 
-enum PostStatus: string implements HasLabel, HasColor, HasIcon
+enum PostStatus: string implements HasColor, HasIcon, HasLabel
 {
     case Publish = 'publish';
     case Future = 'future';
@@ -21,7 +21,7 @@ enum PostStatus: string implements HasLabel, HasColor, HasIcon
         return __($this->name);
     }
 
-    public function getColor(): string|array|null
+    public function getColor(): string | array | null
     {
         return match ($this) {
             self::Publish => 'success',

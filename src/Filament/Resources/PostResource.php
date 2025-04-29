@@ -180,7 +180,7 @@ class PostResource extends SkyResource
                     ->searchable(['status'])
                     ->toggleable()
                     ->tooltip(fn (Post $record): string => $record->published_at->format('Y/m/d | H:i A'))
-                    ->description(fn($record)=>optional($record->published_at)->diffForHumans()),
+                    ->description(fn ($record) => optional($record->published_at)->diffForHumans()),
 
                 SpatieTagsColumn::make('tags')
                     ->label(__('Post Tags'))
