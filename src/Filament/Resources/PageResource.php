@@ -22,6 +22,7 @@ use Filament\Schemas\Components\Tabs;
 use Filament\Schemas\Components\Utilities\Get;
 use Filament\Schemas\Components\Utilities\Set;
 use Filament\Schemas\Schema;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ViewColumn;
 use Filament\Tables\Filters\Filter;
 use Filament\Tables\Filters\SelectFilter;
@@ -111,7 +112,7 @@ class PageResource extends SkyResource
                         ->default('publish')
                         ->required()
                         ->live()
-                        ->options(SkyPlugin::get()->getModel('PostStatus')::pluck('label', 'name')),
+                        ->options(SkyPlugin::get()->getModel('PostStatus')),
 
                     TextInput::make('password')
                         ->label(__('Password'))
@@ -163,13 +164,13 @@ class PageResource extends SkyResource
                     ->toggleable()
                     ->view('zeus::filament.columns.page-title'),
 
-                ViewColumn::make('status_desc')
+                TextColumn::make('status')
                     ->label(__('Status'))
                     ->sortable(['status'])
                     ->searchable(['status'])
                     ->toggleable()
-                    ->view('zeus::filament.columns.status-desc')
-                    ->tooltip(fn (Post $record): string => $record->published_at->format('Y/m/d | H:i A')),
+                    ->tooltip(fn (Post $record): string => $record->published_at->format('Y/m/d | H:i A'))
+                    ->description(fn($record)=>optional($record->published_at)->diffForHumans()),
             ])
             ->defaultSort('id', 'desc')
             ->actions(static::getActions())
@@ -183,7 +184,7 @@ class PageResource extends SkyResource
                 SelectFilter::make('status')
                     ->multiple()
                     ->label(__('Status'))
-                    ->options(SkyPlugin::get()->getModel('PostStatus')::pluck('label', 'name')),
+                    ->options(SkyPlugin::get()->getModel('PostStatus')),
                 Filter::make('password')
                     ->label(__('Password Protected'))
                     ->query(fn (Builder $query): Builder => $query->whereNotNull('password')),

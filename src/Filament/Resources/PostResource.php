@@ -19,13 +19,13 @@ use Filament\Forms\Components\SpatieTagsInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\ToggleButtons;
-use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Components\Tabs;
 use Filament\Schemas\Components\Tabs\Tab;
 use Filament\Schemas\Components\Utilities\Get;
 use Filament\Schemas\Components\Utilities\Set;
 use Filament\Schemas\Schema;
 use Filament\Tables\Columns\SpatieTagsColumn;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ViewColumn;
 use Filament\Tables\Filters\Filter;
 use Filament\Tables\Filters\SelectFilter;
@@ -75,8 +75,6 @@ class PostResource extends SkyResource
 
                         Tab::make(__('SEO'))
                             ->schema([
-                                // TextEntry::make(__('SEO Settings')),
-
                                 Hidden::make('user_id')
                                     ->default(auth()->user()?->id ?? 0)
                                     ->required(),
@@ -99,7 +97,6 @@ class PostResource extends SkyResource
 
                         Tab::make(__('Tags'))
                             ->schema([
-                                // TextEntry::make(__('Tags and Categories')),
                                 SpatieTagsInput::make('tags')
                                     ->type('tag')
                                     ->label(__('Tags')),
@@ -111,13 +108,12 @@ class PostResource extends SkyResource
 
                         Tab::make(__('Visibility'))
                             ->schema([
-                                // TextEntry::make(__('Visibility Options')),
                                 Select::make('status')
                                     ->label(__('status'))
                                     ->default('publish')
                                     ->required()
                                     ->live()
-                                    ->options(SkyPlugin::get()->getModel('PostStatus')::pluck('label', 'name')),
+                                    ->options(SkyPlugin::get()->getModel('PostStatus')),
 
                                 TextInput::make('password')
                                     ->label(__('Password'))
@@ -136,8 +132,6 @@ class PostResource extends SkyResource
 
                         Tab::make(__('Image'))
                             ->schema([
-                                // TextEntry::make(__('Featured Image')),
-
                                 ToggleButtons::make('featured_image_type')
                                     ->dehydrated(false)
                                     ->hiddenLabel()
@@ -180,13 +174,13 @@ class PostResource extends SkyResource
                     ->toggleable()
                     ->view('zeus::filament.columns.post-title'),
 
-                ViewColumn::make('status_desc')
+                TextColumn::make('status')
                     ->label(__('Status'))
                     ->sortable(['status'])
                     ->searchable(['status'])
                     ->toggleable()
-                    ->view('zeus::filament.columns.status-desc')
-                    ->tooltip(fn (Post $record): string => $record->published_at->format('Y/m/d | H:i A')),
+                    ->tooltip(fn (Post $record): string => $record->published_at->format('Y/m/d | H:i A'))
+                    ->description(fn($record)=>optional($record->published_at)->diffForHumans()),
 
                 SpatieTagsColumn::make('tags')
                     ->label(__('Post Tags'))
@@ -210,7 +204,7 @@ class PostResource extends SkyResource
                 SelectFilter::make('status')
                     ->multiple()
                     ->label(__('Status'))
-                    ->options(SkyPlugin::get()->getModel('PostStatus')::pluck('label', 'name')),
+                    ->options(SkyPlugin::get()->getModel('PostStatus')),
 
                 Filter::make('password')
                     ->label(__('Password Protected'))

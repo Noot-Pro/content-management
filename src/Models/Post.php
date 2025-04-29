@@ -65,10 +65,14 @@ class Post extends Model implements HasMedia
         'status',
     ];
 
-    protected $casts = [
-        'published_at' => 'datetime',
-        'sticky_until' => 'datetime',
-    ];
+    protected function casts(): array
+    {
+        return [
+            'published_at' => 'datetime',
+            'sticky_until' => 'datetime',
+            'status' => config('zeus-sky.models.PostStatus'),
+        ];
+    }
 
     protected static function newFactory(): PostFactory
     {
@@ -78,14 +82,6 @@ class Post extends Model implements HasMedia
     public function getRouteKeyName()
     {
         return 'slug';
-    }
-
-    public function statusDesc(): string
-    {
-        $PostStatus = config('zeus-sky.models.PostStatus')::where('name', $this->status)->first();
-        $icon = Blade::render('@svg("' . $PostStatus->icon . '","w-4 h-4 inline-flex")');
-
-        return "<span title='" . __('post status') . "' class='$PostStatus->class'> " . $icon . " {$PostStatus->label}</span>";
     }
 
     /** @return BelongsTo<Post, Model> */
