@@ -20,7 +20,7 @@ Route::domain(config('zeus-sky.domain'))
                 ->name('faq');
         }
 
-        if (in_array('library', config('zeus-sky.uri'))) {
+        if (in_array('library', config('zeus-sky.uri'), true)) {
             Route::prefix(config('zeus-sky.uri.library'))
                 ->group(function () {
                     Route::get('/', Library::class)->name('library');

@@ -117,7 +117,7 @@ class PostResource extends SkyResource
 
                                 TextInput::make('password')
                                     ->label(__('Password'))
-                                    ->visible(fn (Get $get): bool => $get('status') === 'private'),
+                                    ->visible(fn (Get $get): bool => $get('status')->value === 'private'),
 
                                 DateTimePicker::make('published_at')
                                     ->label(__('published at'))

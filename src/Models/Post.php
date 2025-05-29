@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
+use LaraZeus\Sky\Enums\PostStatus;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\Tags\HasTags;
@@ -21,7 +22,7 @@ use Spatie\Translatable\HasTranslations;
  * @property string $content
  * @property string $description
  * @property Carbon $published_at
- * @property string $status
+ * @property PostStatus $status
  * @property string $slug
  * @property string $post_type
  * @property int $user_id
@@ -110,7 +111,7 @@ class Post extends Model implements HasMedia
     protected function requirePassword(): Attribute
     {
         return Attribute::make(
-            get: fn () => $this->status === 'private' && $this->password !== null,
+            get: fn () => $this->status->value === 'private' && $this->password !== null,
         );
     }
 

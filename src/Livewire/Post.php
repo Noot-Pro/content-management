@@ -11,18 +11,19 @@ class Post extends Component
 
     public function mount(string $slug): void
     {
-        $this->post = config('zeus-sky.models.Post')::where('slug', $slug)->firstOrFail();
+        $this->post = config('zeus-sky.models.Post')::query()
+            ->where('slug', $slug)
+            ->firstOrFail();
     }
 
     public function render(): View
     {
         $this->setSeo();
 
-        if ($this->post->status !== 'publish' && ! $this->post->require_password) {
+        if ($this->post->status->value !== 'publish' && $this->post->require_password) {
             abort_if(! auth()->check(), 404);
             abort_if($this->post->user_id !== auth()->user()->id, 401);
         }
-
         if ($this->post->require_password && ! session()->has($this->post->slug . '-' . $this->post->password)) {
             return view(app('skyTheme') . '.partial.password-form')
                 ->layout(config('zeus.layout'));
