@@ -3,11 +3,12 @@
 namespace LaraZeus\Sky\Livewire;
 
 use Illuminate\View\View;
+use LaraZeus\Sky\Models\Library;
 use Livewire\Component;
 
 class LibraryItem extends Component
 {
-    public \LaraZeus\Sky\Models\Library $item;
+    public Library $item;
 
     public function mount(string $slug): void
     {

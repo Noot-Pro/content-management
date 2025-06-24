@@ -3,6 +3,7 @@
 namespace LaraZeus\Sky\Livewire;
 
 use Illuminate\Database\Eloquent\Collection;
+use LaraZeus\Sky\Models\Post;
 
 trait SearchHelpers
 {
@@ -13,7 +14,7 @@ trait SearchHelpers
         }
 
         /**
-         * @var \LaraZeus\Sky\Models\Post $item
+         * @var Post $item
          */
         foreach ($collection as $item) {
             $item->title = $this->parsing($item->title, [$search]);

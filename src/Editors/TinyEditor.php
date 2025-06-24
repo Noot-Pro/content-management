@@ -2,8 +2,8 @@
 
 namespace LaraZeus\Sky\Editors;
 
-use Filament\Forms\Components\Component;
 use Filament\Forms\Components\Textarea;
+use Filament\Schemas\Components\Component;
 use LaraZeus\Sky\Classes\ContentEditor;
 use Mohamedsabil83\FilamentFormsTinyeditor\Components\TinyEditor as TinyEditorAlias;
 

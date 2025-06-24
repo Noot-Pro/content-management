@@ -2,6 +2,7 @@
 
 namespace LaraZeus\Sky\Filament\Resources;
 
+use BackedEnum;
 use Filament\Actions\ActionGroup;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
@@ -15,14 +16,16 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Support\Str;
-use LaraZeus\Sky\Filament\Resources\TagResource\Pages;
+use LaraZeus\Sky\Filament\Resources\TagResource\Pages\CreateTag;
+use LaraZeus\Sky\Filament\Resources\TagResource\Pages\EditTag;
+use LaraZeus\Sky\Filament\Resources\TagResource\Pages\ListTags;
 use LaraZeus\Sky\Models\Tag;
 use LaraZeus\Sky\Rules\UniqueTranslationRule;
 use LaraZeus\Sky\SkyPlugin;
 
 class TagResource extends SkyResource
 {
-    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-tag';
+    protected static string | BackedEnum | null $navigationIcon = 'heroicon-o-tag';
 
     protected static ?int $navigationSort = 5;
 
@@ -34,7 +37,7 @@ class TagResource extends SkyResource
     public static function form(Schema $schema): Schema
     {
         return $schema
-            ->schema([
+            ->components([
                 Section::make()
                     ->columnSpanFull()
                     ->columns()
@@ -80,13 +83,13 @@ class TagResource extends SkyResource
                     ->options(SkyPlugin::get()->getTagTypes())
                     ->label(__('type')),
             ])
-            ->actions([
+            ->recordActions([
                 ActionGroup::make([
                     EditAction::make('edit'),
                     DeleteAction::make('delete'),
                 ]),
             ])
-            ->bulkActions([
+            ->toolbarActions([
                 DeleteBulkAction::make(),
             ]);
     }
@@ -94,9 +97,9 @@ class TagResource extends SkyResource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListTags::route('/'),
-            'create' => Pages\CreateTag::route('/create'),
-            'edit' => Pages\EditTag::route('/{record}/edit'),
+            'index' => ListTags::route('/'),
+            'create' => CreateTag::route('/create'),
+            'edit' => EditTag::route('/{record}/edit'),
         ];
     }
 

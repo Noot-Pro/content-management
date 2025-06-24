@@ -3,11 +3,12 @@
 namespace LaraZeus\Sky\Livewire;
 
 use Illuminate\View\View;
+use LaraZeus\Sky\Models\Post;
 use Livewire\Component;
 
 class Page extends Component
 {
-    public \LaraZeus\Sky\Models\Post $page;
+    public Post $page;
 
     public function mount(string $slug): void
     {

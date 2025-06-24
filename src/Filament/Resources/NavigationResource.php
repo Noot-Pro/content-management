@@ -2,6 +2,7 @@
 
 namespace LaraZeus\Sky\Filament\Resources;
 
+use BackedEnum;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\EditAction;
 use Filament\Forms\Components\TextInput;
@@ -13,14 +14,15 @@ use Filament\Schemas\Components\View;
 use Filament\Schemas\Schema;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
-use Illuminate\Support\HtmlString;
 use Illuminate\Support\Str;
-use LaraZeus\Sky\Models\Navigation;
+use LaraZeus\Sky\Filament\Resources\NavigationResource\Pages\CreateNavigation;
+use LaraZeus\Sky\Filament\Resources\NavigationResource\Pages\EditNavigation;
+use LaraZeus\Sky\Filament\Resources\NavigationResource\Pages\ListNavigations;
 use LaraZeus\Sky\SkyPlugin;
 
 class NavigationResource extends SkyResource
 {
-    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-queue-list';
+    protected static string | BackedEnum | null $navigationIcon = 'heroicon-o-queue-list';
 
     protected static ?int $navigationSort = 99;
 
@@ -34,7 +36,7 @@ class NavigationResource extends SkyResource
     public static function form(Schema $schema): Schema
     {
         return $schema
-            ->schema([
+            ->components([
                 Section::make()
                     ->columnSpanFull()
                     ->schema([
@@ -65,19 +67,15 @@ class NavigationResource extends SkyResource
                         TextInput::make('handle')
                             ->label(__('zeus-sky::filament-navigation.attributes.handle'))
                             ->required()
-                            ->unique(ignoreRecord: true),
+                            ->unique(),
                         View::make('zeus::filament.card-divider')
                             ->visible(static::$showTimestamps),
-                        /*TextEntry::make('created_at')
+                        TextEntry::make('created_at')
                             ->label(__('zeus-sky::filament-navigation.attributes.created_at'))
-                            ->visible(static::$showTimestamps)
-                        //    ->content(fn(?Navigation $record) => $record ? $record->created_at->translatedFormat(Table::$defaultDateTimeDisplayFormat) : new HtmlString('&mdash;'))
-                        ,
+                            ->visible(static::$showTimestamps),
                         TextEntry::make('updated_at')
                             ->label(__('zeus-sky::filament-navigation.attributes.updated_at'))
-                            ->visible(static::$showTimestamps)
-                        //    ->content(fn(?Navigation $record) => $record ? $record->updated_at->translatedFormat(Table::$defaultDateTimeDisplayFormat) : new HtmlString('&mdash;'))
-                        ,*/
+                            ->visible(static::$showTimestamps),
                     ])
                     ->columnSpan([
                         12,
@@ -121,7 +119,7 @@ class NavigationResource extends SkyResource
                     ->dateTime()
                     ->sortable(),
             ])
-            ->actions([
+            ->recordActions([
                 EditAction::make()->icon(null),
                 DeleteAction::make()->icon(null),
             ]);
@@ -130,9 +128,9 @@ class NavigationResource extends SkyResource
     public static function getPages(): array
     {
         return [
-            'index' => NavigationResource\Pages\ListNavigations::route('/'),
-            'create' => NavigationResource\Pages\CreateNavigation::route('/create'),
-            'edit' => NavigationResource\Pages\EditNavigation::route('/{record}'),
+            'index' => ListNavigations::route('/'),
+            'create' => CreateNavigation::route('/create'),
+            'edit' => EditNavigation::route('/{record}'),
         ];
     }
 

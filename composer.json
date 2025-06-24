@@ -30,13 +30,13 @@
     ],
     "require": {
         "php": "^8.2",
-        "filament/spatie-laravel-media-library-plugin": "*",
-        "filament/spatie-laravel-tags-plugin": "*",
+        "filament/spatie-laravel-media-library-plugin": "^4.0",
+        "filament/spatie-laravel-tags-plugin": "^4.0",
         "spatie/laravel-medialibrary": "^11.0",
         "spatie/laravel-sluggable": "^3.3",
         "spatie/laravel-tags": "^4.6",
-        "lara-zeus/core": "*",
-        "lara-zeus/filament-plugin-tools": "*"
+        "lara-zeus/core": "^4.0",
+        "lara-zeus/filament-plugin-tools": "^2.0"
     },
     "require-dev": {
         "phpstan/extension-installer": "^1.4",
@@ -87,10 +87,6 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "repositories": [
-        {
-            "type": "path",
-            "url": "../../filament/packages/*"
-        },
         {
             "type": "path",
             "url": "../*"

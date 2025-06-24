@@ -2,6 +2,8 @@
 
 namespace LaraZeus\Sky\Filament\Resources;
 
+use BackedEnum;
+use Exception;
 use Filament\Actions\Action;
 use Filament\Actions\ActionGroup;
 use Filament\Actions\DeleteAction;
@@ -21,7 +23,11 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Support\Str;
-use LaraZeus\Sky\Filament\Resources\LibraryResource\Pages;
+use LaraZeus\Helen\Actions\ShortUrlAction;
+use LaraZeus\Helen\HelenServiceProvider;
+use LaraZeus\Sky\Filament\Resources\LibraryResource\Pages\CreateLibrary;
+use LaraZeus\Sky\Filament\Resources\LibraryResource\Pages\EditLibrary;
+use LaraZeus\Sky\Filament\Resources\LibraryResource\Pages\ListLibrary;
 use LaraZeus\Sky\Models\Library;
 use LaraZeus\Sky\SkyPlugin;
 
@@ -29,7 +35,7 @@ class LibraryResource extends SkyResource
 {
     protected static ?string $slug = 'library';
 
-    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-folder';
+    protected static string | BackedEnum | null $navigationIcon = 'heroicon-o-folder';
 
     protected static ?int $navigationSort = 4;
 
@@ -38,10 +44,13 @@ class LibraryResource extends SkyResource
         return SkyPlugin::get()->getModel('Library');
     }
 
+    /**
+     * @throws Exception
+     */
     public static function form(Schema $schema): Schema
     {
         return $schema
-            ->schema([
+            ->components([
                 Section::make(__('Library File'))
                     ->columnSpanFull()
                     ->columns()
@@ -60,7 +69,7 @@ class LibraryResource extends SkyResource
                             }),
 
                         TextInput::make('slug')
-                            ->unique(ignoreRecord: true)
+                            ->unique()
                             ->required()
                             ->maxLength(255)
                             ->label(__('Library Slug')),
@@ -120,8 +129,16 @@ class LibraryResource extends SkyResource
     {
         return $table
             ->columns([
-                TextColumn::make('title')->label(__('Library Title'))->searchable()->sortable()->toggleable(),
-                TextColumn::make('slug')->label(__('Library Slug'))->searchable()->sortable()->toggleable(),
+                TextColumn::make('title')
+                    ->label(__('Library Title'))
+                    ->searchable()
+                    ->sortable()
+                    ->toggleable(),
+                TextColumn::make('slug')
+                    ->label(__('Library Slug'))
+                    ->searchable()
+                    ->sortable()
+                    ->toggleable(),
 
                 TextColumn::make('type')
                     ->label(__('Library Type'))
@@ -149,7 +166,7 @@ class LibraryResource extends SkyResource
                     ->toggleable()
                     ->type('library'),
             ])
-            ->actions(static::getActions())
+            ->recordActions(static::getActions())
             ->filters([
                 SelectFilter::make('type')
                     ->visible()
@@ -167,9 +184,9 @@ class LibraryResource extends SkyResource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListLibrary::route('/'),
-            'create' => Pages\CreateLibrary::route('/create'),
-            'edit' => Pages\EditLibrary::route('/{record}/edit'),
+            'index' => ListLibrary::route('/'),
+            'create' => CreateLibrary::route('/create'),
+            'edit' => EditLibrary::route('/{record}/edit'),
         ];
     }
 
@@ -205,11 +222,11 @@ class LibraryResource extends SkyResource
         ];
 
         if (
-            class_exists(\LaraZeus\Helen\HelenServiceProvider::class)
+            class_exists(HelenServiceProvider::class)
             && ! config('zeus-sky.headless')
         ) {
             // @phpstan-ignore-next-line
-            $action[] = \LaraZeus\Helen\Actions\ShortUrlAction::make('get-link')
+            $action[] = ShortUrlAction::make('get-link')
                 ->distUrl(fn (Library $record): string => route(SkyPlugin::get()->getRouteNamePrefix() . 'library.item', ['slug' => $record->slug]));
         }
 
