@@ -2,6 +2,7 @@
 
 namespace LaraZeus\Sky\Filament\Resources;
 
+use BackedEnum;
 use Filament\Actions\Action;
 use Filament\Actions\ActionGroup;
 use Filament\Actions\DeleteAction;
@@ -33,14 +34,18 @@ use Filament\Tables\Filters\TrashedFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Str;
-use LaraZeus\Sky\Filament\Resources\PostResource\Pages;
+use LaraZeus\Helen\Actions\ShortUrlAction;
+use LaraZeus\Helen\HelenServiceProvider;
+use LaraZeus\Sky\Filament\Resources\PostResource\Pages\CreatePost;
+use LaraZeus\Sky\Filament\Resources\PostResource\Pages\EditPost;
+use LaraZeus\Sky\Filament\Resources\PostResource\Pages\ListPosts;
 use LaraZeus\Sky\Models\Post;
 use LaraZeus\Sky\SkyPlugin;
 
 // @mixin Builder<PostScope>
 class PostResource extends SkyResource
 {
-    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-document-text';
+    protected static string | BackedEnum | null $navigationIcon = 'heroicon-o-document-text';
 
     protected static ?int $navigationSort = 1;
 
@@ -52,7 +57,7 @@ class PostResource extends SkyResource
     public static function form(Schema $schema): Schema
     {
         return $schema
-            ->schema([
+            ->components([
                 Tabs::make('post_tabs')
                     ->schema([
                         Tab::make(__('Title & Content'))
@@ -89,7 +94,7 @@ class PostResource extends SkyResource
                                     ->hint(__('Write an excerpt for your post')),
 
                                 TextInput::make('slug')
-                                    ->unique(ignoreRecord: true)
+                                    ->unique()
                                     ->required()
                                     ->maxLength(255)
                                     ->label(__('Post Slug')),
@@ -193,8 +198,8 @@ class PostResource extends SkyResource
                     ->type('category'),
             ])
             ->defaultSort('id', 'desc')
-            ->actions(static::getActions())
-            ->bulkActions([
+            ->recordActions(static::getActions())
+            ->toolbarActions([
                 DeleteBulkAction::make(),
                 ForceDeleteBulkAction::make(),
                 RestoreBulkAction::make(),
@@ -241,9 +246,9 @@ class PostResource extends SkyResource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListPosts::route('/'),
-            'create' => Pages\CreatePost::route('/create'),
-            'edit' => Pages\EditPost::route('/{record}/edit'),
+            'index' => ListPosts::route('/'),
+            'create' => CreatePost::route('/create'),
+            'edit' => EditPost::route('/{record}/edit'),
         ];
     }
 
@@ -291,11 +296,11 @@ class PostResource extends SkyResource
         ];
 
         if (
-            class_exists(\LaraZeus\Helen\HelenServiceProvider::class)
+            class_exists(HelenServiceProvider::class)
             && ! config('zeus-sky.headless')
         ) {
             // @phpstan-ignore-next-line
-            $action[] = \LaraZeus\Helen\Actions\ShortUrlAction::make('get-link')
+            $action[] = ShortUrlAction::make('get-link')
                 ->distUrl(fn (Post $record): string => route(
                     SkyPlugin::get()->getRouteNamePrefix() . 'post',
                     ['slug' => $record]

@@ -2,6 +2,8 @@
 
 namespace LaraZeus\Sky\Filament\Resources;
 
+use BackedEnum;
+use Exception;
 use Filament\Actions\ActionGroup;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\EditAction;
@@ -14,12 +16,16 @@ use Filament\Tables\Columns\SpatieTagsColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
-use LaraZeus\Sky\Filament\Resources\FaqResource\Pages;
+use LaraZeus\Helen\Actions\ShortUrlAction;
+use LaraZeus\Helen\HelenServiceProvider;
+use LaraZeus\Sky\Filament\Resources\FaqResource\Pages\CreateFaq;
+use LaraZeus\Sky\Filament\Resources\FaqResource\Pages\EditFaq;
+use LaraZeus\Sky\Filament\Resources\FaqResource\Pages\ListFaqs;
 use LaraZeus\Sky\SkyPlugin;
 
 class FaqResource extends SkyResource
 {
-    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-folder-open';
+    protected static string | BackedEnum | null $navigationIcon = 'heroicon-o-folder-open';
 
     protected static ?int $navigationSort = 3;
 
@@ -43,10 +49,13 @@ class FaqResource extends SkyResource
         return __('FAQs');
     }
 
+    /**
+     * @throws Exception
+     */
     public static function form(Schema $schema): Schema
     {
         return $schema
-            ->schema([
+            ->components([
                 Section::make()
                     ->columnSpanFull()
                     ->columns()
@@ -87,7 +96,7 @@ class FaqResource extends SkyResource
                     ->relationship('tags', 'name')
                     ->label(__('Tags')),
             ])
-            ->actions(static::getActions());
+            ->recordActions(static::getActions());
     }
 
     public static function getActions(): array
@@ -99,11 +108,11 @@ class FaqResource extends SkyResource
         ];
 
         if (
-            class_exists(\LaraZeus\Helen\HelenServiceProvider::class)
+            class_exists(HelenServiceProvider::class)
             && ! config('zeus-sky.headless')
         ) {
             // @phpstan-ignore-next-line
-            $action[] = \LaraZeus\Helen\Actions\ShortUrlAction::make('get-link')
+            $action[] = ShortUrlAction::make('get-link')
                 ->distUrl(fn (): string => route(SkyPlugin::get()->getRouteNamePrefix() . 'faq'));
         }
 
@@ -113,9 +122,9 @@ class FaqResource extends SkyResource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListFaqs::route('/'),
-            'create' => Pages\CreateFaq::route('/create'),
-            'edit' => Pages\EditFaq::route('/{record}/edit'),
+            'index' => ListFaqs::route('/'),
+            'create' => CreateFaq::route('/create'),
+            'edit' => EditFaq::route('/{record}/edit'),
         ];
     }
 }

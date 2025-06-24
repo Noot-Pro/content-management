@@ -2,7 +2,7 @@
 
 namespace LaraZeus\Sky\Filament\Resources\LibraryResource\Pages;
 
-use Filament\Actions;
+use Filament\Actions\DeleteAction;
 use Filament\Resources\Pages\EditRecord;
 use LaraZeus\Sky\Filament\Resources\LibraryResource;
 use LaraZeus\SpatieTranslatable\Actions\LocaleSwitcher;
@@ -17,7 +17,7 @@ class EditLibrary extends EditRecord
     protected function getHeaderActions(): array
     {
         return [
-            Actions\DeleteAction::make(),
+            DeleteAction::make(),
             LocaleSwitcher::make(),
         ];
     }

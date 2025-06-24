@@ -16,12 +16,12 @@ enum PostStatus: string implements HasColor, HasIcon, HasLabel
     case Private = 'private';
     case Trash = 'trash';
 
-    public function getLabel(): ?string
+    public function getLabel(): string
     {
         return __($this->name);
     }
 
-    public function getColor(): string | array | null
+    public function getColor(): string
     {
         return match ($this) {
             self::Publish => 'success',
@@ -32,7 +32,7 @@ enum PostStatus: string implements HasColor, HasIcon, HasLabel
         };
     }
 
-    public function getIcon(): ?string
+    public function getIcon(): string
     {
         return match ($this) {
             self::Publish => 'heroicon-o-check-badge',

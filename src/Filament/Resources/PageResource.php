@@ -2,6 +2,7 @@
 
 namespace LaraZeus\Sky\Filament\Resources;
 
+use BackedEnum;
 use Filament\Actions\Action;
 use Filament\Actions\ActionGroup;
 use Filament\Actions\DeleteAction;
@@ -19,6 +20,7 @@ use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\ToggleButtons;
 use Filament\Schemas\Components\Tabs;
+use Filament\Schemas\Components\Tabs\Tab;
 use Filament\Schemas\Components\Utilities\Get;
 use Filament\Schemas\Components\Utilities\Set;
 use Filament\Schemas\Schema;
@@ -31,7 +33,11 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Str;
-use LaraZeus\Sky\Filament\Resources\PageResource\Pages;
+use LaraZeus\Helen\Actions\ShortUrlAction;
+use LaraZeus\Helen\HelenServiceProvider;
+use LaraZeus\Sky\Filament\Resources\PageResource\Pages\CreatePage;
+use LaraZeus\Sky\Filament\Resources\PageResource\Pages\EditPage;
+use LaraZeus\Sky\Filament\Resources\PageResource\Pages\ListPage;
 use LaraZeus\Sky\Models\Post;
 use LaraZeus\Sky\SkyPlugin;
 
@@ -39,7 +45,7 @@ class PageResource extends SkyResource
 {
     protected static ?string $slug = 'pages';
 
-    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-document';
+    protected static string | BackedEnum | null $navigationIcon = 'heroicon-o-document';
 
     protected static ?int $navigationSort = 2;
 
@@ -61,9 +67,9 @@ class PageResource extends SkyResource
 
     public static function form(Schema $schema): Schema
     {
-        return $schema->schema([
+        return $schema->components([
             Tabs::make('post_tabs')->schema([
-                Tabs\Tab::make(__('Title & Content'))->schema([
+                Tab::make(__('Title & Content'))->schema([
                     TextInput::make('title')
                         ->label(__('Page Title'))
                         ->required()
@@ -74,7 +80,7 @@ class PageResource extends SkyResource
                         }),
                     config('zeus-sky.editor')::component(),
                 ]),
-                Tabs\Tab::make(__('SEO'))->schema([
+                Tab::make(__('SEO'))->schema([
                     Hidden::make('user_id')
                         ->required()
                         ->default(auth()->user()->id),
@@ -89,7 +95,7 @@ class PageResource extends SkyResource
                         ->hint(__('Write an excerpt for your page')),
 
                     TextInput::make('slug')
-                        ->unique(ignoreRecord: true)
+                        ->unique()
                         ->required()
                         ->maxLength(255)
                         ->label(__('Page Slug')),
@@ -106,7 +112,7 @@ class PageResource extends SkyResource
                         ->label(__('Page Order'))
                         ->default(1),
                 ]),
-                Tabs\Tab::make(__('Visibility'))->schema([
+                Tab::make(__('Visibility'))->schema([
                     Select::make('status')
                         ->label(__('status'))
                         ->default('publish')
@@ -123,7 +129,7 @@ class PageResource extends SkyResource
                         ->required()
                         ->default(now()),
                 ]),
-                Tabs\Tab::make(__('Image'))->schema([
+                Tab::make(__('Image'))->schema([
                     ToggleButtons::make('featured_image_type')
                         ->dehydrated(false)
                         ->hiddenLabel()
@@ -173,8 +179,8 @@ class PageResource extends SkyResource
                     ->description(fn ($record) => optional($record->published_at)->diffForHumans()),
             ])
             ->defaultSort('id', 'desc')
-            ->actions(static::getActions())
-            ->bulkActions([
+            ->recordActions(static::getActions())
+            ->toolbarActions([
                 DeleteBulkAction::make(),
                 ForceDeleteBulkAction::make(),
                 RestoreBulkAction::make(),
@@ -194,9 +200,9 @@ class PageResource extends SkyResource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListPage::route('/'),
-            'create' => Pages\CreatePage::route('/create'),
-            'edit' => Pages\EditPage::route('/{record}/edit'),
+            'index' => ListPage::route('/'),
+            'create' => CreatePage::route('/create'),
+            'edit' => EditPage::route('/{record}/edit'),
         ];
     }
 
@@ -241,11 +247,11 @@ class PageResource extends SkyResource
         ];
 
         if (
-            class_exists(\LaraZeus\Helen\HelenServiceProvider::class)
+            class_exists(HelenServiceProvider::class)
             && ! config('zeus-sky.headless')
         ) {
             // @phpstan-ignore-next-line
-            $action[] = \LaraZeus\Helen\Actions\ShortUrlAction::make('get-link')
+            $action[] = ShortUrlAction::make('get-link')
                 ->distUrl(fn (Post $record): string => route(SkyPlugin::get()->getRouteNamePrefix() . 'page', ['slug' => $record]));
         }
 
