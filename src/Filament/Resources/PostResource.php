@@ -118,7 +118,7 @@ class PostResource extends SkyResource
                                     ->default('publish')
                                     ->required()
                                     ->live()
-                                    ->options(SkyPlugin::get()->getModel('PostStatus')),
+                                    ->options(SkyPlugin::get()->getEnum('PostStatus')),
 
                                 TextInput::make('password')
                                     ->label(__('Password'))
