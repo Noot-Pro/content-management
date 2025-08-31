@@ -70,7 +70,7 @@ class Post extends Model implements HasMedia
         return [
             'published_at' => 'datetime',
             'sticky_until' => 'datetime',
-            'status' => config('zeus-sky.models.PostStatus'),
+            'status' => config('zeus-sky.enums.PostStatus'),
         ];
     }
 
