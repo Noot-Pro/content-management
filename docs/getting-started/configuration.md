@@ -14,7 +14,7 @@ to configure the plugin Sky, you can pass the configuration to the plugin in `ad
 these all the available configuration, and their defaults values
 
 ```php
-SpatieLaravelTranslatablePlugin::make()
+SpatieTranslatablePlugin::make()
     //If you don't use multi-language
     ->defaultLocales([config('app.locale')])
     // or if you have more

@@ -32,7 +32,7 @@ The install command will publish the migrations and the necessary assets for the
 
 ```php
 ->plugins([
-    SpatieLaravelTranslatablePlugin::make()->defaultLocales([config('app.locale')]),
+    SpatieTranslatablePlugin::make()->defaultLocales([config('app.locale')]),
     SkyPlugin::make(),
 ])
 ```
