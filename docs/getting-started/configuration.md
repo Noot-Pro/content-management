@@ -156,11 +156,14 @@ return [
     'models' => [
         'Faq' => \LaraZeus\Sky\Models\Faq::class,
         'Post' => \LaraZeus\Sky\Models\Post::class,
-        'PostStatus' => \LaraZeus\Sky\Enums\PostStatus::class,
         'Tag' => \LaraZeus\Sky\Models\Tag::class,
         'Library' => \LaraZeus\Sky\Models\Library::class,
     ],
 
+    'enums' => [
+        'PostStatus' => \LaraZeus\Sky\Enums\PostStatus::class,
+    ],
+    
     'parsers' => [
         \LaraZeus\Sky\Classes\BoltParser::class,
     ],
