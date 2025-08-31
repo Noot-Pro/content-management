@@ -5,7 +5,7 @@ weight: 8
 
 ## Custom Models
 
-you can override all the models in the [configuration guid](https://larazeus.com/docs/sky/v3/getting-started/configuration)
+you can override all the models in the [configuration guid](https://larazeus.com/docs/sky/v4/getting-started/configuration)
 
 first create a new model:
 

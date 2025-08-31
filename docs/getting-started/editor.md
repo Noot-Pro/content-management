@@ -7,10 +7,8 @@ weight: 3
 
 the default editor is: `MarkdownEditor`. and also included:
 
-* [RichEditor](https://filamentphp.com/docs/3.x/forms/fields/rich-editor)
-* [MarkdownEditor](https://filamentphp.com/docs/3.x/forms/fields/markdown-editor)
-* [Tiptap Editor](https://filamentphp.com/plugins/tiptap)
-* [Tiny Editor](https://filamentphp.com/plugins/mohamedsabil83-tinyeditor)
+* [RichEditor](https://filamentphp.com/docs/4.x/forms/rich-editor)
+* [MarkdownEditor](https://filamentphp.com/docs/4.x/forms/markdown-editor)
 
 to use them you only need to install the package, and set the `editor` in `zeus-sky` 
 

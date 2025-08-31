@@ -5,7 +5,7 @@ weight: 2
 
 ## Prerequisites
 
-Sky is built on top of [laravel](https://laravel.com/docs/master) and uses [filament](https://filamentphp.com/docs/3.x/panels/installation) as an admin panel to manage everything.
+Sky is built on top of [laravel](https://laravel.com/docs/master) and uses [filament](https://filamentphp.com/docs/4.x/panels/installation) as an admin panel to manage everything.
 
 And for the frontend, it uses [Tall stack](https://tallstack.dev/).
 So, ensure you are familiar with these tools before diving into @zeus Sky.
