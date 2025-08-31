@@ -209,7 +209,7 @@ class PostResource extends SkyResource
                 SelectFilter::make('status')
                     ->multiple()
                     ->label(__('Status'))
-                    ->options(SkyPlugin::get()->getModel('PostStatus')),
+                    ->options(SkyPlugin::get()->getEnum('PostStatus')),
 
                 Filter::make('password')
                     ->label(__('Password Protected'))

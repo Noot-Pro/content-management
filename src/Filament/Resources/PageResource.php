@@ -118,7 +118,7 @@ class PageResource extends SkyResource
                         ->default('publish')
                         ->required()
                         ->live()
-                        ->options(SkyPlugin::get()->getModel('PostStatus')),
+                        ->options(SkyPlugin::get()->getEnum('PostStatus')),
 
                     TextInput::make('password')
                         ->label(__('Password'))
@@ -190,7 +190,7 @@ class PageResource extends SkyResource
                 SelectFilter::make('status')
                     ->multiple()
                     ->label(__('Status'))
-                    ->options(SkyPlugin::get()->getModel('PostStatus')),
+                    ->options(SkyPlugin::get()->getEnum('PostStatus')),
                 Filter::make('password')
                     ->label(__('Password Protected'))
                     ->query(fn (Builder $query): Builder => $query->whereNotNull('password')),
