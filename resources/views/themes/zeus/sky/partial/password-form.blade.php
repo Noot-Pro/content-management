@@ -1,6 +1,15 @@
 <div class="max-w-3xl mx-auto">
     <x-filament::section>
-        <x-filament-panels::form method="post" action="{{ route('passwordConfirmation',[$post]) }}">
+
+        <form
+            action="{{ route('passwordConfirmation',[$post]) }}"
+            method="post"
+            x-data="{ isProcessing: false }"
+            x-on:submit="if (isProcessing) $event.preventDefault()"
+            x-on:form-processing-started="isProcessing = true"
+            x-on:form-processing-finished="isProcessing = false"
+            class="fi-form grid gap-y-6"
+        >
             @csrf
             <div class="flex flex-col gap-4">
                 <label for="password">{{ __('Password') }}:</label>
@@ -14,6 +23,6 @@
             <x-filament::button type="submit">
                 {{ __('Send') }}
             </x-filament::button>
-        </x-filament-panels::form>
+        </form>
     </x-filament::section>
 </div>
