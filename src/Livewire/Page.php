@@ -22,8 +22,7 @@ class Page extends Component
     public function render(): View
     {
         $this->setSeo();
-
-        if ($this->page->status !== 'publish' && ! $this->page->require_password) {
+        if ($this->page->status->value !== 'publish' && ! $this->page->require_password) {
             abort_if(! auth()->check(), 404);
             abort_if($this->page->user_id !== auth()->user()->id, 401);
         }
