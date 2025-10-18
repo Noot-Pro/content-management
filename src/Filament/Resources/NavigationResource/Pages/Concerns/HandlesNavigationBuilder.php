@@ -10,7 +10,6 @@ use Filament\Schemas\Components\Utilities\Get;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use LaraZeus\Sky\SkyPlugin;
-use Livewire\Component;
 
 trait HandlesNavigationBuilder
 {
