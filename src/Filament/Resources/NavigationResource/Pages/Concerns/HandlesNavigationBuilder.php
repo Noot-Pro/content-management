@@ -10,7 +10,6 @@ use Filament\Schemas\Components\Utilities\Get;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use LaraZeus\Sky\SkyPlugin;
-use Livewire\Component;
 
 trait HandlesNavigationBuilder
 {
@@ -107,7 +106,7 @@ trait HandlesNavigationBuilder
                             //       would normally let you do.
                             $component
                                 ->getContainer()
-                                ->getComponent(fn (Component $component) => $component instanceof Group)
+                                ->getComponent(fn ($component) => $component instanceof Group)
                                 ->getChildSchema()
                                 ->fill();
                         })
@@ -115,7 +114,7 @@ trait HandlesNavigationBuilder
                     Group::make()
                         ->statePath('data')
                         ->whenTruthy('type')
-                        ->schema(function (Get $get, Component $component) {
+                        ->schema(function (Get $get, Group $component) {
                             $type = $get('type');
                             if (! filled($type)) {
                                 return [];
@@ -125,10 +124,8 @@ trait HandlesNavigationBuilder
                         }),
                     Group::make()
                         ->statePath('data')
-                        ->visible(fn (Component $component) => $component->evaluate(SkyPlugin::get()->getExtraFields()) !== [])
-                        ->schema(function (Component $component) {
-                            return SkyPlugin::get()->getExtraFields();
-                        }),
+                        ->visible(fn (Group $component) => $component->evaluate(SkyPlugin::get()->getExtraFields()) !== [])
+                        ->schema(SkyPlugin::get()->getExtraFields()),
                 ])
                 ->modalWidth('md')
                 ->action(function (array $data) {
