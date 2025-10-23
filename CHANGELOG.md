@@ -2,6 +2,19 @@
 
 All notable changes to `sky` will be documented in this file
 
+## v4.1.0 - 2025-10-23
+
+#### What's Changed
+
+* Bump aglipanci/laravel-pint-action from 2.5 to 2.6 by @dependabot[bot] in https://github.com/lara-zeus/sky/pull/252
+* Bump stefanzweifel/git-auto-commit-action from 5 to 7 by @dependabot[bot] in https://github.com/lara-zeus/sky/pull/251
+* Bump actions/checkout from 4 to 5 by @dependabot[bot] in https://github.com/lara-zeus/sky/pull/250
+* refactor the localization to php files by @atmonshi in https://github.com/lara-zeus/sky/pull/254
+
+### ⚠️ if you have custom translation, this will be a breaking change for you, please republish the translation files.
+
+**Full Changelog**: https://github.com/lara-zeus/sky/compare/v4.0.5...v4.1.0
+
 ## v4.0.5 - 2025-10-22
 
 ### What's Changed
@@ -305,6 +318,7 @@ in your panel provider you can hide any resource from the side nav
 
 
 
+
 ```
 for more check out the docs:
 https://larazeus.com/docs/sky/v3/getting-started/configuration
@@ -382,6 +396,7 @@ Since [tiptap editor](https://github.com/awcodes/filament-tiptap-editor) still i
     'Tag' => \LaraZeus\Sky\Models\Tag::class,
     'Library' => \LaraZeus\Sky\Models\Library::class,
 ])
+
 
 ```
 #### What's Changed
@@ -462,11 +477,13 @@ Make sure to add this to your config:
 
 
 
+
 ```
 You can copy that class and create your own parser, too, then add it to the array, and Sky will loop them all.
 
 ```I
 Of course, it will be visible only if you install Sky with Bolt :)
+
 
 
 
@@ -554,7 +571,6 @@ Of course, it will be visible only if you install Sky with Bolt :)
 - small fixes in FAQ by @atmonshi in https://github.com/lara-zeus/sky/pull/62
 **Full Changelog**: https://github.com/lara-zeus/sky/compare/2.3.6...2.3.7
 ## 2.3.6 - 2022-11-12
-
 ### What's Changed
 
 - Add prose to faq by @leekaimun in https://github.com/lara-zeus/sky/pull/61
