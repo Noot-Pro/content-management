@@ -104,6 +104,8 @@ return [
         'name' => 'Tag Name',
         'type' => 'type',
         'label' => 'Tag',
+        'slug' => 'slug',
+        'items_count' => 'Count',
         'plural_label' => 'Tags',
         'navigation_label' => 'Tags',
     ],
