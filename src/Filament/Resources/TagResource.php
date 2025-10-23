@@ -45,7 +45,7 @@ class TagResource extends SkyResource
                         TextInput::make('name')
                             ->required()
                             ->maxLength(255)
-                            ->label(__('Tag.Name'))
+                            ->label(__('zeus-sky::cms.tags.name'))
                             ->live(onBlur: true)
                             ->afterStateUpdated(function (Set $set, $state) {
                                 $set('slug', Str::slug($state));
@@ -81,7 +81,7 @@ class TagResource extends SkyResource
             ->filters([
                 SelectFilter::make('type')
                     ->options(SkyPlugin::get()->getTagTypes())
-                    ->label(__('type')),
+                    ->label(__('zeus-sky::cms.tags.type')),
             ])
             ->recordActions([
                 ActionGroup::make([
@@ -105,16 +105,16 @@ class TagResource extends SkyResource
 
     public static function getLabel(): string
     {
-        return __('Tag');
+        return __('zeus-sky::cms.tags.label');
     }
 
     public static function getPluralLabel(): string
     {
-        return __('Tags');
+        return __('zeus-sky::cms.tags.plural_label');
     }
 
     public static function getNavigationLabel(): string
     {
-        return __('Tags');
+        return __('zeus-sky::cms.tags.navigation_label');
     }
 }

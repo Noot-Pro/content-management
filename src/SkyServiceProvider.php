@@ -74,10 +74,10 @@ class SkyServiceProvider extends PackageServiceProvider
 
             SkyPlugin::get()
                 ->itemType(
-                    __('Post link'),
+                    __('zeus-sky::cms.post.link'),
                     [
                         Select::make('post_id')
-                            ->label(__('Select Post'))
+                            ->label(__('zeus-sky::cms.post.select_post'))
                             ->searchable()
                             ->options(function () {
                                 return SkyPlugin::get()->getModel('Post')::published()->pluck('title', 'id');
@@ -86,29 +86,29 @@ class SkyServiceProvider extends PackageServiceProvider
                     'post_link'
                 )
                 ->itemType(
-                    __('Page link'),
+                    __('zeus-sky::cms.page.link'),
                     [
                         Select::make('page_id')
-                            ->label(__('Select Page'))
+                            ->label(__('zeus-sky::cms.page.select_page'))
                             ->searchable()
-                            ->options(function () {
-                                return SkyPlugin::get()->getModel('Post')::query()
+                            ->options(
+                                SkyPlugin::get()->getModel('Post')::query()
                                     ->page()
                                     ->whereDate('published_at', '<=', now())
-                                    ->pluck('title', 'id');
-                            }),
+                                    ->pluck('title', 'id')
+                            ),
                     ],
                     'page_link'
                 )
                 ->itemType(
-                    __('Library link'),
+                    __('zeus-sky::cms.library.library_link'),
                     [
                         Select::make('library_id')
-                            ->label(__('Select Library'))
+                            ->label(__('zeus-sky::cms.library.select_library'))
                             ->searchable()
-                            ->options(function () {
-                                return SkyPlugin::get()->getModel('Tag')::getWithType('library')->pluck('name', 'id');
-                            }),
+                            ->options(
+                                SkyPlugin::get()->getModel('Tag')::getWithType('library')->pluck('name', 'id')
+                            ),
                     ],
                     'library_link'
                 );

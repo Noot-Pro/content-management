@@ -13,7 +13,7 @@ class TinyEditor implements ContentEditor
     {
         if (class_exists(TinyEditorAlias::class)) {
             return TinyEditorAlias::make('content')
-                ->label(__('Post Content'))
+                ->label(__('zeus-sky::cms.post.post_content'))
                 ->showMenuBar()
                 ->required();
         }

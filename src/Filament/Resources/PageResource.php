@@ -68,94 +68,100 @@ class PageResource extends SkyResource
     public static function form(Schema $schema): Schema
     {
         return $schema->components([
-            Tabs::make('post_tabs')->schema([
-                Tab::make(__('Title & Content'))->schema([
-                    TextInput::make('title')
-                        ->label(__('Page Title'))
-                        ->required()
-                        ->maxLength(255)
-                        ->live(onBlur: true)
-                        ->afterStateUpdated(function (Set $set, $state) {
-                            $set('slug', Str::slug($state));
-                        }),
-                    config('zeus-sky.editor')::component(),
+            Tabs::make('post_tabs')
+                ->columnSpan(2)
+                ->schema([
+                    Tab::make(__('zeus-sky::cms.common.title_content'))
+                        ->schema([
+                            TextInput::make('title')
+                                ->label(__('zeus-sky::cms.page.title'))
+                                ->required()
+                                ->maxLength(255)
+                                ->live(onBlur: true)
+                                ->afterStateUpdated(function (Set $set, $state) {
+                                    $set('slug', Str::slug($state));
+                                }),
+                            config('zeus-sky.editor')::component(),
+                        ]),
+                    Tab::make(__('zeus-sky::cms.common.SEO'))
+                        ->schema([
+                            Hidden::make('user_id')
+                                ->required()
+                                ->default(auth()->user()->id),
+
+                            Hidden::make('post_type')
+                                ->default('page')
+                                ->required(),
+
+                            Textarea::make('description')
+                                ->maxLength(255)
+                                ->label(__('zeus-sky::cms.page.description'))
+                                ->hint(__('zeus-sky::cms.page.description_hint')),
+
+                            TextInput::make('slug')
+                                ->unique()
+                                ->required()
+                                ->maxLength(255)
+                                ->label(__('zeus-sky::cms.page.slug')),
+
+                            Select::make('parent_id')
+                                ->options(SkyPlugin::get()->getModel('Post')::where('post_type', 'page')->pluck(
+                                    'title',
+                                    'id'
+                                ))
+                                ->label(__('zeus-sky::cms.page.parent_page')),
+
+                            TextInput::make('ordering')
+                                ->integer()
+                                ->label(__('zeus-sky::cms.page.page_order'))
+                                ->default(1),
+                        ]),
+                    Tab::make(__('zeus-sky::cms.common.visibility'))
+                        ->schema([
+                            Select::make('status')
+                                ->label(__('zeus-sky::cms.page.status'))
+                                ->default('publish')
+                                ->required()
+                                ->live()
+                                ->options(SkyPlugin::get()->getEnum('PostStatus')),
+
+                            TextInput::make('password')
+                                ->label(__('zeus-sky::cms.page.password'))
+                                ->visible(fn (Get $get): bool => $get('status') === 'private'),
+
+                            DateTimePicker::make('published_at')
+                                ->label(__('zeus-sky::cms.page.published_at'))
+                                ->required()
+                                ->default(now()),
+                        ]),
+                    Tab::make(__('zeus-sky::cms.common.image'))
+                        ->schema([
+                            ToggleButtons::make('featured_image_type')
+                                ->dehydrated(false)
+                                ->hiddenLabel()
+                                ->live()
+                                ->afterStateHydrated(function (Set $set, Get $get) {
+                                    $setVal = ($get('featured_image') === null) ? 'upload' : 'url';
+                                    $set('featured_image_type', $setVal);
+                                })
+                                ->grouped()
+                                ->options([
+                                    'upload' => __('zeus-sky::cms.page.upload'),
+                                    'url' => __('zeus-sky::cms.page.url'),
+                                ])
+                                ->default('upload'),
+                            SpatieMediaLibraryFileUpload::make('featured_image_upload')
+                                ->collection('pages')
+                                ->disk(SkyPlugin::get()->getUploadDisk())
+                                ->directory(SkyPlugin::get()->getUploadDirectory())
+                                ->visible(fn (Get $get) => $get('featured_image_type') === 'upload')
+                                ->label(''),
+                            TextInput::make('featured_image')
+                                ->label(__('zeus-sky::cms.page.featured_image_url'))
+                                ->visible(fn (Get $get) => $get('featured_image_type') === 'url')
+                                ->url(),
+                        ]),
                 ]),
-                Tab::make(__('SEO'))->schema([
-                    Hidden::make('user_id')
-                        ->required()
-                        ->default(auth()->user()->id),
-
-                    Hidden::make('post_type')
-                        ->default('page')
-                        ->required(),
-
-                    Textarea::make('description')
-                        ->maxLength(255)
-                        ->label(__('Description'))
-                        ->hint(__('Write an excerpt for your page')),
-
-                    TextInput::make('slug')
-                        ->unique()
-                        ->required()
-                        ->maxLength(255)
-                        ->label(__('Page Slug')),
-
-                    Select::make('parent_id')
-                        ->options(SkyPlugin::get()->getModel('Post')::where('post_type', 'page')->pluck(
-                            'title',
-                            'id'
-                        ))
-                        ->label(__('Parent Page')),
-
-                    TextInput::make('ordering')
-                        ->integer()
-                        ->label(__('Page Order'))
-                        ->default(1),
-                ]),
-                Tab::make(__('Visibility'))->schema([
-                    Select::make('status')
-                        ->label(__('status'))
-                        ->default('publish')
-                        ->required()
-                        ->live()
-                        ->options(SkyPlugin::get()->getEnum('PostStatus')),
-
-                    TextInput::make('password')
-                        ->label(__('Password'))
-                        ->visible(fn (Get $get): bool => $get('status') === 'private'),
-
-                    DateTimePicker::make('published_at')
-                        ->label(__('published at'))
-                        ->required()
-                        ->default(now()),
-                ]),
-                Tab::make(__('Image'))->schema([
-                    ToggleButtons::make('featured_image_type')
-                        ->dehydrated(false)
-                        ->hiddenLabel()
-                        ->live()
-                        ->afterStateHydrated(function (Set $set, Get $get) {
-                            $setVal = ($get('featured_image') === null) ? 'upload' : 'url';
-                            $set('featured_image_type', $setVal);
-                        })
-                        ->grouped()
-                        ->options([
-                            'upload' => __('upload'),
-                            'url' => __('url'),
-                        ])
-                        ->default('upload'),
-                    SpatieMediaLibraryFileUpload::make('featured_image_upload')
-                        ->collection('pages')
-                        ->disk(SkyPlugin::get()->getUploadDisk())
-                        ->directory(SkyPlugin::get()->getUploadDirectory())
-                        ->visible(fn (Get $get) => $get('featured_image_type') === 'upload')
-                        ->label(''),
-                    TextInput::make('featured_image')
-                        ->label(__('featured image url'))
-                        ->visible(fn (Get $get) => $get('featured_image_type') === 'url')
-                        ->url(),
-                ]),
-            ])->columnSpan(2),
         ]);
     }
 
@@ -164,14 +170,14 @@ class PageResource extends SkyResource
         return $table
             ->columns([
                 ViewColumn::make('title_card')
-                    ->label(__('Title'))
+                    ->label(__('zeus-sky::cms.page.title'))
                     ->sortable(['title'])
                     ->searchable(['title'])
                     ->toggleable()
                     ->view('zeus::filament.columns.page-title'),
 
                 TextColumn::make('status')
-                    ->label(__('Status'))
+                    ->label(__('zeus-sky::cms.page.status'))
                     ->sortable(['status'])
                     ->searchable(['status'])
                     ->toggleable()
@@ -189,10 +195,10 @@ class PageResource extends SkyResource
                 TrashedFilter::make(),
                 SelectFilter::make('status')
                     ->multiple()
-                    ->label(__('Status'))
+                    ->label(__('zeus-sky::cms.page.status'))
                     ->options(SkyPlugin::get()->getEnum('PostStatus')),
                 Filter::make('password')
-                    ->label(__('Password Protected'))
+                    ->label(__('zeus-sky::cms.page.password_protected'))
                     ->query(fn (Builder $query): Builder => $query->whereNotNull('password')),
             ]);
     }
@@ -208,17 +214,17 @@ class PageResource extends SkyResource
 
     public static function getLabel(): string
     {
-        return __('Page');
+        return __('zeus-sky::cms.page.Label');
     }
 
     public static function getPluralLabel(): string
     {
-        return __('Pages');
+        return __('zeus-sky::cms.page.plural_label');
     }
 
     public static function getNavigationLabel(): string
     {
-        return __('Pages');
+        return __('zeus-sky::cms.page.navigation_label');
     }
 
     public static function getNavigationBadge(): ?string
@@ -233,13 +239,16 @@ class PageResource extends SkyResource
     public static function getActions(): array
     {
         $action = [
-            EditAction::make('edit')->label(__('Edit')),
+            EditAction::make('edit'),
             Action::make('Open')
                 ->color('warning')
                 ->icon('heroicon-o-arrow-top-right-on-square')
-                ->label(__('Open'))
+                ->label(__('zeus-sky::cms.open_action'))
                 ->visible(! config('zeus-sky.headless'))
-                ->url(fn (Post $record): string => route(SkyPlugin::get()->getRouteNamePrefix() . 'page', ['slug' => $record]))
+                ->url(fn (Post $record): string => route(
+                    SkyPlugin::get()->getRouteNamePrefix() . 'page',
+                    ['slug' => $record]
+                ))
                 ->openUrlInNewTab(),
             DeleteAction::make('delete'),
             ForceDeleteAction::make(),
@@ -252,7 +261,10 @@ class PageResource extends SkyResource
         ) {
             // @phpstan-ignore-next-line
             $action[] = ShortUrlAction::make('get-link')
-                ->distUrl(fn (Post $record): string => route(SkyPlugin::get()->getRouteNamePrefix() . 'page', ['slug' => $record]));
+                ->distUrl(fn (Post $record): string => route(
+                    SkyPlugin::get()->getRouteNamePrefix() . 'page',
+                    ['slug' => $record]
+                ));
         }
 
         return [ActionGroup::make($action)];

@@ -1,18 +1,18 @@
 @if(!$faqs->isEmpty())
     <x-slot name="header">
-        <h1>{{ __('FAQs') }}</h1>
+        <h1>{{ __('zeus-sky::cms.faq.title') }}</h1>
     </x-slot>
 
     <x-slot name="breadcrumbs">
         <li class="flex items-center">
-            {{ __('FAQs') }}
+            {{ __('zeus-sky::cms.faq.plural_label') }}
         </li>
     </x-slot>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-4xl mx-auto">
             <h2 class="text-center text-3xl font-extrabold tracking-tight sm:text-4xl text-primary-600 dark:text-primary-400">
-                {{ __('frequently asked questions') }}
+                {{ __('zeus-sky::cms.faq.plural_label') }}
             </h2>
             <div class="space-y-8 mt-10">
                 @foreach($faqs as $faq)

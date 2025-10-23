@@ -36,17 +36,17 @@ class FaqResource extends SkyResource
 
     public static function getLabel(): string
     {
-        return __('FAQ');
+        return __('zeus-sky::cms.faq.title');
     }
 
     public static function getPluralLabel(): string
     {
-        return __('frequently asked questions');
+        return __('zeus-sky::cms.faq.plural_label');
     }
 
     public static function getNavigationLabel(): string
     {
-        return __('FAQs');
+        return __('zeus-sky::cms.faq.navigation_label');
     }
 
     /**
@@ -61,20 +61,20 @@ class FaqResource extends SkyResource
                     ->columns()
                     ->schema([
                         Textarea::make('question')
-                            ->label(__('Question'))
+                            ->label(__('zeus-sky::cms.faq.question'))
                             ->required()
                             ->maxLength(65535)
                             ->columnSpan(2),
 
                         RichEditor::make('answer')
-                            ->label(__('Answer'))
+                            ->label(__('zeus-sky::cms.faq.answer'))
                             ->required()
                             ->maxLength(65535)
                             ->columnSpan(2),
 
                         SpatieTagsInput::make('category')
                             ->type('faq')
-                            ->label(__('FAQ Categories')),
+                            ->label(__('zeus-sky::cms.faq.faq_categories')),
                     ]),
             ]);
     }
@@ -86,7 +86,7 @@ class FaqResource extends SkyResource
                 TextColumn::make('question')->searchable(),
 
                 SpatieTagsColumn::make('tags')
-                    ->label(__('FAQ Categories'))
+                    ->label(__('zeus-sky::cms.faq.faq_categories'))
                     ->toggleable()
                     ->type('faq'),
             ])
@@ -94,7 +94,7 @@ class FaqResource extends SkyResource
                 SelectFilter::make('tags')
                     ->multiple()
                     ->relationship('tags', 'name')
-                    ->label(__('Tags')),
+                    ->label(__('zeus-sky::cms.faq.tags')),
             ])
             ->recordActions(static::getActions());
     }
@@ -102,9 +102,8 @@ class FaqResource extends SkyResource
     public static function getActions(): array
     {
         $action = [
-            EditAction::make('edit')->label(__('Edit')),
-            DeleteAction::make('delete')
-                ->label(__('Delete')),
+            EditAction::make('edit'),
+            DeleteAction::make('delete'),
         ];
 
         if (

@@ -1,12 +1,12 @@
 <div class="mx-4">
 
     <x-slot name="header">
-        <h1>{{ __('Libraries') }}</h1>
+        <h1>{{ __('zeus-sky::cms.library.plural_label') }}</h1>
     </x-slot>
 
     <x-slot name="breadcrumbs">
         <li class="flex items-center">
-            {{ __('libraries') }}
+            {{ __('zeus-sky::cms.library.plural_label') }}
         </li>
     </x-slot>
 
@@ -21,19 +21,19 @@
                                 <div x-data class="flex items-center justify-between text-primary-600 dark:text-primary-400 hover:dark:text-primary-300">
                                     <h3>{{ $library->title ?? '' }}</h3>
                                     @if($library->type === 'IMAGE')
-                                        <span x-tooltip.raw="{{ __('Image') }}">
+                                        <span x-tooltip.raw="{{ __('zeus-sky::cms.library.image') }}">
                                             @svg('heroicon-o-photo','w-4 h-4 text-gray-400 dark:text-gray-500')
                                         </span>
                                     @endif
 
                                     @if($library->type === 'FILE')
-                                        <span x-tooltip.raw="{{ __('FILE') }}">
+                                        <span x-tooltip.raw="{{ __('zeus-sky::cms.library.file') }}">
                                             @svg('heroicon-o-document','w-4 h-4 text-gray-400 dark:text-gray-500')
                                         </span>
                                     @endif
 
                                     @if($library->type === 'VIDEO')
-                                        <span x-tooltip.raw="{{ __('VIDEO') }}">
+                                        <span x-tooltip.raw="{{ __('zeus-sky::cms.library.video') }}">
                                             @svg('heroicon-o-film','w-4 h-4 text-gray-400 dark:text-gray-500')
                                         </span>
                                     @endif

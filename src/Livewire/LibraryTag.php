@@ -21,7 +21,7 @@ class LibraryTag extends Component
     {
         seo()
             ->site(config('zeus.site_title', 'Laravel'))
-            ->title($this->tag->name . ' - ' . __('Library') . ' - ' . config('zeus.site_title', 'Laravel'))
+            ->title($this->tag->name . ' - ' . __('zeus-sky::cms.seo.library_title') . ' - ' . config('zeus.site_title', 'Laravel'))
             ->description($this->tag->description . ' - ' . config('zeus.site_description') . ' ' . config('zeus.site_title'))
             ->rawTag('favicon', '<link rel="icon" type="image/x-icon" href="' . asset('favicon/favicon.ico') . '">')
             ->rawTag('<meta name="theme-color" content="' . config('zeus.site_color') . '" />')

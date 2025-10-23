@@ -87,17 +87,17 @@ class NavigationResource extends SkyResource
 
     public static function getLabel(): string
     {
-        return __('Navigation');
+        return __('zeus-sky::filament-navigation.label');
     }
 
     public static function getPluralLabel(): string
     {
-        return __('Navigations');
+        return __('zeus-sky::filament-navigation.plural_label');
     }
 
     public static function getNavigationLabel(): string
     {
-        return __('Navigations');
+        return __('zeus-sky::filament-navigation.navigation_label');
     }
 
     public static function table(Table $table): Table
