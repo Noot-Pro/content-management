@@ -23,7 +23,7 @@ class ListFaqs extends ListRecords
             Action::make('Open')
                 ->color('warning')
                 ->icon('heroicon-o-arrow-top-right-on-square')
-                ->label(__('Open'))
+                ->label(__('zeus-sky::cms.open_action'))
                 ->visible(! config('zeus-sky.headless'))
                 ->url(fn (): string => route(SkyPlugin::get()->getRouteNamePrefix() . 'faq'))
                 ->openUrlInNewTab(),

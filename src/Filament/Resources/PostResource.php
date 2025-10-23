@@ -60,10 +60,10 @@ class PostResource extends SkyResource
             ->components([
                 Tabs::make('post_tabs')
                     ->schema([
-                        Tab::make(__('Title & Content'))
+                        Tab::make(__('zeus-sky::cms.common.title_content'))
                             ->schema([
                                 TextInput::make('title')
-                                    ->label(__('Post Title'))
+                                    ->label(__('zeus-sky::cms.post.title'))
                                     ->required()
                                     ->maxLength(255)
                                     ->live(onBlur: true)
@@ -75,10 +75,10 @@ class PostResource extends SkyResource
                                         $set('slug', Str::slug($state));
                                     }),
                                 config('zeus-sky.editor')::component()
-                                    ->label(__('Post Content')),
+                                    ->label(__('zeus-sky::cms.post.post_content')),
                             ]),
 
-                        Tab::make(__('SEO'))
+                        Tab::make(__('zeus-sky::cms.common.SEO'))
                             ->schema([
                                 Hidden::make('user_id')
                                     ->default(auth()->user()?->id ?? 0)
@@ -90,52 +90,52 @@ class PostResource extends SkyResource
 
                                 Textarea::make('description')
                                     ->maxLength(255)
-                                    ->label(__('Description'))
-                                    ->hint(__('Write an excerpt for your post')),
+                                    ->label(__('zeus-sky::cms.post.description'))
+                                    ->hint(__('zeus-sky::cms.post.description_hint')),
 
                                 TextInput::make('slug')
                                     ->unique()
                                     ->required()
                                     ->maxLength(255)
-                                    ->label(__('Post Slug')),
+                                    ->label(__('zeus-sky::cms.post.slug')),
                             ]),
 
-                        Tab::make(__('Tags'))
+                        Tab::make(__('zeus-sky::cms.common.tags'))
                             ->schema([
                                 SpatieTagsInput::make('tags')
                                     ->type('tag')
-                                    ->label(__('Tags')),
+                                    ->label(__('zeus-sky::cms.post.tags')),
 
                                 SpatieTagsInput::make('category')
                                     ->type('category')
-                                    ->label(__('Categories')),
+                                    ->label(__('zeus-sky::cms.post.categories')),
                             ]),
 
-                        Tab::make(__('Visibility'))
+                        Tab::make(__('zeus-sky::cms.common.visibility'))
                             ->schema([
                                 Select::make('status')
-                                    ->label(__('status'))
+                                    ->label(__('zeus-sky::cms.post.status_label'))
                                     ->default('publish')
                                     ->required()
                                     ->live()
                                     ->options(SkyPlugin::get()->getEnum('PostStatus')),
 
                                 TextInput::make('password')
-                                    ->label(__('Password'))
+                                    ->label(__('zeus-sky::cms.post.password'))
                                     ->visible(fn (Get $get): bool => $get('status')->value === 'private'),
 
                                 DateTimePicker::make('published_at')
-                                    ->label(__('published at'))
+                                    ->label(__('zeus-sky::cms.post.published_at'))
                                     ->required()
                                     ->native(false)
                                     ->default(now()),
 
                                 DateTimePicker::make('sticky_until')
                                     ->native(false)
-                                    ->label(__('Sticky Until')),
+                                    ->label(__('zeus-sky::cms.post.sticky_until')),
                             ]),
 
-                        Tab::make(__('Image'))
+                        Tab::make(__('zeus-sky::cms.common.image'))
                             ->schema([
                                 ToggleButtons::make('featured_image_type')
                                     ->dehydrated(false)
@@ -147,8 +147,8 @@ class PostResource extends SkyResource
                                     })
                                     ->grouped()
                                     ->options([
-                                        'upload' => __('upload'),
-                                        'url' => __('url'),
+                                        'upload' => __('zeus-sky::cms.post.upload'),
+                                        'url' => __('zeus-sky::cms.post.url'),
                                     ])
                                     ->default('upload'),
                                 SpatieMediaLibraryFileUpload::make('featured_image_upload')
@@ -159,7 +159,7 @@ class PostResource extends SkyResource
                                     ->label(''),
 
                                 TextInput::make('featured_image')
-                                    ->label(__('featured image url'))
+                                    ->label(__('zeus-sky::cms.post.featured_image_url'))
                                     ->visible(fn (Get $get) => $get('featured_image_type') === 'url')
                                     ->url(),
                             ]),
@@ -173,14 +173,14 @@ class PostResource extends SkyResource
         return $table
             ->columns([
                 ViewColumn::make('title_card')
-                    ->label(__('Title'))
+                    ->label(__('zeus-sky::cms.post.title'))
                     ->sortable(['title'])
                     ->searchable(['title'])
                     ->toggleable()
                     ->view('zeus::filament.columns.post-title'),
 
                 TextColumn::make('status')
-                    ->label(__('Status'))
+                    ->label(__('zeus-sky::cms.post.status_label'))
                     ->sortable(['status'])
                     ->searchable(['status'])
                     ->toggleable()
@@ -188,12 +188,12 @@ class PostResource extends SkyResource
                     ->description(fn ($record) => optional($record->published_at)->diffForHumans()),
 
                 SpatieTagsColumn::make('tags')
-                    ->label(__('Post Tags'))
+                    ->label(__('zeus-sky::cms.post.tags'))
                     ->toggleable(isToggledHiddenByDefault: true)
                     ->type('tag'),
 
                 SpatieTagsColumn::make('category')
-                    ->label(__('Post Category'))
+                    ->label(__('zeus-sky::cms.post.categories'))
                     ->toggleable()
                     ->type('category'),
             ])
@@ -208,20 +208,20 @@ class PostResource extends SkyResource
                 TrashedFilter::make(),
                 SelectFilter::make('status')
                     ->multiple()
-                    ->label(__('Status'))
+                    ->label(__('zeus-sky::cms.post.status_label'))
                     ->options(SkyPlugin::get()->getEnum('PostStatus')),
 
                 Filter::make('password')
-                    ->label(__('Password Protected'))
+                    ->label(__('zeus-sky::cms.post.password_protected'))
                     ->query(fn (Builder $query): Builder => $query->whereNotNull('password')),
 
                 Filter::make('sticky')
-                    ->label(__('Still Sticky'))
+                    ->label(__('zeus-sky::cms.post.sticky_until'))
                     // @phpstan-ignore-next-line
                     ->query(fn (Builder $query): Builder => $query->sticky()),
 
                 Filter::make('not_sticky')
-                    ->label(__('Not Sticky'))
+                    ->label(__('zeus-sky::cms.post.not_sticky'))
                     ->query(
                         fn (Builder $query): Builder => $query
                             ->whereDate('sticky_until', '<=', now())
@@ -229,7 +229,7 @@ class PostResource extends SkyResource
                     ),
 
                 Filter::make('sticky_only')
-                    ->label(__('Sticky Only'))
+                    ->label(__('zeus-sky::cms.post.sticky_only'))
                     ->query(
                         fn (Builder $query): Builder => $query
                             ->where('post_type', 'post')
@@ -239,7 +239,7 @@ class PostResource extends SkyResource
                 SelectFilter::make('tags')
                     ->multiple()
                     ->relationship('tags', 'name')
-                    ->label(__('Tags')),
+                    ->label(__('zeus-sky::cms.post.tags')),
             ]);
     }
 
@@ -254,17 +254,17 @@ class PostResource extends SkyResource
 
     public static function getLabel(): string
     {
-        return __('Post');
+        return __('zeus-sky::cms.post.Label');
     }
 
     public static function getPluralLabel(): string
     {
-        return __('Posts');
+        return __('zeus-sky::cms.post.plural_label');
     }
 
     public static function getNavigationLabel(): string
     {
-        return __('Posts');
+        return __('zeus-sky::cms.post.navigation_label');
     }
 
     public static function getNavigationBadge(): ?string
@@ -279,11 +279,11 @@ class PostResource extends SkyResource
     public static function getActions(): array
     {
         $action = [
-            EditAction::make('edit')->label(__('Edit')),
+            EditAction::make('edit'),
             Action::make('Open')
                 ->color('warning')
                 ->icon('heroicon-o-arrow-top-right-on-square')
-                ->label(__('Open'))
+                ->label(__('zeus-sky::cms.open_action'))
                 ->visible(! config('zeus-sky.headless'))
                 ->url(fn (Post $record): string => route(
                     SkyPlugin::get()->getRouteNamePrefix() . 'post',

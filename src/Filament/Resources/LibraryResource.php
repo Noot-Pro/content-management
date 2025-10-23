@@ -18,6 +18,7 @@ use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Utilities\Get;
 use Filament\Schemas\Components\Utilities\Set;
 use Filament\Schemas\Schema;
+use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\SpatieTagsColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
@@ -51,12 +52,12 @@ class LibraryResource extends SkyResource
     {
         return $schema
             ->components([
-                Section::make(__('Library File'))
+                Section::make(__('zeus-sky::cms.library.library_file'))
                     ->columnSpanFull()
                     ->columns()
                     ->schema([
                         TextInput::make('title')
-                            ->label(__('Library Title'))
+                            ->label(__('zeus-sky::cms.library.library_title'))
                             ->required()
                             ->maxLength(255)
                             ->live(onBlur: true)
@@ -72,24 +73,24 @@ class LibraryResource extends SkyResource
                             ->unique()
                             ->required()
                             ->maxLength(255)
-                            ->label(__('Library Slug')),
+                            ->label(__('zeus-sky::cms.library.library_slug')),
 
                         Textarea::make('description')
                             ->maxLength(255)
-                            ->label(__('Library Description'))
+                            ->label(__('zeus-sky::cms.library.library_description'))
                             ->columnSpan(2),
 
                         SpatieTagsInput::make('category')
                             ->type('library')
-                            ->label(__('Library Categories')),
+                            ->label(__('zeus-sky::cms.library.library_categories')),
 
                         Select::make('type')
-                            ->label(__('Library Type'))
+                            ->label(__('zeus-sky::cms.library.library_type'))
                             ->visible(SkyPlugin::get()->getLibraryTypes() !== null)
                             ->options(SkyPlugin::get()->getLibraryTypes()),
                     ]),
 
-                Section::make(__('Library File'))
+                Section::make(__('zeus-sky::cms.library.library_file'))
                     ->columnSpanFull()
                     ->collapsible()
                     ->compact()
@@ -104,8 +105,8 @@ class LibraryResource extends SkyResource
                             })
                             ->grouped()
                             ->options([
-                                'upload' => __('upload'),
-                                'url' => __('url'),
+                                'upload' => __('zeus-sky::cms.library.upload'),
+                                'url' => __('zeus-sky::cms.library.url'),
                             ])
                             ->default('upload'),
                         SpatieMediaLibraryFileUpload::make('file_path_upload')
@@ -118,7 +119,7 @@ class LibraryResource extends SkyResource
                             ->label(''),
 
                         TextInput::make('file_path')
-                            ->label(__('file url'))
+                            ->label(__('zeus-sky::cms.library.file_url'))
                             ->visible(fn (Get $get) => $get('upload_or_url') === 'url')
                             ->url(),
                     ]),
@@ -130,18 +131,18 @@ class LibraryResource extends SkyResource
         return $table
             ->columns([
                 TextColumn::make('title')
-                    ->label(__('Library Title'))
+                    ->label(__('zeus-sky::cms.library.library_title'))
                     ->searchable()
                     ->sortable()
                     ->toggleable(),
                 TextColumn::make('slug')
-                    ->label(__('Library Slug'))
+                    ->label(__('zeus-sky::cms.library.library_slug'))
                     ->searchable()
                     ->sortable()
                     ->toggleable(),
 
                 TextColumn::make('type')
-                    ->label(__('Library Type'))
+                    ->label(__('zeus-sky::cms.library.library_type'))
                     ->searchable()
                     ->sortable()
                     ->visible(SkyPlugin::get()->getLibraryTypes() !== null)
@@ -154,15 +155,15 @@ class LibraryResource extends SkyResource
                         default => '',
                     })
                     ->icon(fn (string $state) => match ($state) {
-                        'IMAGE' => 'heroicon-o-photo',
-                        'FILE' => 'heroicon-o-document',
-                        'VIDEO' => 'heroicon-o-film',
-                        default => 'heroicon-o-document-magnifying-glass',
+                        'IMAGE' => Heroicon::Photo,
+                        'FILE' => Heroicon::Document,
+                        'VIDEO' => Heroicon::Film,
+                        default => Heroicon::DocumentMagnifyingGlass,
                     })
                     ->toggleable(),
 
                 SpatieTagsColumn::make('tags')
-                    ->label(__('Library Tags'))
+                    ->label(__('zeus-sky::cms.library.library_tags'))
                     ->toggleable()
                     ->type('library'),
             ])
@@ -172,11 +173,11 @@ class LibraryResource extends SkyResource
                     ->visible()
                     ->options(SkyPlugin::get()->getLibraryTypes())
                     ->visible(SkyPlugin::get()->getLibraryTypes() !== null)
-                    ->label(__('type')),
+                    ->label(__('zeus-sky::cms.library.library_type')),
                 SelectFilter::make('tags')
                     ->multiple()
                     ->relationship('tags', 'name')
-                    ->label(__('Tags')),
+                    ->label(__('zeus-sky::cms.library.library_tags')),
             ])
             ->defaultSort('id', 'desc');
     }
@@ -192,33 +193,31 @@ class LibraryResource extends SkyResource
 
     public static function getLabel(): string
     {
-        return __('Library');
+        return __('zeus-sky::cms.library.label');
     }
 
     public static function getPluralLabel(): string
     {
-        return __('Libraries');
+        return __('zeus-sky::cms.library.plural_label');
     }
 
     public static function getNavigationLabel(): string
     {
-        return __('Libraries');
+        return __('zeus-sky::cms.library.navigation_label');
     }
 
     public static function getActions(): array
     {
         $action = [
-            EditAction::make('edit')
-                ->label(__('Edit')),
+            EditAction::make('edit'),
             Action::make('Open')
                 ->color('warning')
                 ->icon('heroicon-o-arrow-top-right-on-square')
-                ->label(__('Open'))
+                ->label(__('zeus-sky::cms.open_action'))
                 ->visible(! config('zeus-sky.headless'))
                 ->url(fn (Library $record): string => route(SkyPlugin::get()->getRouteNamePrefix() . 'library.item', ['slug' => $record->slug]))
                 ->openUrlInNewTab(),
-            DeleteAction::make('delete')
-                ->label(__('Delete')),
+            DeleteAction::make('delete'),
         ];
 
         if (

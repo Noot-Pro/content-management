@@ -6,12 +6,12 @@
 
     <x-slot name="breadcrumbs">
         <li class="flex items-center">
-            <a href="{{ route('library') }}">{{ __('libraries') }}</a>
+            <a href="{{ route('library') }}">{{ __('zeus-sky::cms.library.plural_label') }}</a>
             @svg('heroicon-s-arrow-small-right','fill-current w-4 h-4 mx-3')
         </li>
 
         <li class="flex items-center">
-            {{ __('Viewing') }} {{ $item->title }}
+            {{ __('zeus-sky::cms.library.viewing') }} {{ $item->title }}
         </li>
     </x-slot>
 
@@ -23,7 +23,7 @@
         </p>
 
         <p class="text-base font-light text-gray-500">
-            <span>{{ __('created at') }}</span>:
+            <span>{{ __('zeus-sky::cms.library.created_at') }}</span>:
             <span>{{ $item->created_at->format('Y.m/d') }}-{{ $item->created_at->format('h:i a') }}</span>
         </p>
 

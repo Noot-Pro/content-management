@@ -5,7 +5,7 @@
 
     <x-slot name="breadcrumbs">
         <li class="flex items-center">
-            <a href="{{ route('blogs') }}">{{ __('Posts') }}</a>
+            <a href="{{ route('blogs') }}">{{ __('zeus-sky::cms.post.title') }}</a>
             @svg('heroicon-s-arrow-small-right','fill-current w-4 h-4 mx-3 rtl:rotate-180')
         </li>
         <li class="flex items-center">
@@ -56,7 +56,7 @@
 
     @if($related->isNotEmpty())
         <div class="py-6 flex flex-col mt-4 gap-4">
-            <h1 class="text-xl font-bold text-gray-700 dark:text-gray-100 md:text-2xl">{{ __('Related Posts') }}</h1>
+            <h1 class="text-xl font-bold text-gray-700 dark:text-gray-100 md:text-2xl">{{ __('zeus-sky::cms.post.related_posts') }}</h1>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 @foreach($related as $post)

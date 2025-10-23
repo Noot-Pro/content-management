@@ -18,7 +18,7 @@ enum PostStatus: string implements HasColor, HasIcon, HasLabel
 
     public function getLabel(): string
     {
-        return __($this->name);
+        return __('zeus-sky::cms.post.status.' . $this->name);
     }
 
     public function getColor(): string

@@ -1,6 +1,9 @@
 <?php
 
 return [
+    'label' => 'قائمة التنقل',
+    'plural_label' => 'قوائم التنقل',
+    'navigation_label' => 'قوائم التنقل',
     'attributes' => [
         'external-link' => 'رابط خارجي',
         'url' => 'الرابط',
