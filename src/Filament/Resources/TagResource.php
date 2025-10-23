@@ -25,7 +25,7 @@ use LaraZeus\Sky\SkyPlugin;
 
 class TagResource extends SkyResource
 {
-    protected static string | BackedEnum | null $navigationIcon = 'heroicon-o-tag';
+    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-tag';
 
     protected static ?int $navigationSort = 5;
 
@@ -51,12 +51,14 @@ class TagResource extends SkyResource
                                 $set('slug', Str::slug($state));
                             }),
                         TextInput::make('slug')
+                            ->label(__('zeus-sky::cms.tags.slug'))
                             ->rules(function ($record) {
                                 return [new UniqueTranslationRule(Tag::class, $record)];
                             })
                             ->required()
                             ->maxLength(255),
                         Select::make('type')
+                            ->label(__('zeus-sky::cms.tags.type'))
                             ->columnSpan(2)
                             ->options(SkyPlugin::get()->getTagTypes()),
                     ]),
@@ -67,13 +69,26 @@ class TagResource extends SkyResource
     {
         return $table
             ->columns([
-                TextColumn::make('name')->toggleable()->searchable()->sortable(),
-                TextColumn::make('type')->toggleable()->searchable()->sortable(),
-                TextColumn::make('slug')->toggleable()->searchable()->sortable(),
+                TextColumn::make('name')
+                    ->label(__('zeus-sky::cms.tags.name'))
+                    ->toggleable()
+                    ->searchable()
+                    ->sortable(),
+                TextColumn::make('type')
+                    ->label(__('zeus-sky::cms.tags.type'))
+                    ->toggleable()
+                    ->searchable()
+                    ->sortable(),
+                TextColumn::make('slug')
+                    ->label(__('zeus-sky::cms.tags.slug'))
+                    ->toggleable()
+                    ->searchable()
+                    ->sortable(),
                 TextColumn::make('items_count')
+                    ->label(__('zeus-sky::cms.tags.items_count'))
                     ->toggleable()
                     ->getStateUsing(
-                        fn (Tag $record): int => method_exists($record, $record->type)
+                        fn(Tag $record): int => method_exists($record, $record->type)
                             ? $record->{$record->type}()->count()
                             : 0
                     ),
