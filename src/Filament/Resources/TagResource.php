@@ -25,7 +25,7 @@ use LaraZeus\Sky\SkyPlugin;
 
 class TagResource extends SkyResource
 {
-    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-tag';
+    protected static string | BackedEnum | null $navigationIcon = 'heroicon-o-tag';
 
     protected static ?int $navigationSort = 5;
 
@@ -88,7 +88,7 @@ class TagResource extends SkyResource
                     ->label(__('zeus-sky::cms.tags.items_count'))
                     ->toggleable()
                     ->getStateUsing(
-                        fn(Tag $record): int => method_exists($record, $record->type)
+                        fn (Tag $record): int => method_exists($record, $record->type)
                             ? $record->{$record->type}()->count()
                             : 0
                     ),
