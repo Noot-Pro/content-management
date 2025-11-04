@@ -1,5 +1,5 @@
 <?php
 
-use LaraZeus\Sky\Tests\TestCase;
+use NootPro\ContentManagement\Tests\TestCase;
 
 uses(TestCase::class)->in(__DIR__);

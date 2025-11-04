@@ -1,10 +1,10 @@
 <?php
 
-namespace LaraZeus\Sky\Filament\Resources\TagResource\Pages;
+namespace NootPro\ContentManagement\Filament\Resources\TagResource\Pages;
 
 use Filament\Actions\LocaleSwitcher;
 use Filament\Resources\Pages\EditRecord;
-use LaraZeus\Sky\Filament\Resources\TagResource;
+use NootPro\ContentManagement\Filament\Resources\TagResource;
 
 class EditTag extends EditRecord
 {

@@ -1,18 +1,18 @@
 <?php
 
-namespace LaraZeus\Sky\Console;
+namespace NootPro\ContentManagement\Console;
 
 use Illuminate\Console\Command;
-use LaraZeus\Sky\SkyPlugin;
+use NootPro\ContentManagement\ContentManagementPlugin;
 
-class migrateCommand extends Command
+class MigrateCommand extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'sky:migrate';
+    protected $signature = 'noot-pro-content-management:migrate';
 
     /**
      * The console command description.
@@ -26,7 +26,7 @@ class migrateCommand extends Command
      */
     public function handle(): void
     {
-        $posts = SkyPlugin::get()->getModel('Post')::get();
+        $posts = ContentManagementPlugin::get()->getModel('Post')::get();
         foreach ($posts as $post) {
             $post->translatable = [];
 

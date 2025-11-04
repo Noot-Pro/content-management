@@ -1,6 +1,6 @@
 <?php
 
-namespace LaraZeus\Sky\Filament\Resources;
+namespace NootPro\ContentManagement\Filament\Resources;
 
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
@@ -21,11 +21,11 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Support\Str;
-use LaraZeus\Sky\Filament\Resources\LibraryResource\Pages;
-use LaraZeus\Sky\Models\Library;
-use LaraZeus\Sky\SkyPlugin;
+use NootPro\ContentManagement\Filament\Resources\LibraryResource\Pages;
+use NootPro\ContentManagement\Models\Library;
+use NootPro\ContentManagement\ContentManagementPlugin;
 
-class LibraryResource extends SkyResource
+class LibraryResource extends BaseResource
 {
     protected static ?string $slug = 'library';
 
@@ -35,7 +35,7 @@ class LibraryResource extends SkyResource
 
     public static function getModel(): string
     {
-        return SkyPlugin::get()->getModel('Library');
+        return ContentManagementPlugin::get()->getModel('Library');
     }
 
     public static function form(Form $form): Form
@@ -75,8 +75,8 @@ class LibraryResource extends SkyResource
 
                         Select::make('type')
                             ->label(__('Library Type'))
-                            ->visible(SkyPlugin::get()->getLibraryTypes() !== null)
-                            ->options(SkyPlugin::get()->getLibraryTypes()),
+                            ->visible(ContentManagementPlugin::get()->getLibraryTypes() !== null)
+                            ->options(ContentManagementPlugin::get()->getLibraryTypes()),
                     ]),
 
                 Section::make(__('Library File'))
@@ -98,8 +98,8 @@ class LibraryResource extends SkyResource
                             ])
                             ->default('upload'),
                         SpatieMediaLibraryFileUpload::make('file_path_upload')
-                            ->disk(SkyPlugin::get()->getUploadDisk())
-                            ->directory(SkyPlugin::get()->getUploadDirectory())
+                            ->disk(ContentManagementPlugin::get()->getUploadDisk())
+                            ->directory(ContentManagementPlugin::get()->getUploadDirectory())
                             ->collection('library')
                             ->multiple()
                             ->reorderable()
@@ -125,7 +125,7 @@ class LibraryResource extends SkyResource
                     ->label(__('Library Type'))
                     ->searchable()
                     ->sortable()
-                    ->visible(SkyPlugin::get()->getLibraryTypes() !== null)
+                    ->visible(ContentManagementPlugin::get()->getLibraryTypes() !== null)
                     ->formatStateUsing(fn (string $state): string => str($state)->title())
                     ->color('')
                     ->color(fn (string $state) => match ($state) {
@@ -151,8 +151,8 @@ class LibraryResource extends SkyResource
             ->filters([
                 SelectFilter::make('type')
                     ->visible()
-                    ->options(SkyPlugin::get()->getLibraryTypes())
-                    ->visible(SkyPlugin::get()->getLibraryTypes() !== null)
+                    ->options(ContentManagementPlugin::get()->getLibraryTypes())
+                    ->visible(ContentManagementPlugin::get()->getLibraryTypes() !== null)
                     ->label(__('type')),
                 SelectFilter::make('tags')
                     ->multiple()
@@ -196,7 +196,7 @@ class LibraryResource extends SkyResource
                 ->icon('heroicon-o-arrow-top-right-on-square')
                 ->label(__('Open'))
                 ->visible(! config('zeus-sky.headless'))
-                ->url(fn (Library $record): string => route(SkyPlugin::get()->getRouteNamePrefix() . 'library.item', ['slug' => $record->slug]))
+                ->url(fn (Library $record): string => route(ContentManagementPlugin::get()->getRouteNamePrefix() . 'library.item', ['slug' => $record->slug]))
                 ->openUrlInNewTab(),
             DeleteAction::make('delete')
                 ->label(__('Delete')),
@@ -208,7 +208,7 @@ class LibraryResource extends SkyResource
         ) {
             // @phpstan-ignore-next-line
             $action[] = \LaraZeus\Helen\Actions\ShortUrlAction::make('get-link')
-                ->distUrl(fn (Library $record): string => route(SkyPlugin::get()->getRouteNamePrefix() . 'library.item', ['slug' => $record->slug]));
+                ->distUrl(fn (Library $record): string => route(ContentManagementPlugin::get()->getRouteNamePrefix() . 'library.item', ['slug' => $record->slug]));
         }
 
         return [ActionGroup::make($action)];

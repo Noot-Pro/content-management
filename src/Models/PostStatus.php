@@ -1,6 +1,6 @@
 <?php
 
-namespace LaraZeus\Sky\Models;
+namespace NootPro\ContentManagement\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

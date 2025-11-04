@@ -1,6 +1,6 @@
 <?php
 
-namespace LaraZeus\Sky;
+namespace NootPro\ContentManagement;
 
 use Closure;
 use Filament\Forms\Components\Select;

@@ -1,6 +1,6 @@
 <?php
 
-namespace LaraZeus\Sky\Filament\Resources\NavigationResource\Pages\Concerns;
+namespace NootPro\ContentManagement\Filament\Resources\NavigationResource\Pages\Concerns;
 
 use Filament\Actions\Action;
 use Filament\Forms\ComponentContainer;
@@ -11,7 +11,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Get;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
-use LaraZeus\Sky\SkyPlugin;
+use NootPro\ContentManagement\ContentManagementPlugin;
 
 trait HandlesNavigationBuilder
 {
@@ -94,7 +94,7 @@ trait HandlesNavigationBuilder
                     Select::make('type')
                         ->label(__('zeus-sky::filament-navigation.items-modal.type'))
                         ->options(function () {
-                            $types = SkyPlugin::get()->getItemTypes();
+                            $types = ContentManagementPlugin::get()->getItemTypes();
 
                             return array_combine(array_keys($types), Arr::pluck($types, 'name'));
                         })
@@ -122,13 +122,13 @@ trait HandlesNavigationBuilder
                                 return [];
                             }
 
-                            return $component->evaluate(SkyPlugin::get()->getItemTypes()[$type]['fields']) ?? [];
+                            return $component->evaluate(ContentManagementPlugin::get()->getItemTypes()[$type]['fields']) ?? [];
                         }),
                     Group::make()
                         ->statePath('data')
-                        ->visible(fn (Component $component) => $component->evaluate(SkyPlugin::get()->getExtraFields()) !== [])
+                        ->visible(fn (Component $component) => $component->evaluate(ContentManagementPlugin::get()->getExtraFields()) !== [])
                         ->schema(function (Component $component) {
-                            return SkyPlugin::get()->getExtraFields();
+                            return ContentManagementPlugin::get()->getExtraFields();
                         }),
                 ])
                 ->modalWidth('md')

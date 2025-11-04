@@ -31,7 +31,7 @@ SkyPlugin::make()
     // but if you want to customize the models per panel, you can do it here 
     ->models([
         // ...
-        'Tag' => \LaraZeus\Sky\Models\Tag::class,
+        'Tag' => \NootPro\ContentManagement\Models\Tag::class,
     ])
 
     // available tags
@@ -56,8 +56,8 @@ SkyPlugin::make()
     ])
 
     // hide/show nav badges
-    ->hideNavigationBadges(resource: LaraZeus\Sky\Resources::CollectionResource)
-    ->showNavigationBadges(resource: LaraZeus\Sky\Resources::CollectionResource)
+    ->hideNavigationBadges(resource: NootPro\ContentManagement\Resources::CollectionResource)
+    ->showNavigationBadges(resource: NootPro\ContentManagement\Resources::CollectionResource)
 
 ```
 
@@ -86,13 +86,13 @@ To hide all navigation badges
 
 This will hide only the CollectionResource navigation badge
 ```
-    ->hideNavigationBadges(resource: LaraZeus\Sky\Resources::CollectionResource)
+    ->hideNavigationBadges(resource: NootPro\ContentManagement\Resources::CollectionResource)
 ```
 
 This will show only the FormResource navigation badge
 ```
     ->hideNavigationBadges()
-    ->showNavigationBadges(resource: LaraZeus\Sky\Resources::CollectionResource)
+    ->showNavigationBadges(resource: NootPro\ContentManagement\Resources::CollectionResource)
 ```
 
 available resources:
@@ -154,15 +154,15 @@ return [
      * ->models([ ... ])
      */
     'models' => [
-        'Faq' => \LaraZeus\Sky\Models\Faq::class,
-        'Post' => \LaraZeus\Sky\Models\Post::class,
-        'PostStatus' => \LaraZeus\Sky\Models\PostStatus::class,
-        'Tag' => \LaraZeus\Sky\Models\Tag::class,
-        'Library' => \LaraZeus\Sky\Models\Library::class,
+        'Faq' => \NootPro\ContentManagement\Models\Faq::class,
+        'Post' => \NootPro\ContentManagement\Models\Post::class,
+        'PostStatus' => \NootPro\ContentManagement\Models\PostStatus::class,
+        'Tag' => \NootPro\ContentManagement\Models\Tag::class,
+        'Library' => \NootPro\ContentManagement\Models\Library::class,
     ],
 
     'parsers' => [
-        \LaraZeus\Sky\Classes\BoltParser::class,
+        \NootPro\ContentManagement\Classes\BoltParser::class,
     ],
 
     'recentPostsLimit' => 5,
@@ -173,6 +173,6 @@ return [
 
     'defaultFeaturedImage' => null,
     
-    'editor' => \LaraZeus\Sky\Editors\RichEditor::class,
+    'editor' => \NootPro\ContentManagement\Editors\RichEditor::class,
 ];
 ```

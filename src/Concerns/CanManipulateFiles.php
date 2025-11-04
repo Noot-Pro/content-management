@@ -1,6 +1,6 @@
 <?php
 
-namespace LaraZeus\Sky\Concerns;
+namespace NootPro\ContentManagement\Concerns;
 
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Str;

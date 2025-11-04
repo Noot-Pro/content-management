@@ -1,6 +1,6 @@
 <?php
 
-namespace LaraZeus\Sky\Classes;
+namespace NootPro\ContentManagement\Classes;
 
 use Illuminate\Support\Facades\Blade;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace LaraZeus\Sky\Models;
+namespace NootPro\ContentManagement\Models;
 
 use Database\Factories\PostFactory;
 use Illuminate\Database\Eloquent\Builder;

@@ -1,9 +1,9 @@
 <?php
 
-namespace LaraZeus\Sky\Console;
+namespace NootPro\ContentManagement\Console;
 
 use Illuminate\Console\Command;
-use LaraZeus\Sky\Concerns\CanManipulateFiles;
+use NootPro\ContentManagement\Concerns\CanManipulateFiles;
 
 class ZeusEditorCommand extends Command
 {
@@ -21,7 +21,7 @@ class ZeusEditorCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Create custom editor for zeus sky';
+    protected $description = 'Create custom editor for content management';
 
     /**
      * Execute the console command.

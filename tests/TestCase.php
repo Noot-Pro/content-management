@@ -1,10 +1,10 @@
 <?php
 
-namespace LaraZeus\Sky\Tests;
+namespace NootPro\ContentManagement\Tests;
 
 use Filament\FilamentServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use LaraZeus\Sky\SkyServiceProvider;
+use NootPro\ContentManagement\ContentManagementServiceProvider;
 use Livewire\LivewireServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 
@@ -15,7 +15,7 @@ class TestCase extends Orchestra
         parent::setUp();
 
         Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'LaraZeus\Sky\\Database\\Factories\\' . class_basename($modelName) . 'Factory'
+            fn (string $modelName) => 'NootPro\ContentManagement\\Database\\Factories\\' . class_basename($modelName) . 'Factory'
         );
     }
 
@@ -24,7 +24,7 @@ class TestCase extends Orchestra
         return [
             LivewireServiceProvider::class,
             FilamentServiceProvider::class,
-            SkyServiceProvider::class,
+            ContentManagementServiceProvider::class,
         ];
     }
 

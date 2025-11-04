@@ -1,6 +1,6 @@
 <?php
 
-namespace LaraZeus\Sky\Livewire;
+namespace NootPro\ContentManagement\Livewire;
 
 use Illuminate\Database\Eloquent\Collection;
 
@@ -13,7 +13,7 @@ trait SearchHelpers
         }
 
         /**
-         * @var \LaraZeus\Sky\Models\Post $item
+         * @var \NootPro\ContentManagement\Models\Post $item
          */
         foreach ($collection as $item) {
             $item->title = $this->parsing($item->title, [$search]);

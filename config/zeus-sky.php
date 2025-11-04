@@ -35,16 +35,16 @@ return [
      * ->models([ ... ])
      */
     'models' => [
-        'Faq' => \LaraZeus\Sky\Models\Faq::class,
-        'Post' => \LaraZeus\Sky\Models\Post::class,
-        'PostStatus' => \LaraZeus\Sky\Models\PostStatus::class,
-        'Tag' => \LaraZeus\Sky\Models\Tag::class,
-        'Library' => \LaraZeus\Sky\Models\Library::class,
-        'Navigation' => \LaraZeus\Sky\Models\Navigation::class,
+        'Faq' => \NootPro\ContentManagement\Models\Faq::class,
+        'Post' => \NootPro\ContentManagement\Models\Post::class,
+        'PostStatus' => \NootPro\ContentManagement\Models\PostStatus::class,
+        'Tag' => \NootPro\ContentManagement\Models\Tag::class,
+        'Library' => \NootPro\ContentManagement\Models\Library::class,
+        'Navigation' => \NootPro\ContentManagement\Models\Navigation::class,
     ],
 
     'parsers' => [
-        \LaraZeus\Sky\Classes\BoltParser::class,
+        \NootPro\ContentManagement\Classes\BoltParser::class,
     ],
 
     'recentPostsLimit' => 5,
@@ -57,10 +57,10 @@ return [
 
     /**
      * the default editor for pages and posts, Available:
-     * \LaraZeus\Sky\Editors\TipTapEditor::class,
-     * \LaraZeus\Sky\Editors\TinyEditor::class,
-     * \LaraZeus\Sky\Editors\MarkdownEditor::class,
-     * \LaraZeus\Sky\Editors\RichEditor::class,
+     * \NootPro\ContentManagement\Editors\TipTapEditor::class,
+     * \NootPro\ContentManagement\Editors\TinyEditor::class,
+     * \NootPro\ContentManagement\Editors\MarkdownEditor::class,
+     * \NootPro\ContentManagement\Editors\RichEditor::class,
      */
-    'editor' => \LaraZeus\Sky\Editors\RichEditor::class,
+    'editor' => \NootPro\ContentManagement\Editors\RichEditor::class,
 ];

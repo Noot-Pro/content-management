@@ -17,12 +17,12 @@ to use them you only need to install the package, and set the `editor` in `zeus-
 ```php
 /**
  * the default editor for pages and posts, Available:
- * \LaraZeus\Sky\Editors\TipTapEditor::class,
- * \LaraZeus\Sky\Editors\TinyEditor::class,
- * \LaraZeus\Sky\Editors\MarkdownEditor::class,
- * \LaraZeus\Sky\Editors\RichEditor::class,
+ * \NootPro\ContentManagement\Editors\TipTapEditor::class,
+ * \NootPro\ContentManagement\Editors\TinyEditor::class,
+ * \NootPro\ContentManagement\Editors\MarkdownEditor::class,
+ * \NootPro\ContentManagement\Editors\RichEditor::class,
  */
-'editor' => \LaraZeus\Sky\Editors\RichEditor::class,
+'editor' => \NootPro\ContentManagement\Editors\RichEditor::class,
 ```
 
 ### Customize the editor
@@ -43,4 +43,4 @@ MarkdownEditor::make('content')
 you can add any editor available in [filament plugin directory](https://filamentphp.com/plugins)
 
 * first install the plugin that you want to use.
-* implement the `\LaraZeus\Sky\Editors\ContentEditor` interface, and set it in the config file `zeus-sky.php` in the `editor` option
+* implement the `\NootPro\ContentManagement\Editors\ContentEditor` interface, and set it in the config file `zeus-sky.php` in the `editor` option

@@ -1,6 +1,6 @@
 <?php
 
-namespace LaraZeus\Sky\Console;
+namespace NootPro\ContentManagement\Console;
 
 use Illuminate\Console\Command;
 
@@ -11,14 +11,14 @@ class InstallCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'sky:install';
+    protected $signature = 'noot-pro-content-management:install';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Install Sky components and resources';
+    protected $description = 'Install components and resources';
 
     /**
      * Execute the console command.

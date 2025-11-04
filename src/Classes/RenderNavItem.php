@@ -1,8 +1,8 @@
 <?php
 
-namespace LaraZeus\Sky\Classes;
+namespace NootPro\ContentManagement\Classes;
 
-use LaraZeus\Sky\SkyPlugin;
+use NootPro\ContentManagement\ContentManagementPlugin;
 
 class RenderNavItem
 {
@@ -11,7 +11,7 @@ class RenderNavItem
         $color = 'border-b border-b-secondary-500 text-secondary-500';
 
         if ($item['type'] === 'page-link' || $item['type'] === 'page_link') {
-            $page = SkyPlugin::get()->getModel('Post')::page()->whereDate('published_at', '<=', now())->find($item['data']['page_id']) ?? '';
+            $page = ContentManagementPlugin::get()->getModel('Post')::page()->whereDate('published_at', '<=', now())->find($item['data']['page_id']) ?? '';
             $activeClass = (request()->routeIs('page', $page)) ? $color : 'border-transparent';
 
             return '<a class="' . $class . ' ' . $activeClass . '"
@@ -21,7 +21,7 @@ class RenderNavItem
                 $item['label'] .
                 '</a>';
         } elseif ($item['type'] === 'post-link' || $item['type'] === 'post_link') {
-            $post = SkyPlugin::get()->getModel('Post')::find($item['data']['post_id']) ?? '';
+            $post = ContentManagementPlugin::get()->getModel('Post')::find($item['data']['post_id']) ?? '';
             $activeClass = (request()->routeIs('post', $post)) ? $color : 'border-transparent';
 
             return '<a class="' . $class . ' ' . $activeClass . '"
@@ -31,7 +31,7 @@ class RenderNavItem
                 $item['label'] .
                 '</a>';
         } elseif ($item['type'] === 'library-link' || $item['type'] === 'library_link') {
-            $tag = SkyPlugin::get()->getModel('Tag')::find($item['data']['library_id']) ?? '';
+            $tag = ContentManagementPlugin::get()->getModel('Tag')::find($item['data']['library_id']) ?? '';
             $activeClass = (str(request()->url())->contains($tag->library->first()->slug)) ? $color : 'border-transparent';
 
             return '<a class="' . $class . ' ' . $activeClass . '"

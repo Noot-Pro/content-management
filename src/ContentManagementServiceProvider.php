@@ -1,20 +1,20 @@
 <?php
 
-namespace LaraZeus\Sky;
+namespace NootPro\ContentManagement;
 
 use Filament\Facades\Filament;
 use Filament\Forms\Components\Select;
 use LaraZeus\Core\CoreServiceProvider;
-use LaraZeus\Sky\Console\InstallCommand;
-use LaraZeus\Sky\Console\migrateCommand;
-use LaraZeus\Sky\Console\PublishCommand;
-use LaraZeus\Sky\Console\ZeusEditorCommand;
+use NootPro\ContentManagement\Console\InstallCommand;
+use NootPro\ContentManagement\Console\MigrateCommand;
+use NootPro\ContentManagement\Console\PublishCommand;
+use NootPro\ContentManagement\Console\ZeusEditorCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-class SkyServiceProvider extends PackageServiceProvider
+class ContentManagementServiceProvider extends PackageServiceProvider
 {
-    public static string $name = 'zeus-sky';
+    public static string $name = 'noot-pro-content-management';
 
     public function packageBooted(): void
     {
@@ -43,7 +43,7 @@ class SkyServiceProvider extends PackageServiceProvider
     protected function getCommands(): array
     {
         return [
-            migrateCommand::class,
+            MigrateCommand::class,
             PublishCommand::class,
             InstallCommand::class,
             ZeusEditorCommand::class,
@@ -73,7 +73,7 @@ class SkyServiceProvider extends PackageServiceProvider
                 return;
             }
 
-            SkyPlugin::get()
+            ContentManagementPlugin::get()
                 ->itemType(
                     __('Post link'),
                     [
@@ -81,7 +81,7 @@ class SkyServiceProvider extends PackageServiceProvider
                             ->label(__('Select Post'))
                             ->searchable()
                             ->options(function () {
-                                return SkyPlugin::get()->getModel('Post')::published()->pluck('title', 'id');
+                                return ContentManagementPlugin::get()->getModel('Post')::published()->pluck('title', 'id');
                             }),
                     ],
                     'post_link'
@@ -93,7 +93,7 @@ class SkyServiceProvider extends PackageServiceProvider
                             ->label(__('Select Page'))
                             ->searchable()
                             ->options(function () {
-                                return SkyPlugin::get()->getModel('Post')::query()
+                                return ContentManagementPlugin::get()->getModel('Post')::query()
                                     ->page()
                                     ->whereDate('published_at', '<=', now())
                                     ->pluck('title', 'id');
@@ -108,7 +108,7 @@ class SkyServiceProvider extends PackageServiceProvider
                             ->label(__('Select Library'))
                             ->searchable()
                             ->options(function () {
-                                return SkyPlugin::get()->getModel('Tag')::getWithType('library')->pluck('name', 'id');
+                                return ContentManagementPlugin::get()->getModel('Tag')::getWithType('library')->pluck('name', 'id');
                             }),
                     ],
                     'library_link'

@@ -1,9 +1,9 @@
 <?php
 
-namespace LaraZeus\Sky\Filament\Fields;
+namespace NootPro\ContentManagement\Filament\Fields;
 
 use Filament\Forms\Components\Select;
-use LaraZeus\Sky\SkyPlugin;
+use NootPro\ContentManagement\ContentManagementPlugin;
 
 class NavigationSelect extends Select
 {
@@ -14,7 +14,7 @@ class NavigationSelect extends Select
         parent::setUp();
 
         $this->options(function (NavigationSelect $component) {
-            return SkyPlugin::get()->getModel('Navigation')::pluck('name', $component->getOptionValueProperty());
+            return ContentManagementPlugin::get()->getModel('Navigation')::pluck('name', $component->getOptionValueProperty());
         });
     }
 

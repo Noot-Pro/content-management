@@ -3,13 +3,13 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use LaraZeus\Sky\SkyPlugin;
+use NootPro\ContentManagement\ContentManagementPlugin;
 
 class LibraryFactory extends Factory
 {
     public function getModel(): string
     {
-        return SkyPlugin::get()->getModel('Library');
+        return ContentManagementPlugin::get()->getModel('Library');
     }
 
     /**
@@ -21,7 +21,7 @@ class LibraryFactory extends Factory
             'slug' => $this->faker->slug(2),
             'title' => $this->faker->word,
             'description' => $this->faker->sentence,
-            'type' => $this->faker->randomElement(array_keys(SkyPlugin::get()->getLibraryTypes())),
+            'type' => $this->faker->randomElement(array_keys(ContentManagementPlugin::get()->getLibraryTypes())),
             'file_path' => 'https://picsum.photos/200/300',
         ];
     }

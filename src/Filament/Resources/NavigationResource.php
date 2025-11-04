@@ -1,6 +1,6 @@
 <?php
 
-namespace LaraZeus\Sky\Filament\Resources;
+namespace NootPro\ContentManagement\Filament\Resources;
 
 use Filament\Forms\Components\Placeholder;
 use Filament\Forms\Components\Section;
@@ -15,10 +15,10 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Support\HtmlString;
 use Illuminate\Support\Str;
-use LaraZeus\Sky\Models\Navigation;
-use LaraZeus\Sky\SkyPlugin;
+use NootPro\ContentManagement\Models\Navigation;
+use NootPro\ContentManagement\ContentManagementPlugin;
 
-class NavigationResource extends SkyResource
+class NavigationResource extends BaseResource
 {
     protected static ?string $navigationIcon = 'heroicon-o-queue-list';
 
@@ -139,6 +139,6 @@ class NavigationResource extends SkyResource
 
     public static function getModel(): string
     {
-        return SkyPlugin::get()->getModel('Navigation');
+        return ContentManagementPlugin::get()->getModel('Navigation');
     }
 }

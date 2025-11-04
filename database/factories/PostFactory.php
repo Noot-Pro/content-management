@@ -3,13 +3,13 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use LaraZeus\Sky\SkyPlugin;
+use NootPro\ContentManagement\ContentManagementPlugin;
 
 class PostFactory extends Factory
 {
     public function getModel(): string
     {
-        return SkyPlugin::get()->getModel('Post');
+        return ContentManagementPlugin::get()->getModel('Post');
     }
 
     /**

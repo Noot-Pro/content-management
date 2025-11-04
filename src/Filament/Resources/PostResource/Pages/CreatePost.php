@@ -1,10 +1,10 @@
 <?php
 
-namespace LaraZeus\Sky\Filament\Resources\PostResource\Pages;
+namespace NootPro\ContentManagement\Filament\Resources\PostResource\Pages;
 
 use Filament\Actions\LocaleSwitcher;
 use Filament\Resources\Pages\CreateRecord;
-use LaraZeus\Sky\Filament\Resources\PostResource;
+use NootPro\ContentManagement\Filament\Resources\PostResource;
 
 class CreatePost extends CreateRecord
 {

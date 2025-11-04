@@ -5,7 +5,7 @@ namespace {{ namespace }};
 use Filament\Forms\Components\Component;
 use {{ plugin }} as {{ class }}Alias;
 use Filament\Forms\Components\Textarea;
-use LaraZeus\Sky\Classes\ContentEditor;
+use NootPro\ContentManagement\Classes\ContentEditor;
 
 class {{ class }} implements ContentEditor
 {

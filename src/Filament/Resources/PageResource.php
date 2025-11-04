@@ -1,6 +1,6 @@
 <?php
 
-namespace LaraZeus\Sky\Filament\Resources;
+namespace NootPro\ContentManagement\Filament\Resources;
 
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\Hidden;
@@ -31,11 +31,11 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Str;
-use LaraZeus\Sky\Filament\Resources\PageResource\Pages;
-use LaraZeus\Sky\Models\Post;
-use LaraZeus\Sky\SkyPlugin;
+use NootPro\ContentManagement\Filament\Resources\PageResource\Pages;
+use NootPro\ContentManagement\Models\Post;
+use NootPro\ContentManagement\ContentManagementPlugin;
 
-class PageResource extends SkyResource
+class PageResource extends BaseResource
 {
     protected static ?string $slug = 'pages';
 
@@ -45,7 +45,7 @@ class PageResource extends SkyResource
 
     public static function getModel(): string
     {
-        return SkyPlugin::get()->getModel('Post');
+        return ContentManagementPlugin::get()->getModel('Post');
     }
 
     /**
@@ -95,7 +95,7 @@ class PageResource extends SkyResource
                         ->label(__('Page Slug')),
 
                     Select::make('parent_id')
-                        ->options(SkyPlugin::get()->getModel('Post')::where('post_type', 'page')->pluck(
+                        ->options(ContentManagementPlugin::get()->getModel('Post')::where('post_type', 'page')->pluck(
                             'title',
                             'id'
                         ))
@@ -112,7 +112,7 @@ class PageResource extends SkyResource
                         ->default('publish')
                         ->required()
                         ->live()
-                        ->options(SkyPlugin::get()->getModel('PostStatus')::pluck('label', 'name')),
+                        ->options(ContentManagementPlugin::get()->getModel('PostStatus')::pluck('label', 'name')),
 
                     TextInput::make('password')
                         ->label(__('Password'))
@@ -141,8 +141,8 @@ class PageResource extends SkyResource
                         ->default('upload'),
                     SpatieMediaLibraryFileUpload::make('featured_image_upload')
                         ->collection('pages')
-                        ->disk(SkyPlugin::get()->getUploadDisk())
-                        ->directory(SkyPlugin::get()->getUploadDirectory())
+                        ->disk(ContentManagementPlugin::get()->getUploadDisk())
+                        ->directory(ContentManagementPlugin::get()->getUploadDirectory())
                         ->visible(fn (Get $get) => $get('featured_image_type') === 'upload')
                         ->label(''),
                     TextInput::make('featured_image')
@@ -185,7 +185,7 @@ class PageResource extends SkyResource
                 SelectFilter::make('status')
                     ->multiple()
                     ->label(__('Status'))
-                    ->options(SkyPlugin::get()->getModel('PostStatus')::pluck('label', 'name')),
+                    ->options(ContentManagementPlugin::get()->getModel('PostStatus')::pluck('label', 'name')),
                 Filter::make('password')
                     ->label(__('Password Protected'))
                     ->query(fn (Builder $query): Builder => $query->whereNotNull('password')),
@@ -218,11 +218,11 @@ class PageResource extends SkyResource
 
     public static function getNavigationBadge(): ?string
     {
-        if (! SkyPlugin::getNavigationBadgesVisibility(static::class)) {
+        if (! ContentManagementPlugin::getNavigationBadgesVisibility(static::class)) {
             return null;
         }
 
-        return (string) SkyPlugin::get()->getModel('Post')::page()->count();
+        return (string) ContentManagementPlugin::get()->getModel('Post')::page()->count();
     }
 
     public static function getActions(): array
@@ -234,7 +234,7 @@ class PageResource extends SkyResource
                 ->icon('heroicon-o-arrow-top-right-on-square')
                 ->label(__('Open'))
                 ->visible(! config('zeus-sky.headless'))
-                ->url(fn (Post $record): string => route(SkyPlugin::get()->getRouteNamePrefix() . 'page', ['slug' => $record]))
+                ->url(fn (Post $record): string => route(ContentManagementPlugin::get()->getRouteNamePrefix() . 'page', ['slug' => $record]))
                 ->openUrlInNewTab(),
             DeleteAction::make('delete'),
             ForceDeleteAction::make(),
@@ -247,7 +247,7 @@ class PageResource extends SkyResource
         ) {
             // @phpstan-ignore-next-line
             $action[] = \LaraZeus\Helen\Actions\ShortUrlAction::make('get-link')
-                ->distUrl(fn (Post $record): string => route(SkyPlugin::get()->getRouteNamePrefix() . 'page', ['slug' => $record]));
+                ->distUrl(fn (Post $record): string => route(ContentManagementPlugin::get()->getRouteNamePrefix() . 'page', ['slug' => $record]));
         }
 
         return [ActionGroup::make($action)];

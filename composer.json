@@ -1,10 +1,9 @@
 {
-    "name": "lara-zeus/sky",
-    "description": "Lara-zeus sky is simple CMS for your website. It includes posts, pages, tags, and categories.",
+    "name": "noot-pro/content-management",
+    "description": "Simple CMS for your website. It includes posts, pages, tags, and categories.",
     "keywords": [
         "laravel",
         "lara-zeus",
-        "sky",
         "cms",
         "pages",
         "posts",
@@ -15,10 +14,10 @@
         "laravel cms",
         "filamentphp"
     ],
-    "homepage": "https://larazeus.com/sky",
+    "homepage": "https://larazeus.com/noot-pro/content-management",
     "support": {
-        "issues": "https://github.com/lara-zeus/sky/issues",
-        "source": "https://github.com/lara-zeus/sky"
+        "issues": "https://github.com/lara-zeus/noot-pro/content-management/issues",
+        "source": "https://github.com/lara-zeus/noot-pro/content-management"
     },
     "license": "MIT",
     "type": "library",
@@ -26,6 +25,10 @@
         {
             "name": "Lara Zeus (Ash)",
             "email": "info@larazeus.com"
+        },
+        {
+            "name": "Ayman Alhattami",
+            "email": "ayman.m.alhattami@gmail.com"
         }
     ],
     "require": {
@@ -54,12 +57,12 @@
     },
     "autoload": {
         "psr-4": {
-            "LaraZeus\\Sky\\": "src"
+            "NootPro\\ContentManagement\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "LaraZeus\\Sky\\Tests\\": "tests"
+            "NootPro\\ContentManagement\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -82,7 +85,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "LaraZeus\\Sky\\SkyServiceProvider"
+                "NootPro\\ContentManagement\\ContentManagementServiceProvider"
             ]
         }
     },

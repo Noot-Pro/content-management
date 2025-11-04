@@ -1,13 +1,13 @@
 <?php
 
-namespace LaraZeus\Sky\Livewire;
+namespace NootPro\ContentManagement\Livewire;
 
 use Illuminate\View\View;
 use Livewire\Component;
 
 class LibraryItem extends Component
 {
-    public \LaraZeus\Sky\Models\Library $item;
+    public \NootPro\ContentManagement\Models\Library $item;
 
     public function mount(string $slug): void
     {

@@ -1,11 +1,11 @@
 <?php
 
-namespace LaraZeus\Sky\Editors;
+namespace NootPro\ContentManagement\Editors;
 
 use Filament\Forms\Components\Component;
 use Filament\Forms\Components\MarkdownEditor as MarkdownEditorAlias;
 use Filament\Forms\Components\Textarea;
-use LaraZeus\Sky\Classes\ContentEditor;
+use NootPro\ContentManagement\Classes\ContentEditor;
 
 class MarkdownEditor implements ContentEditor
 {

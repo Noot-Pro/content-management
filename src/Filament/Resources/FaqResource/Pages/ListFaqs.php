@@ -1,13 +1,13 @@
 <?php
 
-namespace LaraZeus\Sky\Filament\Resources\FaqResource\Pages;
+namespace NootPro\ContentManagement\Filament\Resources\FaqResource\Pages;
 
 use Filament\Actions\Action;
 use Filament\Actions\CreateAction;
 use Filament\Actions\LocaleSwitcher;
 use Filament\Resources\Pages\ListRecords;
-use LaraZeus\Sky\Filament\Resources\FaqResource;
-use LaraZeus\Sky\SkyPlugin;
+use NootPro\ContentManagement\Filament\Resources\FaqResource;
+use NootPro\ContentManagement\ContentManagementPlugin;
 
 class ListFaqs extends ListRecords
 {
@@ -24,7 +24,7 @@ class ListFaqs extends ListRecords
                 ->icon('heroicon-o-arrow-top-right-on-square')
                 ->label(__('Open'))
                 ->visible(! config('zeus-sky.headless'))
-                ->url(fn (): string => route(SkyPlugin::get()->getRouteNamePrefix() . 'faq'))
+                ->url(fn (): string => route(ContentManagementPlugin::get()->getRouteNamePrefix() . 'faq'))
                 ->openUrlInNewTab(),
             LocaleSwitcher::make(),
         ];

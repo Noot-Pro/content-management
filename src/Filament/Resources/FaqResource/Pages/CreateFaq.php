@@ -1,10 +1,10 @@
 <?php
 
-namespace LaraZeus\Sky\Filament\Resources\FaqResource\Pages;
+namespace NootPro\ContentManagement\Filament\Resources\FaqResource\Pages;
 
 use Filament\Actions\LocaleSwitcher;
 use Filament\Resources\Pages\CreateRecord;
-use LaraZeus\Sky\Filament\Resources\FaqResource;
+use NootPro\ContentManagement\Filament\Resources\FaqResource;
 
 class CreateFaq extends CreateRecord
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace LaraZeus\Sky\Livewire;
+namespace NootPro\ContentManagement\Livewire;
 
 use Illuminate\View\View;
 use Livewire\Component;

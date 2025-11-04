@@ -1,6 +1,6 @@
 <?php
 
-namespace LaraZeus\Sky\Filament\Resources;
+namespace NootPro\ContentManagement\Filament\Resources;
 
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Section;
@@ -14,10 +14,10 @@ use Filament\Tables\Columns\SpatieTagsColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
-use LaraZeus\Sky\Filament\Resources\FaqResource\Pages;
-use LaraZeus\Sky\SkyPlugin;
+use NootPro\ContentManagement\Filament\Resources\FaqResource\Pages;
+use NootPro\ContentManagement\ContentManagementPlugin;
 
-class FaqResource extends SkyResource
+class FaqResource extends BaseResource
 {
     protected static ?string $navigationIcon = 'heroicon-o-folder-open';
 
@@ -25,7 +25,7 @@ class FaqResource extends SkyResource
 
     public static function getModel(): string
     {
-        return SkyPlugin::get()->getModel('Faq');
+        return ContentManagementPlugin::get()->getModel('Faq');
     }
 
     public static function getLabel(): string
@@ -103,7 +103,7 @@ class FaqResource extends SkyResource
         ) {
             // @phpstan-ignore-next-line
             $action[] = \LaraZeus\Helen\Actions\ShortUrlAction::make('get-link')
-                ->distUrl(fn (): string => route(SkyPlugin::get()->getRouteNamePrefix() . 'faq'));
+                ->distUrl(fn (): string => route(ContentManagementPlugin::get()->getRouteNamePrefix() . 'faq'));
         }
 
         return [ActionGroup::make($action)];

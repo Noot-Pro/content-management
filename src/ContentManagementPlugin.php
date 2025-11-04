@@ -1,6 +1,6 @@
 <?php
 
-namespace LaraZeus\Sky;
+namespace NootPro\ContentManagement;
 
 use Closure;
 use Filament\Contracts\Plugin;
@@ -12,14 +12,14 @@ use LaraZeus\FilamentPluginTools\Concerns\HasModels;
 use LaraZeus\FilamentPluginTools\Concerns\HasNavigationGroupLabel;
 use LaraZeus\FilamentPluginTools\Concerns\HasRouteNamePrefix;
 use LaraZeus\FilamentPluginTools\Concerns\HasUploads;
-use LaraZeus\Sky\Filament\Resources\FaqResource;
-use LaraZeus\Sky\Filament\Resources\LibraryResource;
-use LaraZeus\Sky\Filament\Resources\NavigationResource;
-use LaraZeus\Sky\Filament\Resources\PageResource;
-use LaraZeus\Sky\Filament\Resources\PostResource;
-use LaraZeus\Sky\Filament\Resources\TagResource;
+use NootPro\ContentManagement\Filament\Resources\FaqResource;
+use NootPro\ContentManagement\Filament\Resources\LibraryResource;
+use NootPro\ContentManagement\Filament\Resources\NavigationResource;
+use NootPro\ContentManagement\Filament\Resources\PageResource;
+use NootPro\ContentManagement\Filament\Resources\PostResource;
+use NootPro\ContentManagement\Filament\Resources\TagResource;
 
-final class SkyPlugin implements Plugin
+final class ContentManagementPlugin implements Plugin
 {
     use CanDisableBadges;
     use CanHideResources;
@@ -34,7 +34,7 @@ final class SkyPlugin implements Plugin
 
     public function getId(): string
     {
-        return 'zeus-sky';
+        return 'noot-pro-content-management';
     }
 
     public function register(Panel $panel): void

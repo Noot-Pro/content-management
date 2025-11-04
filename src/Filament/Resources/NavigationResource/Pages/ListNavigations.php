@@ -1,10 +1,10 @@
 <?php
 
-namespace LaraZeus\Sky\Filament\Resources\NavigationResource\Pages;
+namespace NootPro\ContentManagement\Filament\Resources\NavigationResource\Pages;
 
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
-use LaraZeus\Sky\Filament\Resources\NavigationResource;
+use NootPro\ContentManagement\Filament\Resources\NavigationResource;
 
 class ListNavigations extends ListRecords
 {

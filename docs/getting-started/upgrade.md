@@ -13,7 +13,7 @@ if you published the config file, add the `Navigation` key to the `models` array
 ```php
 'models' => [
         //...
-        'Navigation' => \LaraZeus\Sky\Models\Navigation::class,
+        'Navigation' => \NootPro\ContentManagement\Models\Navigation::class,
     ],
 ```
 

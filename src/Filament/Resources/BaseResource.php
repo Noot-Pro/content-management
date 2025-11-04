@@ -1,28 +1,28 @@
 <?php
 
-namespace LaraZeus\Sky\Filament\Resources;
+namespace NootPro\ContentManagement\Filament\Resources;
 
 use Filament\Resources\Concerns\Translatable;
 use Filament\Resources\Resource;
-use LaraZeus\Sky\SkyPlugin;
+use NootPro\ContentManagement\ContentManagementPlugin;
 
-class SkyResource extends Resource
+class BaseResource extends Resource
 {
     use Translatable;
 
     public static function getNavigationGroup(): ?string
     {
-        return SkyPlugin::get()->getNavigationGroupLabel();
+        return ContentManagementPlugin::get()->getNavigationGroupLabel();
     }
 
     public static function shouldRegisterNavigation(): bool
     {
-        return SkyPlugin::get()->isResourceVisible(static::class);
+        return ContentManagementPlugin::get()->isResourceVisible(static::class);
     }
 
     public static function getNavigationBadge(): ?string
     {
-        if (! SkyPlugin::getNavigationBadgesVisibility(static::class)) {
+        if (! ContentManagementPlugin::getNavigationBadgesVisibility(static::class)) {
             return null;
         }
 

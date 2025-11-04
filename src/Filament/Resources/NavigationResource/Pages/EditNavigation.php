@@ -1,10 +1,10 @@
 <?php
 
-namespace LaraZeus\Sky\Filament\Resources\NavigationResource\Pages;
+namespace NootPro\ContentManagement\Filament\Resources\NavigationResource\Pages;
 
 use Filament\Resources\Pages\EditRecord;
-use LaraZeus\Sky\Filament\Resources\NavigationResource;
-use LaraZeus\Sky\Filament\Resources\NavigationResource\Pages\Concerns\HandlesNavigationBuilder;
+use NootPro\ContentManagement\Filament\Resources\NavigationResource;
+use NootPro\ContentManagement\Filament\Resources\NavigationResource\Pages\Concerns\HandlesNavigationBuilder;
 
 class EditNavigation extends EditRecord
 {

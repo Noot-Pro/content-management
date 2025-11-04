@@ -1,6 +1,6 @@
 <?php
 
-namespace LaraZeus\Sky\Filament\Resources;
+namespace NootPro\ContentManagement\Filament\Resources;
 
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\Hidden;
@@ -33,12 +33,12 @@ use Filament\Tables\Filters\TrashedFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Str;
-use LaraZeus\Sky\Filament\Resources\PostResource\Pages;
-use LaraZeus\Sky\Models\Post;
-use LaraZeus\Sky\SkyPlugin;
+use NootPro\ContentManagement\Filament\Resources\PostResource\Pages;
+use NootPro\ContentManagement\Models\Post;
+use NootPro\ContentManagement\ContentManagementPlugin;
 
 // @mixin Builder<PostScope>
-class PostResource extends SkyResource
+class PostResource extends BaseResource
 {
     protected static ?string $navigationIcon = 'heroicon-o-document-text';
 
@@ -46,7 +46,7 @@ class PostResource extends SkyResource
 
     public static function getModel(): string
     {
-        return SkyPlugin::get()->getModel('Post');
+        return ContentManagementPlugin::get()->getModel('Post');
     }
 
     public static function form(Form $form): Form
@@ -117,7 +117,7 @@ class PostResource extends SkyResource
                                     ->default('publish')
                                     ->required()
                                     ->live()
-                                    ->options(SkyPlugin::get()->getModel('PostStatus')::pluck('label', 'name')),
+                                    ->options(ContentManagementPlugin::get()->getModel('PostStatus')::pluck('label', 'name')),
 
                                 TextInput::make('password')
                                     ->label(__('Password'))
@@ -154,8 +154,8 @@ class PostResource extends SkyResource
                                     ->default('upload'),
                                 SpatieMediaLibraryFileUpload::make('featured_image_upload')
                                     ->collection('posts')
-                                    ->disk(SkyPlugin::get()->getUploadDisk())
-                                    ->directory(SkyPlugin::get()->getUploadDirectory())
+                                    ->disk(ContentManagementPlugin::get()->getUploadDisk())
+                                    ->directory(ContentManagementPlugin::get()->getUploadDirectory())
                                     ->visible(fn (Get $get) => $get('featured_image_type') === 'upload')
                                     ->label(''),
 
@@ -210,7 +210,7 @@ class PostResource extends SkyResource
                 SelectFilter::make('status')
                     ->multiple()
                     ->label(__('Status'))
-                    ->options(SkyPlugin::get()->getModel('PostStatus')::pluck('label', 'name')),
+                    ->options(ContentManagementPlugin::get()->getModel('PostStatus')::pluck('label', 'name')),
 
                 Filter::make('password')
                     ->label(__('Password Protected'))
@@ -270,11 +270,11 @@ class PostResource extends SkyResource
 
     public static function getNavigationBadge(): ?string
     {
-        if (! SkyPlugin::getNavigationBadgesVisibility(static::class)) {
+        if (! ContentManagementPlugin::getNavigationBadgesVisibility(static::class)) {
             return null;
         }
 
-        return (string) SkyPlugin::get()->getModel('Post')::posts()->count();
+        return (string) ContentManagementPlugin::get()->getModel('Post')::posts()->count();
     }
 
     public static function getActions(): array
@@ -287,7 +287,7 @@ class PostResource extends SkyResource
                 ->label(__('Open'))
                 ->visible(! config('zeus-sky.headless'))
                 ->url(fn (Post $record): string => route(
-                    SkyPlugin::get()->getRouteNamePrefix() . 'post',
+                    ContentManagementPlugin::get()->getRouteNamePrefix() . 'post',
                     ['slug' => $record]
                 ))
                 ->openUrlInNewTab(),
@@ -303,7 +303,7 @@ class PostResource extends SkyResource
             // @phpstan-ignore-next-line
             $action[] = \LaraZeus\Helen\Actions\ShortUrlAction::make('get-link')
                 ->distUrl(fn (Post $record): string => route(
-                    SkyPlugin::get()->getRouteNamePrefix() . 'post',
+                    ContentManagementPlugin::get()->getRouteNamePrefix() . 'post',
                     ['slug' => $record]
                 ));
         }

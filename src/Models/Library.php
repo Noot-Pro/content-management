@@ -1,6 +1,6 @@
 <?php
 
-namespace LaraZeus\Sky\Models;
+namespace NootPro\ContentManagement\Models;
 
 use Database\Factories\LibraryFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;

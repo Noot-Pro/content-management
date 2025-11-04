@@ -1,14 +1,14 @@
 <?php
 
-namespace LaraZeus\Sky\Filament\Resources\PageResource\Pages;
+namespace NootPro\ContentManagement\Filament\Resources\PageResource\Pages;
 
 use Filament\Actions\CreateAction;
 use Filament\Actions\LocaleSwitcher;
 use Filament\Resources\Pages\ListRecords;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use LaraZeus\Sky\Filament\Resources\PageResource;
-use LaraZeus\Sky\SkyPlugin;
+use NootPro\ContentManagement\Filament\Resources\PageResource;
+use NootPro\ContentManagement\ContentManagementPlugin;
 
 class ListPage extends ListRecords
 {
@@ -26,7 +26,7 @@ class ListPage extends ListRecords
 
     protected function getTableQuery(): Builder
     {
-        return SkyPlugin::get()->getModel('Post')::query()
+        return ContentManagementPlugin::get()->getModel('Post')::query()
             ->where('post_type', 'page')
             ->withoutGlobalScopes([
                 SoftDeletingScope::class,

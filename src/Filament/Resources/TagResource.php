@@ -1,6 +1,6 @@
 <?php
 
-namespace LaraZeus\Sky\Filament\Resources;
+namespace NootPro\ContentManagement\Filament\Resources;
 
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
@@ -15,12 +15,12 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Support\Str;
-use LaraZeus\Sky\Filament\Resources\TagResource\Pages;
-use LaraZeus\Sky\Models\Tag;
-use LaraZeus\Sky\Rules\UniqueTranslationRule;
-use LaraZeus\Sky\SkyPlugin;
+use NootPro\ContentManagement\Filament\Resources\TagResource\Pages;
+use NootPro\ContentManagement\Models\Tag;
+use NootPro\ContentManagement\Rules\UniqueTranslationRule;
+use NootPro\ContentManagement\ContentManagementPlugin;
 
-class TagResource extends SkyResource
+class TagResource extends BaseResource
 {
     protected static ?string $navigationIcon = 'heroicon-o-tag';
 
@@ -28,7 +28,7 @@ class TagResource extends SkyResource
 
     public static function getModel(): string
     {
-        return SkyPlugin::get()->getModel('Tag');
+        return ContentManagementPlugin::get()->getModel('Tag');
     }
 
     public static function form(Form $form): Form
@@ -54,7 +54,7 @@ class TagResource extends SkyResource
                             ->maxLength(255),
                         Select::make('type')
                             ->columnSpan(2)
-                            ->options(SkyPlugin::get()->getTagTypes()),
+                            ->options(ContentManagementPlugin::get()->getTagTypes()),
                     ]),
             ]);
     }
@@ -76,7 +76,7 @@ class TagResource extends SkyResource
             ])
             ->filters([
                 SelectFilter::make('type')
-                    ->options(SkyPlugin::get()->getTagTypes())
+                    ->options(ContentManagementPlugin::get()->getTagTypes())
                     ->label(__('type')),
             ])
             ->actions([

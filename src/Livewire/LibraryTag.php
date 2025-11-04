@@ -1,9 +1,9 @@
 <?php
 
-namespace LaraZeus\Sky\Livewire;
+namespace NootPro\ContentManagement\Livewire;
 
 use Illuminate\View\View;
-use LaraZeus\Sky\Models\Tag;
+use NootPro\ContentManagement\Models\Tag;
 use Livewire\Component;
 
 class LibraryTag extends Component

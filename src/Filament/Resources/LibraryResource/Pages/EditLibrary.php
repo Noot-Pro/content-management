@@ -1,10 +1,10 @@
 <?php
 
-namespace LaraZeus\Sky\Filament\Resources\LibraryResource\Pages;
+namespace NootPro\ContentManagement\Filament\Resources\LibraryResource\Pages;
 
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
-use LaraZeus\Sky\Filament\Resources\LibraryResource;
+use NootPro\ContentManagement\Filament\Resources\LibraryResource;
 
 class EditLibrary extends EditRecord
 {

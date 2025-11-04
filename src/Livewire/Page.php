@@ -1,13 +1,13 @@
 <?php
 
-namespace LaraZeus\Sky\Livewire;
+namespace NootPro\ContentManagement\Livewire;
 
 use Illuminate\View\View;
 use Livewire\Component;
 
 class Page extends Component
 {
-    public \LaraZeus\Sky\Models\Post $page;
+    public \NootPro\ContentManagement\Models\Post $page;
 
     public function mount(string $slug): void
     {

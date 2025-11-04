@@ -1,6 +1,6 @@
 <?php
 
-namespace LaraZeus\Sky\Rules;
+namespace NootPro\ContentManagement\Rules;
 
 use Closure;
 use Illuminate\Contracts\Validation\DataAwareRule;

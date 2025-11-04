@@ -1,6 +1,6 @@
 <?php
 
-namespace LaraZeus\Sky\Classes;
+namespace NootPro\ContentManagement\Classes;
 
 use Filament\Forms\Components\Component;
 

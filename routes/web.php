@@ -1,14 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use LaraZeus\Sky\Livewire\Faq;
-use LaraZeus\Sky\Livewire\Library;
-use LaraZeus\Sky\Livewire\LibraryItem;
-use LaraZeus\Sky\Livewire\LibraryTag;
-use LaraZeus\Sky\Livewire\Page;
-use LaraZeus\Sky\Livewire\Post;
-use LaraZeus\Sky\Livewire\Posts;
-use LaraZeus\Sky\Livewire\Tags;
+use NootPro\ContentManagement\Livewire\Faq;
+use NootPro\ContentManagement\Livewire\Library;
+use NootPro\ContentManagement\Livewire\LibraryItem;
+use NootPro\ContentManagement\Livewire\LibraryTag;
+use NootPro\ContentManagement\Livewire\Page;
+use NootPro\ContentManagement\Livewire\Post;
+use NootPro\ContentManagement\Livewire\Posts;
+use NootPro\ContentManagement\Livewire\Tags;
 
 Route::domain(config('zeus-sky.domain'))
     ->middleware(config('zeus-sky.middleware'))
@@ -31,7 +31,7 @@ Route::domain(config('zeus-sky.domain'))
 
         /*Route::post('passwordConfirmation/{slug}', function ($slug) {
             // convert to LW todo
-            $post = SkyPlugin::get()->getModel('Post')::query()
+            $post = ContentManagementPlugin::get()->getModel('Post')::query()
                 ->where('slug', $slug)
                 ->where('password', request('password'))
                 ->first();

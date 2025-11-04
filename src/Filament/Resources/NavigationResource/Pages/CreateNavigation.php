@@ -1,9 +1,9 @@
 <?php
 
-namespace LaraZeus\Sky\Filament\Resources\NavigationResource\Pages;
+namespace NootPro\ContentManagement\Filament\Resources\NavigationResource\Pages;
 
 use Filament\Resources\Pages\CreateRecord;
-use LaraZeus\Sky\Filament\Resources\NavigationResource;
+use NootPro\ContentManagement\Filament\Resources\NavigationResource;
 
 class CreateNavigation extends CreateRecord
 {

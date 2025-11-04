@@ -16,7 +16,7 @@ php artisan make:model Post
 edit the new file to extend zeus post model:
 
 ```php
-extend \LaraZeus\Sky\Models\Post
+extend \NootPro\ContentManagement\Models\Post
 ```
 
 and set it in the config.
