@@ -18,29 +18,29 @@ class Tag extends \Spatie\Tags\Tag
 {
     public function library(): MorphToMany
     {
-        return $this->morphedByMany(config('zeus-sky.models.Library'), 'taggable');
+        return $this->morphedByMany(config('noot-pro-content-management.models.Library'), 'taggable');
     }
 
     public function category(): MorphToMany
     {
-        return $this->morphedByMany(config('zeus-sky.models.Post'), 'taggable');
+        return $this->morphedByMany(config('noot-pro-content-management.models.Post'), 'taggable');
     }
 
     public function faq(): MorphToMany
     {
-        return $this->morphedByMany(config('zeus-sky.models.Faq'), 'taggable');
+        return $this->morphedByMany(config('noot-pro-content-management.models.Faq'), 'taggable');
     }
 
     public function tag(): MorphToMany
     {
-        return $this->morphedByMany(config('zeus-sky.models.Post'), 'taggable');
+        return $this->morphedByMany(config('noot-pro-content-management.models.Post'), 'taggable');
     }
 
     /** @return MorphToMany<Post> */
     public function postsPublished(): MorphToMany
     {
         // @phpstan-ignore-next-line
-        return $this->morphedByMany(config('zeus-sky.models.Post'), 'taggable')->published();
+        return $this->morphedByMany(config('noot-pro-content-management.models.Post'), 'taggable')->published();
     }
 
     protected function generateSlug(string $locale): string

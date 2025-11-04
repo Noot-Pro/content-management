@@ -12,7 +12,7 @@ class LibraryTag extends Component
 
     public function mount(string $slug): void
     {
-        $this->tag = config('zeus-sky.models.Tag')::findBySlug($slug, 'library');
+        $this->tag = config('noot-pro-content-management.models.Tag')::findBySlug($slug, 'library');
 
         abort_if($this->tag === null, 404);
     }

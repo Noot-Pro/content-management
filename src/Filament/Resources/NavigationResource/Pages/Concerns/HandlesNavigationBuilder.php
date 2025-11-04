@@ -89,10 +89,10 @@ trait HandlesNavigationBuilder
                 ->view('zeus::filament.hidden-action')
                 ->form([
                     TextInput::make('label')
-                        ->label(__('zeus-sky::filament-navigation.items-modal.label'))
+                        ->label(__('noot-pro-content-management::filament-navigation.items-modal.label'))
                         ->required(),
                     Select::make('type')
-                        ->label(__('zeus-sky::filament-navigation.items-modal.type'))
+                        ->label(__('noot-pro-content-management::filament-navigation.items-modal.type'))
                         ->options(function () {
                             $types = ContentManagementPlugin::get()->getItemTypes();
 
@@ -158,8 +158,8 @@ trait HandlesNavigationBuilder
 
                     $this->mountedActionData = [];
                 })
-                ->modalSubmitActionLabel(__('zeus-sky::filament-navigation.items-modal.btn'))
-                ->label(__('zeus-sky::filament-navigation.items-modal.title')),
+                ->modalSubmitActionLabel(__('noot-pro-content-management::filament-navigation.items-modal.btn'))
+                ->label(__('noot-pro-content-management::filament-navigation.items-modal.title')),
         ];
     }
 }

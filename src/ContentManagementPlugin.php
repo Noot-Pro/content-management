@@ -30,7 +30,7 @@ final class ContentManagementPlugin implements Plugin
     use HasRouteNamePrefix;
     use HasUploads;
 
-    protected Closure | string $navigationGroupLabel = 'Sky';
+    protected Closure | string $navigationGroupLabel = 'Content Management';
 
     public function getId(): string
     {
@@ -72,7 +72,7 @@ final class ContentManagementPlugin implements Plugin
     public static function get(): static
     {
         // @phpstan-ignore-next-line
-        return filament('zeus-sky');
+        return filament('noot-pro-content-management');
     }
 
     public function boot(Panel $panel): void

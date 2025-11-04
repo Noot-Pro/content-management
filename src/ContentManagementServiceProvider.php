@@ -32,7 +32,7 @@ class ContentManagementServiceProvider extends PackageServiceProvider
             ->hasCommands($this->getCommands())
             ->hasViews('zeus');
 
-        if (! config('zeus-sky.headless')) {
+        if (! config('noot-pro-content-management.headless')) {
             $package->hasRoute('web');
         }
     }
@@ -68,7 +68,7 @@ class ContentManagementServiceProvider extends PackageServiceProvider
     {
         Filament::serving(function () {
             if (! defined('__PHPSTAN_RUNNING__') &&
-                ! app('filament')->hasPlugin('zeus-sky')
+                ! app('filament')->hasPlugin('noot-pro-content-management')
             ) {
                 return;
             }

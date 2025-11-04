@@ -23,7 +23,7 @@ class ListLibrary extends ListRecords
                 ->color('warning')
                 ->icon('heroicon-o-arrow-top-right-on-square')
                 ->label(__('Open'))
-                ->visible(! config('zeus-sky.headless'))
+                ->visible(! config('noot-pro-content-management.headless'))
                 ->url(fn (): string => route(ContentManagementPlugin::get()->getRouteNamePrefix() . 'library'))
                 ->openUrlInNewTab(),
             LocaleSwitcher::make(),

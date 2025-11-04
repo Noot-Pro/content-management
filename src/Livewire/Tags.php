@@ -18,7 +18,7 @@ class Tags extends Component
     {
         $this->type = $type;
         $this->slug = $slug;
-        $this->tag = config('zeus-sky.models.Tag')::findBySlug($slug, $type);
+        $this->tag = config('noot-pro-content-management.models.Tag')::findBySlug($slug, $type);
 
         abort_if($this->tag === null, 404);
     }

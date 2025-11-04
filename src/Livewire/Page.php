@@ -11,7 +11,7 @@ class Page extends Component
 
     public function mount(string $slug): void
     {
-        $this->page = config('zeus-sky.models.Post')::query()
+        $this->page = config('noot-pro-content-management.models.Post')::query()
             ->page()
             ->where('slug', $slug)
             ->whereDate('published_at', '<=', now())
@@ -36,7 +36,7 @@ class Page extends Component
         return view(app('skyTheme') . '.page')
             ->with([
                 'post' => $this->page,
-                'children' => config('zeus-sky.models.Post')::with('parent')->where('parent_id', $this->page->id)->get(),
+                'children' => config('noot-pro-content-management.models.Post')::with('parent')->where('parent_id', $this->page->id)->get(),
             ])
             ->layout(config('zeus.layout'));
     }

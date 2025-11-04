@@ -10,18 +10,18 @@ use NootPro\ContentManagement\Livewire\Post;
 use NootPro\ContentManagement\Livewire\Posts;
 use NootPro\ContentManagement\Livewire\Tags;
 
-Route::domain(config('zeus-sky.domain'))
-    ->middleware(config('zeus-sky.middleware'))
-    ->prefix(config('zeus-sky.prefix'))
+Route::domain(config('noot-pro-content-management.domain'))
+    ->middleware(config('noot-pro-content-management.middleware'))
+    ->prefix(config('noot-pro-content-management.prefix'))
     ->group(function () {
 
-        if (in_array('faq', config('zeus-sky.uri'))) {
-            Route::get(config('zeus-sky.uri.faq'), Faq::class)
+        if (in_array('faq', config('noot-pro-content-management.uri'))) {
+            Route::get(config('noot-pro-content-management.uri.faq'), Faq::class)
                 ->name('faq');
         }
 
-        if (in_array('library', config('zeus-sky.uri'))) {
-            Route::prefix(config('zeus-sky.uri.library'))
+        if (in_array('library', config('noot-pro-content-management.uri'))) {
+            Route::prefix(config('noot-pro-content-management.uri.library'))
                 ->group(function () {
                     Route::get('/', Library::class)->name('library');
                     Route::get('/tag/{slug}', LibraryTag::class)->name('library.tag');
@@ -47,7 +47,7 @@ Route::domain(config('zeus-sky.domain'))
             ->name('passwordConfirmation');*/
 
         Route::get('/', Posts::class)->name('blogs');
-        Route::get(config('zeus-sky.uri.post') . '/{slug}', Post::class)->name('post');
-        Route::get(config('zeus-sky.uri.page') . '/{slug}', Page::class)->name('page');
+        Route::get(config('noot-pro-content-management.uri.post') . '/{slug}', Post::class)->name('post');
+        Route::get(config('noot-pro-content-management.uri.page') . '/{slug}', Page::class)->name('page');
         Route::get('{type}/{slug}', Tags::class)->name('tags');
     });

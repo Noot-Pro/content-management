@@ -99,7 +99,7 @@ class FaqResource extends BaseResource
 
         if (
             class_exists(\LaraZeus\Helen\HelenServiceProvider::class)
-            && ! config('zeus-sky.headless')
+            && ! config('noot-pro-content-management.headless')
         ) {
             // @phpstan-ignore-next-line
             $action[] = \LaraZeus\Helen\Actions\ShortUrlAction::make('get-link')

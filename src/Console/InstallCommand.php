@@ -27,11 +27,11 @@ class InstallCommand extends Command
     {
         $this->info('publishing configuration...');
 
-        $this->call('vendor:publish', ['--tag' => 'zeus-sky-config']);
+        $this->call('vendor:publish', ['--tag' => 'noot-pro-content-management-config']);
 
         $this->info('publishing migrations...');
 
-        $this->call('vendor:publish', ['--tag' => 'zeus-sky-migrations']);
+        $this->call('vendor:publish', ['--tag' => 'noot-pro-content-management-migrations']);
 
         $this->call('vendor:publish', [
             '--provider' => 'Spatie\Tags\TagsServiceProvider',
@@ -52,6 +52,6 @@ class InstallCommand extends Command
             $this->call('migrate');
         }
 
-        $this->output->success('Zeus Sky has been Installed successfully, consider ⭐️ the package in filament site :)');
+        $this->output->success('Content management has been Installed successfully, consider ⭐️ the package in filament site :)');
     }
 }

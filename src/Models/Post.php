@@ -82,7 +82,7 @@ class Post extends Model implements HasMedia
 
     public function statusDesc(): string
     {
-        $PostStatus = config('zeus-sky.models.PostStatus')::where('name', $this->status)->first();
+        $PostStatus = config('noot-pro-content-management.models.PostStatus')::where('name', $this->status)->first();
         $icon = Blade::render('@svg("' . $PostStatus->icon . '","w-4 h-4 inline-flex")');
 
         return "<span title='" . __('post status') . "' class='$PostStatus->class'> " . $icon . " {$PostStatus->label}</span>";
@@ -105,7 +105,7 @@ class Post extends Model implements HasMedia
         if (! $this->getMedia($collection)->isEmpty()) {
             return $this->getFirstMediaUrl($collection);
         } else {
-            return $this->featured_image ?? config('zeus-sky.defaultFeaturedImage');
+            return $this->featured_image ?? config('noot-pro-content-management.defaultFeaturedImage');
         }
     }
 
@@ -121,12 +121,12 @@ class Post extends Model implements HasMedia
 
     public function getContent(): string
     {
-        return $this->parseContent(config('zeus-sky.editor')::render($this->content));
+        return $this->parseContent(config('noot-pro-content-management.editor')::render($this->content));
     }
 
     public function parseContent(string $content): string
     {
-        $parsers = config('zeus-sky.parsers');
+        $parsers = config('noot-pro-content-management.parsers');
 
         if (filled($parsers)) {
             foreach ($parsers as $parser) {

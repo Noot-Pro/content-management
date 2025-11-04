@@ -11,7 +11,7 @@ class Post extends Component
 
     public function mount(string $slug): void
     {
-        $this->post = config('zeus-sky.models.Post')::where('slug', $slug)->firstOrFail();
+        $this->post = config('noot-pro-content-management.models.Post')::where('slug', $slug)->firstOrFail();
     }
 
     public function render(): View
@@ -30,7 +30,7 @@ class Post extends Component
 
         return view(app('skyTheme') . '.post')
             ->with('post', $this->post)
-            ->with('related', config('zeus-sky.models.Post')::related($this->post)->take(4)->get())
+            ->with('related', config('noot-pro-content-management.models.Post')::related($this->post)->take(4)->get())
             ->layout(config('zeus.layout'));
     }
 

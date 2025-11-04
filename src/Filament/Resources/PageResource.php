@@ -72,7 +72,7 @@ class PageResource extends BaseResource
                         ->afterStateUpdated(function (Set $set, $state) {
                             $set('slug', Str::slug($state));
                         }),
-                    config('zeus-sky.editor')::component(),
+                    config('noot-pro-content-management.editor')::component(),
                 ]),
                 Tabs\Tab::make(__('SEO'))->schema([
                     Hidden::make('user_id')
@@ -233,7 +233,7 @@ class PageResource extends BaseResource
                 ->color('warning')
                 ->icon('heroicon-o-arrow-top-right-on-square')
                 ->label(__('Open'))
-                ->visible(! config('zeus-sky.headless'))
+                ->visible(! config('noot-pro-content-management.headless'))
                 ->url(fn (Post $record): string => route(ContentManagementPlugin::get()->getRouteNamePrefix() . 'page', ['slug' => $record]))
                 ->openUrlInNewTab(),
             DeleteAction::make('delete'),
@@ -243,7 +243,7 @@ class PageResource extends BaseResource
 
         if (
             class_exists(\LaraZeus\Helen\HelenServiceProvider::class)
-            && ! config('zeus-sky.headless')
+            && ! config('noot-pro-content-management.headless')
         ) {
             // @phpstan-ignore-next-line
             $action[] = \LaraZeus\Helen\Actions\ShortUrlAction::make('get-link')

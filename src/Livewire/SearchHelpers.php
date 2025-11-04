@@ -33,7 +33,7 @@ trait SearchHelpers
     {
         // Skip highlighting of search terms when specific tags e.g.
         // <iframe> exists in the content so no html breaks:
-        foreach (config('zeus-sky.skipHighlightingTerms') as $skipper) {
+        foreach (config('noot-pro-content-management.skipHighlightingTerms') as $skipper) {
             if (str_contains($content, $skipper)) {
                 return $content;
             }
@@ -44,7 +44,7 @@ trait SearchHelpers
 
         foreach ($replace as $k => $fword) {
             $pattern[] = '/\b(' . $fword . ')(?!>)\b/i';
-            $replace[$k] = sprintf('<span class="%s">$1</span>', config('zeus-sky.searchResultHighlightCssClass'));
+            $replace[$k] = sprintf('<span class="%s">$1</span>', config('noot-pro-content-management.searchResultHighlightCssClass'));
         }
 
         return preg_replace($pattern, $replace, $content);

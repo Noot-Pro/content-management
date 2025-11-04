@@ -14,7 +14,7 @@ class Posts extends Component
         $search = request('search');
         $category = request('category');
 
-        $posts = config('zeus-sky.models.Post')::NotSticky()
+        $posts = config('noot-pro-content-management.models.Post')::NotSticky()
             ->search($search)
             ->with(['tags', 'author', 'media'])
             ->forCategory($category)
@@ -22,7 +22,7 @@ class Posts extends Component
             ->orderBy('published_at', 'desc')
             ->get();
 
-        $pages = config('zeus-sky.models.Post')::query()
+        $pages = config('noot-pro-content-management.models.Post')::query()
             ->page()
             ->whereDate('published_at', '<=', now())
             ->search($search)
@@ -35,12 +35,12 @@ class Posts extends Component
         $pages = $this->highlightSearchResults($pages, $search);
         $posts = $this->highlightSearchResults($posts, $search);
 
-        $recent = config('zeus-sky.models.Post')::query()
+        $recent = config('noot-pro-content-management.models.Post')::query()
             ->posts()
             ->published()
             ->whereDate('published_at', '<=', now())
             ->with(['tags', 'author', 'media'])
-            ->limit(config('zeus-sky.recentPostsLimit'))
+            ->limit(config('noot-pro-content-management.recentPostsLimit'))
             ->orderBy('published_at', 'desc')
             ->get();
 
@@ -58,10 +58,10 @@ class Posts extends Component
                 'posts' => $posts,
                 'pages' => $pages,
                 'recent' => $recent,
-                'tags' => config('zeus-sky.models.Tag')::withCount('postsPublished')
+                'tags' => config('noot-pro-content-management.models.Tag')::withCount('postsPublished')
                     ->where('type', 'category')
                     ->get(),
-                'stickies' => config('zeus-sky.models.Post')::with(['author', 'media'])->sticky()->published()->get(),
+                'stickies' => config('noot-pro-content-management.models.Post')::with(['author', 'media'])->sticky()->published()->get(),
             ])
             ->layout(config('zeus.layout'));
     }

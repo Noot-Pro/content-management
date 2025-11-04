@@ -195,7 +195,7 @@ class LibraryResource extends BaseResource
                 ->color('warning')
                 ->icon('heroicon-o-arrow-top-right-on-square')
                 ->label(__('Open'))
-                ->visible(! config('zeus-sky.headless'))
+                ->visible(! config('noot-pro-content-management.headless'))
                 ->url(fn (Library $record): string => route(ContentManagementPlugin::get()->getRouteNamePrefix() . 'library.item', ['slug' => $record->slug]))
                 ->openUrlInNewTab(),
             DeleteAction::make('delete')
@@ -204,7 +204,7 @@ class LibraryResource extends BaseResource
 
         if (
             class_exists(\LaraZeus\Helen\HelenServiceProvider::class)
-            && ! config('zeus-sky.headless')
+            && ! config('noot-pro-content-management.headless')
         ) {
             // @phpstan-ignore-next-line
             $action[] = \LaraZeus\Helen\Actions\ShortUrlAction::make('get-link')

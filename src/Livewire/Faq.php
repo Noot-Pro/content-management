@@ -19,7 +19,7 @@ class Faq extends Component
             ->twitter();
 
         return view(app('skyTheme') . '.addons.faq')
-            ->with('faqs', config('zeus-sky.models.Faq')::get())
+            ->with('faqs', config('noot-pro-content-management.models.Faq')::get())
             ->layout(config('zeus.layout'));
     }
 }

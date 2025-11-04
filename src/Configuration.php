@@ -173,16 +173,16 @@ trait Configuration
         return array_merge(
             [
                 'external-link' => [
-                    'name' => __('zeus-sky::filament-navigation.attributes.external-link'),
+                    'name' => __('noot-pro-content-management::filament-navigation.attributes.external-link'),
                     'fields' => [
                         TextInput::make('url')
-                            ->label(__('zeus-sky::filament-navigation.attributes.url'))
+                            ->label(__('noot-pro-content-management::filament-navigation.attributes.url'))
                             ->required(),
                         Select::make('target')
-                            ->label(__('zeus-sky::filament-navigation.attributes.target'))
+                            ->label(__('noot-pro-content-management::filament-navigation.attributes.target'))
                             ->options([
-                                '' => __('zeus-sky::filament-navigation.select-options.same-tab'),
-                                '_blank' => __('zeus-sky::filament-navigation.select-options.new-tab'),
+                                '' => __('noot-pro-content-management::filament-navigation.select-options.same-tab'),
+                                '_blank' => __('noot-pro-content-management::filament-navigation.select-options.new-tab'),
                             ])
                             ->default('')
                             ->selectablePlaceholder(false),

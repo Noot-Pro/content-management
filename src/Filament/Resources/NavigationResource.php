@@ -37,7 +37,7 @@ class NavigationResource extends BaseResource
             ->schema([
                 Section::make('')->schema([
                     TextInput::make('name')
-                        ->label(__('zeus-sky::filament-navigation.attributes.name'))
+                        ->label(__('noot-pro-content-management::filament-navigation.attributes.name'))
                         ->reactive()
                         ->debounce()
                         ->afterStateUpdated(function (?string $state, Set $set) {
@@ -49,7 +49,7 @@ class NavigationResource extends BaseResource
                         })
                         ->required(),
                     ViewField::make('items')
-                        ->label(__('zeus-sky::filament-navigation.attributes.items'))
+                        ->label(__('noot-pro-content-management::filament-navigation.attributes.items'))
                         ->default([])
                         ->view('zeus::filament.navigation-builder'),
                 ])
@@ -61,17 +61,17 @@ class NavigationResource extends BaseResource
                     ->hiddenLabel()
                     ->schema([
                         TextInput::make('handle')
-                            ->label(__('zeus-sky::filament-navigation.attributes.handle'))
+                            ->label(__('noot-pro-content-management::filament-navigation.attributes.handle'))
                             ->required()
                             ->unique(ignoreRecord: true),
                         View::make('zeus::filament.card-divider')
                             ->visible(static::$showTimestamps),
                         Placeholder::make('created_at')
-                            ->label(__('zeus-sky::filament-navigation.attributes.created_at'))
+                            ->label(__('noot-pro-content-management::filament-navigation.attributes.created_at'))
                             ->visible(static::$showTimestamps)
                             ->content(fn (?Navigation $record) => $record ? $record->created_at->translatedFormat(Table::$defaultDateTimeDisplayFormat) : new HtmlString('&mdash;')),
                         Placeholder::make('updated_at')
-                            ->label(__('zeus-sky::filament-navigation.attributes.updated_at'))
+                            ->label(__('noot-pro-content-management::filament-navigation.attributes.updated_at'))
                             ->visible(static::$showTimestamps)
                             ->content(fn (?Navigation $record) => $record ? $record->updated_at->translatedFormat(Table::$defaultDateTimeDisplayFormat) : new HtmlString('&mdash;')),
                     ])
@@ -103,17 +103,17 @@ class NavigationResource extends BaseResource
         return $table
             ->columns([
                 TextColumn::make('name')
-                    ->label(__('zeus-sky::filament-navigation.attributes.name'))
+                    ->label(__('noot-pro-content-management::filament-navigation.attributes.name'))
                     ->searchable(),
                 TextColumn::make('handle')
-                    ->label(__('zeus-sky::filament-navigation.attributes.handle'))
+                    ->label(__('noot-pro-content-management::filament-navigation.attributes.handle'))
                     ->searchable(),
                 TextColumn::make('created_at')
-                    ->label(__('zeus-sky::filament-navigation.attributes.created_at'))
+                    ->label(__('noot-pro-content-management::filament-navigation.attributes.created_at'))
                     ->dateTime()
                     ->sortable(),
                 TextColumn::make('updated_at')
-                    ->label(__('zeus-sky::filament-navigation.attributes.updated_at'))
+                    ->label(__('noot-pro-content-management::filament-navigation.attributes.updated_at'))
                     ->dateTime()
                     ->sortable(),
             ])

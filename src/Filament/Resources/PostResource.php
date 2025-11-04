@@ -69,7 +69,7 @@ class PostResource extends BaseResource
 
                                         $set('slug', Str::slug($state));
                                     }),
-                                config('zeus-sky.editor')::component()
+                                config('noot-pro-content-management.editor')::component()
                                     ->label(__('Post Content')),
                             ]),
 
@@ -285,7 +285,7 @@ class PostResource extends BaseResource
                 ->color('warning')
                 ->icon('heroicon-o-arrow-top-right-on-square')
                 ->label(__('Open'))
-                ->visible(! config('zeus-sky.headless'))
+                ->visible(! config('noot-pro-content-management.headless'))
                 ->url(fn (Post $record): string => route(
                     ContentManagementPlugin::get()->getRouteNamePrefix() . 'post',
                     ['slug' => $record]
@@ -298,7 +298,7 @@ class PostResource extends BaseResource
 
         if (
             class_exists(\LaraZeus\Helen\HelenServiceProvider::class)
-            && ! config('zeus-sky.headless')
+            && ! config('noot-pro-content-management.headless')
         ) {
             // @phpstan-ignore-next-line
             $action[] = \LaraZeus\Helen\Actions\ShortUrlAction::make('get-link')
