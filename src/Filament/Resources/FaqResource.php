@@ -97,15 +97,6 @@ class FaqResource extends BaseResource
                 ->label(__('Delete')),
         ];
 
-        if (
-            class_exists(\LaraZeus\Helen\HelenServiceProvider::class)
-            && ! config('noot-pro-content-management.headless')
-        ) {
-            // @phpstan-ignore-next-line
-            $action[] = \LaraZeus\Helen\Actions\ShortUrlAction::make('get-link')
-                ->distUrl(fn (): string => route(ContentManagementPlugin::get()->getRouteNamePrefix() . 'faq'));
-        }
-
         return [ActionGroup::make($action)];
     }
 
