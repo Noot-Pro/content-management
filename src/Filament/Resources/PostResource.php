@@ -117,6 +117,7 @@ class PostResource extends BaseResource
                                     ->default('publish')
                                     ->required()
                                     ->live()
+                                    ->native(false)
                                     ->options(ContentManagementPlugin::get()->getModel('PostStatus')::pluck('label', 'name')),
 
                                 TextInput::make('password')

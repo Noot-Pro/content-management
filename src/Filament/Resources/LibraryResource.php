@@ -76,7 +76,8 @@ class LibraryResource extends BaseResource
                         Select::make('type')
                             ->label(__('Library Type'))
                             ->visible(ContentManagementPlugin::get()->getLibraryTypes() !== null)
-                            ->options(ContentManagementPlugin::get()->getLibraryTypes()),
+                            ->options(ContentManagementPlugin::get()->getLibraryTypes())
+                            ->native(false),
                     ]),
 
                 Section::make(__('Library File'))

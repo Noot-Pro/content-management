@@ -99,6 +99,7 @@ class PageResource extends BaseResource
                             'title',
                             'id'
                         ))
+                        ->searchable()
                         ->label(__('Parent Page')),
 
                     TextInput::make('ordering')
@@ -112,6 +113,7 @@ class PageResource extends BaseResource
                         ->default('publish')
                         ->required()
                         ->live()
+                        ->native(false)
                         ->options(ContentManagementPlugin::get()->getModel('PostStatus')::pluck('label', 'name')),
 
                     TextInput::make('password')
