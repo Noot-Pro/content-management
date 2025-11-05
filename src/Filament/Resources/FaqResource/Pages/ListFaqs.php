@@ -19,13 +19,13 @@ class ListFaqs extends ListRecords
     {
         return [
             CreateAction::make(),
-            Action::make('Open')
-                ->color('warning')
-                ->icon('heroicon-o-arrow-top-right-on-square')
-                ->label(__('Open'))
-                ->visible(! config('noot-pro-content-management.headless'))
-                ->url(fn (): string => route(ContentManagementPlugin::get()->getRouteNamePrefix() . 'faq'))
-                ->openUrlInNewTab(),
+//            Action::make('Open')
+//                ->color('warning')
+//                ->icon('heroicon-o-arrow-top-right-on-square')
+//                ->label(__('Open'))
+//                ->visible(! config('noot-pro-content-management.headless'))
+//                ->url(fn (): string => route(ContentManagementPlugin::get()->getRouteNamePrefix() . 'faq'))
+//                ->openUrlInNewTab(),
             LocaleSwitcher::make(),
         ];
     }

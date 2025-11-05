@@ -192,13 +192,13 @@ class LibraryResource extends BaseResource
         $action = [
             EditAction::make('edit')
                 ->label(__('Edit')),
-            Action::make('Open')
-                ->color('warning')
-                ->icon('heroicon-o-arrow-top-right-on-square')
-                ->label(__('Open'))
-                ->visible(! config('noot-pro-content-management.headless'))
-                ->url(fn (Library $record): string => route(ContentManagementPlugin::get()->getRouteNamePrefix() . 'library.item', ['slug' => $record->slug]))
-                ->openUrlInNewTab(),
+//            Action::make('Open')
+//                ->color('warning')
+//                ->icon('heroicon-o-arrow-top-right-on-square')
+//                ->label(__('Open'))
+//                ->visible(! config('noot-pro-content-management.headless'))
+//                ->url(fn (Library $record): string => route(ContentManagementPlugin::get()->getRouteNamePrefix() . 'library.item', ['slug' => $record->slug]))
+//                ->openUrlInNewTab(),
             DeleteAction::make('delete')
                 ->label(__('Delete')),
         ];
