@@ -43,22 +43,22 @@
         ])>
             <button
                 x-init
-                x-tooltip.raw.duration.0="{{__('zeus-sky::filament-navigation.items.add-child')}}"
+                x-tooltip.raw.duration.0="{{__('noot-pro-content-management::filament-navigation.items.add-child')}}"
                 type="button"
                 wire:click="addChild('{{ $statePath }}')"
                 class="p-1"
-                title="{{__('zeus-sky::filament-navigation.items.add-child')}}"
+                title="{{__('noot-pro-content-management::filament-navigation.items.add-child')}}"
             >
                 @svg('heroicon-o-plus', 'w-3 h-3 text-gray-500 hover:text-gray-900')
             </button>
 
             <button
                 x-init
-                x-tooltip.raw.duration.0="{{__('zeus-sky::filament-navigation.items.remove')}}"
+                x-tooltip.raw.duration.0="{{__('noot-pro-content-management::filament-navigation.items.remove')}}"
                 type="button"
                 wire:click="removeItem('{{ $statePath }}')"
                 class="p-1"
-                title="{{__('zeus-sky::filament-navigation.items.remove')}}"
+                title="{{__('noot-pro-content-management::filament-navigation.items.remove')}}"
             >
                 @svg('heroicon-o-trash', 'w-3 h-3 text-danger-500 hover:text-danger-900')
             </button>
