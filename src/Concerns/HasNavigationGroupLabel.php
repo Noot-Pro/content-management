@@ -15,6 +15,8 @@ trait HasNavigationGroupLabel
 
     public function getNavigationGroupLabel(): Closure | string
     {
-        return $this->evaluate($this->navigationGroupLabel);
+        $value = $this->evaluate($this->navigationGroupLabel);
+
+        return __($value);
     }
 }
