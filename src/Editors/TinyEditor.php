@@ -4,8 +4,8 @@ namespace NootPro\ContentManagement\Editors;
 
 use Filament\Forms\Components\Component;
 use Filament\Forms\Components\Textarea;
-use NootPro\ContentManagement\Classes\ContentEditor;
 use Mohamedsabil83\FilamentFormsTinyeditor\Components\TinyEditor as TinyEditorAlias;
+use NootPro\ContentManagement\Classes\ContentEditor;
 
 class TinyEditor implements ContentEditor
 {

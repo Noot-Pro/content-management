@@ -6,8 +6,8 @@ use Filament\Actions\Action;
 use Filament\Actions\CreateAction;
 use Filament\Actions\LocaleSwitcher;
 use Filament\Resources\Pages\ListRecords;
-use NootPro\ContentManagement\Filament\Resources\LibraryResource;
 use NootPro\ContentManagement\ContentManagementPlugin;
+use NootPro\ContentManagement\Filament\Resources\LibraryResource;
 
 class ListLibrary extends ListRecords
 {

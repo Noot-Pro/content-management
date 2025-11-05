@@ -6,8 +6,8 @@ use Filament\Actions\Action;
 use Filament\Actions\CreateAction;
 use Filament\Actions\LocaleSwitcher;
 use Filament\Resources\Pages\ListRecords;
-use NootPro\ContentManagement\Filament\Resources\FaqResource;
 use NootPro\ContentManagement\ContentManagementPlugin;
+use NootPro\ContentManagement\Filament\Resources\FaqResource;
 
 class ListFaqs extends ListRecords
 {

@@ -4,8 +4,8 @@ namespace NootPro\ContentManagement\Tests;
 
 use Filament\FilamentServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use NootPro\ContentManagement\ContentManagementServiceProvider;
 use Livewire\LivewireServiceProvider;
+use NootPro\ContentManagement\ContentManagementServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra

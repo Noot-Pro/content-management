@@ -15,10 +15,10 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Support\Str;
+use NootPro\ContentManagement\ContentManagementPlugin;
 use NootPro\ContentManagement\Filament\Resources\TagResource\Pages;
 use NootPro\ContentManagement\Models\Tag;
 use NootPro\ContentManagement\Rules\UniqueTranslationRule;
-use NootPro\ContentManagement\ContentManagementPlugin;
 
 class TagResource extends BaseResource
 {

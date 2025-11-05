@@ -33,9 +33,9 @@ use Filament\Tables\Filters\TrashedFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Str;
+use NootPro\ContentManagement\ContentManagementPlugin;
 use NootPro\ContentManagement\Filament\Resources\PostResource\Pages;
 use NootPro\ContentManagement\Models\Post;
-use NootPro\ContentManagement\ContentManagementPlugin;
 
 // @mixin Builder<PostScope>
 class PostResource extends BaseResource

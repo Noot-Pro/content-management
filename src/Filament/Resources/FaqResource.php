@@ -14,8 +14,8 @@ use Filament\Tables\Columns\SpatieTagsColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
-use NootPro\ContentManagement\Filament\Resources\FaqResource\Pages;
 use NootPro\ContentManagement\ContentManagementPlugin;
+use NootPro\ContentManagement\Filament\Resources\FaqResource\Pages;
 
 class FaqResource extends BaseResource
 {

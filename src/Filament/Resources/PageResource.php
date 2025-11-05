@@ -31,9 +31,9 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Str;
+use NootPro\ContentManagement\ContentManagementPlugin;
 use NootPro\ContentManagement\Filament\Resources\PageResource\Pages;
 use NootPro\ContentManagement\Models\Post;
-use NootPro\ContentManagement\ContentManagementPlugin;
 
 class PageResource extends BaseResource
 {

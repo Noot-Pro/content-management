@@ -21,9 +21,9 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Support\Str;
+use NootPro\ContentManagement\ContentManagementPlugin;
 use NootPro\ContentManagement\Filament\Resources\LibraryResource\Pages;
 use NootPro\ContentManagement\Models\Library;
-use NootPro\ContentManagement\ContentManagementPlugin;
 
 class LibraryResource extends BaseResource
 {

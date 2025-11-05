@@ -15,8 +15,8 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Support\HtmlString;
 use Illuminate\Support\Str;
-use NootPro\ContentManagement\Models\Navigation;
 use NootPro\ContentManagement\ContentManagementPlugin;
+use NootPro\ContentManagement\Models\Navigation;
 
 class NavigationResource extends BaseResource
 {

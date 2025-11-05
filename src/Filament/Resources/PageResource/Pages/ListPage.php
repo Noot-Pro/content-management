@@ -7,8 +7,8 @@ use Filament\Actions\LocaleSwitcher;
 use Filament\Resources\Pages\ListRecords;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use NootPro\ContentManagement\Filament\Resources\PageResource;
 use NootPro\ContentManagement\ContentManagementPlugin;
+use NootPro\ContentManagement\Filament\Resources\PageResource;
 
 class ListPage extends ListRecords
 {

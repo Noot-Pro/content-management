@@ -3,8 +3,8 @@
 namespace NootPro\ContentManagement\Livewire;
 
 use Illuminate\View\View;
-use NootPro\ContentManagement\Models\Tag;
 use Livewire\Component;
+use NootPro\ContentManagement\Models\Tag;
 
 class Tags extends Component
 {
