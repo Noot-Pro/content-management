@@ -24,7 +24,9 @@ class NavigationResource extends BaseResource
 
     protected static ?int $navigationSort = 99;
 
-    protected static bool $showTimestamps = false;
+    protected static bool $showTimestamps = true;
+
+    protected static bool $shouldRegisterNavigation = false;
 
     public static function disableTimestamps(bool $condition = true): void
     {
