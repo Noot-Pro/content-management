@@ -17,7 +17,6 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Str;
 use NootPro\ContentManagement\ContentManagementPlugin;
-use NootPro\ContentManagement\Enums\TagType;
 use NootPro\ContentManagement\Filament\Resources\TagResource\Pages;
 use NootPro\ContentManagement\Models\Tag;
 use NootPro\ContentManagement\Rules\UniqueTranslationRule;
@@ -56,6 +55,7 @@ class TagResource extends BaseResource
                             ->maxLength(255),
                         Select::make('type')
                             ->columnSpan(2)
+                            ->native(false)
                             ->options(ContentManagementPlugin::get()->getTagTypes()),
                     ]),
             ]);
@@ -65,7 +65,7 @@ class TagResource extends BaseResource
     {
         return $table
             ->modifyQueryUsing(function (Builder $query) {
-                return $query->where('type', array_keys(TagType::toArray()));
+                return $query->where('type', array_keys(ContentManagementPlugin::get()->getTagTypes()));
             })
             ->columns([
                 TextColumn::make('name')->toggleable()->searchable()->sortable(),
