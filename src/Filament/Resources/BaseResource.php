@@ -20,12 +20,12 @@ class BaseResource extends Resource
         return ContentManagementPlugin::get()->isResourceVisible(static::class);
     }
 
-//    public static function getNavigationBadge(): ?string
-//    {
-//        if (! ContentManagementPlugin::getNavigationBadgesVisibility(static::class)) {
-//            return null;
-//        }
-//
-//        return (string) static::getModel()::query()->count();
-//    }
+    public static function getNavigationBadge(): ?string
+    {
+        if (! ContentManagementPlugin::getNavigationBadgesVisibility(static::class)) {
+            return null;
+        }
+
+        return (string) static::getModel()::query()->count();
+    }
 }

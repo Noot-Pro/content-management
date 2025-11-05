@@ -6,12 +6,12 @@ use Closure;
 use Filament\Contracts\Plugin;
 use Filament\Panel;
 use Filament\Support\Concerns\EvaluatesClosures;
-use LaraZeus\FilamentPluginTools\Concerns\CanDisableBadges;
-use LaraZeus\FilamentPluginTools\Concerns\CanHideResources;
-use LaraZeus\FilamentPluginTools\Concerns\HasModels;
-use LaraZeus\FilamentPluginTools\Concerns\HasNavigationGroupLabel;
-use LaraZeus\FilamentPluginTools\Concerns\HasRouteNamePrefix;
-use LaraZeus\FilamentPluginTools\Concerns\HasUploads;
+use NootPro\ContentManagement\Concerns\CanDisableBadges;
+use NootPro\ContentManagement\Concerns\CanHideResources;
+use NootPro\ContentManagement\Concerns\HasModels;
+use NootPro\ContentManagement\Concerns\HasNavigationGroupLabel;
+use NootPro\ContentManagement\Concerns\HasRouteNamePrefix;
+use NootPro\ContentManagement\Concerns\HasUploads;
 use NootPro\ContentManagement\Filament\Resources\FaqResource;
 use NootPro\ContentManagement\Filament\Resources\LibraryResource;
 use NootPro\ContentManagement\Filament\Resources\NavigationResource;
@@ -69,9 +69,8 @@ final class ContentManagementPlugin implements Plugin
         return new self;
     }
 
-    public static function get(): static
+    public static function get(): ContentManagementPlugin
     {
-        // @phpstan-ignore-next-line
         return filament('noot-pro-content-management');
     }
 
