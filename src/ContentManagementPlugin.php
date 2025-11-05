@@ -59,9 +59,9 @@ final class ContentManagementPlugin implements Plugin
             $panel->resources([TagResource::class]);
         }
 
-        if ($this->hasNavigationResource()) {
-            $panel->resources([NavigationResource::class]);
-        }
+//        if ($this->hasNavigationResource()) {
+//            $panel->resources([NavigationResource::class]);
+//        }
     }
 
     public static function make(): static
