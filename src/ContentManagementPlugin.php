@@ -71,6 +71,7 @@ final class ContentManagementPlugin implements Plugin
 
     public static function get(): ContentManagementPlugin
     {
+        // @phpstan-ignore-next-line
         return filament('noot-pro-content-management');
     }
 
