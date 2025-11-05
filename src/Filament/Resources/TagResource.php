@@ -74,7 +74,7 @@ class TagResource extends BaseResource
                 TextColumn::make('items_count')
                     ->toggleable()
                     ->getStateUsing(
-                        fn(Tag $record): int => method_exists($record, $record->type)
+                        fn (Tag $record): int => method_exists($record, $record->type)
                             ? $record->{$record->type}()->count()
                             : 0
                     ),
