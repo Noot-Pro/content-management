@@ -14,8 +14,10 @@ use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Str;
 use NootPro\ContentManagement\ContentManagementPlugin;
+use NootPro\ContentManagement\Enums\TagType;
 use NootPro\ContentManagement\Filament\Resources\TagResource\Pages;
 use NootPro\ContentManagement\Models\Tag;
 use NootPro\ContentManagement\Rules\UniqueTranslationRule;
@@ -62,6 +64,9 @@ class TagResource extends BaseResource
     public static function table(Table $table): Table
     {
         return $table
+            ->modifyQueryUsing(function (Builder $query) {
+                return $query->where('type', array_keys(TagType::toArray()));
+            })
             ->columns([
                 TextColumn::make('name')->toggleable()->searchable()->sortable(),
                 TextColumn::make('type')->toggleable()->searchable()->sortable(),
@@ -69,7 +74,7 @@ class TagResource extends BaseResource
                 TextColumn::make('items_count')
                     ->toggleable()
                     ->getStateUsing(
-                        fn (Tag $record): int => method_exists($record, $record->type)
+                        fn(Tag $record): int => method_exists($record, $record->type)
                             ? $record->{$record->type}()->count()
                             : 0
                     ),
