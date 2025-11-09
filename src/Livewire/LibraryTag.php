@@ -28,7 +28,7 @@ class LibraryTag extends Component
             ->withUrl()
             ->twitter();
 
-        return view(app('skyTheme') . '.addons.library-tag')
+        return view('noot-pro-content-management::themes.default.addons.library-tag')
             ->with('libraryTag', $this->tag)
             ->layout(config('noot-pro-content-management.layout'));
     }

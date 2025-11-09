@@ -55,7 +55,7 @@ class Posts extends Component
             ->withUrl()
             ->twitter();
 
-        return view('noot-pro-content-management::themes.zeus.sky.home')
+        return view('noot-pro-content-management::themes.default.home')
             ->with([
                 'posts' => $posts,
                 'pages' => $pages,
