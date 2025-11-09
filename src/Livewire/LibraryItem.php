@@ -27,6 +27,6 @@ class LibraryItem extends Component
 
         return view(app('skyTheme') . '.addons.library-item')
             ->with('library', $this->item)
-            ->layout(config('zeus.layout'));
+            ->layout(config('noot-pro-content-management.layout'));
     }
 }

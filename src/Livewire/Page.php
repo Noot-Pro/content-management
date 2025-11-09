@@ -30,7 +30,7 @@ class Page extends Component
         if ($this->page->require_password && ! session()->has($this->page->slug . '-' . $this->page->password)) {
             return view(app('skyTheme') . '.partial.password-form')
                 ->with('post', $this->page)
-                ->layout(config('zeus.layout'));
+                ->layout(config('noot-pro-content-management.layout'));
         }
 
         return view(app('skyTheme') . '.page')
@@ -38,7 +38,7 @@ class Page extends Component
                 'post' => $this->page,
                 'children' => config('noot-pro-content-management.models.Post')::with('parent')->where('parent_id', $this->page->id)->get(),
             ])
-            ->layout(config('zeus.layout'));
+            ->layout(config('noot-pro-content-management.layout'));
     }
 
     public function setSeo(): void

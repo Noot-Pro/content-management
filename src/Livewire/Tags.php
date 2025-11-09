@@ -38,6 +38,6 @@ class Tags extends Component
             ->with([
                 'posts' => $this->tag->postsPublished,
             ])
-            ->layout(config('zeus.layout'));
+            ->layout(config('noot-pro-content-management.layout'));
     }
 }

@@ -25,13 +25,13 @@ class Post extends Component
 
         if ($this->post->require_password && ! session()->has($this->post->slug . '-' . $this->post->password)) {
             return view(app('skyTheme') . '.partial.password-form')
-                ->layout(config('zeus.layout'));
+                ->layout(config('noot-pro-content-management.layout'));
         }
 
         return view(app('skyTheme') . '.post')
             ->with('post', $this->post)
             ->with('related', config('noot-pro-content-management.models.Post')::related($this->post)->take(4)->get())
-            ->layout(config('zeus.layout'));
+            ->layout(config('noot-pro-content-management.layout'));
     }
 
     public function setSeo(): void

@@ -30,6 +30,6 @@ class LibraryTag extends Component
 
         return view(app('skyTheme') . '.addons.library-tag')
             ->with('libraryTag', $this->tag)
-            ->layout(config('zeus.layout'));
+            ->layout(config('noot-pro-content-management.layout'));
     }
 }

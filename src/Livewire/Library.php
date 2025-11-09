@@ -21,6 +21,6 @@ class Library extends Component
         return view(app('skyTheme') . '.addons.library')
             ->with('libraries', config('noot-pro-content-management.models.Library')::get())
             ->with('categories', config('noot-pro-content-management.models.Tag')::getWithType('library'))
-            ->layout(config('zeus.layout'));
+            ->layout(config('noot-pro-content-management.layout'));
     }
 }

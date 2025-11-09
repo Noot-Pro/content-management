@@ -20,6 +20,6 @@ class Faq extends Component
 
         return view(app('skyTheme') . '.addons.faq')
             ->with('faqs', config('noot-pro-content-management.models.Faq')::get())
-            ->layout(config('zeus.layout'));
+            ->layout(config('noot-pro-content-management.layout'));
     }
 }
