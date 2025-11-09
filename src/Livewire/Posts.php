@@ -55,7 +55,7 @@ class Posts extends Component
             ->withUrl()
             ->twitter();
 
-        return view(app('skyTheme') . '.home')
+        return view('noot-pro-content-management::themes.zeus.sky.home')
             ->with([
                 'posts' => $posts,
                 'pages' => $pages,
@@ -65,7 +65,6 @@ class Posts extends Component
                     ->get(),
                 'stickies' => config('noot-pro-content-management.models.Post')::with(['author', 'media'])->sticky()->published()->get(),
             ])
-//            ->layout(config('noot-pro-content-management.layout'))
-            ;
+            ->layout(config('noot-pro-content-management.layout'));
     }
 }
