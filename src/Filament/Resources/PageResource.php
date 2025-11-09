@@ -231,13 +231,13 @@ class PageResource extends BaseResource
     {
         $action = [
             EditAction::make('edit')->label(__('Edit')),
-//            Action::make('Open')
-//                ->color('warning')
-//                ->icon('heroicon-o-arrow-top-right-on-square')
-//                ->label(__('Open'))
-//                ->visible(! config('noot-pro-content-management.headless'))
-//                ->url(fn (Post $record): string => route(ContentManagementPlugin::get()->getRouteNamePrefix() . 'page', ['slug' => $record]))
-//                ->openUrlInNewTab(),
+            //            Action::make('Open')
+            //                ->color('warning')
+            //                ->icon('heroicon-o-arrow-top-right-on-square')
+            //                ->label(__('Open'))
+            //                ->visible(! config('noot-pro-content-management.headless'))
+            //                ->url(fn (Post $record): string => route(ContentManagementPlugin::get()->getRouteNamePrefix() . 'page', ['slug' => $record]))
+            //                ->openUrlInNewTab(),
             DeleteAction::make('delete'),
             ForceDeleteAction::make(),
             RestoreAction::make(),
