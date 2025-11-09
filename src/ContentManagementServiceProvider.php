@@ -4,6 +4,9 @@ namespace NootPro\ContentManagement;
 
 use Filament\Facades\Filament;
 use Filament\Forms\Components\Select;
+use Filament\Support\Assets\Css;
+use Filament\Support\Assets\Js;
+use Filament\Support\Facades\FilamentAsset;
 use LaraZeus\Core\CoreServiceProvider;
 use NootPro\ContentManagement\Console\InstallCommand;
 use NootPro\ContentManagement\Console\MigrateCommand;
@@ -19,7 +22,13 @@ class ContentManagementServiceProvider extends PackageServiceProvider
     public function packageBooted(): void
     {
         CoreServiceProvider::setThemePath('sky');
+
         $this->bootFilamentNavigation();
+
+        FilamentAsset::register(
+            $this->getAssets(),
+            $this->getAssetPackageName()
+        );
     }
 
     public function configurePackage(Package $package): void
@@ -114,5 +123,17 @@ class ContentManagementServiceProvider extends PackageServiceProvider
                     'library_link'
                 );
         });
+    }
+
+    protected function getAssetPackageName(): ?string
+    {
+        return 'noot-pro/content-management';
+    }
+
+    protected function getAssets(): array
+    {
+        return [
+            Css::make(static::$name . '-styles', __DIR__ . '/../resources/dist/content-management.css'),
+        ];
     }
 }
