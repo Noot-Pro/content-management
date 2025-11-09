@@ -5,7 +5,6 @@ namespace NootPro\ContentManagement;
 use Filament\Facades\Filament;
 use Filament\Forms\Components\Select;
 use Filament\Support\Assets\Css;
-use Filament\Support\Assets\Js;
 use Filament\Support\Facades\FilamentAsset;
 use LaraZeus\Core\CoreServiceProvider;
 use NootPro\ContentManagement\Console\InstallCommand;
@@ -39,7 +38,7 @@ class ContentManagementServiceProvider extends PackageServiceProvider
             ->hasConfigFile()
             ->hasRoute('web')
             ->hasCommands($this->getCommands())
-            ->hasViews('zeus');
+            ->hasViews('noot-pro-content-management');
 
         if (! config('noot-pro-content-management.headless')) {
             $package->hasRoute('web');
