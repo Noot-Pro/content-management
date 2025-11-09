@@ -133,7 +133,6 @@ class ContentManagementServiceProvider extends PackageServiceProvider
     {
         return [
             Css::make(static::$name . '-styles', __DIR__ . '/../resources/dist/content-management.css'),
-            Js::make(static::$name . '-scripts', __DIR__ . '/../resources/dist/content-management.js'),
         ];
     }
 }
