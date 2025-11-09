@@ -40,7 +40,7 @@ trait CanDisableBadges
         return $this->evaluate($this->showNavigationBadges);
     }
 
-    public static function getNavigationBadgesVisibility($resource = null): bool
+    public static function getNavigationBadgesVisibility(mixed $resource = null): bool
     {
         return (new static)::get()->getShowNavigationBadges($resource);
     }
