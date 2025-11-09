@@ -18,7 +18,7 @@
     @filamentStyles
     @stack('styles')
 
-    <script src="https://cdn.tailwindcss.com"></script>
+{{--    <script src="https://cdn.tailwindcss.com"></script>--}}
 
     {{--    <link rel="stylesheet" href="{{ asset('css/noot-pro/content-management/noot-pro-content-management-styles.css') }}">--}}
 
@@ -35,8 +35,8 @@
             <div class="flex">
                 <div class="flex-shrink-0 flex items-center">
                     <a class="italic flex gap-2 group" href="{{ url('/') }}">
-                        <img class="w-7" src="https://larazeus.com/images/zeus-logo.webp" alt="{{ config('zeus.site_title', config('app.name', 'Laravel')) }}">
-                        @zeus
+{{--                        <img class="w-7" src="https://larazeus.com/images/zeus-logo.webp" alt="{{ config('zeus.site_title', config('app.name', 'Laravel')) }}">--}}
+{{--                        @zeus--}}
                     </a>
                 </div>
 
@@ -79,9 +79,7 @@
 </div>
 
 <footer class="bg-gray-100 dark:bg-gray-800 p-6 text-center font-light">
-    <a href="https://larazeus.com" target="_blank">
-        a gift with ❤️ &nbsp;from @zeus
-    </a>
+
 </footer>
 
 @livewireScripts
