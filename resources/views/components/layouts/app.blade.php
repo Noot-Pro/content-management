@@ -14,9 +14,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=KoHo:ital,wght@0,200;0,300;0,500;0,700;1,200;1,300;1,600;1,700&display=swap" rel="stylesheet">
 
-    @livewireStyles
-    @filamentStyles
-    @stack('styles')
+{{--    @livewireStyles--}}
+{{--    @filamentStyles--}}
+{{--    @stack('styles')--}}
 
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -60,12 +60,12 @@
                                 {{ $breadcrumbs }}
                             </ol>
                         </nav>
-                    @endif
-                    @if(isset($header))
+{{--                    @endif--}}
+{{--                    @if(isset($header))--}}
                         <div class="italic font-semibold text-xl text-gray-600 dark:text-gray-100">
-                            {{ $header }}
+{{--                            {{ $header }}--}}
                         </div>
-                    @endif
+{{--                    @endif--}}
                 </div>
                 <span class="bolt-loading animate-pulse"></span>
             </div>
@@ -73,16 +73,16 @@
     </header>
 
 <div class="container mx-auto my-6">
-    {{ $slot }}
+{{--    {{ $slot }}--}}
 </div>
 
 <footer class="bg-gray-100 dark:bg-gray-800 p-6 text-center font-light">
 
 </footer>
 
-@livewireScripts
-@filamentScripts
-@livewire('notifications')
+{{--@livewireScripts--}}
+{{--@filamentScripts--}}
+{{--@livewire('notifications')--}}
 @stack('scripts')
 
 <script>
