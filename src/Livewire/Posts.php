@@ -3,8 +3,10 @@
 namespace NootPro\ContentManagement\Livewire;
 
 use Illuminate\View\View;
+use Livewire\Attributes\Layout;
 use Livewire\Component;
 
+#[Layout('components.layouts.app')]
 class Posts extends Component
 {
     use SearchHelpers;
@@ -63,6 +65,7 @@ class Posts extends Component
                     ->get(),
                 'stickies' => config('noot-pro-content-management.models.Post')::with(['author', 'media'])->sticky()->published()->get(),
             ])
-            ->layout(config('noot-pro-content-management.layout'));
+//            ->layout(config('noot-pro-content-management.layout'))
+            ;
     }
 }
