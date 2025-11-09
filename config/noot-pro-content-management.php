@@ -4,14 +4,14 @@ return [
     'domain' => null,
 
     /**
-     * disable all sky frontend routes.
+     * disable all content management frontend routes.
      */
     'headless' => false,
 
     /**
      * set the default path for the blog homepage.
      */
-    'prefix' => 'sky',
+    'prefix' => '',
 
     /**
      * the middleware you want to apply on all the blog routes
