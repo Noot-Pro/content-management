@@ -13,6 +13,8 @@ return [
      */
     'prefix' => '',
 
+    'layout' => 'components.layouts.app',
+
     /**
      * the middleware you want to apply on all the blog routes
      * for example if you want to make your blog for users only, add the middleware 'auth'.

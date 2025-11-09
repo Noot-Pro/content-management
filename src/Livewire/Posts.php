@@ -63,6 +63,6 @@ class Posts extends Component
                     ->get(),
                 'stickies' => config('noot-pro-content-management.models.Post')::with(['author', 'media'])->sticky()->published()->get(),
             ])
-            ->layout(config('zeus.layout'));
+            ->layout(config('noot-pro-content-management.layout'));
     }
 }
