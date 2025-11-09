@@ -60,12 +60,12 @@
                                 {{ $breadcrumbs }}
                             </ol>
                         </nav>
-{{--                    @endif--}}
-{{--                    @if(isset($header))--}}
+                    @endif
+                    @if(isset($header))
                         <div class="italic font-semibold text-xl text-gray-600 dark:text-gray-100">
-{{--                            {{ $header }}--}}
+                            {{ $header }}
                         </div>
-{{--                    @endif--}}
+                    @endif
                 </div>
                 <span class="bolt-loading animate-pulse"></span>
             </div>
@@ -73,7 +73,7 @@
     </header>
 
 <div class="container mx-auto my-6">
-{{--    {{ $slot }}--}}
+    {{ $slot }}
 </div>
 
 <footer class="bg-gray-100 dark:bg-gray-800 p-6 text-center font-light">
