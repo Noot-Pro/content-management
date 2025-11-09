@@ -37,6 +37,7 @@ class ContentManagementServiceProvider extends PackageServiceProvider
             ->hasMigrations($this->getMigrations())
             ->hasTranslations()
             ->hasConfigFile()
+            ->hasRoute('web')
             ->hasCommands($this->getCommands())
             ->hasViews('zeus');
 
