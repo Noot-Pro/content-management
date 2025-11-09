@@ -13,7 +13,7 @@ return [
      */
     'prefix' => '',
 
-    'layout' => 'components.layouts.app',
+    'layout' => 'noot-pro-content-management::components.layouts.app',
 
     'theme' => 'default',
 
