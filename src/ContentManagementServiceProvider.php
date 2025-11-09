@@ -21,14 +21,13 @@ class ContentManagementServiceProvider extends PackageServiceProvider
 
     public function packageBooted(): void
     {
-        CoreServiceProvider::setThemePath('sky');
-
-        $this->bootFilamentNavigation();
-
         FilamentAsset::register(
             $this->getAssets(),
             $this->getAssetPackageName()
         );
+
+        CoreServiceProvider::setThemePath('sky');
+        $this->bootFilamentNavigation();
     }
 
     public function configurePackage(Package $package): void
@@ -134,6 +133,7 @@ class ContentManagementServiceProvider extends PackageServiceProvider
     {
         return [
             Css::make(static::$name . '-styles', __DIR__ . '/../resources/dist/content-management.css'),
+            Js::make(static::$name . '-scripts', __DIR__ . '/../resources/dist/content-management.js'),
         ];
     }
 }
