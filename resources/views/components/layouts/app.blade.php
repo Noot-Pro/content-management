@@ -18,7 +18,7 @@
     @filamentStyles
     @stack('styles')
 
-    <link rel="stylesheet" href="{{ asset('vendor/zeus/frontend.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/noot-pro/content-management/noot-pro-content-management-styles.css') }}">
 
     <style>
         * {font-family: 'KoHo', 'Almarai', sans-serif;}
