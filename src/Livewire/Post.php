@@ -24,11 +24,11 @@ class Post extends Component
         }
 
         if ($this->post->require_password && ! session()->has($this->post->slug . '-' . $this->post->password)) {
-            return view('noot-pro-content-management::themes.default.partial.password-form')
+            return view(app('themePath') . '.partial.password-form')
                 ->layout(config('noot-pro-content-management.layout'));
         }
 
-        return view('noot-pro-content-management::themes.default.post')
+        return view(app('themePath') . '.post')
             ->with('post', $this->post)
             ->with('related', config('noot-pro-content-management.models.Post')::related($this->post)->take(4)->get())
             ->layout(config('noot-pro-content-management.layout'));

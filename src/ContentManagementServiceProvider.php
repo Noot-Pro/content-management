@@ -45,11 +45,11 @@ class ContentManagementServiceProvider extends PackageServiceProvider
         //            }
         //        }
 
-        View::share('theme', $viewPath);
+        View::share('themePath', $viewPath);
 
-        //        App::singleton('theme', function () use ($viewPath) {
-        //            return $viewPath;
-        //        });
+        App::singleton('themePath', function () use ($viewPath) {
+            return $viewPath;
+        });
     }
 
     public function configurePackage(Package $package): void

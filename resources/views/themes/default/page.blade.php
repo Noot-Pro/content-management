@@ -25,7 +25,7 @@
             <span class="font-light text-gray-600 dark:text-gray-100">{{ optional($post->published_at)->diffForHumans() ?? '' }}</span>
             <div>
                 @unless ($post->tags->isEmpty())
-                    @each($skyTheme.'.partial.category', $post->tags->where('type','category'), 'category')
+                    @each($themePath.'.partial.category', $post->tags->where('type','category'), 'category')
                 @endunless
             </div>
         </div>
@@ -55,7 +55,7 @@
 
                 <div class="grid grid-cols-3 gap-4">
                     @foreach($children as $post)
-                        @include($skyTheme.'.partial.children-pages')
+                        @include($themePath.'.partial.children-pages')
                     @endforeach
                 </div>
             </div>

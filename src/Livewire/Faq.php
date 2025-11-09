@@ -18,7 +18,7 @@ class Faq extends Component
             ->withUrl()
             ->twitter();
 
-        return view('noot-pro-content-management::themes.default.addons.faq')
+        return view(app('themePath') . '.addons.faq')
             ->with('faqs', config('noot-pro-content-management.models.Faq')::get())
             ->layout(config('noot-pro-content-management.layout'));
     }

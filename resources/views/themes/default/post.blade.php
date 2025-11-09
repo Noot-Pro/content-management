@@ -22,7 +22,7 @@
             <span class="font-light text-gray-600 dark:text-gray-200">{{ optional($post->published_at)->diffForHumans() ?? '' }}</span>
             <div>
                 @unless ($post->tags->isEmpty())
-                    @each($skyTheme.'.partial.category', $post->tags->where('type','category'), 'category')
+                    @each($themePath.'.partial.category', $post->tags->where('type','category'), 'category')
                 @endunless
             </div>
         </div>
@@ -38,7 +38,7 @@
                 <div>
                     @unless ($post->tags->isEmpty())
                         @foreach($post->tags->where('type','tag') as $tag)
-                            @include($skyTheme.'.partial.tag')
+                            @include($themePath.'.partial.tag')
                         @endforeach
                     @endunless
                 </div>
@@ -60,7 +60,7 @@
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 @foreach($related as $post)
-                    @include($skyTheme.'.partial.related')
+                    @include($themePath.'.partial.related')
                 @endforeach
             </div>
         </div>

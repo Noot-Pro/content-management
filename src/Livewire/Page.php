@@ -28,12 +28,12 @@ class Page extends Component
         }
 
         if ($this->page->require_password && ! session()->has($this->page->slug . '-' . $this->page->password)) {
-            return view('noot-pro-content-management::themes.default.partial.password-form')
+            return view(app('themePath') . '.partial.password-form')
                 ->with('post', $this->page)
                 ->layout(config('noot-pro-content-management.layout'));
         }
 
-        return view('noot-pro-content-management::themes.default.page')
+        return view(app('themePath') . '.default.page')
             ->with([
                 'post' => $this->page,
                 'children' => config('noot-pro-content-management.models.Post')::with('parent')->where('parent_id', $this->page->id)->get(),

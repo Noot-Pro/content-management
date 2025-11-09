@@ -34,7 +34,7 @@ class Tags extends Component
             ->withUrl()
             ->twitter();
 
-        return view('noot-pro-content-management::themes.default.category')
+        return view(app('themePath') . '.category')
             ->with([
                 'posts' => $this->tag->postsPublished,
             ])

@@ -28,11 +28,11 @@
         </p>
 
         @if($item->file_path !== null)
-            @include($skyTheme.'.addons.library-types.'.strtolower($item->type).'-url')
+            @include($themePath.'.addons.library-types.'.strtolower($item->type).'-url')
         @else
             <div class="grid grid-cols-1 @if($item->getFiles()->count() > 1) sm:grid-cols-2 lg:grid-cols-3 @endif gap-2 justify-items-stretch content-stretch">
                 @foreach($item->getFiles() as $file)
-                    @include($skyTheme.'.addons.library-types.'.strtolower($item->type))
+                    @include($themePath.'.addons.library-types.'.strtolower($item->type))
                 @endforeach
             </div>
         @endif

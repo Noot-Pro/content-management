@@ -4,7 +4,7 @@
             <span class="font-light text-sm text-gray-600 dark:text-gray-200 mt-2">{{ optional($post->published_at)->diffForHumans() ?? '' }}</span>
             <div>
                 @unless ($post->tags->isEmpty())
-                    @each($skyTheme.'.partial.category', $post->tags->where('type','category'), 'category')
+                    @each($themePath.'.partial.category', $post->tags->where('type','category'), 'category')
                 @endunless
             </div>
         </div>

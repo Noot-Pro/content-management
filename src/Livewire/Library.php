@@ -18,7 +18,7 @@ class Library extends Component
             ->withUrl()
             ->twitter();
 
-        return view('noot-pro-content-management::themes.default.addons.library')
+        return view(app('themePath') . '.addons.library')
             ->with('libraries', config('noot-pro-content-management.models.Library')::get())
             ->with('categories', config('noot-pro-content-management.models.Tag')::getWithType('library'))
             ->layout(config('noot-pro-content-management.layout'));
