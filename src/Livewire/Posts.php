@@ -55,7 +55,7 @@ class Posts extends Component
             ->withUrl()
             ->twitter();
 
-        return view(app('themePath') . '.default.home')
+        return view(app('themePath') . '.home')
             ->with([
                 'posts' => $posts,
                 'pages' => $pages,

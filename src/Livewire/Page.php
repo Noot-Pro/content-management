@@ -33,7 +33,7 @@ class Page extends Component
                 ->layout(config('noot-pro-content-management.layout'));
         }
 
-        return view(app('themePath') . '.default.page')
+        return view(app('themePath') . '.page')
             ->with([
                 'post' => $this->page,
                 'children' => config('noot-pro-content-management.models.Post')::with('parent')->where('parent_id', $this->page->id)->get(),
