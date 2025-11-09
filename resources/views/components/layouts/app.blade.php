@@ -18,7 +18,9 @@
     @filamentStyles
     @stack('styles')
 
-    <link rel="stylesheet" href="{{ asset('css/noot-pro/content-management/noot-pro-content-management-styles.css') }}">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    {{--    <link rel="stylesheet" href="{{ asset('css/noot-pro/content-management/noot-pro-content-management-styles.css') }}">--}}
 
     <style>
         * {font-family: 'KoHo', 'Almarai', sans-serif;}
