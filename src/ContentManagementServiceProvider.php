@@ -6,7 +6,8 @@ use Filament\Facades\Filament;
 use Filament\Forms\Components\Select;
 use Filament\Support\Assets\Css;
 use Filament\Support\Facades\FilamentAsset;
-use LaraZeus\Core\CoreServiceProvider;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\View;
 use NootPro\ContentManagement\Console\InstallCommand;
 use NootPro\ContentManagement\Console\MigrateCommand;
 use NootPro\ContentManagement\Console\PublishCommand;
@@ -25,8 +26,30 @@ class ContentManagementServiceProvider extends PackageServiceProvider
             $this->getAssetPackageName()
         );
 
-        CoreServiceProvider::setThemePath('sky');
+        $this->setThemePath();
+
         $this->bootFilamentNavigation();
+    }
+
+    public function setThemePath(): void
+    {
+        $viewPath = 'noot-pro-content-management::themes.' . config('noot-pro-content-management.theme');
+
+        //        $folder = resource_path('views/vendor/noot-pro-content-management/themes/' . config('noot-pro-content-management.theme') . '/' . $path);
+
+        //        if (! is_dir($folder)) {
+        //            // check artemis folder
+        //            $folder = base_path('vendor/lara-zeus/artemis/resources/views/themes/' . config('zeus.theme') . '/' . $path);
+        //            if (! is_dir($folder)) {
+        //                $viewPath = 'zeus::themes.zeus.' . $path;
+        //            }
+        //        }
+
+        View::share('theme', $viewPath);
+
+        //        App::singleton('theme', function () use ($viewPath) {
+        //            return $viewPath;
+        //        });
     }
 
     public function configurePackage(Package $package): void
@@ -36,7 +59,6 @@ class ContentManagementServiceProvider extends PackageServiceProvider
             ->hasMigrations($this->getMigrations())
             ->hasTranslations()
             ->hasConfigFile()
-            ->hasRoute('web')
             ->hasCommands($this->getCommands())
             ->hasViews('noot-pro-content-management');
 
