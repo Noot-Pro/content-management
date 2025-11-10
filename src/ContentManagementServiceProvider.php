@@ -22,10 +22,10 @@ class ContentManagementServiceProvider extends PackageServiceProvider
 
     public function packageBooted(): void
     {
-        FilamentAsset::register(
+//        FilamentAsset::register(
 //            $this->getAssets(),
-            $this->getAssetPackageName()
-        );
+//            $this->getAssetPackageName()
+//        );
 
         $this->setThemePath();
 
