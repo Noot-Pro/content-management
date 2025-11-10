@@ -9,11 +9,21 @@ use NootPro\ContentManagement\Livewire\Page;
 use NootPro\ContentManagement\Livewire\Post;
 use NootPro\ContentManagement\Livewire\Posts;
 use NootPro\ContentManagement\Livewire\Tags;
+use NootPro\ContentManagement\Middleware\SetLocale;
 
 Route::domain(config('noot-pro-content-management.domain'))
-    ->middleware(config('noot-pro-content-management.middleware'))
+    ->middleware(array_merge(config('noot-pro-content-management.middleware'), [SetLocale::class]))
     ->prefix(config('noot-pro-content-management.prefix'))
     ->group(function () {
+
+        Route::get('language/{locale}', function (string $locale) {
+            $availableLocales = config('noot-pro-content-management.locales', []);
+            if (array_key_exists($locale, $availableLocales)) {
+                session()->put('locale', $locale);
+                app()->setLocale($locale);
+            }
+            return redirect()->back();
+        })->name('language.switch');
 
         if (in_array('faq', config('noot-pro-content-management.uri'))) {
             Route::get(config('noot-pro-content-management.uri.faq'), Faq::class)

@@ -17,6 +17,11 @@ return [
 
     'theme' => 'default',
 
+    'locales' => [
+        'ar' => ['name' => 'العربية', 'native' => 'العربية', 'regional' => 'ar_AE', 'flag' => 'ae'],
+        'en' => ['name' => 'English', 'native' => 'English', 'regional' => 'en_GB', 'flag' => 'gb'],
+    ],
+
     /**
      * the middleware you want to apply on all the blog routes
      * for example if you want to make your blog for users only, add the middleware 'auth'.
