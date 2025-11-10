@@ -17,7 +17,7 @@
         <img alt="{{ $post->title }}" src="{{ $post->image() }}" class="my-10 w-full h-full shadow-md rounded-[2rem] rounded-bl-none z-0 object-cover"/>
     @endif
 
-    <div class="bg-white dark:bg-gray-800 rounded-[2rem] rounded-tl-none shadow-md px-10 pb-6">
+    <div class="bg-white dark:bg-gray-800 rounded-[2rem] shadow px-10 pb-6">
         <div class="flex items-center justify-between">
             <span class="font-light text-gray-600 dark:text-gray-200">{{ optional($post->published_at)->diffForHumans() ?? '' }}</span>
             <div>
