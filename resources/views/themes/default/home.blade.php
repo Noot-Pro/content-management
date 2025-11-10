@@ -352,9 +352,9 @@
                                         <div class="flex gap-2">
                                             @foreach($post->tags->where('type', 'category')->take(1) as $tag)
                                                 <span class="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded">{{ $tag->name }}</span>
-                                            @endforeach
+            @endforeach
                                         </div>
-                                    @endunless
+    @endunless
                                 </div>
                                 <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2">
                                     <a href="{{ route('post', $post->slug) }}" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
@@ -372,8 +372,8 @@
                                         <div class="flex items-center gap-2">
                                             <img src="{{ \Filament\Facades\Filament::getUserAvatarUrl($post->author) }}" alt="avatar" class="w-8 h-8 rounded-full object-cover">
                                             <span class="text-sm text-gray-600 dark:text-gray-400">{{ $post->author->name ?? '' }}</span>
-                                        </div>
-                                    @endif
+                </div>
+            @endif
                                 </div>
                             </div>
                         </article>
@@ -385,6 +385,6 @@
                 </div>
             @endif
         </div>
-    </section>
+        </section>
 
 </div>
