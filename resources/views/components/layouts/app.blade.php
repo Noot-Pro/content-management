@@ -12,7 +12,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=KoHo:ital,wght@0,200;0,300;0,500;0,700;1,200;1,300;1,600;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     @livewireStyles
 {{--    @filamentStyles--}}
@@ -27,7 +27,7 @@
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
     <style>
-        * {font-family: 'KoHo', 'Almarai', sans-serif;}
+        * {font-family: 'Noto Kufi Arabic', sans-serif;}
         [x-cloak] {display: none !important;}
     </style>
 
@@ -136,8 +136,63 @@
     {{ $slot }}
 </div>
 
-<footer class="bg-gray-100 dark:bg-gray-800 p-6 text-center font-light">
+<footer class="bg-gray-100 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700">
+    <div class="container mx-auto px-4 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+            {{-- About Company --}}
+            <div>
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">{{ __('About Company') }}</h3>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors">{{ __('About Us') }}</a></li>
+                    <li><a href="#" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors">{{ __('Privacy Policy') }}</a></li>
+                    <li><a href="#" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors">{{ __('Terms and Conditions') }}</a></li>
+                    <li><a href="#" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors">{{ __('FAQ') }}</a></li>
+                </ul>
+            </div>
 
+            {{-- Solutions --}}
+            <div>
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">{{ __('Our Solutions') }}</h3>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors">{{ __('Financial Accounting') }}</a></li>
+                    <li><a href="#" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors">{{ __('Point of Sale (POS)') }}</a></li>
+                    <li><a href="#" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors">{{ __('Inventory Management') }}</a></li>
+                    <li><a href="#" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors">{{ __('Noot Integration with WhatsApp') }}</a></li>
+                </ul>
+            </div>
+
+            {{-- Content --}}
+            <div>
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">{{ __('Content') }}</h3>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors">{{ __('Help Center') }}</a></li>
+                    <li><a href="#" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors">{{ __('Developers') }}</a></li>
+                    <li><a href="#" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors">{{ __('Integration') }}</a></li>
+                    <li><a href="{{ route('posts') }}" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors">{{ __('News') }}</a></li>
+                </ul>
+            </div>
+
+            {{-- Contact --}}
+            <div>
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">{{ __('Contact Us') }}</h3>
+                <ul class="space-y-2">
+                    <li class="text-gray-600 dark:text-gray-400">{{ __('Email') }}: <a href="mailto:info@noot.co" class="hover:text-gray-900 dark:hover:text-gray-100 transition-colors">info@noot.co</a></li>
+                    <li class="text-gray-600 dark:text-gray-400">{{ __('Phone') }}: <a href="tel:+966555028398" class="hover:text-gray-900 dark:hover:text-gray-100 transition-colors">+966 55 502 8398</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="border-t border-gray-200 dark:border-gray-700 pt-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 md:mb-0">
+                    {{ __('All rights reserved') }} © {{ date('Y') }} {{ config('zeus.site_title', config('app.name', 'Laravel')) }}
+                </p>
+                <p class="text-gray-600 dark:text-gray-400 text-sm">
+                    © {{ date('Y') }} {{ config('zeus.site_title', config('app.name', 'Laravel')) }} Inc.
+                </p>
+            </div>
+        </div>
+    </div>
 </footer>
 
 @livewireScripts

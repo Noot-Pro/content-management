@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use NootPro\ContentManagement\Livewire\Faq;
+use NootPro\ContentManagement\Livewire\Home;
 use NootPro\ContentManagement\Livewire\Library;
 use NootPro\ContentManagement\Livewire\LibraryItem;
 use NootPro\ContentManagement\Livewire\LibraryTag;
@@ -39,7 +40,8 @@ Route::domain(config('noot-pro-content-management.domain'))
                 });
         }
 
-        Route::get('/', Posts::class)->name('blogs');
+        Route::get('/', Home::class)->name('home');
+        Route::get('/posts', Posts::class)->name('posts');
         Route::get(config('noot-pro-content-management.uri.post') . '/{slug}', Post::class)->name('post');
         Route::get(config('noot-pro-content-management.uri.page') . '/{slug}', Page::class)->name('page');
         Route::get('{type}/{slug}', Tags::class)->name('tags');
