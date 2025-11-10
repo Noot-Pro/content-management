@@ -88,7 +88,7 @@
 
 </footer>
 
-{{--@livewireScripts--}}
+@livewireScripts
 {{--@filamentScripts--}}
 {{--@livewire('notifications')--}}
 @stack('scripts')
