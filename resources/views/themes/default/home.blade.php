@@ -368,12 +368,12 @@
                                 @endif
                                 <div class="flex items-center justify-between">
                                     <a href="{{ route('post', $post->slug) }}" class="text-blue-600 dark:text-blue-400 hover:underline font-medium">اقرأ المزيد</a>
-                                    @if($post->author)
-                                        <div class="flex items-center gap-2">
-                                            <img src="{{ \Filament\Facades\Filament::getUserAvatarUrl($post->author) }}" alt="avatar" class="w-8 h-8 rounded-full object-cover">
-                                            <span class="text-sm text-gray-600 dark:text-gray-400">{{ $post->author->name ?? '' }}</span>
-                </div>
-            @endif
+{{--                                    @if($post->author)--}}
+{{--                                        <div class="flex items-center gap-2">--}}
+{{--                                            <img src="{{ \Filament\Facades\Filament::getUserAvatarUrl($post->author) }}" alt="avatar" class="w-8 h-8 rounded-full object-cover">--}}
+{{--                                            <span class="text-sm text-gray-600 dark:text-gray-400">{{ $post->author->name ?? '' }}</span>--}}
+{{--                </div>--}}
+{{--            @endif--}}
                                 </div>
                             </div>
                         </article>
