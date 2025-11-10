@@ -261,7 +261,7 @@
     </section>
 
     {{-- Testimonials Section --}}
-    <section class="py-16 md:py-24 bg-gray-50 dark:bg-gray-800">
+    <section class="py-16 md:py-24 bg-white dark:bg-gray-800">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4">ما يقوله عملاؤنا</h2>
@@ -331,7 +331,7 @@
     </section>
 
     {{-- Recent Posts Section --}}
-    <section id="posts" class="py-16 md:py-24 bg-white dark:bg-gray-900">
+    <section id="posts" class="py-16 md:py-24 bg-gray-50 dark:bg-gray-900">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4">المقالات الأخيرة</h2>

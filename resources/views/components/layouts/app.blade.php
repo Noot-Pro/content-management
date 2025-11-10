@@ -45,7 +45,7 @@
         })();
     </script>
 </head>
-<body class="font-sans antialiased bg-gray-50 text-gray-900 dark:text-gray-100 dark:bg-gray-900 @if(app()->isLocal()) debug-screens @endif">
+<body class="font-sans antialiased text-gray-900 dark:text-gray-100 dark:bg-gray-900 @if(app()->isLocal()) debug-screens @endif">
 
 @php
     $availableLocales = config('noot-pro-content-management.locales', []);
@@ -110,8 +110,8 @@
     </div>
 </header>
 
-<header class="bg-gray-100 dark:bg-gray-800">
-        <div class="container mx-auto py-2 px-3">
+<div class="bg-gray-100 dark:bg-gray-800">
+    <div class="container mx-auto py-2 px-3">
             <div class="flex justify-between items-center">
                 <div class="w-full">
                     @if(isset($breadcrumbs))
@@ -130,7 +130,7 @@
                 <span class="bolt-loading animate-pulse"></span>
             </div>
         </div>
-    </header>
+</div>
 
 <div class="container mx-auto my-6">
     {{ $slot }}
