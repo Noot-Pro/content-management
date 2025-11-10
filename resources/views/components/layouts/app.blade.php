@@ -1,5 +1,11 @@
+@php
+    $availableLocales = config('noot-pro-content-management.locales', []);
+    $currentLocale = session('locale', app()->getLocale());
+    $isRtl = in_array($currentLocale, ['ar', 'he', 'fa', 'ur']); // RTL languages
+    $direction = $isRtl ? 'rtl' : 'ltr';
+@endphp
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" dir="{{ __('filament-panels::layout.direction') ?? 'ltr' }}" class="antialiased filament js-focus-visible">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" dir="{{ $direction ?? __('filament-panels::layout.direction') ?? 'ltr' }}" class="antialiased filament js-focus-visible">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,7 +27,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
-            darkMode: 'class'
+            darkMode: 'class',
+            plugins: []
         }
     </script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -47,12 +54,7 @@
 </head>
 <body class="font-sans antialiased text-gray-900 dark:text-gray-100 dark:bg-gray-900 @if(app()->isLocal()) debug-screens @endif">
 
-@php
-    $availableLocales = config('noot-pro-content-management.locales', []);
-    $currentLocale = session('locale', app()->getLocale());
-@endphp
-
-<header x-data="{ open: false, languageOpen: false }" class="bg-white dark:bg-black px-4">
+<header x-data="{ open: false, languageOpen: false }" class="bg-white dark:bg-black px-4" dir="{{ $direction }}">
     <div class="container mx-auto">
         <div class="flex justify-between h-16">
             <div class="flex">
@@ -62,7 +64,7 @@
                     </a>
                 </div>
 
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex sm:items-center">
+                <div class="hidden space-x-8 rtl:space-x-reverse sm:-my-px sm:ml-10 rtl:sm:mr-10 rtl:sm:ml-0 sm:flex sm:items-center">
                     <a href="{{ route('about') }}" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 dark:hover:border-gray-700 focus:outline-none focus:text-gray-700 dark:focus:text-gray-300 focus:border-gray-300 dark:focus:border-gray-700 transition-colors">
                         {{ __('About Us') }}
                     </a>
@@ -80,9 +82,9 @@
                 </div>
 
             </div>
-            <div class="hidden sm:flex sm:items-center sm:ml-6 gap-2">
+            <div class="hidden sm:flex sm:items-center sm:ml-6 rtl:sm:mr-6 rtl:sm:ml-0 gap-2">
                 <div class="relative" x-data="{ open: false }" @click.away="open = false">
-                    <button @click="open = !open" type="button" class="p-2 rounded-md text-gray-500 hover:text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-gray-200 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500 transition-colors flex items-center gap-1" aria-label="Select language">
+                    <button @click="open = !open" type="button" class="p-2 rounded-md text-gray-500 hover:text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-gray-200 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500 transition-colors flex items-center gap-1" aria-label="{{ __('Select language') }}">
                         <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
                         </svg>
@@ -91,11 +93,11 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
-                    <div x-show="open" x-cloak class="absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5 dark:ring-gray-700 z-50">
+                    <div x-show="open" x-cloak class="absolute right-0 rtl:left-0 rtl:right-auto mt-2 w-48 rounded-md shadow-lg bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5 dark:ring-gray-700 z-50">
                         <div class="py-1" role="menu">
                             @foreach($availableLocales as $localeCode => $localeData)
                                 <a href="{{ route('language.switch', $localeCode) }}" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 {{ $currentLocale === $localeCode ? 'bg-gray-100 dark:bg-gray-700 font-semibold' : '' }}" role="menuitem">
-                                    <div class="flex items-center justify-between">
+                                    <div class="flex items-center justify-between rtl:flex-row-reverse">
                                         <span>{{ $localeData['native'] ?? $localeData['name'] ?? strtoupper($localeCode) }}</span>
                                         @if($currentLocale === $localeCode)
                                             <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
