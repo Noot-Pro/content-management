@@ -201,7 +201,7 @@
                 <p class="text-xl text-blue-100 mb-8">انضم إلى مئات الشركات التي تثق ببُعد في إدارة مواردها البشرية</p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
                     <a href="#features" class="px-8 py-3 bg-white hover:bg-gray-100 text-blue-600 font-semibold rounded-lg transition-colors">ابدأ تجربة مجانية</a>
-                    <a href="{{ route('posts') }}" class="px-8 py-3 bg-blue-700 hover:bg-blue-800 text-white font-semibold rounded-lg transition-colors">تواصل معنا</a>
+                    <a href="{{ route('contact') }}" class="px-8 py-3 bg-blue-700 hover:bg-blue-800 text-white font-semibold rounded-lg transition-colors">تواصل معنا</a>
                 </div>
             </div>
         </div>

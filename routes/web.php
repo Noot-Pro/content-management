@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use NootPro\ContentManagement\Livewire\About;
+use NootPro\ContentManagement\Livewire\Contact;
 use NootPro\ContentManagement\Livewire\Faq;
 use NootPro\ContentManagement\Livewire\Home;
 use NootPro\ContentManagement\Livewire\Library;
@@ -43,6 +44,7 @@ Route::domain(config('noot-pro-content-management.domain'))
 
         Route::get('/', Home::class)->name('home');
         Route::get('/about', About::class)->name('about');
+        Route::get('/contact', Contact::class)->name('contact');
         Route::get('/posts', Posts::class)->name('posts');
         Route::get(config('noot-pro-content-management.uri.post') . '/{slug}', Post::class)->name('post');
         Route::get(config('noot-pro-content-management.uri.page') . '/{slug}', Page::class)->name('page');
