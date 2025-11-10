@@ -22,4 +22,3 @@ class About extends Component
             ->layout(config('noot-pro-content-management.layout'));
     }
 }
-

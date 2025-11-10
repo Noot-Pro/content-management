@@ -32,4 +32,3 @@ class Home extends Component
             ->layout(config('noot-pro-content-management.layout'));
     }
 }
-

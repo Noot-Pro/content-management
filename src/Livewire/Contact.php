@@ -8,9 +8,13 @@ use Livewire\Component;
 class Contact extends Component
 {
     public $name = '';
+
     public $email = '';
+
     public $phone = '';
+
     public $subject = '';
+
     public $message = '';
 
     protected $rules = [
@@ -39,7 +43,7 @@ class Contact extends Component
         // Here you can add logic to send email or save to database
         // For now, we'll just show a success message
         session()->flash('message', 'تم إرسال رسالتك بنجاح! سنتواصل معك قريبًا.');
-        
+
         // Reset form
         $this->reset(['name', 'email', 'phone', 'subject', 'message']);
     }
@@ -59,4 +63,3 @@ class Contact extends Component
             ->layout(config('noot-pro-content-management.layout'));
     }
 }
-

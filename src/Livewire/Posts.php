@@ -3,7 +3,6 @@
 namespace NootPro\ContentManagement\Livewire;
 
 use Illuminate\View\View;
-use Livewire\Attributes\Layout;
 use Livewire\Component;
 
 class Posts extends Component

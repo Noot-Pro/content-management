@@ -25,6 +25,7 @@ Route::domain(config('noot-pro-content-management.domain'))
                 session()->put('locale', $locale);
                 app()->setLocale($locale);
             }
+
             return redirect()->back();
         })->name('language.switch');
 
