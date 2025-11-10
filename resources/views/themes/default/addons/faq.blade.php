@@ -16,7 +16,7 @@
             </h2>
             <div class="space-y-8 mt-10">
                 @foreach($faqs as $faq)
-                    <div class="bg-white dark:bg-gray-800 rounded-[2rem] rounded-bl-none rounded-tr-none shadow-md group">
+                    <div class="bg-gray-50 dark:bg-gray-900 p-2 rounded group">
                         <h5>
                             <a class="flex items-center justify-between w-full px-6 py-4 text-xl font-medium tracking-tight text-primary-600 dark:text-primary-200">
                                 <span class="underline">
