@@ -23,7 +23,7 @@ class ContentManagementServiceProvider extends PackageServiceProvider
     public function packageBooted(): void
     {
         FilamentAsset::register(
-            $this->getAssets(),
+//            $this->getAssets(),
             $this->getAssetPackageName()
         );
 
