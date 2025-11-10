@@ -5,6 +5,7 @@ namespace NootPro\ContentManagement;
 use Filament\Facades\Filament;
 use Filament\Forms\Components\Select;
 use Filament\Support\Assets\Css;
+use Filament\Support\Assets\Js;
 use Filament\Support\Facades\FilamentAsset;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\View;
@@ -155,6 +156,7 @@ class ContentManagementServiceProvider extends PackageServiceProvider
     {
         return [
             Css::make(static::$name . '-styles', __DIR__ . '/../resources/dist/content-management.css'),
+            Js::make(static::$name . '-scripts', __DIR__ . '/../resources/dist/content-management.js'),
         ];
     }
 }
