@@ -19,12 +19,31 @@
 {{--    @stack('styles')--}}
 
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class'
+        }
+    </script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
     <style>
         * {font-family: 'KoHo', 'Almarai', sans-serif;}
         [x-cloak] {display: none !important;}
     </style>
+
+    <script>
+        (function() {
+            'use strict';
+            const theme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+            if (theme === 'dark' || (!theme && prefersDark)) {
+                document.documentElement.classList.add('dark');
+            } else if (theme === 'light') {
+                document.documentElement.classList.remove('dark');
+            }
+        })();
+    </script>
 </head>
 <body class="font-sans antialiased bg-gray-50 text-gray-900 dark:text-gray-100 dark:bg-gray-900 @if(app()->isLocal()) debug-screens @endif">
 
@@ -89,8 +108,6 @@
 </footer>
 
 @livewireScripts
-{{--@filamentScripts--}}
-{{--@livewire('notifications')--}}
 @stack('scripts')
 
 <script>
@@ -98,12 +115,6 @@
         'use strict';
 
         const ThemeManager = {
-            init() {
-                this.applyTheme();
-                this.setupToggleButton();
-                this.watchSystemPreference();
-            },
-
             getTheme() {
                 return localStorage.getItem('theme');
             },
@@ -111,12 +122,6 @@
             setTheme(theme) {
                 localStorage.setItem('theme', theme);
                 this.applyTheme();
-            },
-
-            isDarkMode() {
-                const theme = this.getTheme();
-                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                return theme === 'dark' || (!theme && prefersDark);
             },
 
             applyTheme() {
@@ -138,30 +143,45 @@
             setupToggleButton() {
                 const toggleButton = document.querySelector('[data-theme-toggle]');
                 if (toggleButton) {
-                    toggleButton.addEventListener('click', () => {
+                    toggleButton.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
                         this.toggleTheme();
                     });
+                } else {
+                    console.warn('Theme toggle button not found');
                 }
             },
 
             watchSystemPreference() {
                 const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-                mediaQuery.addEventListener('change', (e) => {
-                    if (!this.getTheme()) {
-                        if (e.matches) {
-                            document.documentElement.classList.add('dark');
-                        } else {
-                            document.documentElement.classList.remove('dark');
+                if (mediaQuery.addEventListener) {
+                    mediaQuery.addEventListener('change', (e) => {
+                        if (!this.getTheme()) {
+                            if (e.matches) {
+                                document.documentElement.classList.add('dark');
+                            } else {
+                                document.documentElement.classList.remove('dark');
+                            }
                         }
-                    }
-                });
+                    });
+                }
+            },
+
+            init() {
+                this.setupToggleButton();
+                this.watchSystemPreference();
             }
         };
 
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', () => ThemeManager.init());
-        } else {
+        function initializeTheme() {
             ThemeManager.init();
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initializeTheme);
+        } else {
+            setTimeout(initializeTheme, 0);
         }
 
         window.ThemeManager = ThemeManager;
