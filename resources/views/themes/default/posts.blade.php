@@ -12,7 +12,7 @@
             @if(request()->filled('search'))
                 <div class="py-4">
                     {{ __('Showing Search result of') }}: <span class="highlight">{{ request('search') }}</span>
-                    <a title="{{ __('clear') }}" href="{{ route('blogs') }}">
+                    <a title="{{ __('clear') }}" href="{{ route('posts') }}">
                         @svg('heroicon-o-backspace','text-primary-500 dark:text-primary-100 w-4 h-4 inline-flex align-middle')
                     </a>
                 </div>
