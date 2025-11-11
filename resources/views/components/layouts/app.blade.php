@@ -4,7 +4,7 @@
     $isRtl = in_array($currentLocale, ['ar', 'he', 'fa', 'ur']); // RTL languages
     $direction = $isRtl ? 'rtl' : 'ltr';
 @endphp
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" dir="{{ $direction ?? __('filament-panels::layout.direction') ?? 'ltr' }}" class="antialiased filament js-focus-visible">
 <head>
     <meta charset="utf-8">
@@ -21,8 +21,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     @livewireStyles
-    @filamentStyles
-    @stack('styles')
+    {{--    @filamentStyles--}}
+    {{--    @stack('styles')--}}
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            plugins: []
+        }
+    </script>
 
     <style>
         * {font-family: 'Noto Kufi Arabic', sans-serif;}
@@ -45,77 +53,77 @@
 </head>
 <body class="font-sans antialiased text-gray-900 dark:text-gray-100 dark:bg-gray-900 @if(app()->isLocal()) debug-screens @endif">
 
-    <header x-data="{ open: false, languageOpen: false }" class="bg-white dark:bg-black px-4" dir="{{ $direction }}">
-            <div class="container mx-auto">
-                <div class="flex justify-between h-16">
-                    <div class="flex">
-                    <div class="flex-shrink-0 flex items-center">
-                        <a class="italic flex gap-2 group" href="{{ url('/') }}">
-                            <img class="w-16" src="https://noot.co/images/site/logo.svg" alt="{{ config('zeus.site_title', config('app.name', 'Laravel')) }}">
-                        </a>
-                    </div>
-
-                    <div class="hidden space-x-8 rtl:space-x-reverse sm:-my-px sm:ml-10 rtl:sm:mr-10 rtl:sm:ml-0 sm:flex sm:items-center">
-                        <a href="{{ route('home') }}" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 dark:hover:border-gray-700 focus:outline-none focus:text-gray-700 dark:focus:text-gray-300 focus:border-gray-300 dark:focus:border-gray-700 transition-colors">
-                            {{ __('Home') }}
-                        </a>
-                        <a href="{{ route('about') }}" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 dark:hover:border-gray-700 focus:outline-none focus:text-gray-700 dark:focus:text-gray-300 focus:border-gray-300 dark:focus:border-gray-700 transition-colors">
-                            {{ __('About Us') }}
-                        </a>
-                        <a href="{{ route('contact') }}" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 dark:hover:border-gray-700 focus:outline-none focus:text-gray-700 dark:focus:text-gray-300 focus:border-gray-300 dark:focus:border-gray-700 transition-colors">
-                            {{ __('Contact Us') }}
-                        </a>
-                        <a href="{{ route('posts') }}" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 dark:hover:border-gray-700 focus:outline-none focus:text-gray-700 dark:focus:text-gray-300 focus:border-gray-300 dark:focus:border-gray-700 transition-colors">
-                            {{ __('News') }}
-                        </a>
-                        @if(Route::has('faq'))
-                            <a href="{{ route('faq') }}" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 dark:hover:border-gray-700 focus:outline-none focus:text-gray-700 dark:focus:text-gray-300 focus:border-gray-300 dark:focus:border-gray-700 transition-colors">
-                                {{ __('FAQ') }}
-                            </a>
-                        @endif
-                    </div>
-
+<header x-data="{ open: false, languageOpen: false }" class="bg-white dark:bg-black px-4" dir="{{ $direction }}">
+    <div class="container mx-auto">
+        <div class="flex justify-between h-16">
+            <div class="flex">
+                <div class="flex-shrink-0 flex items-center">
+                    <a class="italic flex gap-2 group" href="{{ url('/') }}">
+                        <img class="w-16" src="https://noot.co/images/site/logo.svg" alt="{{ config('zeus.site_title', config('app.name', 'Laravel')) }}">
+                    </a>
                 </div>
-                    <div class="hidden sm:flex sm:items-center sm:ml-6 rtl:sm:mr-6 rtl:sm:ml-0 gap-2">
-                        <div class="relative" x-data="{ open: false }" @click.away="open = false">
-                            <button @click="open = !open" type="button" class="p-2 rounded-md text-gray-500 hover:text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-gray-200 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500 transition-colors flex items-center gap-1" aria-label="{{ __('Select language') }}">
-                            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
-                            </svg>
-                            <span class="text-sm font-medium uppercase">{{ $currentLocale }}</span>
-                            <svg class="h-4 w-4 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" :class="{ 'rotate-180': open }">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                            </svg>
-                        </button>
-                            <div x-show="open" x-cloak class="absolute right-0 rtl:left-0 rtl:right-auto mt-2 w-48 rounded-md shadow-lg bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5 dark:ring-gray-700 z-50">
-                            <div class="py-1" role="menu">
-                                @foreach($availableLocales as $localeCode => $localeData)
-                                    <a href="{{ route('language.switch', $localeCode) }}" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 {{ $currentLocale === $localeCode ? 'bg-gray-100 dark:bg-gray-700 font-semibold' : '' }}" role="menuitem">
-                                        <div class="flex items-center justify-between rtl:flex-row-reverse">
-                                            <span>{{ $localeData['native'] ?? $localeData['name'] ?? strtoupper($localeCode) }}</span>
-                                            @if($currentLocale === $localeCode)
-                                                <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
-                                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                                                </svg>
-                                            @endif
-                                        </div>
-                                    </a>
-                                @endforeach
-                            </div>
-                        </div>
-                        </div>
-                    <button data-theme-toggle type="button" class="p-2 rounded-md text-gray-500 hover:text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-gray-200 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500 transition-colors" aria-label="Toggle dark mode">
-                        <svg data-theme-icon="moon" class="h-5 w-5 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+
+                <div class="hidden space-x-8 rtl:space-x-reverse sm:-my-px sm:ml-10 rtl:sm:mr-10 rtl:sm:ml-0 sm:flex sm:items-center">
+                    <a href="{{ route('home') }}" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 dark:hover:border-gray-700 focus:outline-none focus:text-gray-700 dark:focus:text-gray-300 focus:border-gray-300 dark:focus:border-gray-700 transition-colors">
+                        {{ __('Home') }}
+                    </a>
+                    <a href="{{ route('about') }}" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 dark:hover:border-gray-700 focus:outline-none focus:text-gray-700 dark:focus:text-gray-300 focus:border-gray-300 dark:focus:border-gray-700 transition-colors">
+                        {{ __('About Us') }}
+                    </a>
+                    <a href="{{ route('contact') }}" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 dark:hover:border-gray-700 focus:outline-none focus:text-gray-700 dark:focus:text-gray-300 focus:border-gray-300 dark:focus:border-gray-700 transition-colors">
+                        {{ __('Contact Us') }}
+                    </a>
+                    <a href="{{ route('posts') }}" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 dark:hover:border-gray-700 focus:outline-none focus:text-gray-700 dark:focus:text-gray-300 focus:border-gray-300 dark:focus:border-gray-700 transition-colors">
+                        {{ __('News') }}
+                    </a>
+                    @if(Route::has('faq'))
+                        <a href="{{ route('faq') }}" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 dark:hover:border-gray-700 focus:outline-none focus:text-gray-700 dark:focus:text-gray-300 focus:border-gray-300 dark:focus:border-gray-700 transition-colors">
+                            {{ __('FAQ') }}
+                        </a>
+                    @endif
+                </div>
+
+            </div>
+            <div class="hidden sm:flex sm:items-center sm:ml-6 rtl:sm:mr-6 rtl:sm:ml-0 gap-2">
+                <div class="relative" x-data="{ open: false }" @click.away="open = false">
+                    <button @click="open = !open" type="button" class="p-2 rounded-md text-gray-500 hover:text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-gray-200 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500 transition-colors flex items-center gap-1" aria-label="{{ __('Select language') }}">
+                        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
                         </svg>
-                        <svg data-theme-icon="sun" class="h-5 w-5 block dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                        <span class="text-sm font-medium uppercase">{{ $currentLocale }}</span>
+                        <svg class="h-4 w-4 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" :class="{ 'rotate-180': open }">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
+                    </button>
+                    <div x-show="open" x-cloak class="absolute right-0 rtl:left-0 rtl:right-auto mt-2 w-48 rounded-md shadow-lg bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5 dark:ring-gray-700 z-50">
+                        <div class="py-1" role="menu">
+                            @foreach($availableLocales as $localeCode => $localeData)
+                                <a href="{{ route('language.switch', $localeCode) }}" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 {{ $currentLocale === $localeCode ? 'bg-gray-100 dark:bg-gray-700 font-semibold' : '' }}" role="menuitem">
+                                    <div class="flex items-center justify-between rtl:flex-row-reverse">
+                                        <span>{{ $localeData['native'] ?? $localeData['name'] ?? strtoupper($localeCode) }}</span>
+                                        @if($currentLocale === $localeCode)
+                                            <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                            </svg>
+                                        @endif
+                                    </div>
+                                </a>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+                <button data-theme-toggle type="button" class="p-2 rounded-md text-gray-500 hover:text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-gray-200 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500 transition-colors" aria-label="Toggle dark mode">
+                    <svg data-theme-icon="moon" class="h-5 w-5 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                    </svg>
+                    <svg data-theme-icon="sun" class="h-5 w-5 block dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg>
                 </button>
                 {{--Account menu and other icons--}}
             </div>
         </div>
-    </header>
+</header>
 
 <div class="bg-gray-100 dark:bg-gray-800">
     <div class="container mx-auto py-2 px-3">
@@ -204,7 +212,6 @@
 </footer>
 
 @livewireScripts
-@filamentScripts
 @stack('scripts')
 
 <script>
