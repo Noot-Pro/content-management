@@ -21,16 +21,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     @livewireStyles
-{{--    @filamentStyles--}}
-{{--    @stack('styles')--}}
-
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            plugins: []
-        }
-    </script>
+    @filamentStyles
+    @stack('styles')
 
     <style>
         * {font-family: 'Noto Kufi Arabic', sans-serif;}
@@ -212,6 +204,7 @@
 </footer>
 
 @livewireScripts
+@filamentScripts
 @stack('scripts')
 
 <script>

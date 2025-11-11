@@ -22,10 +22,10 @@ class ContentManagementServiceProvider extends PackageServiceProvider
 
     public function packageBooted(): void
     {
-//        FilamentAsset::register(
-//            $this->getAssets(),
-//            $this->getAssetPackageName()
-//        );
+        FilamentAsset::register(
+            $this->getAssets(),
+            $this->getAssetPackageName()
+        );
 
         $this->setThemePath();
 
@@ -61,7 +61,8 @@ class ContentManagementServiceProvider extends PackageServiceProvider
             ->hasTranslations()
             ->hasConfigFile()
             ->hasCommands($this->getCommands())
-            ->hasViews('noot-pro-content-management');
+            ->hasViews('noot-pro-content-management')
+            ->hasAssets();
 
         if (! config('noot-pro-content-management.headless')) {
             $package->hasRoute('web');
