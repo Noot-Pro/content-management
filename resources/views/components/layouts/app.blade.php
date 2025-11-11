@@ -123,6 +123,7 @@
                 {{--Account menu and other icons--}}
             </div>
         </div>
+    </div>
 </header>
 
 <div class="bg-gray-100 dark:bg-gray-800">
