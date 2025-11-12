@@ -169,7 +169,7 @@
     <div class="actions max-w-[280px] mx-auto">
         <ul class="flex justify-between gap-x-4">
             <li><a href="#" class="px-4 py-2.5 text-sm border-2 rounded-xl border-[#E8E8E8] hover:bg-[#E8E8E8] transition ease-in-out">تسجيل الدخول</a></li>
-            <li><a href="#" class="px-4 py-2.5 text-sm border-2 rounded-xl border-[#E86F44] bg-[#E86F44] hover:bg-[#EEAB43] hover:border-[#EEAB43] text-white transition ease-in-out">تواصل معنا الآن</a></li>
+            <li><a href="#" class="px-4 py-2.5 text-sm border-2 rounded-xl border-[#E86F44] bg-[#E86F44] hover:bg-[var(--secondary-color)] hover:border-[var(--secondary-color)] text-white transition ease-in-out">تواصل معنا الآن</a></li>
         </ul>
     </div>
 </div>

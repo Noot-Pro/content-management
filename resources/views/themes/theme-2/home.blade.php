@@ -6,7 +6,7 @@
                 <div class="text-[32px] xl:text-[64px] font-bold mb-6">{{ __('noot-pro-content-management::site.home_head_1') }} <span class="block text-[var(--primary-color)]">{{ __('noot-pro-content-management::site.home_head_2') }}</span></div>
                 <div class="mx-auto max-w-[663px] text-xl text-[#8C9399] font-light mb-8">{{ __('noot-pro-content-management::site.home_text') }}</div>
                 <div class="flex justify-center gap-x-4">
-                    <a href="{{ url(filament()->getRegistrationUrl()) }}" class="px-6 py-3.5 border-2 rounded-xl border-[var(--primary-color)] bg-[var(--primary-color)] hover:bg-[#EEAB43] hover:border-[#EEAB43] text-white transition ease-in-out">{{ __('noot-pro-content-management::site.start_free_test') }}</a>
+                    <a href="{{ url(filament()->getRegistrationUrl()) }}" class="px-6 py-3.5 border-2 rounded-xl border-[var(--primary-color)] bg-[var(--primary-color)] hover:bg-[var(--secondary-color)] hover:border-[var(--secondary-color)] text-white transition ease-in-out">{{ __('noot-pro-content-management::site.start_free_test') }}</a>
                     <a href="#plans" class="px-6 py-3.5 border-2 rounded-xl border-[#E8E8E8] hover:bg-[#E8E8E8] transition ease-in-out">{{ __('noot-pro-content-management::site.plans_and_prices') }}</a>
                 </div>
             </div>
@@ -288,7 +288,7 @@
                         </ul>
                     </div>
                     <div>
-                        <a href="{{ url(filament()->getRegistrationUrl()) }}" class="block text-center px-6 py-3.5 w-full border-2 rounded-[14px] border-[var(--primary-color)] bg-[var(--primary-color)] hover:bg-[#EEAB43] hover:border-[#EEAB43] text-white transition ease-in-out">{{ __('noot-pro-content-management::site.get_the_package') }}</a>
+                        <a href="{{ url(filament()->getRegistrationUrl()) }}" class="block text-center px-6 py-3.5 w-full border-2 rounded-[14px] border-[var(--primary-color)] bg-[var(--primary-color)] hover:bg-[var(--secondary-color)] hover:border-[var(--secondary-color)] text-white transition ease-in-out">{{ __('noot-pro-content-management::site.get_the_package') }}</a>
                     </div>
                 </div>
                 <div class="xl:col-span-4 mb-6 xl:mb-0 col-span-full p-7 xl:p-14 bg-[#F7F7F7] rounded-[24px] xl:rounded-[48px] flex flex-col justify-between hover:shadow-2xl hover:bg-orange-50 transition ease-in-out">
