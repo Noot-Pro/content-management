@@ -24,7 +24,6 @@ use Filament\Tables\Actions\ForceDeleteBulkAction;
 use Filament\Tables\Actions\RestoreAction;
 use Filament\Tables\Actions\RestoreBulkAction;
 use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Columns\ViewColumn;
 use Filament\Tables\Filters\Filter;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Filters\TrashedFilter;
@@ -165,8 +164,7 @@ class PageResource extends BaseResource
                     ->label(__('Title'))
                     ->sortable(['title'])
                     ->searchable(['title'])
-                    ->toggleable()
-                ,
+                    ->toggleable(),
 
                 TextColumn::make('status')
                     ->label(__('Status'))
