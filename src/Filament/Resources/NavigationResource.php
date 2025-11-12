@@ -26,8 +26,6 @@ class NavigationResource extends BaseResource
 
     protected static bool $showTimestamps = true;
 
-    protected static bool $shouldRegisterNavigation = false;
-
     public static function disableTimestamps(bool $condition = true): void
     {
         static::$showTimestamps = ! $condition;

@@ -20,16 +20,29 @@ class ContentManagementServiceProvider extends PackageServiceProvider
 {
     public static string $name = 'noot-pro-content-management';
 
+    public static string $vendorName = 'noo-pro';
+
+    public static string $packageName = 'content-management';
+
     public function packageBooted(): void
     {
-//        FilamentAsset::register(
-//            $this->getAssets(),
-//            $this->getAssetPackageName()
-//        );
+        FilamentAsset::register(
+            $this->getAssets(),
+            $this->getAssetPackageName()
+        );
 
         $this->setThemePath();
 
         $this->bootFilamentNavigation();
+    }
+
+    public function boot(): void
+    {
+        parent::boot();
+
+        $this->publishes([
+            __DIR__ . '/../resources/images' => public_path('vendor/noot-pro/content-management/theme-2/images'),
+        ], 'noot-pro-content-management-images');
     }
 
     public function setThemePath(): void
@@ -156,8 +169,8 @@ class ContentManagementServiceProvider extends PackageServiceProvider
     protected function getAssets(): array
     {
         return [
-            Css::make(static::$name . '-styles', __DIR__ . '/../resources/dist/content-management.css'),
-            Js::make(static::$name . '-scripts', __DIR__ . '/../resources/dist/content-management.js'),
+            //            Css::make(static::$name . '-styles', __DIR__ . '/../resources/dist/content-management.css'),
+            //            Js::make(static::$name . '-scripts', __DIR__ . '/../resources/dist/content-management.js'),
         ];
     }
 }

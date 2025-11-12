@@ -42,6 +42,10 @@ class InstallCommand extends Command
             '--tag' => 'medialibrary-migrations',
         ]);
 
+        $this->info('publishing images...');
+
+        $this->call('vendor:publish', ['--tag' => 'noot-pro-content-management-images']);
+
         $this->info('publishing zeus assets...');
 
         $this->call('vendor:publish', ['--tag' => 'zeus-config']);

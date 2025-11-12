@@ -23,7 +23,7 @@ use Filament\Tables\Actions\ForceDeleteAction;
 use Filament\Tables\Actions\ForceDeleteBulkAction;
 use Filament\Tables\Actions\RestoreAction;
 use Filament\Tables\Actions\RestoreBulkAction;
-use Filament\Tables\Columns\ViewColumn;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\Filter;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Filters\TrashedFilter;
@@ -160,19 +160,18 @@ class PageResource extends BaseResource
     {
         return $table
             ->columns([
-                ViewColumn::make('title_card')
+                TextColumn::make('title')
                     ->label(__('Title'))
                     ->sortable(['title'])
                     ->searchable(['title'])
-                    ->toggleable()
-                    ->view('zeus::filament.columns.page-title'),
+                    ->toggleable(),
 
-                ViewColumn::make('status_desc')
+                TextColumn::make('status')
                     ->label(__('Status'))
                     ->sortable(['status'])
                     ->searchable(['status'])
                     ->toggleable()
-                    ->view('zeus::filament.columns.status-desc')
+//                    ->view('zeus::filament.columns.status-desc')
                     ->tooltip(fn (Post $record): string => $record->published_at->format('Y/m/d | H:i A')),
             ])
             ->defaultSort('id', 'desc')

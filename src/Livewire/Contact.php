@@ -7,17 +7,17 @@ use Livewire\Component;
 
 class Contact extends Component
 {
-    public $name = '';
+    public string $name = '';
 
-    public $email = '';
+    public string $email = '';
 
-    public $phone = '';
+    public string $phone = '';
 
-    public $subject = '';
+    public string $subject = '';
 
-    public $message = '';
+    public string $message = '';
 
-    protected $rules = [
+    protected array $rules = [
         'name' => 'required|min:3',
         'email' => 'required|email',
         'phone' => 'nullable|string',
@@ -25,7 +25,7 @@ class Contact extends Component
         'message' => 'required|min:10',
     ];
 
-    protected $messages = [
+    protected array $messages = [
         'name.required' => 'الاسم مطلوب',
         'name.min' => 'الاسم يجب أن يكون على الأقل 3 أحرف',
         'email.required' => 'البريد الإلكتروني مطلوب',
@@ -36,7 +36,7 @@ class Contact extends Component
         'message.min' => 'الرسالة يجب أن تكون على الأقل 10 أحرف',
     ];
 
-    public function submit()
+    public function submit(): void
     {
         $this->validate();
 
