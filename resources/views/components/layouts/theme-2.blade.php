@@ -156,22 +156,6 @@
             top: 0;
         }
 
-        .faqs-list__item .faq-title i {
-            display: block;
-            width: 24px;
-            height: 24px;
-            background: url("/vendor/noot-pro/content-management/images/arrow-down.svg") no-repeat center;
-            transition: all linear 0.2s;
-        }
-
-        .faqs-list__item .faq-title--active i {
-            transform: rotate(-180deg);
-        }
-
-        .faqs-list__item--active {
-            background: #F7F7F7;
-        }
-
         .responsive-menu {
             position: fixed;
             top: 0;
@@ -189,8 +173,8 @@
 </head>
 <body class="font-sans antialiased text-gray-900 @if(app()->isLocal()) debug-screens @endif">
 
-<header class="container mx-auto pt-5 pb-5 border-b border-b-[E8E8E8]">
-    <div class="container px-4 flex justify-between items-center h-16">
+<header class="mx-auto pt-5 pb-5 border-b border-b-[E8E8E8]">
+    <div class="px-4 flex justify-between items-center h-16">
         <a href="{{ url('/') }}">
             <div class="logo">
                 <img src="{{ asset('images/site/logo.svg') }}" alt="">
