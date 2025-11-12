@@ -78,13 +78,13 @@
                 <li class="links__item">
                     <a href="{{ url('blog') }}">{{ __('noot-pro-content-management::site.blog') }}</a>
                 </li>
-                @if(app()->getLocale() == 'ar')
+                @if(app()->getLocale() === 'ar')
                     <li class="links__item">
-                        <a href="{{ url('lang/en') }}">English</a>
+                        <a href="{{ route('language.switch', 'en') }}">English</a>
                     </li>
                 @else
                     <li class="links__item">
-                        <a href="{{ url('lang/ar') }}">العربية</a>
+                        <a href="{{ route('language.switch', 'ar') }}">العربية</a>
                     </li>
                 @endif
             </ul>
