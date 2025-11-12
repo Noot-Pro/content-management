@@ -62,7 +62,7 @@
                     <div class="timeline__item timeline__item--first mb-16 xl:mb-32 group">
                         <div class="grid xl:grid-cols-12 lg:gap-x-12 xl:gap-x-24 min-h-[250px]">
                             <div class="hidden xl:block xl:col-span-6 col-span-full overflow-hidden h-[424px]  rounded-[48px] transition ease-in-out group-hover:bg-orange-50">
-                                <img class="size-full object-cover object-center" src="{{ asset('images/site/why/6.png') }}" alt="">
+                                <img class="size-full object-cover object-center" src="{{ asset('/vendor/noot-pro/content-management/images/why/6.png') }}" alt="">
                             </div>
                             <div class="xl:col-start-7 xl:col-span-6 col-span-full">
                                 <div class="py-1.5 px-3 mb-2.5 inline-block text-sm border rounded-xl border-[#E86F44] text-[#E86F44]">{{ __('noot-pro-content-management::site.solution_badge') }}</div>
@@ -79,14 +79,14 @@
                                 <div class="text-xl text-[#8C9399] font-light transition ease-in-out group-hover:text-[#E86F44]">{{ __('noot-pro-content-management::site.easy_use_text') }}</div>
                             </div>
                             <div class="hidden xl:block xl:col-start-7 xl:col-span-6 col-span-full overflow-hidden h-[424px] rounded-[48px] transition ease-in-out group-hover:bg-orange-50">
-                                <img class="size-full object-cover object-center" src="{{ asset('images/site/why/1.png') }}" alt="">
+                                <img class="size-full object-cover object-center" src="{{ asset('/vendor/noot-pro/content-management/images/why/1.png') }}" alt="">
                             </div>
                         </div>
                     </div>
                     <div class="timeline__item mb-16 xl:mb-32 group">
                         <div class="grid xl:grid-cols-12 lg:gap-x-12 xl:gap-x-24 items-center min-h-[250px] xl:min-h-[424px]">
                             <div class="hidden xl:block xl:col-span-6 col-span-full overflow-hidden h-[424px]  rounded-[48px] transition ease-in-out group-hover:bg-orange-50">
-                                <img class="size-full object-cover object-center" src="{{ asset('images/site/why/2.png') }}" alt="">
+                                <img class="size-full object-cover object-center" src="{{ asset('/vendor/noot-pro/content-management/images/why/2.png') }}" alt="">
                             </div>
                             <div class="xl:col-start-7 lg:col-span-6 col-span-full">
                                 <div class="py-1.5 px-3 mb-2.5 inline-block text-sm border rounded-xl border-[#E86F44] text-[#E86F44]">{{ __('noot-pro-content-management::site.support_badge') }}</div>
@@ -103,14 +103,14 @@
                                 <div class="text-xl text-[#8C9399] font-light transition ease-in-out group-hover:text-[#E86F44]">{{ __('noot-pro-content-management::site.integration_text') }}</div>
                             </div>
                             <div class="hidden xl:block xl:col-start-7 xl:col-span-6 col-span-full overflow-hidden h-[424px] rounded-[48px] transition ease-in-out group-hover:bg-orange-50">
-                                <img class="size-full object-cover object-center" src="{{ asset('images/site/why/3.png') }}" alt="">
+                                <img class="size-full object-cover object-center" src="{{ asset('/vendor/noot-pro/content-management/images/why/3.png') }}" alt="">
                             </div>
                         </div>
                     </div>
                     <div class="timeline__item mb-16 xl:mb-32 group">
                         <div class="grid xl:grid-cols-12 lg:gap-x-12 xl:gap-x-24 items-center min-h-[250px] xl:min-h-[424px]">
                             <div class="hidden xl:block xl:col-span-6 col-span-full overflow-hidden h-[424px] rounded-[48px] transition ease-in-out group-hover:bg-orange-50">
-                                <img class="size-full object-cover object-center" src="{{ asset('images/site/why/4.png') }}" alt="">
+                                <img class="size-full object-cover object-center" src="{{ asset('/vendor/noot-pro/content-management/images/why/4.png') }}" alt="">
                             </div>
                             <div class="xl:col-start-7 lg:col-span-6 col-span-full">
                                 <div class="py-1.5 px-3 mb-2.5 inline-block text-sm border rounded-xl border-[#E86F44] text-[#E86F44]">{{ __('noot-pro-content-management::site.analysis_badge') }}</div>
@@ -127,7 +127,7 @@
                                 <div class="text-xl text-[#8C9399] font-light transition ease-in-out group-hover:text-[#E86F44]">{{ __('noot-pro-content-management::site.security_text') }}</div>
                             </div>
                             <div class="hidden xl:block xl:col-start-7 xl:col-span-6 lg:col-span-6 col-span-full overflow-hidden h-[424px] rounded-[48px] transition ease-in-out group-hover:bg-orange-50">
-                                <img class="size-full object-cover object-center" src="{{ asset('images/site/why/5.png') }}" alt="">
+                                <img class="size-full object-cover object-center" src="{{ asset('/vendor/noot-pro/content-management/images/why/5.png') }}" alt="">
                             </div>
                         </div>
                     </div>
@@ -161,7 +161,7 @@
                     </div>
                 </div>
                 <div class="lg:col-span-6 col-span-full h-[600px] overflow-hidden bg-[#F7F7F7] rounded-[24px] xl:rounded-[48px] transition ease-in-out group-hover:bg-orange-50">
-                    <img class="size-full object-cover object-center" src="{{ asset('images/site/solution.png') }}" alt="">
+                    <img class="size-full object-cover object-center" src="{{ asset('/vendor/noot-pro/content-management/images/solution.png') }}" alt="">
                 </div>
             </div>
         </div>
