@@ -141,22 +141,30 @@
             <div class="grid xl:grid-cols-12 gap-x-24 w-full min-h-[100%]">
                 <div class="lg:col-span-6 col-span-full mb-16 xl:mb-0">
                     <div class="text-[32px] xl:text-[48px] font-bold mb-10 xl:mb-20 text-center xl:text-right">{{ __('noot-pro-content-management::site.explore_solutions') }} <span class="text-[#E86F44]">{{ __('noot-pro-content-management::site.noot_provided') }}</span></div>
-                    <div class="faqs-list">
-                        <div class="faqs-list__item cursor-pointer p-7 rounded-[24px] xl:rounded-[32px] transition ease-in-out">
-                            <div class="faq-title text-xl flex items-center justify-between flex-row-reverse"><i></i>{{ __('noot-pro-content-management::site.solution_1_title') }}</div>
-                            <div class="faq-content mt-4 text-base text-[#8C9399] font-light" style="display: none;">{{ __('noot-pro-content-management::site.solution_1_text') }}</div>
+                    <div class="faqs-list" x-data="{ openIndex: null }">
+                        <div class="faqs-list__item cursor-pointer p-7 rounded-[24px] xl:rounded-[32px] transition ease-in-out" :class="{ 'faqs-list__item--active': openIndex === 0 }">
+                            <div @click="openIndex = openIndex === 0 ? null : 0" class="faq-title text-xl flex items-center justify-between flex-row-reverse" :class="{ 'faq-title--active': openIndex === 0 }">
+                                <i></i>{{ __('noot-pro-content-management::site.solution_1_title') }}
+                            </div>
+                            <div x-show="openIndex === 0" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 max-h-0" x-transition:enter-end="opacity-100 max-h-96" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 max-h-96" x-transition:leave-end="opacity-0 max-h-0" class="faq-content mt-4 text-base text-[#8C9399] font-light overflow-hidden">{{ __('noot-pro-content-management::site.solution_1_text') }}</div>
                         </div>
-                        <div class="faqs-list__item cursor-pointer p-7 rounded-[24px] xl:rounded-[32px] transition ease-in-out">
-                            <div class="faq-title text-xl flex items-center justify-between flex-row-reverse"><i></i>{{ __('noot-pro-content-management::site.solution_2_title') }}</div>
-                            <div class="faq-content mt-4 text-base text-[#8C9399] font-light" style="display: none;">{{ __('noot-pro-content-management::site.solution_2_text') }}</div>
+                        <div class="faqs-list__item cursor-pointer p-7 rounded-[24px] xl:rounded-[32px] transition ease-in-out" :class="{ 'faqs-list__item--active': openIndex === 1 }">
+                            <div @click="openIndex = openIndex === 1 ? null : 1" class="faq-title text-xl flex items-center justify-between flex-row-reverse" :class="{ 'faq-title--active': openIndex === 1 }">
+                                <i></i>{{ __('noot-pro-content-management::site.solution_2_title') }}
+                            </div>
+                            <div x-show="openIndex === 1" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 max-h-0" x-transition:enter-end="opacity-100 max-h-96" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 max-h-96" x-transition:leave-end="opacity-0 max-h-0" class="faq-content mt-4 text-base text-[#8C9399] font-light overflow-hidden">{{ __('noot-pro-content-management::site.solution_2_text') }}</div>
                         </div>
-                        <div class="faqs-list__item cursor-pointer p-7 rounded-[24px] xl:rounded-[32px] transition ease-in-out">
-                            <div class="faq-title text-xl flex items-center justify-between flex-row-reverse"><i></i>{{ __('noot-pro-content-management::site.solution_4_title') }}</div>
-                            <div class="faq-content mt-4 text-base text-[#8C9399] font-light" style="display: none;">{{ __('noot-pro-content-management::site.solution_4_text') }}</div>
+                        <div class="faqs-list__item cursor-pointer p-7 rounded-[24px] xl:rounded-[32px] transition ease-in-out" :class="{ 'faqs-list__item--active': openIndex === 2 }">
+                            <div @click="openIndex = openIndex === 2 ? null : 2" class="faq-title text-xl flex items-center justify-between flex-row-reverse" :class="{ 'faq-title--active': openIndex === 2 }">
+                                <i></i>{{ __('noot-pro-content-management::site.solution_4_title') }}
+                            </div>
+                            <div x-show="openIndex === 2" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 max-h-0" x-transition:enter-end="opacity-100 max-h-96" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 max-h-96" x-transition:leave-end="opacity-0 max-h-0" class="faq-content mt-4 text-base text-[#8C9399] font-light overflow-hidden">{{ __('noot-pro-content-management::site.solution_4_text') }}</div>
                         </div>
-                        <div class="faqs-list__item cursor-pointer p-7 rounded-[24px] xl:rounded-[32px] transition ease-in-out">
-                            <div class="faq-title text-xl flex items-center justify-between flex-row-reverse"><i></i>{{ __('noot-pro-content-management::site.solution_5_title') }}</div>
-                            <div class="faq-content mt-4 text-base text-[#8C9399] font-light" style="display: none;">{{ __('noot-pro-content-management::site.solution_5_text') }}</div>
+                        <div class="faqs-list__item cursor-pointer p-7 rounded-[24px] xl:rounded-[32px] transition ease-in-out" :class="{ 'faqs-list__item--active': openIndex === 3 }">
+                            <div @click="openIndex = openIndex === 3 ? null : 3" class="faq-title text-xl flex items-center justify-between flex-row-reverse" :class="{ 'faq-title--active': openIndex === 3 }">
+                                <i></i>{{ __('noot-pro-content-management::site.solution_5_title') }}
+                            </div>
+                            <div x-show="openIndex === 3" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 max-h-0" x-transition:enter-end="opacity-100 max-h-96" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 max-h-96" x-transition:leave-end="opacity-0 max-h-0" class="faq-content mt-4 text-base text-[#8C9399] font-light overflow-hidden">{{ __('noot-pro-content-management::site.solution_5_text') }}</div>
                         </div>
                     </div>
                 </div>
