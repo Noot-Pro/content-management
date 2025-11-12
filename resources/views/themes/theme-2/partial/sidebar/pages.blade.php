@@ -1,7 +1,7 @@
 @unless($pages->isEmpty())
-    <div class="my-4">
-        <h4 class="mb-4 text-xl font-bold text-gray-700">{{ __('Pages') }}</h4>
-        <div class="flex flex-col max-w-sm px-4 py-6 mx-auto bg-white rounded shadow">
+    <div class="my-4 bg-gray-50 p-2 rounded">
+        <h4 class="text-xl font-bold text-gray-700">{{ __('Pages') }}</h4>
+        <div class="flex flex-col max-w-sm px-4 py-6 mx-auto">
             @foreach($pages as $post)
                 <a href="{{ route('page',$post->slug) }}" class="border-b border-t border-white hover:border-primary-600 transition duration-300 px-1 py-4">
                     <div class="flex items-center space-x-3 rtl:space-x-reverse">
