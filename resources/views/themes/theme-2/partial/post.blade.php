@@ -19,7 +19,7 @@
             </div>
         </div>
         <div class="flex items-center justify-between mt-4">
-            <a href="{{ route('post',$post->slug) }}" class="text-blue-500 hover:underline">{{ __("Read more") }}</a>
+            <a href="{{ route('post',$post->slug) }}" class="text-[var(--primary-color)] hover:underline">{{ __("Read more") }}</a>
 {{--            <div>--}}
 {{--                <a class="flex items-center gap-2">--}}
 {{--                    <img src="{{ \Filament\Facades\Filament::getUserAvatarUrl($post->author) }}" alt="avatar" class="hidden object-cover w-8 h-8 rounded-full sm:block">--}}
