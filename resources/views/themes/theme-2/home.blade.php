@@ -2,7 +2,7 @@
     <section class="w-full bg-no-repeat bg-bottom">
         <div class="container px-4 py-20 pb-2">
             <div class="text-center">
-                <span class="text-sm py-1.5 px-3 border rounded-lg inline-block mb-4">{{ __('noot-pro-content-management::site.noot_title') }}</span>
+                <span class="text-sm py-1.5 px-3 border rounded-lg inline-block mb-4">{{ __('noot-pro-content-management::site.home_tag') }}</span>
                 <div class="text-[32px] xl:text-[64px] font-bold mb-6">{{ __('noot-pro-content-management::site.home_head_1') }} <span class="block text-[#E86F44]">{{ __('noot-pro-content-management::site.home_head_2') }}</span></div>
                 <div class="mx-auto max-w-[663px] text-xl text-[#8C9399] font-light mb-8">{{ __('noot-pro-content-management::site.home_text') }}</div>
                 <div class="flex justify-center gap-x-4">
@@ -141,11 +141,11 @@
             <div class="grid xl:grid-cols-12 gap-x-24 w-full min-h-[100%]">
                 <div class="lg:col-span-6 col-span-full mb-16 xl:mb-0">
                     <div class="text-[32px] xl:text-[48px] font-bold mb-10 xl:mb-20 text-center xl:text-right">{{ __('noot-pro-content-management::site.explore_solutions') }} <span class="text-[#E86F44]">{{ __('noot-pro-content-management::site.noot_provided') }}</span></div>
-                    <div x-data="{ 
-                        activeAccordion: '', 
-                        setActiveAccordion(id) { 
-                            this.activeAccordion = (this.activeAccordion == id) ? '' : id 
-                        } 
+                    <div x-data="{
+                        activeAccordion: '',
+                        setActiveAccordion(id) {
+                            this.activeAccordion = (this.activeAccordion == id) ? '' : id
+                        }
                     }">
                         <div x-data="{ id: $id('accordion') }" class="cursor-pointer p-7 rounded-[24px] xl:rounded-[32px] transition ease-in-out" :class="{ 'bg-[#F7F7F7]': activeAccordion == id }">
                             <div @click="setActiveAccordion(id)" class="text-xl flex items-center justify-between flex-row-reverse">
