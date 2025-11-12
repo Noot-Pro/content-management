@@ -27,6 +27,7 @@ class PublishCommand extends Command
     {
         $this->callSilent('vendor:publish', ['--tag' => 'noot-pro-content-management-migrations', '--force' => $this->option('force')]);
         $this->callSilent('vendor:publish', ['--tag' => 'noot-pro-content-management-translations', '--force' => $this->option('force')]);
+        $this->callSilent('vendor:publish', ['--tag' => 'noot-pro-content-management-images', '--force' => $this->option('force')]);
 
         $this->callSilent('vendor:publish', ['--tag' => 'zeus-config', '--force' => $this->option('force')]);
         $this->callSilent('vendor:publish', ['--tag' => 'zeus-views', '--force' => $this->option('force')]);
