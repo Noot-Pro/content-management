@@ -16,7 +16,7 @@
     <section class="w-full">
         <div class="container px-4 text-center">
             <div class="w-full text-center">
-                @if(app()->getLocale() == 'ar')
+                @if(app()->getLocale() === 'ar')
                     <img src="{{ url('/vendor/noot-pro/content-management/images/apps.png') }}" class="mx-auto md:w-[100%] lg:w-[60%]" alt="">
                 @else
                     <img src="{{ asset('/vendor/noot-pro/content-management/images/apps.png') }}" class="mx-auto md:w-[100%] lg:w-[60%]" alt="">
