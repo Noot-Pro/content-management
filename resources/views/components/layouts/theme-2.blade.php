@@ -21,13 +21,170 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     @livewireStyles
-    @stack('styles')
-
     <script src="https://cdn.tailwindcss.com"></script>
+
+    @stack('styles')
 
     <style>
         * {font-family: 'Noto Kufi Arabic', sans-serif;}
         [x-cloak] {display: none !important;}
+
+
+        .links__item {
+            position: relative;
+            margin-inline-end: 16px;
+        }
+
+        .links__item > a {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            border-radius: 12px;
+        }
+
+        .links__item > a:hover {
+            background: #F7F7F7;
+        }
+
+        .links__item--has-dropdown > a:after {
+            content: "";
+            display: block;
+            margin-inline-start: 6px;
+            width: 16px;
+            height: 16px;
+            background: url("../../images/site/arrow-down.svg") no-repeat center;
+            transition: all linear 0.1s;
+        }
+
+        .links__item--has-dropdown:hover > a {
+            background: #F7F7F7;
+        }
+
+        .links__item--has-dropdown:hover > a:after {
+            transform: rotate(180deg);
+        }
+
+        .links__item--has-dropdown:hover > a + .links__dropdown {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .links__dropdown {
+            width: 608px;
+            padding: 32px;
+            border: 1px solid #E8E8E8;
+            border-radius: 26px;
+            position: absolute;
+            top: 45px;
+            right: 0;
+            box-shadow: 0 0 32px 0 rgba(0, 0, 0, 0.08);
+            background: #fff;
+            opacity: 0;
+            visibility: hidden;
+            transition: visibility 0.1s, opacity 0.1s;
+            z-index: 1;
+        }
+
+        .links__dropdown__w_auto {
+            width: auto;
+        }
+
+        .timeline__items {
+            position: relative;
+        }
+
+        .timeline .default-line {
+            content: "";
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            background: #E8E8E8;
+            height: calc(100% - 212px);
+        }
+
+        @media screen and (max-width: 1024px) {
+            .timeline .default-line {
+                left: auto;
+                right: 24px;
+                height: calc(100% - 125px);
+            }
+        }
+
+        .timeline .draw-line {
+            width: 2px;
+            height: 0;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #FF9873;
+        }
+
+        @media screen and (max-width: 1024px) {
+            .timeline .draw-line {
+                left: auto;
+                right: 24px;
+            }
+        }
+
+        .timeline__item {
+            position: relative;
+        }
+
+        .timeline__item:before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #FF9873;
+            box-shadow: 0 0 0 6px #fff;
+            transition: all 0.2s ease-in-out;
+        }
+
+        @media screen and (max-width: 1024px) {
+            .timeline__item:before {
+                left: auto;
+                right: -30px;
+            }
+        }
+
+        .timeline__item--first:before {
+            top: 0;
+        }
+
+        .faqs-list__item .faq-title i {
+            display: block;
+            width: 24px;
+            height: 24px;
+            background: url("/vendor/noot-pro/content-management/images/arrow-down.svg") no-repeat center;
+            transition: all linear 0.2s;
+        }
+
+        .faqs-list__item .faq-title--active i {
+            transform: rotate(-180deg);
+        }
+
+        .faqs-list__item--active {
+            background: #F7F7F7;
+        }
+
+        .responsive-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1000;
+            background-color: #fff;
+        }
+
+        .bord {
+            border: solid 1px red;
+        }
     </style>
 </head>
 <body class="font-sans antialiased text-gray-900 @if(app()->isLocal()) debug-screens @endif">
