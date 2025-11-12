@@ -177,7 +177,7 @@
                             <div class="text-xl text-[#8C9399] font-light">{{ __('noot-pro-content-management::site.said_1_text') }}</div>
                             <div class="flex items-center">
                                 <div class="w-[52px] h-[52px] overflow-hidden rounded-full bg-[#E8E8E8]">
-                                    <img class="size-full object-cover object-center" src="{{ asset('images/site/said/1.jpg') }}" alt="">
+                                    <img class="size-full object-cover object-center" src="{{ asset('/vendor/noot-pro/content-management/images/said/1.jpg') }}" alt="">
                                 </div>
                                 <div class="ms-4">
                                     <div class="text-base mb-1">{{ __('noot-pro-content-management::site.client_1_name') }}</div>
@@ -191,7 +191,7 @@
                             <div class="text-xl text-[#8C9399] font-light">{{ __('noot-pro-content-management::site.said_2_text') }}</div>
                             <div class="flex items-center">
                                 <div class="w-[52px] h-[52px] overflow-hidden rounded-full bg-[#E8E8E8]">
-                                    <img class="size-full object-cover object-center" src="{{ asset('images/site/said/2.jpg') }}" alt="">
+                                    <img class="size-full object-cover object-center" src="{{ asset('/vendor/noot-pro/content-management/images/said/2.jpg') }}" alt="">
                                 </div>
                                 <div class="ms-4">
                                     <div class="text-base mb-1">{{ __('noot-pro-content-management::site.client_2_name') }}</div>
@@ -205,7 +205,7 @@
                             <div class="text-xl text-[#8C9399] font-light">{{ __('noot-pro-content-management::site.said_3_text') }}</div>
                             <div class="flex items-center">
                                 <div class="w-[52px] h-[52px] overflow-hidden rounded-full bg-[#E8E8E8]">
-                                    <img class="size-full object-cover object-center" src="{{ asset('images/site/said/3.png') }}" alt="">
+                                    <img class="size-full object-cover object-center" src="{{ asset('/vendor/noot-pro/content-management/images/said/3.png') }}" alt="">
                                 </div>
                                 <div class="ms-4">
                                     <div class="text-base mb-1">{{ __('noot-pro-content-management::site.client_3_name') }}</div>
