@@ -26,7 +26,7 @@ class MenuPages extends Component
         //        }
         //        $this->pages = $pages;
 
-        $this->pages = Post::query()->where('post_type', '=', 'page')->limit(6)->get();
+        $this->pages = Post::where('post_type', '=', 'page')->limit(6)->get();
     }
 
     public function render(): Factory | View | Application
