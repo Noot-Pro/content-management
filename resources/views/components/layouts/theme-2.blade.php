@@ -28,6 +28,7 @@
         :root {
             --primary-color: #189cd8;
             --secondary-color: #132524;
+            --hover-bg-color: #ecf1f4
         }
         * {font-family: 'Noto Kufi Arabic', sans-serif;}
         [x-cloak] {display: none !important;}

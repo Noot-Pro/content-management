@@ -29,21 +29,21 @@
         <div class="container px-4 pt-12 xl:pt-14 mb-2">
             <div class="text-[32px] xl:text-[48px] font-bold mb-10 xl:mb-20 text-center">{{ __('noot-pro-content-management::site.features_title') }} <span class="block text-[var(--primary-color)]">{{ __('noot-pro-content-management::site.one_place') }}</span></div>
             <div class="grid grid-cols-12  gap-x-4">
-                <div class="group lg:col-span-6 xl:col-span-8 col-span-full p-7 lg:p-14 mb-5 bg-[#F7F7F7] lg:h-[250px] rounded-[24px] xl:rounded-[48px] transition ease-in-out hover:bg-orange-50">
+                <div class="group lg:col-span-6 xl:col-span-8 col-span-full p-7 lg:p-14 mb-5 bg-[#F7F7F7] lg:h-[250px] rounded-[24px] xl:rounded-[48px] transition ease-in-out hover:bg-[var(--hover-bg-color)]">
                     <div class="text-xl mb-2.5 transition ease-in-out group-hover:text-[var(--primary-color)]">{{ __('noot-pro-content-management::site.hr_title') }}</div>
                     <div class="text-base text-[#8C9399] font-light max-w-[524px]">{{ __('noot-pro-content-management::site.hr_text') }}</div>
                 </div>
-                <div class="group lg:col-span-6 xl:col-span-4 col-span-full p-7 lg:p-14 mb-5 bg-[#F7F7F7] lg:h-[250px] rounded-[24px] xl:rounded-[48px] transition ease-in-out hover:bg-orange-50">
+                <div class="group lg:col-span-6 xl:col-span-4 col-span-full p-7 lg:p-14 mb-5 bg-[#F7F7F7] lg:h-[250px] rounded-[24px] xl:rounded-[48px] transition ease-in-out hover:bg-[var(--hover-bg-color)]">
                     <div class="text-xl mb-2.5 transition ease-in-out group-hover:text-[var(--primary-color)]">{{ __('noot-pro-content-management::site.accounting_title') }}</div>
                     <div class="text-base text-[#8C9399] font-light max-w-[524px]">{{ __('noot-pro-content-management::site.accounting_text') }}</div>
                 </div>
 
-                <div class="group lg:col-span-6 xl:col-span-4 col-span-full p-7 lg:p-14 mb-5 bg-[#F7F7F7] lg:h-[350px] rounded-[24px] xl:rounded-[48px] transition ease-in-out hover:bg-orange-50">
+                <div class="group lg:col-span-6 xl:col-span-4 col-span-full p-7 lg:p-14 mb-5 bg-[#F7F7F7] lg:h-[350px] rounded-[24px] xl:rounded-[48px] transition ease-in-out hover:bg-[var(--hover-bg-color)]">
                     <div class="text-xl mb-2.5 transition ease-in-out group-hover:text-[var(--primary-color)]">{{ __('noot-pro-content-management::site.crm_title') }}</div>
                     <div class="text-base text-[#8C9399] font-light max-w-[524px]">{{ __('noot-pro-content-management::site.crm_text') }}</div>
                 </div>
 
-                <div class="group lg:col-span-6 xl:col-span-8 col-span-full p-7 lg:p-14 mb-5 bg-[#F7F7F7] lg:h-[350px] rounded-[24px] xl:rounded-[48px] transition ease-in-out hover:bg-orange-50">
+                <div class="group lg:col-span-6 xl:col-span-8 col-span-full p-7 lg:p-14 mb-5 bg-[#F7F7F7] lg:h-[350px] rounded-[24px] xl:rounded-[48px] transition ease-in-out hover:bg-[var(--hover-bg-color)]">
                     <div class="text-xl mb-2.5 transition ease-in-out group-hover:text-[var(--primary-color)]">{{ __('noot-pro-content-management::site.pos_title') }}</div>
                     <div class="text-base text-[#8C9399] font-light max-w-[524px]">{{ __('noot-pro-content-management::site.pos_text') }}</div>
                 </div>
@@ -61,7 +61,7 @@
                     <span class="draw-line"></span>
                     <div class="timeline__item timeline__item--first mb-16 xl:mb-32 group">
                         <div class="grid xl:grid-cols-12 lg:gap-x-12 xl:gap-x-24 min-h-[250px]">
-                            <div class="hidden xl:block xl:col-span-6 col-span-full overflow-hidden h-[424px]  rounded-[48px] transition ease-in-out group-hover:bg-orange-50">
+                            <div class="hidden xl:block xl:col-span-6 col-span-full overflow-hidden h-[424px]  rounded-[48px] transition ease-in-out group-hover:bg-[var(--hover-bg-color)]">
                                 <img class="size-full object-cover object-center" src="{{ asset('/vendor/noot-pro/content-management/images/theme-2/why/6.png') }}" alt="">
                             </div>
                             <div class="xl:col-start-7 xl:col-span-6 col-span-full">
@@ -78,14 +78,14 @@
                                 <div class="text-xl mb-2.5">{{ __('noot-pro-content-management::site.easy_use_title') }}</div>
                                 <div class="text-xl text-[#8C9399] font-light transition ease-in-out group-hover:text-[var(--primary-color)]">{{ __('noot-pro-content-management::site.easy_use_text') }}</div>
                             </div>
-                            <div class="hidden xl:block xl:col-start-7 xl:col-span-6 col-span-full overflow-hidden h-[424px] rounded-[48px] transition ease-in-out group-hover:bg-orange-50">
+                            <div class="hidden xl:block xl:col-start-7 xl:col-span-6 col-span-full overflow-hidden h-[424px] rounded-[48px] transition ease-in-out group-hover:bg-[var(--hover-bg-color)]">
                                 <img class="size-full object-cover object-center" src="{{ asset('/vendor/noot-pro/content-management/images/theme-2/why/1.png') }}" alt="">
                             </div>
                         </div>
                     </div>
                     <div class="timeline__item mb-16 xl:mb-32 group">
                         <div class="grid xl:grid-cols-12 lg:gap-x-12 xl:gap-x-24 items-center min-h-[250px] xl:min-h-[424px]">
-                            <div class="hidden xl:block xl:col-span-6 col-span-full overflow-hidden h-[424px]  rounded-[48px] transition ease-in-out group-hover:bg-orange-50">
+                            <div class="hidden xl:block xl:col-span-6 col-span-full overflow-hidden h-[424px]  rounded-[48px] transition ease-in-out group-hover:bg-[var(--hover-bg-color)]">
                                 <img class="size-full object-cover object-center" src="{{ asset('/vendor/noot-pro/content-management/images/theme-2/why/2.png') }}" alt="">
                             </div>
                             <div class="xl:col-start-7 lg:col-span-6 col-span-full">
@@ -102,15 +102,15 @@
                                 <div class="text-xl mb-2.5">{{ __('noot-pro-content-management::site.integration_title') }}</div>
                                 <div class="text-xl text-[#8C9399] font-light transition ease-in-out group-hover:text-[var(--primary-color)]">{{ __('noot-pro-content-management::site.integration_text') }}</div>
                             </div>
-                            <div class="hidden xl:block xl:col-start-7 xl:col-span-6 col-span-full overflow-hidden h-[424px] rounded-[48px] transition ease-in-out group-hover:bg-orange-50">
+                            <div class="hidden xl:block xl:col-start-7 xl:col-span-6 col-span-full overflow-hidden h-[424px] rounded-[48px] transition ease-in-out group-hover:bg-[var(--hover-bg-color)]">
                                 <img class="size-full object-cover object-center" src="{{ asset('/vendor/noot-pro/content-management/images/theme-2/why/3.png') }}" alt="">
                             </div>
                         </div>
                     </div>
                     <div class="timeline__item mb-16 xl:mb-32 group">
                         <div class="grid xl:grid-cols-12 lg:gap-x-12 xl:gap-x-24 items-center min-h-[250px] xl:min-h-[424px]">
-                            <div class="hidden xl:block xl:col-span-6 col-span-full overflow-hidden h-[424px] rounded-[48px] transition ease-in-out group-hover:bg-orange-50">
-                                <img class="size-full object-cover object-center" src="{{ asset('/vendor/noot-pro/content-management/images/why/theme-2/4.png') }}" alt="">
+                            <div class="hidden xl:block xl:col-span-6 col-span-full overflow-hidden h-[424px] rounded-[48px] transition ease-in-out group-hover:bg-[var(--hover-bg-color)]">
+                                <img class="size-full object-cover object-center" src="{{ asset('/vendor/noot-pro/content-management/images/theme-2/why/4.png') }}" alt="">
                             </div>
                             <div class="xl:col-start-7 lg:col-span-6 col-span-full">
                                 <div class="py-1.5 px-3 mb-2.5 inline-block text-sm border rounded-xl border-[var(--primary-color)] text-[var(--primary-color)]">{{ __('noot-pro-content-management::site.analysis_badge') }}</div>
@@ -126,7 +126,7 @@
                                 <div class="text-xl mb-2.5">{{ __('noot-pro-content-management::site.security_title') }}</div>
                                 <div class="text-xl text-[#8C9399] font-light transition ease-in-out group-hover:text-[var(--primary-color)]">{{ __('noot-pro-content-management::site.security_text') }}</div>
                             </div>
-                            <div class="hidden xl:block xl:col-start-7 xl:col-span-6 lg:col-span-6 col-span-full overflow-hidden h-[424px] rounded-[48px] transition ease-in-out group-hover:bg-orange-50">
+                            <div class="hidden xl:block xl:col-start-7 xl:col-span-6 lg:col-span-6 col-span-full overflow-hidden h-[424px] rounded-[48px] transition ease-in-out group-hover:bg-[var(--hover-bg-color)]">
                                 <img class="size-full object-cover object-center" src="{{ asset('/vendor/noot-pro/content-management/images/theme-2/why/5.png') }}" alt="">
                             </div>
                         </div>
@@ -173,7 +173,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="lg:col-span-6 col-span-full h-[600px] overflow-hidden bg-[#F7F7F7] rounded-[24px] xl:rounded-[48px] transition ease-in-out group-hover:bg-orange-50">
+                <div class="lg:col-span-6 col-span-full h-[600px] overflow-hidden bg-[#F7F7F7] rounded-[24px] xl:rounded-[48px] transition ease-in-out group-hover:bg-[var(--hover-bg-color)]">
                     <img class="size-full object-cover object-center" src="{{ asset('/vendor/noot-pro/content-management/images/theme-2/solution.png') }}" alt="">
                 </div>
             </div>
@@ -244,7 +244,7 @@
         <div class="container px-4 py-32 xl:py-48">
             <div class="text-[32px] xl:text-[48px] font-bold mb-10 xl:mb-20 text-center">{{ __('noot-pro-content-management::site.various_packages') }} <span class="text-[var(--primary-color)]">{{ __('noot-pro-content-management::site.for_all_categories') }}</span></div>
             <div class="grid grid-cols-12 gap-0 lg:gap-x-8 2xl:gap-x-20 items-stretch">
-                <div class="xl:col-span-4 mb-6 xl:mb-0 col-span-full p-7 xl:p-14 bg-[#F7F7F7] rounded-[24px] xl:rounded-[48px] flex flex-col justify-between hover:shadow-2xl hover:bg-orange-50 transition ease-in-out">
+                <div class="xl:col-span-4 mb-6 xl:mb-0 col-span-full p-7 xl:p-14 bg-[#F7F7F7] rounded-[24px] xl:rounded-[48px] flex flex-col justify-between hover:shadow-2xl hover:bg-[var(--hover-bg-color)] transition ease-in-out">
                     <div class="mb-10">
                         <div class="text-2xl mb-2 flex items-center">{{ __('noot-pro-content-management::site.test_package_title') }}</div>
                         <div class="text-[#8C9399] font-light mb-[26px]">{{ __('noot-pro-content-management::site.test_package_text') }}</div>
@@ -267,7 +267,7 @@
                         <a href="{{ url(filament()->getRegistrationUrl()) }}" class="block text-center text-[#1C1C1C]  px-6 py-3.5 w-full border-2 rounded-[14px] border-[#E8E8E8] bg-[#E8E8E8] hover:bg-[#969696] hover:border-[#969696] hover:text-white transition ease-in-out">{{ __('noot-pro-content-management::site.try_it_free') }}</a>
                     </div>
                 </div>
-                <div class="xl:col-span-4 mb-6 xl:mb-0 col-span-full p-7 xl:p-14 bg-[#F7F7F7] rounded-[24px] xl:rounded-[48px] flex flex-col justify-between hover:shadow-2xl hover:bg-orange-50 transition ease-in-out">
+                <div class="xl:col-span-4 mb-6 xl:mb-0 col-span-full p-7 xl:p-14 bg-[#F7F7F7] rounded-[24px] xl:rounded-[48px] flex flex-col justify-between hover:shadow-2xl hover:bg-[var(--hover-bg-color)] transition ease-in-out">
                     <div class="mb-10">
                         <div class="text-2xl mb-2 flex items-center">{{ __('noot-pro-content-management::site.main_package_title') }} <span class="bg-[#FFEEE5] ms-1.5 px-3 py-1 text-[var(--primary-color)] text-xs border rounded-[10px] border-[#FFDECC]">{{ __('noot-pro-content-management::site.main_package_badge') }}</span></div>
                         <div class="text-[#8C9399] font-light mb-[26px]">{{ __('noot-pro-content-management::site.main_package_text') }}</div>
@@ -291,7 +291,7 @@
                         <a href="{{ url(filament()->getRegistrationUrl()) }}" class="block text-center px-6 py-3.5 w-full border-2 rounded-[14px] border-[var(--primary-color)] bg-[var(--primary-color)] hover:bg-[var(--secondary-color)] hover:border-[var(--secondary-color)] text-white transition ease-in-out">{{ __('noot-pro-content-management::site.get_the_package') }}</a>
                     </div>
                 </div>
-                <div class="xl:col-span-4 mb-6 xl:mb-0 col-span-full p-7 xl:p-14 bg-[#F7F7F7] rounded-[24px] xl:rounded-[48px] flex flex-col justify-between hover:shadow-2xl hover:bg-orange-50 transition ease-in-out">
+                <div class="xl:col-span-4 mb-6 xl:mb-0 col-span-full p-7 xl:p-14 bg-[#F7F7F7] rounded-[24px] xl:rounded-[48px] flex flex-col justify-between hover:shadow-2xl hover:bg-[var(--hover-bg-color)] transition ease-in-out">
                     <div class="mb-10">
                         <div class="text-2xl mb-2 flex items-center">{{ __('noot-pro-content-management::site.advanced_package_title') }}</div>
                         <div class="text-[#8C9399] font-light mb-[26px]">{{ __('noot-pro-content-management::site.advanced_package_text') }}</div>
