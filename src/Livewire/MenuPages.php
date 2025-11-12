@@ -17,12 +17,16 @@ class MenuPages extends Component
 
     public function mount(int $parent_id, object | string $type): void
     {
-        $pages = Cache::get('pages_' . $parent_id);
-        if (! $pages && $parent_id) {
-            $pages = Post::where('parent_id', $parent_id)->limit(6)->get();
-            Cache::forever('pages_' . $parent_id, $pages);
-        }
-        $this->pages = $pages;
+
+//        $pages = Cache::get('pages_' . $parent_id);
+//        if (! $pages) {
+////            $pages = Post::where('parent_id', $parent_id)->limit(6)->get();
+//            $pages = Post::query()->where('type', 'page')->limit(6)->get();
+//            Cache::forever('pages_' . $parent_id, $pages);
+//        }
+//        $this->pages = $pages;
+
+        $this->pages = Post::query()->where('post_type', '=', 'page')->limit(6)->get();
     }
 
     public function render(): Factory | View | Application
