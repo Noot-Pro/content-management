@@ -13,13 +13,13 @@
                 <div class="py-4">
                     {{ __('Showing Search result of') }}: <span class="highlight">{{ request('search') }}</span>
                     <a title="{{ __('clear') }}" href="{{ route('posts') }}">
-                        @svg('heroicon-o-backspace','text-primary-500 dark:text-primary-100 w-4 h-4 inline-flex align-middle')
+                        @svg('heroicon-o-backspace','text-primary-500 w-4 h-4 inline-flex align-middle')
                     </a>
                 </div>
             @endif
 
             @unless ($posts->isEmpty())
-                <h1 class="text-xl font-bold text-gray-700 dark:text-gray-100 md:text-2xl">{{ __('Posts') }}</h1>
+                <h1 class="text-xl font-bold text-gray-700 md:text-2xl">{{ __('Posts') }}</h1>
                 @each($themePath.'.partial.post', $posts, 'post')
             @else
                 @include($themePath.'.partial.empty')
