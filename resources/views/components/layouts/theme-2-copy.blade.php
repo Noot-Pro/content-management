@@ -65,13 +65,13 @@
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TLVDL5Z9"
                   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-@include('site.partials.header')
+@include('noot-pro-content-management::site.partials.header')
 
 <div class="container mx-auto">
     {{ $slot }}
 </div>
 
-@include('site.partials.footer')
+@include('noot-pro-content-management::site.partials.footer')
 
 <div class="responsive-menu overflow-y-auto pt-28 pb-12 hidden">
     <div class="fixed top-11 left-4 close-responsive">
@@ -99,7 +99,7 @@
             <details>
                 <summary class="flex items-center justify-between gap-2 p-2 font-medium marker:content-none hover:cursor-pointer">
                     <span class="flex gap-2">
-                        <a href="{{ url('/') }}">{{ __('site.home') }}</a>
+                        <a href="{{ url('/') }}">{{ __('noot-pro-content-management::site.home') }}</a>
                     </span>
                 </summary>
             </details>
@@ -108,7 +108,7 @@
             <details class="group">
                 <summary class="flex items-center justify-between gap-2 p-2 font-medium marker:content-none hover:cursor-pointer">
                     <span class="flex gap-2">
-                        <span class="group-open:text-[#E86F44]">{{ __('site.products') }}</span>
+                        <span class="group-open:text-[#E86F44]">{{ __('noot-pro-content-management::site.products') }}</span>
                     </span>
                     <svg class="w-5 h-5 rotate-180 text-gray-500 transition group-open:rotate-90" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"></path>
@@ -123,7 +123,7 @@
             <details>
                 <summary class="flex items-center justify-between gap-2 p-2 font-medium marker:content-none hover:cursor-pointer">
                     <span class="flex gap-2">
-                        <a href="{{ url('/#plans') }}">{{ __('site.plans') }}</a>
+                        <a href="{{ url('/#plans') }}">{{ __('noot-pro-content-management::site.plans') }}</a>
                     </span>
                 </summary>
             </details>
@@ -132,7 +132,7 @@
             <details class="group">
                 <summary class="flex items-center justify-between gap-2 p-2 font-medium marker:content-none hover:cursor-pointer">
                 <span class="flex gap-2">
-                    <span class="group-open:text-[#E86F44]">{{ __('site.contents') }}</span>
+                    <span class="group-open:text-[#E86F44]">{{ __('noot-pro-content-management::site.contents') }}</span>
                 </span>
                     <svg class="w-5 h-5 rotate-180 text-gray-500 transition group-open:rotate-90" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"></path>
@@ -147,7 +147,7 @@
             <details>
                 <summary class="flex items-center justify-between gap-2 p-2 font-medium marker:content-none hover:cursor-pointer">
                     <span class="flex gap-2">
-                        <a href="{{ url('blog') }}">{{ __('site.blog') }}</a>
+                        <a href="{{ url('blog') }}">{{ __('noot-pro-content-management::site.blog') }}</a>
                     </span>
                 </summary>
             </details>
