@@ -170,47 +170,45 @@
     <section class="w-full">
         <div class="container px-4 pt-32 xl:pt-48">
             <div class="text-[32px] xl:text-[48px] font-bold mb-10 xl:mb-20 text-center">{{ __('noot-pro-content-management::site.partners_said') }} <span class="text-[#E86F44]">{{ __('noot-pro-content-management::site.partners') }}</span></div>
-            <div class="swiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="p-14 bg-[#F7F7F7] rounded-[24px] xl:rounded-[48px] w-full min-h-[400px] flex flex-col justify-between">
-                            <div class="text-xl text-[#8C9399] font-light">{{ __('noot-pro-content-management::site.said_1_text') }}</div>
-                            <div class="flex items-center">
-                                <div class="w-[52px] h-[52px] overflow-hidden rounded-full bg-[#E8E8E8]">
-                                    <img class="size-full object-cover object-center" src="{{ asset('/vendor/noot-pro/content-management/images/said/1.jpg') }}" alt="">
-                                </div>
-                                <div class="ms-4">
-                                    <div class="text-base mb-1">{{ __('noot-pro-content-management::site.client_1_name') }}</div>
-                                    <div class="text-[#8C9399] font-light">12 {{ __('noot-pro-content-management::site.may') }} 2025</div>
-                                </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 xl:gap-8">
+                <div class="">
+                    <div class="p-14 bg-[#F7F7F7] rounded-[24px] xl:rounded-[48px] w-full min-h-[400px] flex flex-col justify-between">
+                        <div class="text-xl text-[#8C9399] font-light">{{ __('noot-pro-content-management::site.said_1_text') }}</div>
+                        <div class="flex items-center">
+                            <div class="w-[52px] h-[52px] overflow-hidden rounded-full bg-[#E8E8E8]">
+                                <img class="size-full object-cover object-center" src="{{ asset('/vendor/noot-pro/content-management/images/said/1.jpg') }}" alt="">
+                            </div>
+                            <div class="ms-4">
+                                <div class="text-base mb-1">{{ __('noot-pro-content-management::site.client_1_name') }}</div>
+                                <div class="text-[#8C9399] font-light">12 {{ __('noot-pro-content-management::site.may') }} 2025</div>
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide">
-                        <div class="p-14 bg-[#F7F7F7] rounded-[24px] xl:rounded-[48px] w-full min-h-[400px] flex flex-col justify-between">
-                            <div class="text-xl text-[#8C9399] font-light">{{ __('noot-pro-content-management::site.said_2_text') }}</div>
-                            <div class="flex items-center">
-                                <div class="w-[52px] h-[52px] overflow-hidden rounded-full bg-[#E8E8E8]">
-                                    <img class="size-full object-cover object-center" src="{{ asset('/vendor/noot-pro/content-management/images/said/2.jpg') }}" alt="">
-                                </div>
-                                <div class="ms-4">
-                                    <div class="text-base mb-1">{{ __('noot-pro-content-management::site.client_2_name') }}</div>
-                                    <div class="text-[#8C9399] font-light">17 {{ __('noot-pro-content-management::site.march') }} 2025</div>
-                                </div>
+                </div>
+                <div class="">
+                    <div class="p-14 bg-[#F7F7F7] rounded-[24px] xl:rounded-[48px] w-full min-h-[400px] flex flex-col justify-between">
+                        <div class="text-xl text-[#8C9399] font-light">{{ __('noot-pro-content-management::site.said_2_text') }}</div>
+                        <div class="flex items-center">
+                            <div class="w-[52px] h-[52px] overflow-hidden rounded-full bg-[#E8E8E8]">
+                                <img class="size-full object-cover object-center" src="{{ asset('/vendor/noot-pro/content-management/images/said/2.jpg') }}" alt="">
+                            </div>
+                            <div class="ms-4">
+                                <div class="text-base mb-1">{{ __('noot-pro-content-management::site.client_2_name') }}</div>
+                                <div class="text-[#8C9399] font-light">17 {{ __('noot-pro-content-management::site.march') }} 2025</div>
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide">
-                        <div class="p-14 bg-[#F7F7F7] rounded-[24px] xl:rounded-[48px] w-full min-h-[400px] flex flex-col justify-between">
-                            <div class="text-xl text-[#8C9399] font-light">{{ __('noot-pro-content-management::site.said_3_text') }}</div>
-                            <div class="flex items-center">
-                                <div class="w-[52px] h-[52px] overflow-hidden rounded-full bg-[#E8E8E8]">
-                                    <img class="size-full object-cover object-center" src="{{ asset('/vendor/noot-pro/content-management/images/said/3.png') }}" alt="">
-                                </div>
-                                <div class="ms-4">
-                                    <div class="text-base mb-1">{{ __('noot-pro-content-management::site.client_3_name') }}</div>
-                                    <div class="text-[#8C9399] font-light">24 {{ __('noot-pro-content-management::site.april') }} 2025</div>
-                                </div>
+                </div>
+                <div class="">
+                    <div class="p-14 bg-[#F7F7F7] rounded-[24px] xl:rounded-[48px] w-full min-h-[400px] flex flex-col justify-between">
+                        <div class="text-xl text-[#8C9399] font-light">{{ __('noot-pro-content-management::site.said_3_text') }}</div>
+                        <div class="flex items-center">
+                            <div class="w-[52px] h-[52px] overflow-hidden rounded-full bg-[#E8E8E8]">
+                                <img class="size-full object-cover object-center" src="{{ asset('/vendor/noot-pro/content-management/images/said/3.png') }}" alt="">
+                            </div>
+                            <div class="ms-4">
+                                <div class="text-base mb-1">{{ __('noot-pro-content-management::site.client_3_name') }}</div>
+                                <div class="text-[#8C9399] font-light">24 {{ __('noot-pro-content-management::site.april') }} 2025</div>
                             </div>
                         </div>
                     </div>
