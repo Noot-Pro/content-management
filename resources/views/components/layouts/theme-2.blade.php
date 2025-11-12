@@ -25,6 +25,9 @@
     @stack('styles')
 
     <style>
+        :root {
+            --primary-color: #E86F44;
+        }
         * {font-family: 'Noto Kufi Arabic', sans-serif;}
         [x-cloak] {display: none !important;}
 
@@ -181,7 +184,7 @@
         </a>
         <div class="xl:hidden">
             <button class="relative group mobile-menu">
-                <div class="relative flex overflow-hidden items-center justify-center rounded-full w-[50px] h-[50px] transform transition-all bg-[#E86F44] ring-0 ring-gray-300 hover:ring-8 group-focus:ring-4 ring-opacity-30 duration-200 shadow-md">
+                <div class="relative flex overflow-hidden items-center justify-center rounded-full w-[50px] h-[50px] transform transition-all bg-[var(--primary-color)] ring-0 ring-gray-300 hover:ring-8 group-focus:ring-4 ring-opacity-30 duration-200 shadow-md">
                     <div class="flex flex-col justify-between w-[20px] h-[20px] transform transition-all duration-300 origin-center overflow-hidden">
                         <div class="bg-white h-[2px] w-7 transform transition-all duration-300 origin-left group-focus:translate-y-6 delay-100"></div>
                         <div class="bg-white h-[2px] w-7 rounded transform transition-all duration-300 group-focus:translate-y-6 delay-75"></div>
@@ -232,7 +235,7 @@
         <div class="actions hidden xl:block">
             <ul class="flex justify-between gap-x-4">
                 <li><a href="{{ url(filament()->getLoginUrl()) }}" class="px-4 py-2.5 text-sm border-2 rounded-xl border-[#E8E8E8] hover:bg-[#E8E8E8] transition ease-in-out">{{ __('noot-pro-content-management::site.login') }}</a></li>
-                <li><a href="{{ url('/contact') }}" class="px-4 py-2.5 text-sm border-2 rounded-xl border-[#E86F44] bg-[#E86F44] hover:bg-[#EEAB43] hover:border-[#EEAB43] text-white transition ease-in-out">{{ __('noot-pro-content-management::site.contact_us') }}</a></li>
+                <li><a href="{{ url('/contact') }}" class="px-4 py-2.5 text-sm border-2 rounded-xl border-[var(--primary-color)] bg-[var(--primary-color)] hover:bg-[#EEAB43] hover:border-[#EEAB43] text-white transition ease-in-out">{{ __('noot-pro-content-management::site.contact_us') }}</a></li>
             </ul>
         </div>
     </div>
@@ -256,17 +259,17 @@
                         </div>
                         <div class="mb-4 text-white">{{ __('noot-pro-content-management::site.footer_text') }}.</div>
                         <div>
-                            <a href="{{ url(filament()->getRegistrationUrl()) }}" class="inline-block px-6 py-3.5 border-2 rounded-xl border-[#E86F44] bg-[#E86F44] hover:bg-[#EEAB43] hover:border-[#EEAB43] text-white transition ease-in-out">{{ __('noot-pro-content-management::site.start_free_test') }}</a>
+                            <a href="{{ url(filament()->getRegistrationUrl()) }}" class="inline-block px-6 py-3.5 border-2 rounded-xl border-[var(--primary-color)] bg-[var(--primary-color)] hover:bg-[#EEAB43] hover:border-[#EEAB43] text-white transition ease-in-out">{{ __('noot-pro-content-management::site.start_free_test') }}</a>
                         </div>
                     </div>
                 </div>
                 <div class="lg:col-span-6 xl:col-span-2 col-span-full mb-12 xl:mb-0">
                     <div class="mb-6 text-[#969696]">{{ __('noot-pro-content-management::site.about_company') }}</div>
                     <ul>
-                        <li class="mb-6"><a href="{{ url('page/about-as') }}" class="text-white hover:text-[#E86F44] transition ease-in-out">{{ __('noot-pro-content-management::site.about_us') }}</a></li>
-                        <li class="mb-6"><a href="{{ url('page/privacy') }}" class="text-white hover:text-[#E86F44] transition ease-in-out">{{ __('noot-pro-content-management::site.privacy') }}</a></li>
-                        <li class="mb-6"><a href="{{ url('page/term') }}" class="text-white hover:text-[#E86F44] transition ease-in-out">{{ __('noot-pro-content-management::site.term') }}</a></li>
-                        <li class="mb-6"><a href="{{ url('faq') }}" class="text-white hover:text-[#E86F44] transition ease-in-out">{{ __('noot-pro-content-management::site.faq') }}</a></li>
+                        <li class="mb-6"><a href="{{ url('page/about-as') }}" class="text-white hover:text-[var(--primary-color)] transition ease-in-out">{{ __('noot-pro-content-management::site.about_us') }}</a></li>
+                        <li class="mb-6"><a href="{{ url('page/privacy') }}" class="text-white hover:text-[var(--primary-color)] transition ease-in-out">{{ __('noot-pro-content-management::site.privacy') }}</a></li>
+                        <li class="mb-6"><a href="{{ url('page/term') }}" class="text-white hover:text-[var(--primary-color)] transition ease-in-out">{{ __('noot-pro-content-management::site.term') }}</a></li>
+                        <li class="mb-6"><a href="{{ url('faq') }}" class="text-white hover:text-[var(--primary-color)] transition ease-in-out">{{ __('noot-pro-content-management::site.faq') }}</a></li>
                     </ul>
                 </div>
                 <div class="lg:col-span-6 xl:col-span-2 col-span-full mb-12 xl:mb-0">
@@ -280,8 +283,8 @@
                 <div class="lg:col-span-12 xl:col-span-2 col-span-full">
                     <div class="mb-6 text-[#969696]">{{ __('noot-pro-content-management::site.contact_us') }}</div>
                     <ul class="mb-6">
-                        <li class="mb-6"><a href="mailto:{{ config('noot.site.email') }}" class="text-white hover:text-[#E86F44] transition ease-in-out">{{ config('noot.site.email') }}</a></li>
-                        <li class="mb-6"><a href="tel:{{ config('noot.site.phone') }}" class="text-white hover:text-[#E86F44] transition ease-in-out">{{ config('noot.site.phone') }}</a></li>
+                        <li class="mb-6"><a href="mailto:{{ config('noot.site.email') }}" class="text-white hover:text-[var(--primary-color)] transition ease-in-out">{{ config('noot.site.email') }}</a></li>
+                        <li class="mb-6"><a href="tel:{{ config('noot.site.phone') }}" class="text-white hover:text-[var(--primary-color)] transition ease-in-out">{{ config('noot.site.phone') }}</a></li>
                     </ul>
                     <div>
                         <ul class="flex items-center">
