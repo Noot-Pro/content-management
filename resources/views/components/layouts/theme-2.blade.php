@@ -217,7 +217,7 @@
                     </div>
                 </li>
                 <li class="links__item">
-                    <a href="{{ url('blog') }}">{{ __('noot-pro-content-management::site.blog') }}</a>
+                    <a href="{{ route('posts') }}">{{ __('noot-pro-content-management::site.blog') }}</a>
                 </li>
                 @if(app()->getLocale() === 'ar')
                     <li class="links__item">
