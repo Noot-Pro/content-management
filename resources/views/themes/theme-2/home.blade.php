@@ -17,9 +17,9 @@
         <div class="container px-4 text-center">
             <div class="w-full text-center">
                 @if(app()->getLocale() === 'ar')
-                    <img src="{{ url('/vendor/noot-pro/content-management/images/apps.png') }}" class="mx-auto md:w-[100%] lg:w-[60%]" alt="">
+                    <img src="{{ url('/vendor/noot-pro/content-management/images/theme-2/apps.png') }}" class="mx-auto md:w-[100%] lg:w-[60%]" alt="">
                 @else
-                    <img src="{{ asset('/vendor/noot-pro/content-management/images/apps.png') }}" class="mx-auto md:w-[100%] lg:w-[60%]" alt="">
+                    <img src="{{ asset('/vendor/noot-pro/content-management/images/theme-2/apps.png') }}" class="mx-auto md:w-[100%] lg:w-[60%]" alt="">
                 @endif
             </div>
         </div>
@@ -62,7 +62,7 @@
                     <div class="timeline__item timeline__item--first mb-16 xl:mb-32 group">
                         <div class="grid xl:grid-cols-12 lg:gap-x-12 xl:gap-x-24 min-h-[250px]">
                             <div class="hidden xl:block xl:col-span-6 col-span-full overflow-hidden h-[424px]  rounded-[48px] transition ease-in-out group-hover:bg-orange-50">
-                                <img class="size-full object-cover object-center" src="{{ asset('/vendor/noot-pro/content-management/images/why/6.png') }}" alt="">
+                                <img class="size-full object-cover object-center" src="{{ asset('/vendor/noot-pro/content-management/images/theme-2/why/6.png') }}" alt="">
                             </div>
                             <div class="xl:col-start-7 xl:col-span-6 col-span-full">
                                 <div class="py-1.5 px-3 mb-2.5 inline-block text-sm border rounded-xl border-[var(--primary-color)] text-[var(--primary-color)]">{{ __('noot-pro-content-management::site.solution_badge') }}</div>
@@ -79,14 +79,14 @@
                                 <div class="text-xl text-[#8C9399] font-light transition ease-in-out group-hover:text-[var(--primary-color)]">{{ __('noot-pro-content-management::site.easy_use_text') }}</div>
                             </div>
                             <div class="hidden xl:block xl:col-start-7 xl:col-span-6 col-span-full overflow-hidden h-[424px] rounded-[48px] transition ease-in-out group-hover:bg-orange-50">
-                                <img class="size-full object-cover object-center" src="{{ asset('/vendor/noot-pro/content-management/images/why/1.png') }}" alt="">
+                                <img class="size-full object-cover object-center" src="{{ asset('/vendor/noot-pro/content-management/images/theme-2/why/1.png') }}" alt="">
                             </div>
                         </div>
                     </div>
                     <div class="timeline__item mb-16 xl:mb-32 group">
                         <div class="grid xl:grid-cols-12 lg:gap-x-12 xl:gap-x-24 items-center min-h-[250px] xl:min-h-[424px]">
                             <div class="hidden xl:block xl:col-span-6 col-span-full overflow-hidden h-[424px]  rounded-[48px] transition ease-in-out group-hover:bg-orange-50">
-                                <img class="size-full object-cover object-center" src="{{ asset('/vendor/noot-pro/content-management/images/why/2.png') }}" alt="">
+                                <img class="size-full object-cover object-center" src="{{ asset('/vendor/noot-pro/content-management/images/theme-2/why/2.png') }}" alt="">
                             </div>
                             <div class="xl:col-start-7 lg:col-span-6 col-span-full">
                                 <div class="py-1.5 px-3 mb-2.5 inline-block text-sm border rounded-xl border-[var(--primary-color)] text-[var(--primary-color)]">{{ __('noot-pro-content-management::site.support_badge') }}</div>
@@ -103,14 +103,14 @@
                                 <div class="text-xl text-[#8C9399] font-light transition ease-in-out group-hover:text-[var(--primary-color)]">{{ __('noot-pro-content-management::site.integration_text') }}</div>
                             </div>
                             <div class="hidden xl:block xl:col-start-7 xl:col-span-6 col-span-full overflow-hidden h-[424px] rounded-[48px] transition ease-in-out group-hover:bg-orange-50">
-                                <img class="size-full object-cover object-center" src="{{ asset('/vendor/noot-pro/content-management/images/why/3.png') }}" alt="">
+                                <img class="size-full object-cover object-center" src="{{ asset('/vendor/noot-pro/content-management/images/theme-2/why/3.png') }}" alt="">
                             </div>
                         </div>
                     </div>
                     <div class="timeline__item mb-16 xl:mb-32 group">
                         <div class="grid xl:grid-cols-12 lg:gap-x-12 xl:gap-x-24 items-center min-h-[250px] xl:min-h-[424px]">
                             <div class="hidden xl:block xl:col-span-6 col-span-full overflow-hidden h-[424px] rounded-[48px] transition ease-in-out group-hover:bg-orange-50">
-                                <img class="size-full object-cover object-center" src="{{ asset('/vendor/noot-pro/content-management/images/why/4.png') }}" alt="">
+                                <img class="size-full object-cover object-center" src="{{ asset('/vendor/noot-pro/content-management/images/why/theme-2/4.png') }}" alt="">
                             </div>
                             <div class="xl:col-start-7 lg:col-span-6 col-span-full">
                                 <div class="py-1.5 px-3 mb-2.5 inline-block text-sm border rounded-xl border-[var(--primary-color)] text-[var(--primary-color)]">{{ __('noot-pro-content-management::site.analysis_badge') }}</div>
@@ -127,7 +127,7 @@
                                 <div class="text-xl text-[#8C9399] font-light transition ease-in-out group-hover:text-[var(--primary-color)]">{{ __('noot-pro-content-management::site.security_text') }}</div>
                             </div>
                             <div class="hidden xl:block xl:col-start-7 xl:col-span-6 lg:col-span-6 col-span-full overflow-hidden h-[424px] rounded-[48px] transition ease-in-out group-hover:bg-orange-50">
-                                <img class="size-full object-cover object-center" src="{{ asset('/vendor/noot-pro/content-management/images/why/5.png') }}" alt="">
+                                <img class="size-full object-cover object-center" src="{{ asset('/vendor/noot-pro/content-management/images/theme-2/why/5.png') }}" alt="">
                             </div>
                         </div>
                     </div>
@@ -149,32 +149,32 @@
                     }">
                         <div x-data="{ id: $id('accordion') }" class="cursor-pointer p-7 rounded-[24px] xl:rounded-[32px] transition ease-in-out" :class="{ 'bg-[#F7F7F7]': activeAccordion == id }">
                             <div @click="setActiveAccordion(id)" class="text-xl flex items-center justify-between flex-row-reverse">
-                                <i :class="{ 'rotate-180': activeAccordion == id }" class="block w-6 h-6 bg-[url('/vendor/noot-pro/content-management/images/arrow-down.svg')] bg-no-repeat bg-center transition-all duration-300"></i>{{ __('noot-pro-content-management::site.solution_1_title') }}
+                                <i :class="{ 'rotate-180': activeAccordion == id }" class="block w-6 h-6 bg-[url('/vendor/noot-pro/content-management/images/theme-2/arrow-down.svg')] bg-no-repeat bg-center transition-all duration-300"></i>{{ __('noot-pro-content-management::site.solution_1_title') }}
                             </div>
                             <div x-show="activeAccordion == id" x-collapse class="mt-4 text-base text-[#8C9399] font-light">{{ __('noot-pro-content-management::site.solution_1_text') }}</div>
                         </div>
                         <div x-data="{ id: $id('accordion') }" class="cursor-pointer p-7 rounded-[24px] xl:rounded-[32px] transition ease-in-out" :class="{ 'bg-[#F7F7F7]': activeAccordion == id }">
                             <div @click="setActiveAccordion(id)" class="text-xl flex items-center justify-between flex-row-reverse">
-                                <i :class="{ 'rotate-180': activeAccordion == id }" class="block w-6 h-6 bg-[url('/vendor/noot-pro/content-management/images/arrow-down.svg')] bg-no-repeat bg-center transition-all duration-300"></i>{{ __('noot-pro-content-management::site.solution_2_title') }}
+                                <i :class="{ 'rotate-180': activeAccordion == id }" class="block w-6 h-6 bg-[url('/vendor/noot-pro/content-management/images/theme-2/arrow-down.svg')] bg-no-repeat bg-center transition-all duration-300"></i>{{ __('noot-pro-content-management::site.solution_2_title') }}
                             </div>
                             <div x-show="activeAccordion == id" x-collapse class="mt-4 text-base text-[#8C9399] font-light">{{ __('noot-pro-content-management::site.solution_2_text') }}</div>
                         </div>
                         <div x-data="{ id: $id('accordion') }" class="cursor-pointer p-7 rounded-[24px] xl:rounded-[32px] transition ease-in-out" :class="{ 'bg-[#F7F7F7]': activeAccordion == id }">
                             <div @click="setActiveAccordion(id)" class="text-xl flex items-center justify-between flex-row-reverse">
-                                <i :class="{ 'rotate-180': activeAccordion == id }" class="block w-6 h-6 bg-[url('/vendor/noot-pro/content-management/images/arrow-down.svg')] bg-no-repeat bg-center transition-all duration-300"></i>{{ __('noot-pro-content-management::site.solution_4_title') }}
+                                <i :class="{ 'rotate-180': activeAccordion == id }" class="block w-6 h-6 bg-[url('/vendor/noot-pro/content-management/images/theme-2/arrow-down.svg')] bg-no-repeat bg-center transition-all duration-300"></i>{{ __('noot-pro-content-management::site.solution_4_title') }}
                             </div>
                             <div x-show="activeAccordion == id" x-collapse class="mt-4 text-base text-[#8C9399] font-light">{{ __('noot-pro-content-management::site.solution_4_text') }}</div>
                         </div>
                         <div x-data="{ id: $id('accordion') }" class="cursor-pointer p-7 rounded-[24px] xl:rounded-[32px] transition ease-in-out" :class="{ 'bg-[#F7F7F7]': activeAccordion == id }">
                             <div @click="setActiveAccordion(id)" class="text-xl flex items-center justify-between flex-row-reverse">
-                                <i :class="{ 'rotate-180': activeAccordion == id }" class="block w-6 h-6 bg-[url('/vendor/noot-pro/content-management/images/arrow-down.svg')] bg-no-repeat bg-center transition-all duration-300"></i>{{ __('noot-pro-content-management::site.solution_5_title') }}
+                                <i :class="{ 'rotate-180': activeAccordion == id }" class="block w-6 h-6 bg-[url('/vendor/noot-pro/content-management/images/theme-2/arrow-down.svg')] bg-no-repeat bg-center transition-all duration-300"></i>{{ __('noot-pro-content-management::site.solution_5_title') }}
                             </div>
                             <div x-show="activeAccordion == id" x-collapse class="mt-4 text-base text-[#8C9399] font-light">{{ __('noot-pro-content-management::site.solution_5_text') }}</div>
                         </div>
                     </div>
                 </div>
                 <div class="lg:col-span-6 col-span-full h-[600px] overflow-hidden bg-[#F7F7F7] rounded-[24px] xl:rounded-[48px] transition ease-in-out group-hover:bg-orange-50">
-                    <img class="size-full object-cover object-center" src="{{ asset('/vendor/noot-pro/content-management/images/solution.png') }}" alt="">
+                    <img class="size-full object-cover object-center" src="{{ asset('/vendor/noot-pro/content-management/images/theme-2/solution.png') }}" alt="">
                 </div>
             </div>
         </div>
@@ -189,7 +189,7 @@
                         <div class="text-xl text-[#8C9399] font-light">{{ __('noot-pro-content-management::site.said_1_text') }}</div>
                         <div class="flex items-center">
                             <div class="w-[52px] h-[52px] overflow-hidden rounded-full bg-[#E8E8E8]">
-                                <img class="size-full object-cover object-center" src="{{ asset('/vendor/noot-pro/content-management/images/said/1.jpg') }}" alt="">
+                                <img class="size-full object-cover object-center" src="{{ asset('/vendor/noot-pro/content-management/images/theme-2/said/1.jpg') }}" alt="">
                             </div>
                             <div class="ms-4">
                                 <div class="text-base mb-1">{{ __('noot-pro-content-management::site.client_1_name') }}</div>
@@ -203,7 +203,7 @@
                         <div class="text-xl text-[#8C9399] font-light">{{ __('noot-pro-content-management::site.said_2_text') }}</div>
                         <div class="flex items-center">
                             <div class="w-[52px] h-[52px] overflow-hidden rounded-full bg-[#E8E8E8]">
-                                <img class="size-full object-cover object-center" src="{{ asset('/vendor/noot-pro/content-management/images/said/2.jpg') }}" alt="">
+                                <img class="size-full object-cover object-center" src="{{ asset('/vendor/noot-pro/content-management/images/theme-2/said/2.jpg') }}" alt="">
                             </div>
                             <div class="ms-4">
                                 <div class="text-base mb-1">{{ __('noot-pro-content-management::site.client_2_name') }}</div>
@@ -217,7 +217,7 @@
                         <div class="text-xl text-[#8C9399] font-light">{{ __('noot-pro-content-management::site.said_3_text') }}</div>
                         <div class="flex items-center">
                             <div class="w-[52px] h-[52px] overflow-hidden rounded-full bg-[#E8E8E8]">
-                                <img class="size-full object-cover object-center" src="{{ asset('/vendor/noot-pro/content-management/images/said/3.png') }}" alt="">
+                                <img class="size-full object-cover object-center" src="{{ asset('/vendor/noot-pro/content-management/images/theme-2/said/3.png') }}" alt="">
                             </div>
                             <div class="ms-4">
                                 <div class="text-base mb-1">{{ __('noot-pro-content-management::site.client_3_name') }}</div>
