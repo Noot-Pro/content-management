@@ -249,7 +249,7 @@
                         <div class="text-2xl mb-2 flex items-center">{{ __('noot-pro-content-management::site.test_package_title') }}</div>
                         <div class="text-[#8C9399] font-light mb-[26px]">{{ __('noot-pro-content-management::site.test_package_text') }}</div>
                         <div class="mb-10 pb-10 border-b border-[#E8E8E8]">
-                            <div class="flex items-end font-bold text-5xl pb-6">@if(app()->getLocale() == 'ar') 0<img src="{{ asset('images/site/Saudi_Riyal_Symbol.svg') }}" class="mb-2 mx-2" width="34px" alt=""> @else <img src="{{ asset('images/site/Saudi_Riyal_Symbol.svg') }}" class="mb-2 mx-2" width="34px" alt="">0 @endif<span class="ms-2 text-[#585757] font-light text-xl"></span>
+                            <div class="flex items-end font-bold text-5xl pb-6">@if(app()->getLocale() === 'ar') 0<img src="{{ asset('/vendor/noot-pro/content-management/images/theme-2/saudi-riyal-symbol.svg') }}" class="mb-2 mx-2" width="34px" alt=""> @else <img src="{{ asset('/vendor/noot-pro/content-management/images/theme-2/saudi-riyal-symbol.svg') }}" class="mb-2 mx-2" width="34px" alt="">0 @endif<span class="ms-2 text-[#585757] font-light text-xl"></span>
                             </div>
                         </div>
                         <div class="text-[#969696] mb-4 text-xl">{{ __('noot-pro-content-management::site.package_details') }}:</div>
@@ -272,7 +272,7 @@
                         <div class="text-2xl mb-2 flex items-center">{{ __('noot-pro-content-management::site.main_package_title') }} <span class="bg-[#FFEEE5] ms-1.5 px-3 py-1 text-[var(--primary-color)] text-xs border rounded-[10px] border-[#FFDECC]">{{ __('noot-pro-content-management::site.main_package_badge') }}</span></div>
                         <div class="text-[#8C9399] font-light mb-[26px]">{{ __('noot-pro-content-management::site.main_package_text') }}</div>
                         <div class="mb-10 pb-10 border-b border-[#E8E8E8]">
-                            <div class="flex items-end font-bold text-5xl">@if(app()->getLocale() == 'ar') 2000<img src="{{ asset('images/site/Saudi_Riyal_Symbol.svg') }}" class="mb-2 mx-2" width="34px" alt=""> @else <img src="{{ asset('images/site/Saudi_Riyal_Symbol.svg') }}" class="mb-2 mx-2" width="34px" alt="">2000 @endif<span class="plan-monthly ms-2 text-[#585757] font-light text-xl"> / {{ __('noot-pro-content-management::site.yearly') }}</span></div>
+                            <div class="flex items-end font-bold text-5xl">@if(app()->getLocale() === 'ar') 2000<img src="{{ asset('/vendor/noot-pro/content-management/images/theme-2/saudi-riyal-symbol.svg') }}" class="mb-2 mx-2" width="34px" alt=""> @else <img src="{{ asset('/vendor/noot-pro/content-management/images/theme-2/saudi-riyal-symbol.svg') }}" class="mb-2 mx-2" width="34px" alt="">2000 @endif<span class="plan-monthly ms-2 text-[#585757] font-light text-xl"> / {{ __('noot-pro-content-management::site.yearly') }}</span></div>
                             <span class="text-sm text-[#8C9399] font-light">{{ __('noot-pro-content-management::site.package_tax') }}</span>
                         </div>
                         <div class="text-[#969696] mb-4 text-xl">{{ __('noot-pro-content-management::site.package_details') }}:</div>
@@ -296,7 +296,7 @@
                         <div class="text-2xl mb-2 flex items-center">{{ __('noot-pro-content-management::site.advanced_package_title') }}</div>
                         <div class="text-[#8C9399] font-light mb-[26px]">{{ __('noot-pro-content-management::site.advanced_package_text') }}</div>
                         <div class="mb-10 pb-10 border-b border-[#E8E8E8]">
-                            <div class="flex items-end font-bold text-5xl">@if(app()->getLocale() == 'ar') 3588<img src="{{ asset('images/site/Saudi_Riyal_Symbol.svg') }}" class="mb-2 mx-2" width="34px" alt=""> @else <img src="{{ asset('images/site/Saudi_Riyal_Symbol.svg') }}" class="mb-2 mx-2" width="34px" alt="">3588 @endif <span class="plan-monthly ms-2 text-[#585757] font-light text-xl"> / {{ __('noot-pro-content-management::site.yearly') }}</span></div>
+                            <div class="flex items-end font-bold text-5xl">@if(app()->getLocale() === 'ar') 3588<img src="{{ asset('/vendor/noot-pro/content-management/images/theme-2/saudi-riyal-symbol.svg') }}" class="mb-2 mx-2" width="34px" alt=""> @else <img src="{{ asset('/vendor/noot-pro/content-management/images/theme-2/saudi-riyal-symbol.svg') }}" class="mb-2 mx-2" width="34px" alt="">3588 @endif <span class="plan-monthly ms-2 text-[#585757] font-light text-xl"> / {{ __('noot-pro-content-management::site.yearly') }}</span></div>
                             <span class="text-sm text-[#8C9399] font-light">{{ __('noot-pro-content-management::site.package_tax') }}</span>
                         </div>
                         <div class="text-[#969696] mb-4 text-xl">{{ __('noot-pro-content-management::site.package_details') }}:</div>
