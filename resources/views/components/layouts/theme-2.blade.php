@@ -206,7 +206,7 @@
                 <li class="links__item links__item--has-dropdown">
                     <a href="#">{{ __('noot-pro-content-management::site.products') }}</a>
                     <div class="links__dropdown">
-                        @livewire(\NootPro\ContentManagement\Livewire\MenuPages::class, ['parent_id' => 60,'type' => 'header'])
+                        @livewire(\NootPro\ContentManagement\Livewire\MenuPages::class, ['parent_id' => 3,'type' => 'header'])
                     </div>
                 </li>
                 <li class="links__item">
@@ -215,7 +215,7 @@
                 <li class="links__item links__item--has-dropdown">
                     <a href="#">{{ __('noot-pro-content-management::site.contents') }}</a>
                     <div class="links__dropdown">
-                        @livewire(\NootPro\ContentManagement\Livewire\MenuPages::class, ['parent_id' => 61,'type' => 'header'])
+                        @livewire(\NootPro\ContentManagement\Livewire\MenuPages::class, ['parent_id' => 15,'type' => 'header'])
                     </div>
                 </li>
                 <li class="links__item">
@@ -322,7 +322,7 @@
                     </div>
                     <div class="mt-8">
                         <ul class="flex items-center">
-                            @if(app()->getLocale() == 'ar')
+                            @if(app()->getLocale() === 'ar')
                                 <li class="relative transition ease-in-out hover:-translate-y-1">
                                     <a target="_blank" href="https://play.google.com/store/apps/details?id=com.noot.app" >
                                         <img src="{{ asset('images/site/googlePlay-ar.svg') }}" width="120px" alt="">
