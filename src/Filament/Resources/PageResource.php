@@ -160,6 +160,10 @@ class PageResource extends BaseResource
     {
         return $table
             ->columns([
+                TextColumn::make('id')
+                    ->sortable()
+                    ->searchable()
+                    ->toggleable(),
                 TextColumn::make('title')
                     ->label(__('Title'))
                     ->sortable(['title'])
@@ -174,7 +178,7 @@ class PageResource extends BaseResource
 //                    ->view('zeus::filament.columns.status-desc')
                     ->tooltip(fn (Post $record): string => $record->published_at->format('Y/m/d | H:i A')),
 
-                TextColumn::make('parent.name'),
+                TextColumn::make('parent.title'),
             ])
             ->defaultSort('id', 'desc')
             ->actions(static::getActions())
