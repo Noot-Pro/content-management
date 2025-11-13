@@ -20,7 +20,7 @@
         <img alt="{{ $post->title }}" src="{{ $post->image('pages') }}" class="my-10 w-full aspect-video shadow-md rounded-[2rem] rounded-bl-none z-0 object-cover"/>
     @endif
 
-    <div class="bg-white rounded-[2rem] rounded-tl-none shadow-md px-10 pb-6 ">
+    <div class="px-10 pb-6 pt-5">
         <div class="flex items-center justify-between">
             <span class="font-light text-gray-600">{{ optional($post->published_at)->diffForHumans() ?? '' }}</span>
             <div>
@@ -39,10 +39,10 @@
                     {{ $post->description ?? '' }}
                 </p>
             </div>
-            <a href="#" class="flex items-center gap-2">
-                <img src="{{ \Filament\Facades\Filament::getUserAvatarUrl($post->author) }}" alt="avatar" class="object-cover w-10 h-10 rounded-full sm:block">
-                <h1 class="font-bold text-gray-700 hover:underline">{{ $post->author->name ?? '' }}</h1>
-            </a>
+{{--            <a href="#" class="flex items-center gap-2">--}}
+{{--                <img src="{{ \Filament\Facades\Filament::getUserAvatarUrl($post->author) }}" alt="avatar" class="object-cover w-10 h-10 rounded-full sm:block">--}}
+{{--                <h1 class="font-bold text-gray-700 hover:underline">{{ $post->author->name ?? '' }}</h1>--}}
+{{--            </a>--}}
         </div>
 
         <div class="mt-6 lg:mt-12 prose max-w-none">
