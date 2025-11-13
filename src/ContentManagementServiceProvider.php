@@ -41,7 +41,7 @@ class ContentManagementServiceProvider extends PackageServiceProvider
         parent::boot();
 
         $this->publishes([
-            __DIR__ . '/../resources/images' => public_path('vendor/noot-pro/content-management/theme-2/images'),
+            __DIR__ . '/../resources/images' => public_path('vendor/noot-pro/content-management/images'),
         ], 'noot-pro-content-management-images');
     }
 
