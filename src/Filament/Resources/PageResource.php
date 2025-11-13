@@ -173,6 +173,8 @@ class PageResource extends BaseResource
                     ->toggleable()
 //                    ->view('zeus::filament.columns.status-desc')
                     ->tooltip(fn (Post $record): string => $record->published_at->format('Y/m/d | H:i A')),
+
+                TextColumn::make('parent.name'),
             ])
             ->defaultSort('id', 'desc')
             ->actions(static::getActions())
