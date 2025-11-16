@@ -180,7 +180,7 @@
 <header class="mx-auto pt-5 pb-5 border-b border-b-[E8E8E8]">
     <div class="px-4 flex justify-between items-center h-16">
         <a href="{{ url('/') }}">
-            <img class="w-20" src="{{ asset('vendor/noot-pro/content-management/images/theme-2/logo-v2.png') }}" alt="">
+            <img class="w-32" src="{{ asset('vendor/noot-pro/content-management/images/theme-2/logo-v2.png') }}" alt="">
         </a>
         <div class="xl:hidden">
             <button class="relative group mobile-menu">
