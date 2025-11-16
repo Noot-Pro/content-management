@@ -49,17 +49,17 @@
             {!! $post->getContent() !!}
         </div>
 
-        @if(!$children->isEmpty())
-            <div class="py-6 flex flex-col mt-4 gap-4">
-                <h1 class="text-xl font-bold text-gray-700 md:text-2xl">children pages</h1>
+{{--        @if(!$children->isEmpty())--}}
+{{--            <div class="py-6 flex flex-col mt-4 gap-4">--}}
+{{--                <h1 class="text-xl font-bold text-gray-700 md:text-2xl">children pages</h1>--}}
 
-                <div class="grid grid-cols-3 gap-4">
-                    @foreach($children as $post)
-                        @include($themePath.'.partial.children-pages')
-                    @endforeach
-                </div>
-            </div>
-        @endif
+{{--                <div class="grid grid-cols-3 gap-4">--}}
+{{--                    @foreach($children as $post)--}}
+{{--                        @include($themePath.'.partial.children-pages')--}}
+{{--                    @endforeach--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        @endif--}}
 
     </div>
 </div>
