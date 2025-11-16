@@ -17,9 +17,9 @@
         <div class="container px-4 text-center">
             <div class="w-full text-center">
                 @if(app()->getLocale() === 'ar')
-                    <img src="{{ url('/vendor/noot-pro/content-management/images/theme-2/app.png') }}" class="mx-auto md:w-[100%] lg:w-[60%]" alt="">
+                    <img src="{{ url('/vendor/noot-pro/content-management/images/theme-2/bued-apps.png') }}" class="mx-auto md:w-[100%] lg:w-[60%]" alt="">
                 @else
-                    <img src="{{ asset('/vendor/noot-pro/content-management/images/theme-2/app.png') }}" class="mx-auto md:w-[100%] lg:w-[60%]" alt="">
+                    <img src="{{ asset('/vendor/noot-pro/content-management/images/theme-2/bued-apps.png') }}" class="mx-auto md:w-[100%] lg:w-[60%]" alt="">
                 @endif
             </div>
         </div>
