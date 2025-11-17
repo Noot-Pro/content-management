@@ -174,7 +174,7 @@
                     </div>
                 </div>
                 <div class="lg:col-span-6 col-span-full md:h-[600px] overflow-hidden bg-[#F7F7F7] rounded-[24px] xl:rounded-[48px] transition ease-in-out group-hover:bg-[var(--hover-bg-color)]">
-                    <img class="size-full md:object-cover object-center" src="{{ asset('/vendor/noot-pro/content-management/images/theme-2/solution-2.png') }}" alt="">
+                    <img class="size-full md:object-cover object-center" src="{{ asset('/vendor/noot-pro/content-management/images/theme-2/solution-3.png') }}" alt="">
                 </div>
             </div>
         </div>
