@@ -262,7 +262,7 @@
         </button>
     </div>
 
-    <ul class="flex flex-col gap-2 max-w-[280px] mx-auto my-12">
+    <ul class="flex flex-col gap-2 max-w-[280px] mx-auto">
         <li>
             <a href="{{ url('/') }}" class="flex items-center justify-between gap-2 p-2 font-medium hover:bg-[#F7F7F7] rounded-lg transition ease-in-out" @click="mobileMenuOpen = false">
                 {{ __('noot-pro-content-management::site.home') }}
