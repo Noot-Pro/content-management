@@ -168,31 +168,33 @@
             height: 100%;
             z-index: 1000;
             background-color: #fff;
+            overflow-y: auto;
         }
+
 
         .bord {
             border: solid 1px red;
         }
     </style>
 </head>
-<body class="font-sans antialiased text-gray-900 @if(app()->isLocal()) debug-screens @endif">
+<body x-data="{ mobileMenuOpen: false }" x-effect="document.body.style.overflow = mobileMenuOpen ? 'hidden' : ''" class="font-sans antialiased text-gray-900 @if(app()->isLocal()) debug-screens @endif">
 
 <header class="mx-auto pt-5 pb-5 border-b border-b-[E8E8E8]">
     <div class="px-4 flex justify-between items-center h-16">
         <a href="{{ url('/') }}">
-            <img class="w-20" src="{{ asset('vendor/noot-pro/content-management/images/theme-2/logo-v2.png') }}" alt="">
+            <img class="w-32" src="{{ asset('vendor/noot-pro/content-management/images/theme-2/logo-v2.png') }}" alt="">
         </a>
         <div class="xl:hidden">
-            <button class="relative group mobile-menu">
+            <button @click="mobileMenuOpen = !mobileMenuOpen" type="button" class="relative group">
                 <div class="relative flex overflow-hidden items-center justify-center rounded-full w-[50px] h-[50px] transform transition-all bg-[var(--primary-color)] ring-0 ring-gray-300 hover:ring-8 group-focus:ring-4 ring-opacity-30 duration-200 shadow-md">
                     <div class="flex flex-col justify-between w-[20px] h-[20px] transform transition-all duration-300 origin-center overflow-hidden">
-                        <div class="bg-white h-[2px] w-7 transform transition-all duration-300 origin-left group-focus:translate-y-6 delay-100"></div>
-                        <div class="bg-white h-[2px] w-7 rounded transform transition-all duration-300 group-focus:translate-y-6 delay-75"></div>
-                        <div class="bg-white h-[2px] w-7 transform transition-all duration-300 origin-left group-focus:translate-y-6"></div>
+                        <div class="bg-white h-[2px] w-7 transform transition-all duration-300 origin-left" :class="mobileMenuOpen ? 'translate-y-6 delay-100' : ''"></div>
+                        <div class="bg-white h-[2px] w-7 rounded transform transition-all duration-300" :class="mobileMenuOpen ? 'translate-y-6 delay-75' : ''"></div>
+                        <div class="bg-white h-[2px] w-7 transform transition-all duration-300 origin-left" :class="mobileMenuOpen ? 'translate-y-6' : ''"></div>
 
-                        <div class="absolute items-center justify-between transform transition-all duration-500 top-2.5 -translate-x-10 group-focus:translate-x-0 flex w-0 group-focus:w-12">
-                            <div class="absolute bg-white h-[2px] w-5 transform transition-all duration-500 rotate-0 delay-300 group-focus:rotate-45"></div>
-                            <div class="absolute bg-white h-[2px] w-5 transform transition-all duration-500 -rotate-0 delay-300 group-focus:-rotate-45"></div>
+                        <div class="absolute items-center justify-between transform transition-all duration-500 top-2.5 flex" :class="mobileMenuOpen ? 'translate-x-0 w-12' : '-translate-x-10 w-0'">
+                            <div class="absolute bg-white h-[2px] w-5 transform transition-all duration-500 delay-300" :class="mobileMenuOpen ? 'rotate-45' : 'rotate-0'"></div>
+                            <div class="absolute bg-white h-[2px] w-5 transform transition-all duration-500 delay-300" :class="mobileMenuOpen ? '-rotate-45' : '-rotate-0'"></div>
                         </div>
                     </div>
                 </div>
@@ -241,6 +243,90 @@
     </div>
 </header>
 
+
+<div x-show="mobileMenuOpen" x-cloak @click.away="mobileMenuOpen = false" class="responsive-menu overflow-y-auto pt-28 pb-12">
+    <div class="fixed top-11 left-4 z-[1001]">
+        <button @click="mobileMenuOpen = false" type="button" class="relative">
+            <div class="relative flex overflow-hidden items-center justify-center rounded-full w-[50px] h-[50px] transform transition-all bg-[var(--primary-color)] ring-gray-300 hover:ring-8 ring-4 ring-opacity-30 duration-200 shadow-md">
+                <div class="flex flex-col justify-between w-[20px] h-[20px] transform transition-all duration-300 origin-center overflow-hidden">
+                    <div class="bg-white h-[2px] w-7 transform transition-all duration-300 origin-left translate-y-6 delay-100"></div>
+                    <div class="bg-white h-[2px] w-7 rounded transform transition-all duration-300 translate-y-6 delay-75"></div>
+                    <div class="bg-white h-[2px] w-7 transform transition-all duration-300 origin-left translate-y-6"></div>
+
+                    <div class="absolute items-center justify-between transform transition-all duration-500 top-2.5 translate-x-0 flex w-12">
+                        <div class="absolute bg-white h-[2px] w-5 transform rotate-45"></div>
+                        <div class="absolute bg-white h-[2px] w-5 transform -rotate-45"></div>
+                    </div>
+                </div>
+            </div>
+        </button>
+    </div>
+
+    <ul class="flex flex-col gap-2 max-w-[280px] mx-auto my-12">
+        <li>
+            <a href="{{ url('/') }}" class="flex items-center justify-between gap-2 p-2 font-medium hover:bg-[#F7F7F7] rounded-lg transition ease-in-out" @click="mobileMenuOpen = false">
+                {{ __('noot-pro-content-management::site.home') }}
+            </a>
+        </li>
+        <li>
+            <details class="group">
+                <summary class="flex items-center justify-between gap-2 p-2 font-medium marker:content-none hover:cursor-pointer hover:bg-[#F7F7F7] rounded-lg transition ease-in-out">
+                    <span class="flex gap-2 group-open:text-[var(--primary-color)]">
+                        {{ __('noot-pro-content-management::site.products') }}
+                    </span>
+                    <svg class="w-5 h-5 rotate-180 text-gray-500 transition group-open:rotate-90" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"></path>
+                    </svg>
+                </summary>
+                <article class="px-4 pb-4">
+                    @livewire(\NootPro\ContentManagement\Livewire\MenuPages::class, ['parent_id' => 3,'type' => 'mobile'])
+                </article>
+            </details>
+        </li>
+        <li>
+            <a href="{{ url('/#plans') }}" class="flex items-center justify-between gap-2 p-2 font-medium hover:bg-[#F7F7F7] rounded-lg transition ease-in-out" @click="mobileMenuOpen = false">
+                {{ __('noot-pro-content-management::site.plans') }}
+            </a>
+        </li>
+        <li>
+            <details class="group">
+                <summary class="flex items-center justify-between gap-2 p-2 font-medium marker:content-none hover:cursor-pointer hover:bg-[#F7F7F7] rounded-lg transition ease-in-out">
+                    <span class="flex gap-2 group-open:text-[var(--primary-color)]">
+                        {{ __('noot-pro-content-management::site.contents') }}
+                    </span>
+                    <svg class="w-5 h-5 rotate-180 text-gray-500 transition group-open:rotate-90" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"></path>
+                    </svg>
+                </summary>
+                <article class="px-4 pb-4">
+                    @livewire(\NootPro\ContentManagement\Livewire\MenuPages::class, ['parent_id' => 15,'type' => 'mobile'])
+                </article>
+            </details>
+        </li>
+        <li>
+            <a href="{{ route('posts') }}" class="flex items-center justify-between gap-2 p-2 font-medium hover:bg-[#F7F7F7] rounded-lg transition ease-in-out" @click="mobileMenuOpen = false">
+                {{ __('noot-pro-content-management::site.blog') }}
+            </a>
+        </li>
+        <li>
+            @if(app()->getLocale() === 'ar')
+                <a href="{{ route('language.switch', 'en') }}" class="flex items-center justify-between gap-2 p-2 font-medium hover:bg-[#F7F7F7] rounded-lg transition ease-in-out" @click="mobileMenuOpen = false">
+                    English
+                </a>
+            @else
+                <a href="{{ route('language.switch', 'ar') }}" class="flex items-center justify-between gap-2 p-2 font-medium hover:bg-[#F7F7F7] rounded-lg transition ease-in-out" @click="mobileMenuOpen = false">
+                    العربية
+                </a>
+            @endif
+        </li>
+    </ul>
+    <div class="actions max-w-[280px] mx-auto">
+        <ul class="flex flex-col gap-4">
+            <li><a href="{{ url(filament()->getLoginUrl()) }}" class="block text-center px-4 py-2.5 text-sm border-2 rounded-xl border-[#E8E8E8] hover:bg-[#E8E8E8] transition ease-in-out" @click="mobileMenuOpen = false">{{ __('noot-pro-content-management::site.login') }}</a></li>
+            <li><a href="{{ url('/contact') }}" class="block text-center px-4 py-2.5 text-sm border-2 rounded-xl border-[var(--primary-color)] bg-[var(--primary-color)] hover:bg-[var(--secondary-color)] hover:border-[var(--secondary-color)] text-white transition ease-in-out" @click="mobileMenuOpen = false">{{ __('noot-pro-content-management::site.contact_us') }}</a></li>
+        </ul>
+    </div>
+</div>
 
 <div class="container mx-auto my-6">
     {{ $slot }}
