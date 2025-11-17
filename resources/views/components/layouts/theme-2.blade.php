@@ -283,38 +283,38 @@
                 <div class="lg:col-span-12 xl:col-span-2 col-span-full">
                     <div class="mb-6 text-[#969696]">{{ __('noot-pro-content-management::site.contact_us') }}</div>
                     <ul class="mb-6">
-                        <li class="mb-6"><a href="mailto:{{ config('noot.site.email') }}" class="text-white hover:text-[var(--primary-color)] transition ease-in-out">{{ config('noot.site.email') }}</a></li>
-                        <li class="mb-6"><a href="tel:{{ config('noot.site.phone') }}" class="text-white hover:text-[var(--primary-color)] transition ease-in-out">{{ config('noot.site.phone') }}</a></li>
+                        <li class="mb-6"><a href="mailto:info@noot.co" class="text-white hover:text-[var(--primary-color)] transition ease-in-out">info@noot.co</a></li>
+                        <li class="mb-6"><a href="tel:0575811311" class="text-white hover:text-[var(--primary-color)] transition ease-in-out">0575811311</a></li>
                     </ul>
                     <div>
                         <ul class="flex items-center">
                             <li class="me-4 relative transition ease-in-out hover:-translate-y-1">
-                                <a target="_blank" href="https://x.com/erpnootsa">
+                                <a target="_blank" href="https://x.com/bued_hr">
                                     <img src="{{ asset('vendor/noot-pro/content-management/images/theme-2/social-media/x.svg') }}" alt="">
                                 </a>
                             </li>
                             <li class="me-4 relative transition ease-in-out hover:-translate-y-1">
-                                <a target="_blank" href="https://www.tiktok.com/@erpnootsa?is_from_webapp=1&sender_device=pc">
+                                <a target="_blank" href="https://www.tiktok.com/@bued.ai?_r=1&_t=ZS-91TJlartuml">
                                     <img src="{{ asset('vendor/noot-pro/content-management/images/theme-2/social-media/tiktok.svg') }}" alt="">
                                 </a>
                             </li>
                             <li class="me-4 relative transition ease-in-out hover:-translate-y-1">
-                                <a target="_blank" href="https://www.linkedin.com/company/nootco">
+                                <a target="_blank" href="https://www.linkedin.com/in/%D9%86%D8%B8%D8%A7%D9%85-%D8%A8%D9%8F%D8%B9%D8%AF-%D9%84%D9%84%D9%85%D9%88%D8%A7%D8%B1%D8%AF-%D8%A7%D9%84%D8%A8%D8%B4%D8%B1%D9%8A%D8%A9-a97a84390/">
                                     <img src="{{ asset('vendor/noot-pro/content-management/images/theme-2/social-media/linkedin.svg') }}" alt="">
                                 </a>
                             </li>
                             <li class="me-4 relative transition ease-in-out hover:-translate-y-1">
-                                <a target="_blank" href="https://www.instagram.com/erpnootsa/?hl=ar">
+                                <a target="_blank" href="https://www.instagram.com/bued.hr/">
                                     <img src="{{ asset('vendor/noot-pro/content-management/images/theme-2/social-media/instagram.svg') }}" alt="">
                                 </a>
                             </li>
                             <li class="me-4 relative transition ease-in-out hover:-translate-y-1">
-                                <a target="_blank" href="https://story.snapchat.com/u/erpnootsa?share_id=EQe7lcbQRFO20N57ygzSvw&locale=ar_SA@calendar=gregorian">
+                                <a target="_blank" href="https://www.snapchat.com/add/bued.ai?share_id=LT6hM6sFCME&locale=ar-SA">
                                     <img src="{{ asset('vendor/noot-pro/content-management/images/theme-2/social-media/snapchat.svg') }}" alt="">
                                 </a>
                             </li>
                             <li class="relative transition ease-in-out hover:-translate-y-1">
-                                <a target="_blank" href="https://www.facebook.com/erpnootsa/?locale=ar_AR">
+                                <a target="_blank" href="https://www.facebook.com/profile.php?id=61583944401519">
                                     <img src="{{ asset('vendor/noot-pro/content-management/images/theme-2/social-media/facebook.svg') }}" alt="">
                                 </a>
                             </li>
