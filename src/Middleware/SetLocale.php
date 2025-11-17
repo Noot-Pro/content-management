@@ -11,12 +11,12 @@ class SetLocale
     public function handle(Request $request, Closure $next): Response
     {
         $availableLocales = config('noot-pro-content-management.locales', []);
-        $sessionLocale = session('locale');
+        $sessionLocale = session('locale', 'ar');
 
         if ($sessionLocale && array_key_exists($sessionLocale, $availableLocales)) {
             app()->setLocale($sessionLocale);
         } else {
-            $defaultLocale = config('app.locale', 'en');
+            $defaultLocale = config('app.locale', 'ar');
             if (array_key_exists($defaultLocale, $availableLocales)) {
                 app()->setLocale($defaultLocale);
             }
