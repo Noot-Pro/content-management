@@ -289,33 +289,67 @@
                     <div>
                         <ul class="flex items-center">
                             <li class="me-4 relative transition ease-in-out hover:-translate-y-1">
-                                <a target="_blank" href="https://x.com/erpnootsa">
-                                    <img src="{{ asset('images/site/social-media/x.svg') }}" alt="">
+                                <a target="_blank" href="https://x.com/bued_hr">
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M7.053 4.988L12.684 13.012H11.187L5.566 4.988H7.053ZM18 3V15C18 16.657 16.657 18 15 18H3C1.343 18 0 16.657 0 15V3C0 1.343 1.343 0 3 0H15C16.657 0 18 1.343 18 3ZM14.538 14L10.352 8.01L13.774 4H12.463L9.759 7.16L7.552 4H3.702L7.643 9.633L3.906 14H5.239L8.24 10.484L10.698 14H14.538Z" fill="white"/>
+                                    </svg>
                                 </a>
                             </li>
                             <li class="me-4 relative transition ease-in-out hover:-translate-y-1">
-                                <a target="_blank" href="https://www.tiktok.com/@erpnootsa?is_from_webapp=1&sender_device=pc">
-                                    <img src="{{ asset('images/site/social-media/tiktok.svg') }}" alt="">
+                                <a target="_blank" href="https://www.tiktok.com/@bued.ai?_r=1&_t=ZS-91TJlartuml">
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M3 0C1.35503 0 0 1.35503 0 3V15C0 16.645 1.35503 18 3 18H15C16.645 18 18 16.645 18 15V3C18 1.35503 16.645 0 15 0H3ZM9 4H11C11 5.005 12.471 6 13 6V8C12.395 8 11.668 7.73416 11 7.28516V11C11 12.654 9.654 14 8 14C6.346 14 5 12.654 5 11C5 9.346 6.346 8 8 8V10C7.448 10 7 10.449 7 11C7 11.551 7.448 12 8 12C8.552 12 9 11.551 9 11V4Z" fill="white"/>
+                                    </svg>
                                 </a>
                             </li>
                             <li class="me-4 relative transition ease-in-out hover:-translate-y-1">
                                 <a target="_blank" href="https://www.linkedin.com/company/nootco">
-                                    <img src="{{ asset('images/site/social-media/linkedin.svg') }}" alt="">
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M16 0H2C0.895 0 0 0.895 0 2V16C0 17.105 0.895 18 2 18H16C17.105 18 18 17.105 18 16V2C18 0.895 17.105 0 16 0ZM6 14H3.477V7H6V14ZM4.694 5.717C3.923 5.717 3.408 5.203 3.408 4.517C3.408 3.831 3.922 3.317 4.779 3.317C5.55 3.317 6.065 3.831 6.065 4.517C6.065 5.203 5.551 5.717 4.694 5.717ZM15 14H12.558V10.174C12.558 9.116 11.907 8.872 11.663 8.872C11.419 8.872 10.605 9.035 10.605 10.174C10.605 10.337 10.605 14 10.605 14H8.082V7H10.605V7.977C10.93 7.407 11.581 7 12.802 7C14.023 7 15 7.977 15 10.174V14Z" fill="white"/>
+                                    </svg>
                                 </a>
                             </li>
                             <li class="me-4 relative transition ease-in-out hover:-translate-y-1">
-                                <a target="_blank" href="https://www.instagram.com/erpnootsa/?hl=ar">
-                                    <img src="{{ asset('images/site/social-media/instagram.svg') }}" alt="">
+                                <a target="_blank" href="https://www.instagram.com/bued.hr/">
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M5 0C2.239 0 0 2.239 0 5V13C0 15.761 2.239 18 5 18H13C15.761 18 18 15.761 18 13V5C18 2.239 15.761 0 13 0H5ZM15 2C15.552 2 16 2.448 16 3C16 3.552 15.552 4 15 4C14.448 4 14 3.552 14 3C14 2.448 14.448 2 15 2ZM9 4C11.761 4 14 6.239 14 9C14 11.761 11.761 14 9 14C6.239 14 4 11.761 4 9C4 6.239 6.239 4 9 4ZM9 6C8.20435 6 7.44129 6.31607 6.87868 6.87868C6.31607 7.44129 6 8.20435 6 9C6 9.79565 6.31607 10.5587 6.87868 11.1213C7.44129 11.6839 8.20435 12 9 12C9.79565 12 10.5587 11.6839 11.1213 11.1213C11.6839 10.5587 12 9.79565 12 9C12 8.20435 11.6839 7.44129 11.1213 6.87868C10.5587 6.31607 9.79565 6 9 6Z" fill="white"/>
+                                    </svg>
                                 </a>
                             </li>
                             <li class="me-4 relative transition ease-in-out hover:-translate-y-1">
-                                <a target="_blank" href="https://story.snapchat.com/u/erpnootsa?share_id=EQe7lcbQRFO20N57ygzSvw&locale=ar_SA@calendar=gregorian">
-                                    <img src="{{ asset('images/site/social-media/snapchat.svg') }}" alt="">
+                                <a target="_blank" href="https://www.snapchat.com/add/bued.ai?share_id=LT6hM6sFCME&locale=ar-SA">
+                                    <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19 19" width="19" height="19">
+                                        <title>icons8-snapchat (1)-svg</title>
+                                        <defs>
+                                            <linearGradient id="g1" x2="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(3.551,20.14,-20.14,3.551,7.725,-0.57)">
+                                                <stop offset="0" stop-color="#ffffff"/>
+                                                <stop offset="1" stop-color="#ffffff"/>
+                                            </linearGradient>
+                                        </defs>
+                                        <style>
+                                            .s0 { fill: url(#g1) }
+                                            .s1 { opacity: .1;fill: #000000 }
+                                            .s2 { opacity: .1;fill: none;stroke: #1d1d1b;stroke-miterlimit:10;stroke-width: 1;stroke-dasharray: NaN }
+                                            .s3 { opacity: .1;fill: none;stroke: #000000;stroke-miterlimit:10;stroke-width: .5;stroke-dasharray: NaN }
+                                            .s4 { fill: #000000 }
+                                        </style>
+                                        <g>
+                                            <g>
+                                                <path class="s0" d="m14.7 18.9h-10.4c-2.3 0-4.2-1.9-4.2-4.2v-10.4c0-2.3 1.9-4.2 4.2-4.2h10.4c2.3 0 4.2 1.9 4.2 4.2v10.4c0 2.3-1.9 4.2-4.2 4.2z"/>
+                                                <path class="s1" d="m4.6 7.7q-0.1 0-0.3 0-0.2 0.1-0.3 0.4c0 0.2 0 0.5 0.2 0.6l2 1.2-0.1 0.2c0 0.1-0.9 2.3-2.5 3.2q-0.1 0.1-0.1 0.1 0 0.1 0.1 0.2c0.3 0.3 0.7 0.5 1.4 0.6h0.2v0.3c0 0.3 0.1 0.6 0.2 0.6 0.5 0 1.4 0 2.4 0.5 0.5 0.3 1.3 0.4 1.7 0.4 0.4 0 1.2-0.1 1.7-0.4 1-0.5 1.9-0.5 2.4-0.5 0.1 0 0.2-0.3 0.2-0.6v-0.3h0.2c0.7-0.1 1.1-0.3 1.4-0.6q0.1-0.1 0.1-0.2 0 0-0.1-0.1c-1.6-0.9-2.5-3.1-2.5-3.2l-0.1-0.2 2-1.2c0.2-0.1 0.2-0.4 0.2-0.6q-0.1-0.3-0.3-0.4-0.2-0.1-0.5 0l-1.3 0.6v-1.9c0-1.9-1.5-3.4-3.4-3.4-1.9 0-3.4 1.5-3.4 3.4v1.9l-1.3-0.6q-0.1 0-0.2 0z"/>
+                                                <path fill-rule="evenodd" class="s2" d="m9.5 16.3c0.5 0 1.2-0.2 1.8-0.5 0.9-0.4 1.9-0.4 2.3-0.4 0.5 0 0.5-0.9 0.5-0.9 0.7-0.2 1.1-0.4 1.5-0.7 0.3-0.2 0.2-0.6-0.1-0.7-1.5-0.9-2.3-3.1-2.3-3.1l1.7-1.1c0.3-0.2 0.4-0.6 0.3-0.9-0.1-0.5-0.6-0.7-1.1-0.5l-0.9 0.4v-1.5c0-2-1.7-3.7-3.7-3.7-2 0-3.7 1.7-3.7 3.7v1.5l-0.9-0.4c-0.5-0.2-1 0-1.1 0.5-0.1 0.3 0 0.7 0.3 0.9l1.7 1.1c0 0-0.8 2.2-2.3 3.1-0.3 0.1-0.4 0.5-0.1 0.7 0.4 0.3 0.8 0.5 1.5 0.7 0 0 0 0.9 0.5 0.9 0.4 0 1.4 0 2.3 0.4 0.6 0.3 1.3 0.5 1.8 0.5z"/>
+                                                <path fill-rule="evenodd" class="s3" d="m9.5 16.3c0.5 0 1.2-0.2 1.8-0.5 0.9-0.4 1.9-0.4 2.3-0.4 0.5 0 0.5-0.9 0.5-0.9 0.7-0.2 1.1-0.4 1.5-0.7 0.3-0.2 0.2-0.6-0.1-0.7-1.5-0.9-2.3-3.1-2.3-3.1l1.7-1.1c0.3-0.2 0.4-0.6 0.3-0.9-0.1-0.5-0.6-0.7-1.1-0.5l-0.9 0.4v-1.5c0-2-1.7-3.7-3.7-3.7-2 0-3.7 1.7-3.7 3.7v1.5l-0.9-0.4c-0.5-0.2-1 0-1.1 0.5-0.1 0.3 0 0.7 0.3 0.9l1.7 1.1c0 0-0.8 2.2-2.3 3.1-0.3 0.1-0.4 0.5-0.1 0.7 0.4 0.3 0.8 0.5 1.5 0.7 0 0 0 0.9 0.5 0.9 0.4 0 1.4 0 2.3 0.4 0.6 0.3 1.3 0.5 1.8 0.5z"/>
+                                                <path class="s4" d="m9.5 16.3c0.5 0 1.2-0.2 1.8-0.5 0.9-0.4 1.9-0.4 2.3-0.4 0.5 0 0.5-0.9 0.5-0.9 0.7-0.2 1.1-0.4 1.5-0.7 0.3-0.2 0.2-0.6-0.1-0.7-1.5-0.9-2.3-3.1-2.3-3.1l1.7-1.1c0.3-0.2 0.4-0.6 0.3-0.9-0.1-0.5-0.6-0.7-1.1-0.5l-0.9 0.4v-1.5c0-2-1.7-3.7-3.7-3.7-2 0-3.7 1.7-3.7 3.7v1.5l-0.9-0.4c-0.5-0.2-1 0-1.1 0.5-0.1 0.3 0 0.7 0.3 0.9l1.7 1.1c0 0-0.8 2.2-2.3 3.1-0.3 0.1-0.4 0.5-0.1 0.7 0.4 0.3 0.8 0.5 1.5 0.7 0 0 0 0.9 0.5 0.9 0.4 0 1.4 0 2.3 0.4 0.6 0.3 1.3 0.5 1.8 0.5z"/>
+                                            </g>
+                                        </g>
+                                    </svg>
                                 </a>
                             </li>
                             <li class="relative transition ease-in-out hover:-translate-y-1">
-                                <a target="_blank" href="https://www.facebook.com/erpnootsa/?locale=ar_AR">
-                                    <img src="{{ asset('images/site/social-media/facebook.svg') }}" alt="">
+                                <a target="_blank" href="https://www.facebook.com/profile.php?id=61583944401519">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M10 0C4.477 0 0 4.477 0 10C0 15.013 3.693 19.153 8.505 19.876V12.65H6.031V10.021H8.505V8.272C8.505 5.376 9.916 4.105 12.323 4.105C13.476 4.105 14.085 4.19 14.374 4.229V6.523H12.732C11.71 6.523 11.353 7.492 11.353 8.584V10.021H14.348L13.942 12.65H11.354V19.897C16.235 19.236 20 15.062 20 10C20 4.477 15.523 0 10 0Z" fill="white"/>
+                                    </svg>
                                 </a>
                             </li>
                         </ul>
