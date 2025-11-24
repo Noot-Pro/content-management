@@ -30,22 +30,27 @@
             <div class="text-[32px] xl:text-[48px] font-bold mb-10 xl:mb-20 text-center">{{ __('noot-pro-content-management::site.features_title') }} <span class="block text-[var(--primary-color)]">{{ __('noot-pro-content-management::site.one_place') }}</span></div>
             <div class="grid grid-cols-12  gap-x-4">
                 <div class="group lg:col-span-6 xl:col-span-8 col-span-full p-7 lg:p-14 mb-5 bg-[#F7F7F7] lg:h-[250px] rounded-[24px] xl:rounded-[48px] transition ease-in-out hover:bg-[var(--hover-bg-color)]">
-                    <div class="text-xl mb-2.5 transition ease-in-out group-hover:text-[var(--primary-color)]">{{ __('noot-pro-content-management::site.hr_title') }}</div>
-                    <div class="text-base text-[#8C9399] font-light max-w-[524px]">{{ __('noot-pro-content-management::site.hr_text') }}</div>
+                    <div class="text-xl mb-2.5 transition ease-in-out group-hover:text-[var(--primary-color)]">{{ __('noot-pro-content-management::site.feature_title_1') }}</div>
+                    <div class="text-base text-[#8C9399] font-light max-w-[524px]">{{ __('noot-pro-content-management::site.feature_text_1') }}</div>
                 </div>
                 <div class="group lg:col-span-6 xl:col-span-4 col-span-full p-7 lg:p-14 mb-5 bg-[#F7F7F7] lg:h-[250px] rounded-[24px] xl:rounded-[48px] transition ease-in-out hover:bg-[var(--hover-bg-color)]">
-                    <div class="text-xl mb-2.5 transition ease-in-out group-hover:text-[var(--primary-color)]">{{ __('noot-pro-content-management::site.accounting_title') }}</div>
-                    <div class="text-base text-[#8C9399] font-light max-w-[524px]">{{ __('noot-pro-content-management::site.accounting_text') }}</div>
+                    <div class="text-xl mb-2.5 transition ease-in-out group-hover:text-[var(--primary-color)]">{{ __('noot-pro-content-management::site.feature_title_2') }}</div>
+                    <div class="text-base text-[#8C9399] font-light max-w-[524px]">{{ __('noot-pro-content-management::site.feature_text_2') }}</div>
                 </div>
 
                 <div class="group lg:col-span-6 xl:col-span-4 col-span-full p-7 lg:p-14 mb-5 bg-[#F7F7F7] lg:h-[350px] rounded-[24px] xl:rounded-[48px] transition ease-in-out hover:bg-[var(--hover-bg-color)]">
-                    <div class="text-xl mb-2.5 transition ease-in-out group-hover:text-[var(--primary-color)]">{{ __('noot-pro-content-management::site.crm_title') }}</div>
-                    <div class="text-base text-[#8C9399] font-light max-w-[524px]">{{ __('noot-pro-content-management::site.crm_text') }}</div>
+                    <div class="text-xl mb-2.5 transition ease-in-out group-hover:text-[var(--primary-color)]">{{ __('noot-pro-content-management::site.feature_title_3') }}</div>
+                    <div class="text-base text-[#8C9399] font-light max-w-[524px]">{{ __('noot-pro-content-management::site.feature_text_3') }}</div>
                 </div>
 
-                <div class="group lg:col-span-6 xl:col-span-8 col-span-full p-7 lg:p-14 mb-5 bg-[#F7F7F7] lg:h-[350px] rounded-[24px] xl:rounded-[48px] transition ease-in-out hover:bg-[var(--hover-bg-color)]">
-                    <div class="text-xl mb-2.5 transition ease-in-out group-hover:text-[var(--primary-color)]">{{ __('noot-pro-content-management::site.pos_title') }}</div>
-                    <div class="text-base text-[#8C9399] font-light max-w-[524px]">{{ __('noot-pro-content-management::site.pos_text') }}</div>
+                <div class="group lg:col-span-6 xl:col-span-4 col-span-full p-7 lg:p-14 mb-5 bg-[#F7F7F7] lg:h-[350px] rounded-[24px] xl:rounded-[48px] transition ease-in-out hover:bg-[var(--hover-bg-color)]">
+                    <div class="text-xl mb-2.5 transition ease-in-out group-hover:text-[var(--primary-color)]">{{ __('noot-pro-content-management::site.feature_title_4') }}</div>
+                    <div class="text-base text-[#8C9399] font-light max-w-[524px]">{{ __('noot-pro-content-management::site.feature_text_4') }}</div>
+                </div>
+
+                <div class="group lg:col-span-6 xl:col-span-4 col-span-full p-7 lg:p-14 mb-5 bg-[#F7F7F7] lg:h-[350px] rounded-[24px] xl:rounded-[48px] transition ease-in-out hover:bg-[var(--hover-bg-color)]">
+                    <div class="text-xl mb-2.5 transition ease-in-out group-hover:text-[var(--primary-color)]">{{ __('noot-pro-content-management::site.feature_title_5') }}</div>
+                    <div class="text-base text-[#8C9399] font-light max-w-[524px]">{{ __('noot-pro-content-management::site.feature_text_5') }}</div>
                 </div>
 
             </div>
@@ -161,6 +166,12 @@
                         </div>
                         <div x-data="{ id: $id('accordion') }" class="cursor-pointer p-7 rounded-[24px] xl:rounded-[32px] transition ease-in-out" :class="{ 'bg-[#F7F7F7]': activeAccordion == id }">
                             <div @click="setActiveAccordion(id)" class="text-xl flex items-center justify-between flex-row-reverse">
+                                <i :class="{ 'rotate-180': activeAccordion == id }" class="block w-6 h-6 bg-[url('/vendor/noot-pro/content-management/images/theme-2/arrow-down.svg')] bg-no-repeat bg-center transition-all duration-300"></i>{{ __('noot-pro-content-management::site.solution_3_title') }}
+                            </div>
+                            <div x-show="activeAccordion == id" x-collapse class="mt-4 text-base text-[#8C9399] font-light">{{ __('noot-pro-content-management::site.solution_3_text') }}</div>
+                        </div>
+                        <div x-data="{ id: $id('accordion') }" class="cursor-pointer p-7 rounded-[24px] xl:rounded-[32px] transition ease-in-out" :class="{ 'bg-[#F7F7F7]': activeAccordion == id }">
+                            <div @click="setActiveAccordion(id)" class="text-xl flex items-center justify-between flex-row-reverse">
                                 <i :class="{ 'rotate-180': activeAccordion == id }" class="block w-6 h-6 bg-[url('/vendor/noot-pro/content-management/images/theme-2/arrow-down.svg')] bg-no-repeat bg-center transition-all duration-300"></i>{{ __('noot-pro-content-management::site.solution_4_title') }}
                             </div>
                             <div x-show="activeAccordion == id" x-collapse class="mt-4 text-base text-[#8C9399] font-light">{{ __('noot-pro-content-management::site.solution_4_text') }}</div>
@@ -254,13 +265,11 @@
                         </div>
                         <div class="text-[#969696] mb-4 text-xl">{{ __('noot-pro-content-management::site.package_details') }}:</div>
                         <ul class="text-xl font-light">
-                            <li class="mb-6 ps-8 bg-circle-check-black bg-no-repeat {{ $bg_align }}">10 {{ __('noot-pro-content-management::site.employee') }}</li>
-                            <li class="mb-6 ps-8 bg-circle-check-black bg-no-repeat {{ $bg_align }}">{{ __('noot-pro-content-management::site.customer_service') }}</li>
-
-                            <li class="mb-6 ps-8 bg-circle-check-black bg-no-repeat {{ $bg_align }}">{{ __('noot-pro-content-management::site.accounting') }}</li>
-                            <li class="mb-6 ps-8 bg-circle-check-black bg-no-repeat {{ $bg_align }}">{{ __('noot-pro-content-management::site.inventory_management') }}</li>
-                            <li class="mb-6 ps-8 bg-circle-check-black bg-no-repeat {{ $bg_align }}">{{ __('noot-pro-content-management::site.customer_relationship_management') }}</li>
-                            <li class="mb-6 ps-8 bg-circle-check-black bg-no-repeat {{ $bg_align }}">{{ __('noot-pro-content-management::site.point_of_sale_management') }} 1</li>
+                            <li class="mb-6 ps-8 bg-circle-check-black bg-no-repeat {{ $bg_align }}">{{ __('noot-pro-content-management::site.test_package_feature_1') }}</li>
+                            <li class="mb-6 ps-8 bg-circle-check-black bg-no-repeat {{ $bg_align }}">{{ __('noot-pro-content-management::site.test_package_feature_2') }}</li>
+                            <li class="mb-6 ps-8 bg-circle-check-black bg-no-repeat {{ $bg_align }}">{{ __('noot-pro-content-management::site.test_package_feature_3') }}</li>
+                            <li class="mb-6 ps-8 bg-circle-check-black bg-no-repeat {{ $bg_align }}">{{ __('noot-pro-content-management::site.test_package_feature_4') }}</li>
+                            <li class="mb-6 ps-8 bg-circle-check-black bg-no-repeat {{ $bg_align }}">{{ __('noot-pro-content-management::site.test_package_feature_5') }}</li>
                         </ul>
                     </div>
                     <div>
@@ -272,19 +281,31 @@
                         <div class="text-2xl mb-2 flex items-center">{{ __('noot-pro-content-management::site.main_package_title') }} <span class="bg-[#FFEEE5] ms-1.5 px-3 py-1 text-[var(--primary-color)] text-xs border rounded-[10px] border-[#FFDECC]">{{ __('noot-pro-content-management::site.main_package_badge') }}</span></div>
                         <div class="text-[#8C9399] font-light mb-[26px]">{{ __('noot-pro-content-management::site.main_package_text') }}</div>
                         <div class="mb-10 pb-10 border-b border-[#E8E8E8]">
-                            <div class="flex items-end font-bold text-5xl">@if(app()->getLocale() === 'ar') 2000<img src="{{ asset('/vendor/noot-pro/content-management/images/theme-2/saudi-rial-symbol.svg') }}" class="mb-2 mx-2" width="34px" alt=""> @else <img src="{{ asset('/vendor/noot-pro/content-management/images/theme-2/saudi-rial-symbol.svg') }}" class="mb-2 mx-2" width="34px" alt="">2000 @endif<span class="plan-monthly ms-2 text-[#585757] font-light text-xl"> / {{ __('noot-pro-content-management::site.yearly') }}</span></div>
+                            <div class="flex items-end font-bold text-5xl pb-2">@if(app()->getLocale() === 'ar') 1500<img src="{{ asset('/vendor/noot-pro/content-management/images/theme-2/saudi-rial-symbol.svg') }}" class="mb-2 mx-2" width="34px" alt=""> @else <img src="{{ asset('/vendor/noot-pro/content-management/images/theme-2/saudi-rial-symbol.svg') }}" class="mb-2 mx-2" width="34px" alt="">1500 @endif<span class="plan-monthly ms-2 text-[#585757] font-light text-xl"> / {{ __('noot-pro-content-management::site.monthly') }}</span></div>
+                            <div class="text-sm text-[#8C9399] font-light mb-4">{{ __('noot-pro-content-management::site.monthly_per_employee') }}</div>
+                            <div class="space-y-2 mb-4">
+                                <div class="flex items-center justify-between text-base">
+                                    <span class="text-[#585757] font-light">{{ __('noot-pro-content-management::site.discount_3_months') }}</span>
+                                    <span class="text-[var(--primary-color)] font-semibold">{{ __('noot-pro-content-management::site.discount_3_months_price') }}</span>
+                                </div>
+                                <div class="flex items-center justify-between text-base">
+                                    <span class="text-[#585757] font-light">{{ __('noot-pro-content-management::site.discount_6_months') }}</span>
+                                    <span class="text-[var(--primary-color)] font-semibold">{{ __('noot-pro-content-management::site.discount_6_months_price') }}</span>
+                                </div>
+                                <div class="flex items-center justify-between text-base">
+                                    <span class="text-[#585757] font-light">{{ __('noot-pro-content-management::site.discount_12_months') }}</span>
+                                    <span class="text-[var(--primary-color)] font-semibold">{{ __('noot-pro-content-management::site.discount_12_months_price') }}</span>
+                                </div>
+                            </div>
                             <span class="text-sm text-[#8C9399] font-light">{{ __('noot-pro-content-management::site.package_tax') }}</span>
                         </div>
                         <div class="text-[#969696] mb-4 text-xl">{{ __('noot-pro-content-management::site.package_details') }}:</div>
                         <ul class="text-xl font-light">
-                            <li class="mb-6 ps-8 bg-circle-check-orange bg-no-repeat {{ $bg_align }}">10 {{ __('noot-pro-content-management::site.employee') }}</li>
-                            <li class="mb-6 ps-8 bg-circle-check-orange bg-no-repeat {{ $bg_align }}">{{ __('noot-pro-content-management::site.sales_management') }}</li>
-                            <li class="mb-6 ps-8 bg-circle-check-orange bg-no-repeat {{ $bg_align }}">{{ __('noot-pro-content-management::site.customer_service') }}</li>
-
-                            <li class="mb-6 ps-8 bg-circle-check-orange bg-no-repeat {{ $bg_align }}">{{ __('noot-pro-content-management::site.accounting') }}</li>
-                            <li class="mb-6 ps-8 bg-circle-check-orange bg-no-repeat {{ $bg_align }}">{{ __('noot-pro-content-management::site.inventory_management') }}</li>
-                            <li class="mb-6 ps-8 bg-circle-check-orange bg-no-repeat {{ $bg_align }}">{{ __('noot-pro-content-management::site.customer_relationship_management') }}</li>
-                            <li class="mb-6 ps-8 bg-circle-check-orange bg-no-repeat {{ $bg_align }}">{{ __('noot-pro-content-management::site.point_of_sale_management') }} 1</li>
+                            <li class="mb-6 ps-8 bg-circle-check-black bg-no-repeat {{ $bg_align }}">{{ __('noot-pro-content-management::site.main_package_list_feature_1') }}</li>
+                            <li class="mb-6 ps-8 bg-circle-check-black bg-no-repeat {{ $bg_align }}">{{ __('noot-pro-content-management::site.main_package_list_feature_2') }}</li>
+                            <li class="mb-6 ps-8 bg-circle-check-black bg-no-repeat {{ $bg_align }}">{{ __('noot-pro-content-management::site.main_package_list_feature_3') }}</li>
+                            <li class="mb-6 ps-8 bg-circle-check-black bg-no-repeat {{ $bg_align }}">{{ __('noot-pro-content-management::site.main_package_list_feature_4') }}</li>
+                            <li class="mb-6 ps-8 bg-circle-check-black bg-no-repeat {{ $bg_align }}">{{ __('noot-pro-content-management::site.main_package_list_feature_5') }}</li>
                         </ul>
                     </div>
                     <div>
@@ -301,14 +322,13 @@
                         </div>
                         <div class="text-[#969696] mb-4 text-xl">{{ __('noot-pro-content-management::site.package_details') }}:</div>
                         <ul class="text-xl font-light">
-                            <li class="mb-6 ps-8 bg-circle-check-black bg-no-repeat {{ $bg_align }}">25 {{ __('noot-pro-content-management::site.employee') }}</li>
-                            <li class="mb-6 ps-8 bg-circle-check-black bg-no-repeat {{ $bg_align }}">{{ __('noot-pro-content-management::site.all_main_features') }}</li>
-                            <li class="mb-6 ps-8 bg-circle-check-black bg-no-repeat {{ $bg_align }}">{{ __('noot-pro-content-management::site.reports_and_analysis') }}</li>
-                            <li class="mb-6 ps-8 bg-circle-check-black bg-no-repeat {{ $bg_align }}">{{ __('noot-pro-content-management::site.integration_with_other_tools') }}</li>
-
-                            <li class="mb-6 ps-8 bg-circle-check-black bg-no-repeat {{ $bg_align }}">{{ __('noot-pro-content-management::site.accounting') }}</li>
-                            <li class="mb-6 ps-8 bg-circle-check-black bg-no-repeat {{ $bg_align }}">{{ __('noot-pro-content-management::site.customer_relationship_management') }}</li>
-                            <li class="mb-6 ps-8 bg-circle-check-black bg-no-repeat {{ $bg_align }}">{{ __('noot-pro-content-management::site.point_of_sale_management') }} 3</li>
+                            <li class="mb-6 ps-8 bg-circle-check-black bg-no-repeat {{ $bg_align }}">{{ __('noot-pro-content-management::site.advanced_package_feature_1') }}</li>
+                            <li class="mb-6 ps-8 bg-circle-check-black bg-no-repeat {{ $bg_align }}">{{ __('noot-pro-content-management::site.advanced_package_feature_2') }}</li>
+                            <li class="mb-6 ps-8 bg-circle-check-black bg-no-repeat {{ $bg_align }}">{{ __('noot-pro-content-management::site.advanced_package_feature_3') }}</li>
+                            <li class="mb-6 ps-8 bg-circle-check-black bg-no-repeat {{ $bg_align }}">{{ __('noot-pro-content-management::site.advanced_package_feature_4') }}</li>
+                            <li class="mb-6 ps-8 bg-circle-check-black bg-no-repeat {{ $bg_align }}">{{ __('noot-pro-content-management::site.advanced_package_feature_5') }}</li>
+                            <li class="mb-6 ps-8 bg-circle-check-black bg-no-repeat {{ $bg_align }}">{{ __('noot-pro-content-management::site.advanced_package_feature_6') }}</li>
+                            <li class="mb-6 ps-8 bg-circle-check-black bg-no-repeat {{ $bg_align }}">{{ __('noot-pro-content-management::site.advanced_package_feature_7') }}</li>
                         </ul>
                     </div>
                     <div>
