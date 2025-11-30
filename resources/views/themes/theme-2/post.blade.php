@@ -15,7 +15,9 @@
 
     <div class="bg-white rounded-[2rem] shadow-md overflow-hidden">
         @if($post->image() !== null)
-            <img alt="{{ $post->title }}" src="{{ $post->image() }}" class="w-full h-full rounded-t-[2rem] object-cover"/>
+            <div class="flex items-center justify-center">
+                <img alt="{{ $post->title }}" src="{{ $post->image() }}" class="rounded-t-[2rem] object-cover"/>
+            </div>
         @endif
 
         <div class="px-6 md:px-10 py-6">
@@ -79,7 +81,7 @@
                         // Set target to open in new tab
                         link.setAttribute('target', '_blank');
                         link.setAttribute('rel', 'noopener noreferrer');
-                        
+
                         // If it's already an absolute URL (http:// or https://), leave it as is
                         if (href.startsWith('http://') || href.startsWith('https://')) {
                             // Already correct
