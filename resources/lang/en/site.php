@@ -20,7 +20,7 @@ return [
     'categories' => 'Categories',
     'start_free_test' => 'Try Now as Free',
     'plans_and_prices' => 'Plans And Prices',
-    'footer_text' => 'Bued Technology Solutions for efficient and secure business management, including human resources, inventory, sales, customer relations and data analysis. Your trusted technology partner.',
+    'footer_text' => 'Bued for Human Resources Management is the smart solution to simplify your employee management. It provides you with advanced tools for managing employee affairs, from recruitment to end of service, with ease and security.',
     'copy_write' => 'All rights reserved to Bued Co.',
 
     'about_noot' => 'About Bued',
@@ -123,7 +123,7 @@ return [
     'yearly' => 'Yearly',
     'package_tax' => 'Tax not included',
 
-    'advanced_package_title' => 'Professional Package',
+    'advanced_package_title' => '100 Employees with Management',
     'advanced_package_text' => 'Bued is the solution for all human resources management needs, from payroll and attendance to managing employment requests and financial entitlements',
     'employee' => 'Employee',
     'reports_and_analysis' => 'Reports And Analysis',
@@ -179,7 +179,7 @@ return [
     'main_package_list_feature_3' => 'Employment Requests Management',
     'main_package_list_feature_4' => 'Financial Entitlements Management',
     'main_package_list_feature_5' => 'Leave and Performance Evaluations Management',
-    
+
     'advanced_package_feature_1' => 'Payroll Management',
     'advanced_package_feature_2' => 'Attendance and Departure Management',
     'advanced_package_feature_3' => 'Employment Requests Management',
