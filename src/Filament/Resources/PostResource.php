@@ -185,7 +185,7 @@ class PostResource extends BaseResource
                     ->sortable(['status'])
                     ->searchable(['status'])
                     ->toggleable()
-                    ->tooltip(fn (Post $record): string => $record->published_at->format('Y/m/d | H:i A')),
+                    ->tooltip(fn (Post $record): string => $record->published_at?->format('Y/m/d | H:i A') ?? __('Not published')),
 
                 SpatieTagsColumn::make('tags')
                     ->label(__('Post Tags'))

@@ -1,31 +1,31 @@
-<article class="mt-6 bg-gray-50">
-    <div class="px-6 pb-6 mx-auto rounded">
-        <aside class="mt-2">
-            <a href="{{ route('post',$post->slug) }}" class="text-xl md:text-3xl font-bold text-gray-700 hover:underline">
-                {!! $post->title !!}
-            </a>
-            @if($post->description !== null)
-                <p class="mt-2 text-gray-600">
-                    {!! $post->description !!}
-                </p>
-            @endif
-        </aside>
-        <div class="flex items-center justify-between">
-            <span class="font-light text-sm text-gray-600 mt-2">{{ optional($post->published_at)->diffForHumans() ?? '' }}</span>
+<article class="mb-6 bg-white shadow-md p-6 rounded-lg ltr:rounded-tr-[2rem] ltr:rounded-bl-[2rem] rtl:rounded-tl-[2rem] rtl:rounded-br-[2rem]">
+    @unless ($post->tags->where('type','category')->isEmpty())
+        <div class="flex items-start justify-between mb-4">
             <div>
-                @unless ($post->tags->isEmpty())
-                    @each($themePath.'.partial.category', $post->tags->where('type','category'), 'category')
-                @endunless
+                @foreach($post->tags->where('type','category') as $category)
+                    <a href="{{ route('tags',[$category->type,$category->slug]) }}" class="inline-block px-4 py-2 bg-orange-500 text-white text-sm font-medium rounded-lg hover:bg-orange-600 transition-colors">
+                        {{ $category->name ?? '' }}
+                    </a>
+                @endforeach
             </div>
+            <span class="font-light text-sm text-gray-600">{{ optional($post->published_at)->diffForHumans() ?? '' }}</span>
         </div>
-        <div class="flex items-center justify-between mt-4">
-            <a href="{{ route('post',$post->slug) }}" class="text-[var(--primary-color)] hover:underline">{{ __("Read more") }}</a>
-{{--            <div>--}}
-{{--                <a class="flex items-center gap-2">--}}
-{{--                    <img src="{{ \Filament\Facades\Filament::getUserAvatarUrl($post->author) }}" alt="avatar" class="hidden object-cover w-8 h-8 rounded-full sm:block">--}}
-{{--                    <p class="text-gray-700 hover:underline">{{ $post->author->name ?? '' }}</p>--}}
-{{--                </a>--}}
-{{--            </div>--}}
+    @else
+        <div class="mb-3">
+            <span class="font-light text-sm text-gray-600">{{ optional($post->published_at)->diffForHumans() ?? '' }}</span>
         </div>
+    @endunless
+    <div class="mb-4">
+        <a href="{{ route('post',$post->slug) }}" class="text-xl md:text-2xl font-bold text-gray-800 hover:text-[var(--primary-color)] transition-colors">
+            {!! $post->title !!}
+        </a>
+    </div>
+    @if($post->description !== null)
+        <p class="mb-4 text-gray-600 leading-relaxed">
+            {!! $post->description !!}
+        </p>
+    @endif
+    <div class="mt-4">
+        <a href="{{ route('post',$post->slug) }}" class="text-[var(--primary-color)] hover:underline font-medium">{{ __('noot-pro-content-management::site.read_more') }}</a>
     </div>
 </article>

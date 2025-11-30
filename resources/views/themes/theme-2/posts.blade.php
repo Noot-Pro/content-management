@@ -7,26 +7,30 @@
         </section>
     @endunless
 
-    <main class="flex flex-col sm:flex-row justify-between mx-auto gap-3 md:gap-6 px-3 md:px-6 py-4 md:py-8">
-        <section class="w-full sm:w-2/3 lg:w-3/4">
-            @if(request()->filled('search'))
-                <div class="py-4">
-                    {{ __('Showing Search result of') }}: <span class="highlight">{{ request('search') }}</span>
-                    <a title="{{ __('clear') }}" href="{{ route('posts') }}">
-                        @svg('heroicon-o-backspace','text-primary-500 w-4 h-4 inline-flex align-middle')
-                    </a>
-                </div>
-            @endif
+    <main class="container mx-auto px-4 py-8">
+        <div class="flex flex-col lg:flex-row gap-6 lg:gap-8">
+            <section class="w-full lg:w-2/3">
+                @if(request()->filled('search'))
+                    <div class="mb-6 py-4">
+                        {{ __('Showing Search result of') }}: <span class="highlight">{{ request('search') }}</span>
+                        <a title="{{ __('clear') }}" href="{{ route('posts') }}" class="ml-2 text-[var(--primary-color)] hover:underline">
+                            @svg('heroicon-o-backspace','w-4 h-4 inline-flex align-middle')
+                        </a>
+                    </div>
+                @endif
 
-            @unless ($posts->isEmpty())
-                <h1 class="text-xl font-bold text-gray-700 md:text-2xl">{{ __('Posts') }}</h1>
-                @each($themePath.'.partial.post', $posts, 'post')
-            @else
-                @include($themePath.'.partial.empty')
-            @endunless
-        </section>
-        <nav class="w-full sm:w-1/3 lg:w-1/4">
-            @include($themePath.'.partial.sidebar')
-        </nav>
+                @unless ($posts->isEmpty())
+                    <h1 class="text-2xl md:text-3xl font-bold text-gray-800 mb-6">{{ __('Posts') }}</h1>
+                    <div>
+                        @each($themePath.'.partial.post', $posts, 'post')
+                    </div>
+                @else
+                    @include($themePath.'.partial.empty')
+                @endunless
+            </section>
+            <aside class="w-full lg:w-1/3">
+                @include($themePath.'.partial.sidebar')
+            </aside>
+        </div>
     </main>
 </div>
