@@ -44,10 +44,10 @@
                         @endunless
                     </div>
                 </div>
-{{--                <a href="#" class="flex items-center gap-2">--}}
-{{--                    <img src="{{ \Filament\Facades\Filament::getUserAvatarUrl($post->author) }}" alt="avatar" class="object-cover w-10 h-10 rounded-full sm:block">--}}
-{{--                    <h1 class="font-bold text-gray-700 hover:underline">{{ $post->author->name ?? '' }}</h1>--}}
-{{--                </a>--}}
+                {{--                <a href="#" class="flex items-center gap-2">--}}
+                {{--                    <img src="{{ \Filament\Facades\Filament::getUserAvatarUrl($post->author) }}" alt="avatar" class="object-cover w-10 h-10 rounded-full sm:block">--}}
+                {{--                    <h1 class="font-bold text-gray-700 hover:underline">{{ $post->author->name ?? '' }}</h1>--}}
+                {{--                </a>--}}
             </div>
 
             <div class="mt-6 lg:mt-12 prose max-w-none">
