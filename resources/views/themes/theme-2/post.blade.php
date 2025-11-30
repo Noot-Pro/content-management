@@ -56,6 +56,65 @@
         </div>
     </div>
 
+    @push('styles')
+        <style>
+            .prose a {
+                color: #000000;
+                font-weight: bold;
+                text-decoration: underline;
+            }
+            .prose a:hover {
+                opacity: 0.8;
+            }
+        </style>
+    @endpush
+
+    @push('scripts')
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const proseLinks = document.querySelectorAll('.prose a');
+                proseLinks.forEach(function(link) {
+                    let href = link.getAttribute('href');
+                    if (href && !href.startsWith('#') && !href.startsWith('javascript:')) {
+                        // Set target to open in new tab
+                        link.setAttribute('target', '_blank');
+                        link.setAttribute('rel', 'noopener noreferrer');
+                        
+                        // If it's already an absolute URL (http:// or https://), leave it as is
+                        if (href.startsWith('http://') || href.startsWith('https://')) {
+                            // Already correct
+                        }
+                        // If it starts with /, it's root-relative, leave it as is
+                        else if (href.startsWith('/')) {
+                            // Already correct
+                        }
+                        // If it looks like an external domain (contains . but no / at start)
+                        else if (href.includes('.') && !href.startsWith('.')) {
+                            // Add https:// if no protocol
+                            if (!href.startsWith('http://') && !href.startsWith('https://')) {
+                                link.setAttribute('href', 'https://' + href);
+                            }
+                        }
+                        // For relative URLs, ensure they navigate correctly
+                        link.addEventListener('click', function(e) {
+                            href = link.getAttribute('href');
+                            // If it's an external URL or absolute path, navigate normally
+                            if (href.startsWith('http://') || href.startsWith('https://') || href.startsWith('/')) {
+                                // Let browser handle it normally (opens in new tab due to target="_blank")
+                                return true;
+                            }
+                            // For relative URLs, prevent default and navigate
+                            else if (!href.startsWith('#')) {
+                                e.preventDefault();
+                                window.open(href, '_blank', 'noopener,noreferrer');
+                            }
+                        });
+                    }
+                });
+            });
+        </script>
+    @endpush
+
     @if($related->isNotEmpty())
         <div class="py-6 flex flex-col mt-4 gap-4">
             <h1 class="text-xl font-bold text-gray-700 md:text-2xl">{{ __('Related Posts') }}</h1>
