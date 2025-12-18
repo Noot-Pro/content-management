@@ -2,21 +2,24 @@
 
 namespace NootPro\ContentManagement\Filament\Resources\LibraryResource\Pages;
 
+use LaraZeus\SpatieTranslatable\Resources\Pages\EditRecord\Concerns\Translatable;
+use Filament\Actions\DeleteAction;
+use LaraZeus\SpatieTranslatable\Actions\LocaleSwitcher;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
 use NootPro\ContentManagement\Filament\Resources\LibraryResource;
 
 class EditLibrary extends EditRecord
 {
-    use EditRecord\Concerns\Translatable;
+    use Translatable;
 
     protected static string $resource = LibraryResource::class;
 
     protected function getHeaderActions(): array
     {
         return [
-            Actions\DeleteAction::make(),
-            Actions\LocaleSwitcher::make(),
+            DeleteAction::make(),
+            LocaleSwitcher::make(),
         ];
     }
 }

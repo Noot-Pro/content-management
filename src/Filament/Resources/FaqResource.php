@@ -2,14 +2,17 @@
 
 namespace NootPro\ContentManagement\Filament\Resources;
 
+use Filament\Schemas\Schema;
+use Filament\Schemas\Components\Section;
+use Filament\Actions\EditAction;
+use Filament\Actions\DeleteAction;
+use Filament\Actions\ActionGroup;
+use NootPro\ContentManagement\Filament\Resources\FaqResource\Pages\ListFaqs;
+use NootPro\ContentManagement\Filament\Resources\FaqResource\Pages\CreateFaq;
+use NootPro\ContentManagement\Filament\Resources\FaqResource\Pages\EditFaq;
 use Filament\Forms\Components\RichEditor;
-use Filament\Forms\Components\Section;
 use Filament\Forms\Components\SpatieTagsInput;
 use Filament\Forms\Components\Textarea;
-use Filament\Forms\Form;
-use Filament\Tables\Actions\ActionGroup;
-use Filament\Tables\Actions\DeleteAction;
-use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Columns\SpatieTagsColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
@@ -19,7 +22,7 @@ use NootPro\ContentManagement\Filament\Resources\FaqResource\Pages;
 
 class FaqResource extends BaseResource
 {
-    protected static ?string $navigationIcon = 'heroicon-o-folder-open';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-folder-open';
 
     protected static ?int $navigationSort = 3;
 
@@ -43,10 +46,10 @@ class FaqResource extends BaseResource
         return __('FAQs');
     }
 
-    public static function form(Form $form): Form
+    public static function form(Schema $schema): Schema
     {
-        return $form
-            ->schema([
+        return $schema
+            ->components([
                 Section::make(__('Library File'))
                     ->columns(2)
                     ->schema([
@@ -86,7 +89,7 @@ class FaqResource extends BaseResource
                     ->relationship('tags', 'name')
                     ->label(__('Tags')),
             ])
-            ->actions(static::getActions());
+            ->recordActions(static::getActions());
     }
 
     public static function getActions(): array
@@ -103,9 +106,9 @@ class FaqResource extends BaseResource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListFaqs::route('/'),
-            'create' => Pages\CreateFaq::route('/create'),
-            'edit' => Pages\EditFaq::route('/{record}/edit'),
+            'index' => ListFaqs::route('/'),
+            'create' => CreateFaq::route('/create'),
+            'edit' => EditFaq::route('/{record}/edit'),
         ];
     }
 }

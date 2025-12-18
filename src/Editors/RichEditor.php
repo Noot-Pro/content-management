@@ -2,7 +2,7 @@
 
 namespace NootPro\ContentManagement\Editors;
 
-use Filament\Forms\Components\Component;
+use Filament\Schemas\Components\Component;
 use Filament\Forms\Components\RichEditor as RichEditorAlias;
 use Filament\Forms\Components\Textarea;
 use NootPro\ContentManagement\Classes\ContentEditor;

@@ -2,12 +2,13 @@
 
 namespace NootPro\ContentManagement\Livewire;
 
+use NootPro\ContentManagement\Models\Post;
 use Illuminate\View\View;
 use Livewire\Component;
 
 class Page extends Component
 {
-    public \NootPro\ContentManagement\Models\Post $page;
+    public Post $page;
 
     public function mount(string $slug): void
     {

@@ -2,6 +2,7 @@
 
 namespace NootPro\ContentManagement\Models;
 
+use Sushi\Sushi;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -12,7 +13,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class PostStatus extends Model
 {
-    use \Sushi\Sushi;
+    use Sushi;
 
     public function getRows(): array
     {

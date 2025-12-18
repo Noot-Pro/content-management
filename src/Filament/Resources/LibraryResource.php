@@ -2,20 +2,25 @@
 
 namespace NootPro\ContentManagement\Filament\Resources;
 
-use Filament\Forms\Components\Section;
+use Filament\Schemas\Schema;
+use Filament\Schemas\Components\Section;
+use Filament\Schemas\Components\Utilities\Set;
+use Filament\Schemas\Components\Utilities\Get;
+use NootPro\ContentManagement\Filament\Resources\LibraryResource\Pages\ListLibrary;
+use NootPro\ContentManagement\Filament\Resources\LibraryResource\Pages\CreateLibrary;
+use NootPro\ContentManagement\Filament\Resources\LibraryResource\Pages\EditLibrary;
+use Filament\Actions\EditAction;
+use Filament\Actions\Action;
+use Filament\Actions\DeleteAction;
+use LaraZeus\Helen\HelenServiceProvider;
+use LaraZeus\Helen\Actions\ShortUrlAction;
+use Filament\Actions\ActionGroup;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Forms\Components\SpatieTagsInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\ToggleButtons;
-use Filament\Forms\Form;
-use Filament\Forms\Get;
-use Filament\Forms\Set;
-use Filament\Tables\Actions\Action;
-use Filament\Tables\Actions\ActionGroup;
-use Filament\Tables\Actions\DeleteAction;
-use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Columns\SpatieTagsColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
@@ -29,7 +34,7 @@ class LibraryResource extends BaseResource
 {
     protected static ?string $slug = 'library';
 
-    protected static ?string $navigationIcon = 'heroicon-o-folder';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-folder';
 
     protected static ?int $navigationSort = 4;
 
@@ -38,10 +43,10 @@ class LibraryResource extends BaseResource
         return ContentManagementPlugin::get()->getModel('Library');
     }
 
-    public static function form(Form $form): Form
+    public static function form(Schema $schema): Schema
     {
-        return $form
-            ->schema([
+        return $schema
+            ->components([
                 Section::make(__('Library File'))
                     ->columns(2)
                     ->schema([
@@ -148,7 +153,7 @@ class LibraryResource extends BaseResource
                     ->toggleable()
                     ->type('library'),
             ])
-            ->actions(static::getActions())
+            ->recordActions(static::getActions())
             ->filters([
                 SelectFilter::make('type')
                     ->visible()
@@ -166,9 +171,9 @@ class LibraryResource extends BaseResource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListLibrary::route('/'),
-            'create' => Pages\CreateLibrary::route('/create'),
-            'edit' => Pages\EditLibrary::route('/{record}/edit'),
+            'index' => ListLibrary::route('/'),
+            'create' => CreateLibrary::route('/create'),
+            'edit' => EditLibrary::route('/{record}/edit'),
         ];
     }
 
@@ -204,11 +209,11 @@ class LibraryResource extends BaseResource
         ];
 
         if (
-            class_exists(\LaraZeus\Helen\HelenServiceProvider::class)
+            class_exists(HelenServiceProvider::class)
             && ! config('noot-pro-content-management.headless')
         ) {
             // @phpstan-ignore-next-line
-            $action[] = \LaraZeus\Helen\Actions\ShortUrlAction::make('get-link')
+            $action[] = ShortUrlAction::make('get-link')
                 ->distUrl(fn (Library $record): string => route(ContentManagementPlugin::get()->getRouteNamePrefix() . 'library.item', ['slug' => $record->slug]));
         }
 

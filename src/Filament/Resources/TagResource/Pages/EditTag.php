@@ -2,13 +2,14 @@
 
 namespace NootPro\ContentManagement\Filament\Resources\TagResource\Pages;
 
-use Filament\Actions\LocaleSwitcher;
+use LaraZeus\SpatieTranslatable\Resources\Pages\EditRecord\Concerns\Translatable;
+use LaraZeus\SpatieTranslatable\Actions\LocaleSwitcher;
 use Filament\Resources\Pages\EditRecord;
 use NootPro\ContentManagement\Filament\Resources\TagResource;
 
 class EditTag extends EditRecord
 {
-    use EditRecord\Concerns\Translatable;
+    use Translatable;
 
     protected static string $resource = TagResource::class;
 

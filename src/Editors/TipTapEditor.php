@@ -2,7 +2,7 @@
 
 namespace NootPro\ContentManagement\Editors;
 
-use Filament\Forms\Components\Component;
+use Filament\Schemas\Components\Component;
 use Filament\Forms\Components\Textarea;
 use NootPro\ContentManagement\Classes\ContentEditor;
 
@@ -10,12 +10,10 @@ class TipTapEditor implements ContentEditor
 {
     public static function component(): Component
     {
-        if (class_exists(\FilamentTiptapEditor\TiptapEditor::class)) {
-            return \FilamentTiptapEditor\TiptapEditor::make('content')
-                ->profile('default')
-                // @phpstan-ignore-next-line
-                ->output(\FilamentTiptapEditor\Enums\TiptapOutput::Html)
-                ->extraInputAttributes(['style' => 'min-height: 24rem;'])
+        if (class_exists(\Filament\Forms\Components\RichEditor::class)) {
+            return \Filament\Forms\Components\RichEditor::make('content')
+                ->label(__('Post Content'))
+                ->showMenuBar()
                 ->required();
         }
 
@@ -24,13 +22,9 @@ class TipTapEditor implements ContentEditor
 
     public static function render(string $content): string
     {
-        if (class_exists(\FilamentTiptapEditor\TiptapEditor::class)) {
-            // @phpstan-ignore-next-line
-            return tiptap_converter()
-                ->asHTML(
-                    str(html_entity_decode($content))
-                        ->replace(['prompt(', 'eval(', '&lt;script', '<script'], '')
-                );
+        if (class_exists(\Filament\Forms\Components\RichEditor::class)) {
+            return str(html_entity_decode($content))
+                ->replace(['prompt(', 'eval(', '&lt;script', '<script'], '');
         }
 
         return $content;

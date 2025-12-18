@@ -2,12 +2,13 @@
 
 namespace NootPro\ContentManagement\Livewire;
 
+use NootPro\ContentManagement\Models\Library;
 use Illuminate\View\View;
 use Livewire\Component;
 
 class LibraryItem extends Component
 {
-    public \NootPro\ContentManagement\Models\Library $item;
+    public Library $item;
 
     public function mount(string $slug): void
     {

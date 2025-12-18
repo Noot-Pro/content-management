@@ -2,15 +2,18 @@
 
 namespace NootPro\ContentManagement\Filament\Resources;
 
+use Filament\Schemas\Schema;
+use Filament\Schemas\Components\Section;
+use Filament\Schemas\Components\Utilities\Set;
+use Filament\Schemas\Components\View;
+use Filament\Actions\EditAction;
+use Filament\Actions\DeleteAction;
+use NootPro\ContentManagement\Filament\Resources\NavigationResource\Pages\ListNavigations;
+use NootPro\ContentManagement\Filament\Resources\NavigationResource\Pages\CreateNavigation;
+use NootPro\ContentManagement\Filament\Resources\NavigationResource\Pages\EditNavigation;
 use Filament\Forms\Components\Placeholder;
-use Filament\Forms\Components\Section;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\View;
 use Filament\Forms\Components\ViewField;
-use Filament\Forms\Form;
-use Filament\Forms\Set;
-use Filament\Tables\Actions\DeleteAction;
-use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Support\HtmlString;
@@ -20,7 +23,7 @@ use NootPro\ContentManagement\Models\Navigation;
 
 class NavigationResource extends BaseResource
 {
-    protected static ?string $navigationIcon = 'heroicon-o-queue-list';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-queue-list';
 
     protected static ?int $navigationSort = 99;
 
@@ -31,10 +34,10 @@ class NavigationResource extends BaseResource
         static::$showTimestamps = ! $condition;
     }
 
-    public static function form(Form $form): Form
+    public static function form(Schema $schema): Schema
     {
-        return $form
-            ->schema([
+        return $schema
+            ->components([
                 Section::make('')->schema([
                     TextInput::make('name')
                         ->label(__('noot-pro-content-management::filament-navigation.attributes.name'))
@@ -117,7 +120,7 @@ class NavigationResource extends BaseResource
                     ->dateTime()
                     ->sortable(),
             ])
-            ->actions([
+            ->recordActions([
                 EditAction::make()
                     ->icon(null),
                 DeleteAction::make()
@@ -131,9 +134,9 @@ class NavigationResource extends BaseResource
     public static function getPages(): array
     {
         return [
-            'index' => NavigationResource\Pages\ListNavigations::route('/'),
-            'create' => NavigationResource\Pages\CreateNavigation::route('/create'),
-            'edit' => NavigationResource\Pages\EditNavigation::route('/{record}'),
+            'index' => ListNavigations::route('/'),
+            'create' => CreateNavigation::route('/create'),
+            'edit' => EditNavigation::route('/{record}'),
         ];
     }
 

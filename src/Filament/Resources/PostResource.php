@@ -2,29 +2,34 @@
 
 namespace NootPro\ContentManagement\Filament\Resources;
 
+use Filament\Schemas\Schema;
+use Filament\Schemas\Components\Tabs;
+use Filament\Schemas\Components\Tabs\Tab;
+use Filament\Schemas\Components\Utilities\Set;
+use Filament\Schemas\Components\Utilities\Get;
+use Filament\Actions\DeleteBulkAction;
+use Filament\Actions\ForceDeleteBulkAction;
+use Filament\Actions\RestoreBulkAction;
+use NootPro\ContentManagement\Filament\Resources\PostResource\Pages\ListPosts;
+use NootPro\ContentManagement\Filament\Resources\PostResource\Pages\CreatePost;
+use NootPro\ContentManagement\Filament\Resources\PostResource\Pages\EditPost;
+use Filament\Actions\EditAction;
+use Filament\Actions\DeleteAction;
+use Filament\Actions\ForceDeleteAction;
+use Filament\Actions\RestoreAction;
+use LaraZeus\Helen\HelenServiceProvider;
+use LaraZeus\Helen\Actions\ShortUrlAction;
+use Filament\Actions\ActionGroup;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Placeholder;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Forms\Components\SpatieTagsInput;
-use Filament\Forms\Components\Tabs;
-use Filament\Forms\Components\Tabs\Tab;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\ToggleButtons;
-use Filament\Forms\Form;
-use Filament\Forms\Get;
-use Filament\Forms\Set;
 use Filament\Tables\Actions\Action;
-use Filament\Tables\Actions\ActionGroup;
-use Filament\Tables\Actions\DeleteAction;
-use Filament\Tables\Actions\DeleteBulkAction;
-use Filament\Tables\Actions\EditAction;
-use Filament\Tables\Actions\ForceDeleteAction;
-use Filament\Tables\Actions\ForceDeleteBulkAction;
-use Filament\Tables\Actions\RestoreAction;
-use Filament\Tables\Actions\RestoreBulkAction;
 use Filament\Tables\Columns\SpatieTagsColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\Filter;
@@ -40,7 +45,7 @@ use NootPro\ContentManagement\Models\Post;
 // @mixin Builder<PostScope>
 class PostResource extends BaseResource
 {
-    protected static ?string $navigationIcon = 'heroicon-o-document-text';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-document-text';
 
     protected static ?int $navigationSort = 1;
 
@@ -49,10 +54,10 @@ class PostResource extends BaseResource
         return ContentManagementPlugin::get()->getModel('Post');
     }
 
-    public static function form(Form $form): Form
+    public static function form(Schema $schema): Schema
     {
-        return $form
-            ->schema([
+        return $schema
+            ->components([
                 Tabs::make('post_tabs')
                     ->schema([
                         Tab::make(__('Title & Content'))
@@ -198,8 +203,8 @@ class PostResource extends BaseResource
                     ->type('category'),
             ])
             ->defaultSort('id', 'desc')
-            ->actions(static::getActions())
-            ->bulkActions([
+            ->recordActions(static::getActions())
+            ->toolbarActions([
                 DeleteBulkAction::make(),
                 ForceDeleteBulkAction::make(),
                 RestoreBulkAction::make(),
@@ -246,9 +251,9 @@ class PostResource extends BaseResource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListPosts::route('/'),
-            'create' => Pages\CreatePost::route('/create'),
-            'edit' => Pages\EditPost::route('/{record}/edit'),
+            'index' => ListPosts::route('/'),
+            'create' => CreatePost::route('/create'),
+            'edit' => EditPost::route('/{record}/edit'),
         ];
     }
 
@@ -296,11 +301,11 @@ class PostResource extends BaseResource
         ];
 
         if (
-            class_exists(\LaraZeus\Helen\HelenServiceProvider::class)
+            class_exists(HelenServiceProvider::class)
             && ! config('noot-pro-content-management.headless')
         ) {
             // @phpstan-ignore-next-line
-            $action[] = \LaraZeus\Helen\Actions\ShortUrlAction::make('get-link')
+            $action[] = ShortUrlAction::make('get-link')
                 ->distUrl(fn (Post $record): string => route(
                     ContentManagementPlugin::get()->getRouteNamePrefix() . 'post',
                     ['slug' => $record]

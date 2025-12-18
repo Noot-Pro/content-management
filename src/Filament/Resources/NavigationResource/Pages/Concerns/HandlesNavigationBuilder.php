@@ -2,13 +2,13 @@
 
 namespace NootPro\ContentManagement\Filament\Resources\NavigationResource\Pages\Concerns;
 
+use Filament\Schemas\Schema;
+use Filament\Schemas\Components\Component;
+use Filament\Schemas\Components\Group;
+use Filament\Schemas\Components\Utilities\Get;
 use Filament\Actions\Action;
-use Filament\Forms\ComponentContainer;
-use Filament\Forms\Components\Component;
-use Filament\Forms\Components\Group;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Get;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use NootPro\ContentManagement\ContentManagementPlugin;
@@ -75,19 +75,19 @@ trait HandlesNavigationBuilder
     {
         return [
             Action::make('item')
-                ->mountUsing(function (ComponentContainer $form) {
+                ->mountUsing(function (Schema $schema) {
                     if (! $this->mountedItem) {
-                        $form->fill([
+                        $schema->fill([
                             'label' => '',
                             'type' => 'external-link',
                             'data' => [],
                         ]);
                     }
 
-                    $form->fill($this->mountedItemData);
+                    $schema->fill($this->mountedItemData);
                 })
                 ->view('zeus::filament.hidden-action')
-                ->form([
+                ->schema([
                     TextInput::make('label')
                         ->label(__('noot-pro-content-management::filament-navigation.items-modal.label'))
                         ->required(),

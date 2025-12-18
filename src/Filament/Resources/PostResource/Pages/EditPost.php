@@ -2,13 +2,14 @@
 
 namespace NootPro\ContentManagement\Filament\Resources\PostResource\Pages;
 
-use Filament\Actions\LocaleSwitcher;
+use LaraZeus\SpatieTranslatable\Resources\Pages\EditRecord\Concerns\Translatable;
+use LaraZeus\SpatieTranslatable\Actions\LocaleSwitcher;
 use Filament\Resources\Pages\EditRecord;
 use NootPro\ContentManagement\Filament\Resources\PostResource;
 
 class EditPost extends EditRecord
 {
-    use EditRecord\Concerns\Translatable;
+    use Translatable;
 
     protected static string $resource = PostResource::class;
 

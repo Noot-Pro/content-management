@@ -2,7 +2,7 @@
 
 namespace NootPro\ContentManagement\Filament\Resources;
 
-use Filament\Resources\Concerns\Translatable;
+use LaraZeus\SpatieTranslatable\Resources\Concerns\Translatable;
 use Filament\Resources\Resource;
 use NootPro\ContentManagement\ContentManagementPlugin;
 

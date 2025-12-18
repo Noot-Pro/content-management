@@ -2,15 +2,18 @@
 
 namespace NootPro\ContentManagement\Filament\Resources;
 
-use Filament\Forms\Components\Section;
+use Filament\Schemas\Schema;
+use Filament\Schemas\Components\Section;
+use Filament\Schemas\Components\Utilities\Set;
+use Filament\Actions\ActionGroup;
+use Filament\Actions\EditAction;
+use Filament\Actions\DeleteAction;
+use Filament\Actions\DeleteBulkAction;
+use NootPro\ContentManagement\Filament\Resources\TagResource\Pages\ListTags;
+use NootPro\ContentManagement\Filament\Resources\TagResource\Pages\CreateTag;
+use NootPro\ContentManagement\Filament\Resources\TagResource\Pages\EditTag;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Form;
-use Filament\Forms\Set;
-use Filament\Tables\Actions\ActionGroup;
-use Filament\Tables\Actions\DeleteAction;
-use Filament\Tables\Actions\DeleteBulkAction;
-use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
@@ -23,7 +26,7 @@ use NootPro\ContentManagement\Rules\UniqueTranslationRule;
 
 class TagResource extends BaseResource
 {
-    protected static ?string $navigationIcon = 'heroicon-o-tag';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-tag';
 
     protected static ?int $navigationSort = 5;
 
@@ -32,10 +35,10 @@ class TagResource extends BaseResource
         return ContentManagementPlugin::get()->getModel('Tag');
     }
 
-    public static function form(Form $form): Form
+    public static function form(Schema $schema): Schema
     {
-        return $form
-            ->schema([
+        return $schema
+            ->components([
                 Section::make()
                     ->columns(2)
                     ->schema([
@@ -84,13 +87,13 @@ class TagResource extends BaseResource
                     ->options(ContentManagementPlugin::get()->getTagTypes())
                     ->label(__('type')),
             ])
-            ->actions([
+            ->recordActions([
                 ActionGroup::make([
                     EditAction::make('edit'),
                     DeleteAction::make('delete'),
                 ]),
             ])
-            ->bulkActions([
+            ->toolbarActions([
                 DeleteBulkAction::make(),
             ]);
     }
@@ -98,9 +101,9 @@ class TagResource extends BaseResource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListTags::route('/'),
-            'create' => Pages\CreateTag::route('/create'),
-            'edit' => Pages\EditTag::route('/{record}/edit'),
+            'index' => ListTags::route('/'),
+            'create' => CreateTag::route('/create'),
+            'edit' => EditTag::route('/{record}/edit'),
         ];
     }
 

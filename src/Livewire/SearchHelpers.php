@@ -2,6 +2,7 @@
 
 namespace NootPro\ContentManagement\Livewire;
 
+use NootPro\ContentManagement\Models\Post;
 use Illuminate\Database\Eloquent\Collection;
 
 trait SearchHelpers
@@ -13,7 +14,7 @@ trait SearchHelpers
         }
 
         /**
-         * @var \NootPro\ContentManagement\Models\Post $item
+         * @var Post $item
          */
         foreach ($collection as $item) {
             $item->title = $this->parsing($item->title, [$search]);

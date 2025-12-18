@@ -2,14 +2,15 @@
 
 namespace NootPro\ContentManagement\Filament\Resources\TagResource\Pages;
 
+use LaraZeus\SpatieTranslatable\Resources\Pages\ListRecords\Concerns\Translatable;
+use LaraZeus\SpatieTranslatable\Actions\LocaleSwitcher;
 use Filament\Actions\CreateAction;
-use Filament\Actions\LocaleSwitcher;
 use Filament\Resources\Pages\ListRecords;
 use NootPro\ContentManagement\Filament\Resources\TagResource;
 
 class ListTags extends ListRecords
 {
-    use ListRecords\Concerns\Translatable;
+    use Translatable;
 
     protected static string $resource = TagResource::class;
 

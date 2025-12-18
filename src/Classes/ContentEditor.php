@@ -2,7 +2,7 @@
 
 namespace NootPro\ContentManagement\Classes;
 
-use Filament\Forms\Components\Component;
+use Filament\Schemas\Components\Component;
 
 interface ContentEditor
 {
