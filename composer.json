@@ -42,7 +42,7 @@
         "spatie/laravel-tags": "^4.6"
     },
     "require-dev": {
-        "filament/upgrade": "4.0",
+        "filament/upgrade": "^4.0",
         "larastan/larastan": "^3.8",
         "laravel/pint": "^1.26",
         "orchestra/testbench": "^10.8",
@@ -85,6 +85,6 @@
             ]
         }
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "prefer-stable": true
 }

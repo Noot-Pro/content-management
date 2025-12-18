@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fe8cbc4d55b41c564bebeb5ac592ec3a",
+    "content-hash": "759e617bd03e8459e8ccdced5730db74",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -9361,16 +9361,16 @@
         },
         {
             "name": "filament/upgrade",
-            "version": "v4.0.0",
+            "version": "v4.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/upgrade.git",
-                "reference": "bb6ead7e168e8c6d74ed683f3f8e51c0f13c8607"
+                "reference": "31b03a80a99e203ba0b7bfbfb9566974e0346be7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filamentphp/upgrade/zipball/bb6ead7e168e8c6d74ed683f3f8e51c0f13c8607",
-                "reference": "bb6ead7e168e8c6d74ed683f3f8e51c0f13c8607",
+                "url": "https://api.github.com/repos/filamentphp/upgrade/zipball/31b03a80a99e203ba0b7bfbfb9566974e0346be7",
+                "reference": "31b03a80a99e203ba0b7bfbfb9566974e0346be7",
                 "shasum": ""
             },
             "require": {
@@ -9404,7 +9404,7 @@
                 "issues": "https://github.com/filamentphp/filament/issues",
                 "source": "https://github.com/filamentphp/filament"
             },
-            "time": "2025-08-12T13:17:04+00:00"
+            "time": "2025-11-28T11:21:29+00:00"
         },
         {
             "name": "filp/whoops",
@@ -13367,7 +13367,7 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "stability-flags": {},
     "prefer-stable": true,
     "prefer-lowest": false,
