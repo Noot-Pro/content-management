@@ -332,7 +332,7 @@
                         </ul>
                     </div>
                     <div>
-                        <a href="{{ url(filament()->getRegistrationUrl()) }}" class="block text-center text-[#1C1C1C]  px-6 py-3.5 w-full border-2 rounded-[14px] border-[#E8E8E8] bg-[#E8E8E8] hover:bg-[#969696] hover:border-[#969696] hover:text-white transition ease-in-out">{{ __('noot-pro-content-management::site.get_the_package') }}</a>
+                        <a href="{{ filament()->getRegistrationUrl() }}" class="block text-center text-[#1C1C1C]  px-6 py-3.5 w-full border-2 rounded-[14px] border-[#E8E8E8] bg-[#E8E8E8] hover:bg-[#969696] hover:border-[#969696] hover:text-white transition ease-in-out">{{ __('noot-pro-content-management::site.get_the_package') }}</a>
                     </div>
                 </div>
             </div>
