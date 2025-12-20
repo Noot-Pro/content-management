@@ -345,7 +345,7 @@
                         </div>
                         <div class="mb-4 text-white">{{ __('noot-pro-content-management::site.footer_text') }}.</div>
                         <div>
-                            <a href="{{ url(filament()->getRegistrationUrl()) }}" class="inline-block px-6 py-3.5 border-2 rounded-xl border-[var(--primary-color)] bg-[var(--primary-color)] hover:bg-[var(--secondary-color)] hover:border-[var(--secondary-color)] text-white transition ease-in-out">{{ __('noot-pro-content-management::site.start_free_test') }}</a>
+                            <a href="{{ filament()->getRegistrationUrl() }}" class="inline-block px-6 py-3.5 border-2 rounded-xl border-[var(--primary-color)] bg-[var(--primary-color)] hover:bg-[var(--secondary-color)] hover:border-[var(--secondary-color)] text-white transition ease-in-out">{{ __('noot-pro-content-management::site.start_free_test') }}</a>
                         </div>
                     </div>
                 </div>
