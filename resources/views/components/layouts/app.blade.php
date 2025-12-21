@@ -57,7 +57,7 @@
     <div class="container mx-auto">
         <div class="flex justify-between h-16">
             <div class="flex">
-                <div class="flex-shrink-0 flex items-center">
+                <div class="shrink-0 flex items-center">
                     <a class="italic flex gap-2 group" href="{{ url('/') }}">
                         <img class="w-16" src="https://noot.co/images/site/logo.svg" alt="{{ config('zeus.site_title', config('app.name', 'Laravel')) }}">
                     </a>

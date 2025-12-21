@@ -13,10 +13,10 @@
         </li>
     </x-slot>
 
-    <div class="bg-white rounded-[2rem] shadow-md overflow-hidden">
+    <div class="bg-white rounded-4xl shadow-md overflow-hidden">
         @if($post->image() !== null)
             <div class="flex items-center justify-center">
-                <img alt="{{ $post->title }}" src="{{ $post->image() }}" class="rounded-t-[2rem] object-cover"/>
+                <img alt="{{ $post->title }}" src="{{ $post->image() }}" class="rounded-t-4xl object-cover"/>
             </div>
         @endif
 

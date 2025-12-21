@@ -17,7 +17,7 @@
     </x-slot>
 
     @if($post->image('pages') !== null)
-        <img alt="{{ $post->title }}" src="{{ $post->image('pages') }}" class="my-10 w-full aspect-video shadow-md rounded-[2rem] rounded-bl-none z-0 object-cover"/>
+        <img alt="{{ $post->title }}" src="{{ $post->image('pages') }}" class="my-10 w-full aspect-video shadow-md rounded-4xl rounded-bl-none z-0 object-cover"/>
     @endif
 
     <div class="px-10 pb-6 pt-5">

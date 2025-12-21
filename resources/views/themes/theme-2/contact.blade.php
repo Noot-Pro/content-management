@@ -16,7 +16,7 @@
                     <div>{{$error}}</div>
                 @endforeach
             @endif
-            <div class="py-4 px-4 mx-auto max-w-screen-md">
+            <div class="py-4 px-4 mx-auto max-w-(--breakpoint-md)">
                 <form class="space-y-8">
 {{--                    @csrf--}}
                     <div class="grid grid-cols-2 gap-4">
@@ -37,7 +37,7 @@
                         <label for="message" class="block mb-2 text-sm font-medium text-gray-900">{{ __('noot-pro-content-management::site.message') }}</label>
                         <textarea id="message" name="message" rows="6" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500" placeholder="{{ __('noot-pro-content-management::site.message') }}"></textarea>
                     </div>
-                    <button type="submit" class="px-6 py-3.5 border-2 rounded-xl border-[var(--primary-color)] bg-[var(--primary-color)] hover:bg-[var(--secondary-color)] hover:border-[var(--secondary-color)] text-white transition ease-in-out">{{ __('noot-pro-content-management::site.send') }}</button>
+                    <button type="submit" class="px-6 py-3.5 border-2 rounded-xl border-(--primary-color) bg-(--primary-color) hover:bg-(--secondary-color) hover:border-(--secondary-color) text-white transition ease-in-out">{{ __('noot-pro-content-management::site.send') }}</button>
                 </form>
             </div>
         </div>

@@ -14,10 +14,10 @@
     </x-slot>
 
     @if($post->image() !== null)
-        <img alt="{{ $post->title }}" src="{{ $post->image() }}" class="my-10 w-full h-full rounded-[2rem] rounded-bl-none z-0 object-cover"/>
+        <img alt="{{ $post->title }}" src="{{ $post->image() }}" class="my-10 w-full h-full rounded-4xl rounded-bl-none z-0 object-cover"/>
     @endif
 
-    <div class="bg-white dark:bg-gray-800 rounded-[2rem] px-10 pb-6">
+    <div class="bg-white dark:bg-gray-800 rounded-4xl px-10 pb-6">
         <div class="flex items-center justify-between">
             <span class="font-light text-gray-600 dark:text-gray-200">{{ optional($post->published_at)->diffForHumans() ?? '' }}</span>
             <div>
