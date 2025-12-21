@@ -1,6 +1,16 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@source "../../app/Filament/**/*.php";
+@source "../../resources/views/**/*.blade.php";
+@source "../../src/**/*.php";
+@source "../../vendor/filament/**/*.blade.php";
+
+@theme {
+    --default-ring-width: 3px;
+    --default-ring-color: var(--color-blue-500);
+}
 
 @import '../../vendor/filament/filament/resources/css/theme.css';
 
