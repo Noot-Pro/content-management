@@ -46,6 +46,7 @@ class LibraryResource extends BaseResource
     public static function form(Schema $schema): Schema
     {
         return $schema
+            ->columns(1)
             ->components([
                 Section::make(__('Library File'))
                     ->columns(2)

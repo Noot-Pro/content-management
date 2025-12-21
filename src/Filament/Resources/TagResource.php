@@ -38,6 +38,7 @@ class TagResource extends BaseResource
     public static function form(Schema $schema): Schema
     {
         return $schema
+            ->columns(1)
             ->components([
                 Section::make()
                     ->columns(2)
