@@ -121,7 +121,7 @@ class Post extends Model implements HasMedia
 
     public function getContent(): string
     {
-        return $this->parseContent(config('noot-pro-content-management.editor')::render($this->content));
+        return $this->parseContent($this->content);
     }
 
     public function parseContent(string $content): string

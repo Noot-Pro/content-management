@@ -172,7 +172,5 @@ return [
     'skipHighlightingTerms' => ['iframe'],
 
     'defaultFeaturedImage' => null,
-    
-    'editor' => \NootPro\ContentManagement\Editors\RichEditor::class,
 ];
 ```

@@ -24,6 +24,7 @@ use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Placeholder;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Forms\Components\SpatieTagsInput;
 use Filament\Forms\Components\Textarea;
@@ -74,7 +75,7 @@ class PostResource extends BaseResource
 
                                         $set('slug', Str::slug($state));
                                     }),
-                                config('noot-pro-content-management.editor')::component()
+                                RichEditor::make('content')
                                     ->label(__('Post Content')),
                             ]),
 
