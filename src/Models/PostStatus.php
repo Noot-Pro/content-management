@@ -2,8 +2,8 @@
 
 namespace NootPro\ContentManagement\Models;
 
-use Sushi\Sushi;
 use Illuminate\Database\Eloquent\Model;
+use Sushi\Sushi;
 
 /**
  * @property string $name

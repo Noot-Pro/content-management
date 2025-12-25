@@ -2,23 +2,23 @@
 
 namespace NootPro\ContentManagement\Filament\Resources;
 
-use Filament\Schemas\Schema;
-use Filament\Schemas\Components\Section;
-use Filament\Schemas\Components\Utilities\Set;
-use Filament\Schemas\Components\View;
-use Filament\Actions\EditAction;
 use Filament\Actions\DeleteAction;
-use NootPro\ContentManagement\Filament\Resources\NavigationResource\Pages\ListNavigations;
-use NootPro\ContentManagement\Filament\Resources\NavigationResource\Pages\CreateNavigation;
-use NootPro\ContentManagement\Filament\Resources\NavigationResource\Pages\EditNavigation;
+use Filament\Actions\EditAction;
 use Filament\Forms\Components\Placeholder;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\ViewField;
+use Filament\Schemas\Components\Section;
+use Filament\Schemas\Components\Utilities\Set;
+use Filament\Schemas\Components\View;
+use Filament\Schemas\Schema;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Support\HtmlString;
 use Illuminate\Support\Str;
 use NootPro\ContentManagement\ContentManagementPlugin;
+use NootPro\ContentManagement\Filament\Resources\NavigationResource\Pages\CreateNavigation;
+use NootPro\ContentManagement\Filament\Resources\NavigationResource\Pages\EditNavigation;
+use NootPro\ContentManagement\Filament\Resources\NavigationResource\Pages\ListNavigations;
 use NootPro\ContentManagement\Models\Navigation;
 
 class NavigationResource extends BaseResource

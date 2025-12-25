@@ -2,11 +2,11 @@
 
 namespace NootPro\ContentManagement\Filament\Resources\FaqResource\Pages;
 
-use LaraZeus\SpatieTranslatable\Resources\Pages\ListRecords\Concerns\Translatable;
-use LaraZeus\SpatieTranslatable\Actions\LocaleSwitcher;
 use Filament\Actions\Action;
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
+use LaraZeus\SpatieTranslatable\Actions\LocaleSwitcher;
+use LaraZeus\SpatieTranslatable\Resources\Pages\ListRecords\Concerns\Translatable;
 use NootPro\ContentManagement\ContentManagementPlugin;
 use NootPro\ContentManagement\Filament\Resources\FaqResource;
 

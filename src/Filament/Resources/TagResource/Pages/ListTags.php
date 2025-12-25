@@ -2,10 +2,10 @@
 
 namespace NootPro\ContentManagement\Filament\Resources\TagResource\Pages;
 
-use LaraZeus\SpatieTranslatable\Resources\Pages\ListRecords\Concerns\Translatable;
-use LaraZeus\SpatieTranslatable\Actions\LocaleSwitcher;
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
+use LaraZeus\SpatieTranslatable\Actions\LocaleSwitcher;
+use LaraZeus\SpatieTranslatable\Resources\Pages\ListRecords\Concerns\Translatable;
 use NootPro\ContentManagement\Filament\Resources\TagResource;
 
 class ListTags extends ListRecords

@@ -2,25 +2,24 @@
 
 namespace NootPro\ContentManagement\Filament\Resources;
 
-use Filament\Schemas\Schema;
-use Filament\Schemas\Components\Section;
-use Filament\Schemas\Components\Utilities\Set;
 use Filament\Actions\ActionGroup;
-use Filament\Actions\EditAction;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
-use NootPro\ContentManagement\Filament\Resources\TagResource\Pages\ListTags;
-use NootPro\ContentManagement\Filament\Resources\TagResource\Pages\CreateTag;
-use NootPro\ContentManagement\Filament\Resources\TagResource\Pages\EditTag;
+use Filament\Actions\EditAction;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
+use Filament\Schemas\Components\Section;
+use Filament\Schemas\Components\Utilities\Set;
+use Filament\Schemas\Schema;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Str;
 use NootPro\ContentManagement\ContentManagementPlugin;
-use NootPro\ContentManagement\Filament\Resources\TagResource\Pages;
+use NootPro\ContentManagement\Filament\Resources\TagResource\Pages\CreateTag;
+use NootPro\ContentManagement\Filament\Resources\TagResource\Pages\EditTag;
+use NootPro\ContentManagement\Filament\Resources\TagResource\Pages\ListTags;
 use NootPro\ContentManagement\Models\Tag;
 use NootPro\ContentManagement\Rules\UniqueTranslationRule;
 
