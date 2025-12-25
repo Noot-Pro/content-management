@@ -3,6 +3,7 @@
     "Post": "پۆست",
     "CMS": "CMS",
     "Tag": "تاگ",
+    "Tag.Name": "ناوی تاگ",
     "Tags": "تاگەکان",
     "publish": "بڵاوکردنەوە",
     "Title": "ناونیشان",
@@ -37,6 +38,8 @@
     "Tags and Categories": "تاگ و پۆلەکان",
     "Tags and Categories Options": "هەڵبژاردەی تاگ و پۆلەکان",
     "Categories": "پۆلەکان",
+    "Category": "پۆل",
+    "Faq": "پرسیارەکان",
     "visibility": "بینین",
     "Visibility Options": "هەڵبژاردەکانی بینین",
     "status": "دۆخ",
@@ -91,5 +94,8 @@
     "Library file upload": "بەرزکردنەوەی فایلی کتێبخانە",
     "Library": "کتێبخانە",
     "type": "جۆر",
+    "Type": "جۆر",
+    "Slug": "سلۆگ",
+    "Items count": "ژمارەی ئایتمەکان",
     "file url": "url ی فایل"
 }

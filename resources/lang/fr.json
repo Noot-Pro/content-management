@@ -3,6 +3,7 @@
     "Post": "Article",
     "CMS": "CMS",
     "Tag": "Balise",
+    "Tag.Name": "Nom de la balise",
     "Tags": "Balises",
     "publish": "publier",
     "Title": "Titre",
@@ -37,6 +38,8 @@
     "Tags and Categories": "Balises et catégories",
     "Tags and Categories Options": "Options de balises et de catégories",
     "Categories": "Catégories",
+    "Category": "Catégorie",
+    "Faq": "FAQ",
     "visibility": "visibilité",
     "Visibility Options": "Options de visibilité",
     "status": "statut",
@@ -91,5 +94,8 @@
     "Library file upload": "Télécharger le fichier de bibliothèque",
     "Library": "Bibliothèque",
     "type": "Type",
+    "Type": "Type",
+    "Slug": "Lien",
+    "Items count": "Nombre d'éléments",
     "file url": "file url"
 }

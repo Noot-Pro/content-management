@@ -52,12 +52,14 @@ class TagResource extends BaseResource
                                 $set('slug', Str::slug($state));
                             }),
                         TextInput::make('slug')
+                            ->label(__('Slug'))
                             ->rules(function ($record) {
                                 return [new UniqueTranslationRule(Tag::class, $record)];
                             })
                             ->required()
                             ->maxLength(255),
                         Select::make('type')
+                            ->label(__('Type'))
                             ->columnSpan(2)
                             ->native(false)
                             ->options(ContentManagementPlugin::get()->getTagTypes()),
@@ -72,10 +74,23 @@ class TagResource extends BaseResource
                 return $query->where('type', array_keys(ContentManagementPlugin::get()->getTagTypes()));
             })
             ->columns([
-                TextColumn::make('name')->toggleable()->searchable()->sortable(),
-                TextColumn::make('type')->toggleable()->searchable()->sortable(),
-                TextColumn::make('slug')->toggleable()->searchable()->sortable(),
+                TextColumn::make('name')
+                    ->label(__('Tag.Name'))
+                    ->toggleable()
+                    ->searchable()
+                    ->sortable(),
+                TextColumn::make('type')
+                    ->label(__('Type'))
+                    ->toggleable()
+                    ->searchable()
+                    ->sortable(),
+                TextColumn::make('slug')
+                    ->label(__('Slug'))
+                    ->toggleable()
+                    ->searchable()
+                    ->sortable(),
                 TextColumn::make('items_count')
+                    ->label(__('Items count'))
                     ->toggleable()
                     ->getStateUsing(
                         fn (Tag $record): int => method_exists($record, $record->type)
@@ -90,8 +105,10 @@ class TagResource extends BaseResource
             ])
             ->recordActions([
                 ActionGroup::make([
-                    EditAction::make('edit'),
-                    DeleteAction::make('delete'),
+                    EditAction::make('edit')
+                        ->label(__('Edit')),
+                    DeleteAction::make('delete')
+                        ->label(__('Delete')),
                 ]),
             ])
             ->toolbarActions([
