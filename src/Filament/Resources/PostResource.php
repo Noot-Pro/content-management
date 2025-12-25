@@ -164,7 +164,7 @@ class PostResource extends BaseResource
                                     ->disk(ContentManagementPlugin::get()->getUploadDisk())
                                     ->directory(ContentManagementPlugin::get()->getUploadDirectory())
                                     ->visible(fn (Get $get) => $get('featured_image_type') === 'upload')
-                                    ->label(''),
+                                    ->label(__('Featured image upload')),
 
                                 TextInput::make('featured_image')
                                     ->label(__('featured image url'))
@@ -286,16 +286,6 @@ class PostResource extends BaseResource
     {
         $action = [
             EditAction::make('edit')->label(__('Edit')),
-            //            Action::make('Open')
-            //                ->color('warning')
-            //                ->icon('heroicon-o-arrow-top-right-on-square')
-            //                ->label(__('Open'))
-            //                ->visible(! config('noot-pro-content-management.headless'))
-            //                ->url(fn (Post $record): string => route(
-            //                    ContentManagementPlugin::get()->getRouteNamePrefix() . 'post',
-            //                    ['slug' => $record]
-            //                ))
-            //                ->openUrlInNewTab(),
             DeleteAction::make('delete'),
             ForceDeleteAction::make(),
             RestoreAction::make(),
