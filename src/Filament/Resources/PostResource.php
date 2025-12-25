@@ -81,7 +81,8 @@ class PostResource extends BaseResource
 
                         Tab::make(__('SEO'))
                             ->schema([
-                                Placeholder::make(__('SEO Settings')),
+                                Placeholder::make(__('SEO Settings'))
+                                    ->label(__('SEO Settings')),
 
                                 Hidden::make('user_id')
                                     ->default(auth()->user()?->id ?? 0)
@@ -105,7 +106,8 @@ class PostResource extends BaseResource
 
                         Tab::make(__('Tags'))
                             ->schema([
-                                Placeholder::make(__('Tags and Categories')),
+                                Placeholder::make(__('Tags and Categories'))
+                                    ->label(__('Tags and Categories')),
                                 SpatieTagsInput::make('tags')
                                     ->type('tag')
                                     ->label(__('Tags')),
@@ -117,7 +119,8 @@ class PostResource extends BaseResource
 
                         Tab::make(__('Visibility'))
                             ->schema([
-                                Placeholder::make(__('Visibility Options')),
+                                Placeholder::make(__('Visibility Options'))
+                                    ->label(__('Visibility Options')),
                                 Select::make('status')
                                     ->label(__('status'))
                                     ->default('publish')
@@ -143,7 +146,8 @@ class PostResource extends BaseResource
 
                         Tab::make(__('Image'))
                             ->schema([
-                                Placeholder::make(__('Featured Image')),
+                                Placeholder::make(__('Featured Image'))
+                                    ->label(__('Featured Image')),
 
                                 ToggleButtons::make('featured_image_type')
                                     ->dehydrated(false)
@@ -186,11 +190,13 @@ class PostResource extends BaseResource
                     ->searchable(['title'])
                     ->toggleable(),
 
-                TextColumn::make('status_desc')
+                TextColumn::make('status')
                     ->label(__('Status'))
                     ->sortable(['status'])
                     ->searchable(['status'])
                     ->toggleable()
+                    ->badge()
+                    ->formatStateUsing(fn (string $state): string => ContentManagementPlugin::get()->getModel('PostStatus')::where('name', $state)->first()?->label ?? $state)
                     ->tooltip(fn (Post $record): string => $record->published_at?->format('Y/m/d | H:i A') ?? __('Not published')),
 
                 SpatieTagsColumn::make('tags')
