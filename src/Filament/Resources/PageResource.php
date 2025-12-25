@@ -79,7 +79,8 @@ class PageResource extends BaseResource
                         ->afterStateUpdated(function (Set $set, $state) {
                             $set('slug', Str::slug($state));
                         }),
-                    RichEditor::make('content'),
+                    RichEditor::make('content')
+                        ->label(__('Page Content')),
                 ]),
                 Tab::make(__('SEO'))->schema([
                     Hidden::make('user_id')
@@ -167,10 +168,6 @@ class PageResource extends BaseResource
     {
         return $table
             ->columns([
-                TextColumn::make('id')
-                    ->sortable()
-                    ->searchable()
-                    ->toggleable(),
                 TextColumn::make('title')
                     ->label(__('Title'))
                     ->sortable(['title'])
@@ -182,7 +179,8 @@ class PageResource extends BaseResource
                     ->sortable(['status'])
                     ->searchable(['status'])
                     ->toggleable()
-//                    ->view('zeus::filament.columns.status-desc')
+                    ->badge()
+                    ->formatStateUsing(fn (string $state): string => ContentManagementPlugin::get()->getModel('PostStatus')::where('name', $state)->first()?->label ?? $state)
                     ->tooltip(fn (Post $record): string => $record->published_at->format('Y/m/d | H:i A')),
 
                 TextColumn::make('parent.title'),
