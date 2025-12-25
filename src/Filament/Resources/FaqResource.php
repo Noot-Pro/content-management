@@ -77,7 +77,9 @@ class FaqResource extends BaseResource
     {
         return $table
             ->columns([
-                TextColumn::make('question')->searchable(),
+                TextColumn::make('question')
+                    ->label(__('Question'))
+                    ->searchable(),
 
                 SpatieTagsColumn::make('tags')
                     ->label(__('FAQ Categories'))
