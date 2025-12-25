@@ -71,7 +71,7 @@ class TagResource extends BaseResource
     {
         return $table
             ->modifyQueryUsing(function (Builder $query) {
-                return $query->where('type', array_keys(ContentManagementPlugin::get()->getTagTypes()));
+                return $query->whereIn('type', array_keys(ContentManagementPlugin::get()->getTagTypes()));
             })
             ->columns([
                 TextColumn::make('name')
