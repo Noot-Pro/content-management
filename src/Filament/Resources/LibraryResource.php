@@ -111,7 +111,7 @@ class LibraryResource extends BaseResource
                             ->multiple()
                             ->reorderable()
                             ->visible(fn (Get $get) => $get('upload_or_url') === 'upload')
-                            ->label(''),
+                            ->label(__('Library file upload')),
 
                         TextInput::make('file_path')
                             ->label(__('file url'))
@@ -133,7 +133,10 @@ class LibraryResource extends BaseResource
                     ->searchable()
                     ->sortable()
                     ->visible(ContentManagementPlugin::get()->getLibraryTypes() !== null)
-                    ->formatStateUsing(fn (string $state): string => str($state)->title())
+                    ->formatStateUsing(function (string $state): string {
+                        $libraryTypes = ContentManagementPlugin::get()->getLibraryTypes();
+                        return $libraryTypes[$state] ?? str($state)->title();
+                    })
                     ->color('')
                     ->color(fn (string $state) => match ($state) {
                         'IMAGE' => 'primary',
