@@ -25,15 +25,18 @@
     @stack('styles')
 
     <style>
+        /* CSS Custom Properties for Tailwind arbitrary values */
         :root {
             --primary-color: #189cd8;
             --secondary-color: #132524;
             --hover-bg-color: #ecf1f4;
         }
+
+        /* Global Styles */
         * {font-family: 'Noto Kufi Arabic', sans-serif;}
         [x-cloak] {display: none !important;}
 
-
+        /* Navigation Links */
         .links__item {
             position: relative;
             margin-inline-end: 16px;
@@ -73,6 +76,7 @@
             visibility: visible;
         }
 
+        /* Dropdown Menu */
         .links__dropdown {
             width: 608px;
             padding: 32px;
@@ -93,6 +97,7 @@
             width: auto;
         }
 
+        /* Timeline Styles */
         .timeline__items {
             position: relative;
         }
@@ -160,6 +165,7 @@
             top: 0;
         }
 
+        /* Responsive Menu */
         .responsive-menu {
             position: fixed;
             top: 0;
@@ -171,7 +177,7 @@
             overflow-y: auto;
         }
 
-
+        /* Debug Border */
         .bord {
             border: solid 1px red;
         }

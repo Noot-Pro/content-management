@@ -27,5 +27,161 @@
     background-image: url('/vendor/noot-pro/content-management/images/theme-2/circle-check-black.svg');
 }
 
-@import '../../vendor/filament/filament/resources/css/theme.css';
+/* Theme-2 Specific Styles */
 
+/* Global Styles */
+* {
+    font-family: 'Noto Kufi Arabic', sans-serif;
+}
+
+[x-cloak] {
+    display: none !important;
+}
+
+/* Navigation Links */
+.links__item {
+    position: relative;
+    margin-inline-end: 16px;
+}
+
+.links__item > a {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    border-radius: 12px;
+}
+
+.links__item > a:hover {
+    background: #F7F7F7;
+}
+
+.links__item--has-dropdown > a:after {
+    content: "";
+    display: block;
+    margin-inline-start: 6px;
+    width: 16px;
+    height: 16px;
+    background: url("../../vendor/noot-pro/content-management/images/theme-2/arrow-down.svg") no-repeat center;
+    transition: all linear 0.1s;
+}
+
+.links__item--has-dropdown:hover > a {
+    background: #F7F7F7;
+}
+
+.links__item--has-dropdown:hover > a:after {
+    transform: rotate(180deg);
+}
+
+.links__item--has-dropdown:hover > a + .links__dropdown {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Dropdown Menu */
+.links__dropdown {
+    width: 608px;
+    padding: 32px;
+    border: 1px solid #E8E8E8;
+    border-radius: 26px;
+    position: absolute;
+    top: 45px;
+    right: 0;
+    box-shadow: 0 0 32px 0 rgba(0, 0, 0, 0.08);
+    background: #fff;
+    opacity: 0;
+    visibility: hidden;
+    transition: visibility 0.1s, opacity 0.1s;
+    z-index: 1;
+}
+
+.links__dropdown__w_auto {
+    width: auto;
+}
+
+/* Timeline Styles */
+.timeline__items {
+    position: relative;
+}
+
+.timeline .default-line {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    background: #E8E8E8;
+    height: calc(100% - 212px);
+}
+
+@media screen and (max-width: 1024px) {
+    .timeline .default-line {
+        left: auto;
+        right: 24px;
+        height: calc(100% - 125px);
+    }
+}
+
+.timeline .draw-line {
+    width: 2px;
+    height: 0;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #FF9873;
+}
+
+@media screen and (max-width: 1024px) {
+    .timeline .draw-line {
+        left: auto;
+        right: 24px;
+    }
+}
+
+.timeline__item {
+    position: relative;
+}
+
+.timeline__item:before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #FF9873;
+    box-shadow: 0 0 0 6px #fff;
+    transition: all 0.2s ease-in-out;
+}
+
+@media screen and (max-width: 1024px) {
+    .timeline__item:before {
+        left: auto;
+        right: -30px;
+    }
+}
+
+.timeline__item--first:before {
+    top: 0;
+}
+
+/* Responsive Menu */
+.responsive-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background-color: #fff;
+    overflow-y: auto;
+}
+
+/* Debug Border (remove in production) */
+.bord {
+    border: solid 1px red;
+}
+
+@import '../../vendor/filament/filament/resources/css/theme.css';
