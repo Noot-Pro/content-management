@@ -2,11 +2,10 @@
 
 namespace NootPro\ContentManagement\Filament\Resources\LibraryResource\Pages;
 
-use LaraZeus\SpatieTranslatable\Resources\Pages\EditRecord\Concerns\Translatable;
 use Filament\Actions\DeleteAction;
-use LaraZeus\SpatieTranslatable\Actions\LocaleSwitcher;
-use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
+use LaraZeus\SpatieTranslatable\Actions\LocaleSwitcher;
+use LaraZeus\SpatieTranslatable\Resources\Pages\EditRecord\Concerns\Translatable;
 use NootPro\ContentManagement\Filament\Resources\LibraryResource;
 
 class EditLibrary extends EditRecord

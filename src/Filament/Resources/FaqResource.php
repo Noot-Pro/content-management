@@ -2,23 +2,22 @@
 
 namespace NootPro\ContentManagement\Filament\Resources;
 
-use Filament\Schemas\Schema;
-use Filament\Schemas\Components\Section;
-use Filament\Actions\EditAction;
-use Filament\Actions\DeleteAction;
 use Filament\Actions\ActionGroup;
-use NootPro\ContentManagement\Filament\Resources\FaqResource\Pages\ListFaqs;
-use NootPro\ContentManagement\Filament\Resources\FaqResource\Pages\CreateFaq;
-use NootPro\ContentManagement\Filament\Resources\FaqResource\Pages\EditFaq;
+use Filament\Actions\DeleteAction;
+use Filament\Actions\EditAction;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\SpatieTagsInput;
 use Filament\Forms\Components\Textarea;
+use Filament\Schemas\Components\Section;
+use Filament\Schemas\Schema;
 use Filament\Tables\Columns\SpatieTagsColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use NootPro\ContentManagement\ContentManagementPlugin;
-use NootPro\ContentManagement\Filament\Resources\FaqResource\Pages;
+use NootPro\ContentManagement\Filament\Resources\FaqResource\Pages\CreateFaq;
+use NootPro\ContentManagement\Filament\Resources\FaqResource\Pages\EditFaq;
+use NootPro\ContentManagement\Filament\Resources\FaqResource\Pages\ListFaqs;
 
 class FaqResource extends BaseResource
 {
@@ -77,7 +76,9 @@ class FaqResource extends BaseResource
     {
         return $table
             ->columns([
-                TextColumn::make('question')->searchable(),
+                TextColumn::make('question')
+                    ->label(__('Question'))
+                    ->searchable(),
 
                 SpatieTagsColumn::make('tags')
                     ->label(__('FAQ Categories'))

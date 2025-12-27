@@ -2,9 +2,9 @@
 
 namespace NootPro\ContentManagement\Livewire;
 
-use NootPro\ContentManagement\Models\Post;
 use Illuminate\View\View;
 use Livewire\Component;
+use NootPro\ContentManagement\Models\Post;
 
 class Page extends Component
 {

@@ -2,9 +2,9 @@
 
 namespace NootPro\ContentManagement\Livewire;
 
-use NootPro\ContentManagement\Models\Library;
 use Illuminate\View\View;
 use Livewire\Component;
+use NootPro\ContentManagement\Models\Library;
 
 class LibraryItem extends Component
 {

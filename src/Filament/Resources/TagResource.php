@@ -2,25 +2,24 @@
 
 namespace NootPro\ContentManagement\Filament\Resources;
 
-use Filament\Schemas\Schema;
-use Filament\Schemas\Components\Section;
-use Filament\Schemas\Components\Utilities\Set;
 use Filament\Actions\ActionGroup;
-use Filament\Actions\EditAction;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
-use NootPro\ContentManagement\Filament\Resources\TagResource\Pages\ListTags;
-use NootPro\ContentManagement\Filament\Resources\TagResource\Pages\CreateTag;
-use NootPro\ContentManagement\Filament\Resources\TagResource\Pages\EditTag;
+use Filament\Actions\EditAction;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
+use Filament\Schemas\Components\Section;
+use Filament\Schemas\Components\Utilities\Set;
+use Filament\Schemas\Schema;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Str;
 use NootPro\ContentManagement\ContentManagementPlugin;
-use NootPro\ContentManagement\Filament\Resources\TagResource\Pages;
+use NootPro\ContentManagement\Filament\Resources\TagResource\Pages\CreateTag;
+use NootPro\ContentManagement\Filament\Resources\TagResource\Pages\EditTag;
+use NootPro\ContentManagement\Filament\Resources\TagResource\Pages\ListTags;
 use NootPro\ContentManagement\Models\Tag;
 use NootPro\ContentManagement\Rules\UniqueTranslationRule;
 
@@ -52,12 +51,14 @@ class TagResource extends BaseResource
                                 $set('slug', Str::slug($state));
                             }),
                         TextInput::make('slug')
+                            ->label(__('Slug'))
                             ->rules(function ($record) {
                                 return [new UniqueTranslationRule(Tag::class, $record)];
                             })
                             ->required()
                             ->maxLength(255),
                         Select::make('type')
+                            ->label(__('Type'))
                             ->columnSpan(2)
                             ->native(false)
                             ->options(ContentManagementPlugin::get()->getTagTypes()),
@@ -69,13 +70,26 @@ class TagResource extends BaseResource
     {
         return $table
             ->modifyQueryUsing(function (Builder $query) {
-                return $query->where('type', array_keys(ContentManagementPlugin::get()->getTagTypes()));
+                return $query->whereIn('type', array_keys(ContentManagementPlugin::get()->getTagTypes()));
             })
             ->columns([
-                TextColumn::make('name')->toggleable()->searchable()->sortable(),
-                TextColumn::make('type')->toggleable()->searchable()->sortable(),
-                TextColumn::make('slug')->toggleable()->searchable()->sortable(),
+                TextColumn::make('name')
+                    ->label(__('Tag.Name'))
+                    ->toggleable()
+                    ->searchable()
+                    ->sortable(),
+                TextColumn::make('type')
+                    ->label(__('Type'))
+                    ->toggleable()
+                    ->searchable()
+                    ->sortable(),
+                TextColumn::make('slug')
+                    ->label(__('Slug'))
+                    ->toggleable()
+                    ->searchable()
+                    ->sortable(),
                 TextColumn::make('items_count')
+                    ->label(__('Items count'))
                     ->toggleable()
                     ->getStateUsing(
                         fn (Tag $record): int => method_exists($record, $record->type)
@@ -90,8 +104,10 @@ class TagResource extends BaseResource
             ])
             ->recordActions([
                 ActionGroup::make([
-                    EditAction::make('edit'),
-                    DeleteAction::make('delete'),
+                    EditAction::make('edit')
+                        ->label(__('Edit')),
+                    DeleteAction::make('delete')
+                        ->label(__('Delete')),
                 ]),
             ])
             ->toolbarActions([

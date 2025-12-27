@@ -2,34 +2,29 @@
 
 namespace NootPro\ContentManagement\Filament\Resources;
 
-use Filament\Schemas\Schema;
-use Filament\Schemas\Components\Tabs;
-use Filament\Schemas\Components\Tabs\Tab;
-use Filament\Schemas\Components\Utilities\Set;
-use Filament\Schemas\Components\Utilities\Get;
-use Filament\Actions\DeleteBulkAction;
-use Filament\Actions\ForceDeleteBulkAction;
-use Filament\Actions\RestoreBulkAction;
-use NootPro\ContentManagement\Filament\Resources\PostResource\Pages\ListPosts;
-use NootPro\ContentManagement\Filament\Resources\PostResource\Pages\CreatePost;
-use NootPro\ContentManagement\Filament\Resources\PostResource\Pages\EditPost;
-use Filament\Actions\EditAction;
-use Filament\Actions\DeleteAction;
-use Filament\Actions\ForceDeleteAction;
-use Filament\Actions\RestoreAction;
-use LaraZeus\Helen\HelenServiceProvider;
-use LaraZeus\Helen\Actions\ShortUrlAction;
 use Filament\Actions\ActionGroup;
+use Filament\Actions\DeleteAction;
+use Filament\Actions\DeleteBulkAction;
+use Filament\Actions\EditAction;
+use Filament\Actions\ForceDeleteAction;
+use Filament\Actions\ForceDeleteBulkAction;
+use Filament\Actions\RestoreAction;
+use Filament\Actions\RestoreBulkAction;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Placeholder;
+use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Forms\Components\SpatieTagsInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\ToggleButtons;
-use Filament\Tables\Actions\Action;
+use Filament\Schemas\Components\Tabs;
+use Filament\Schemas\Components\Tabs\Tab;
+use Filament\Schemas\Components\Utilities\Get;
+use Filament\Schemas\Components\Utilities\Set;
+use Filament\Schemas\Schema;
 use Filament\Tables\Columns\SpatieTagsColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\Filter;
@@ -38,8 +33,12 @@ use Filament\Tables\Filters\TrashedFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Str;
+use LaraZeus\Helen\Actions\ShortUrlAction;
+use LaraZeus\Helen\HelenServiceProvider;
 use NootPro\ContentManagement\ContentManagementPlugin;
-use NootPro\ContentManagement\Filament\Resources\PostResource\Pages;
+use NootPro\ContentManagement\Filament\Resources\PostResource\Pages\CreatePost;
+use NootPro\ContentManagement\Filament\Resources\PostResource\Pages\EditPost;
+use NootPro\ContentManagement\Filament\Resources\PostResource\Pages\ListPosts;
 use NootPro\ContentManagement\Models\Post;
 
 // @mixin Builder<PostScope>
@@ -74,13 +73,14 @@ class PostResource extends BaseResource
 
                                         $set('slug', Str::slug($state));
                                     }),
-                                config('noot-pro-content-management.editor')::component()
+                                RichEditor::make('content')
                                     ->label(__('Post Content')),
                             ]),
 
                         Tab::make(__('SEO'))
                             ->schema([
-                                Placeholder::make(__('SEO Settings')),
+                                Placeholder::make(__('SEO Settings'))
+                                    ->label(__('SEO Settings')),
 
                                 Hidden::make('user_id')
                                     ->default(auth()->user()?->id ?? 0)
@@ -104,7 +104,8 @@ class PostResource extends BaseResource
 
                         Tab::make(__('Tags'))
                             ->schema([
-                                Placeholder::make(__('Tags and Categories')),
+                                Placeholder::make(__('Tags and Categories'))
+                                    ->label(__('Tags and Categories')),
                                 SpatieTagsInput::make('tags')
                                     ->type('tag')
                                     ->label(__('Tags')),
@@ -116,7 +117,8 @@ class PostResource extends BaseResource
 
                         Tab::make(__('Visibility'))
                             ->schema([
-                                Placeholder::make(__('Visibility Options')),
+                                Placeholder::make(__('Visibility Options'))
+                                    ->label(__('Visibility Options')),
                                 Select::make('status')
                                     ->label(__('status'))
                                     ->default('publish')
@@ -142,7 +144,8 @@ class PostResource extends BaseResource
 
                         Tab::make(__('Image'))
                             ->schema([
-                                Placeholder::make(__('Featured Image')),
+                                Placeholder::make(__('Featured Image'))
+                                    ->label(__('Featured Image')),
 
                                 ToggleButtons::make('featured_image_type')
                                     ->dehydrated(false)
@@ -163,7 +166,7 @@ class PostResource extends BaseResource
                                     ->disk(ContentManagementPlugin::get()->getUploadDisk())
                                     ->directory(ContentManagementPlugin::get()->getUploadDirectory())
                                     ->visible(fn (Get $get) => $get('featured_image_type') === 'upload')
-                                    ->label(''),
+                                    ->label(__('Featured image upload')),
 
                                 TextInput::make('featured_image')
                                     ->label(__('featured image url'))
@@ -185,11 +188,13 @@ class PostResource extends BaseResource
                     ->searchable(['title'])
                     ->toggleable(),
 
-                TextColumn::make('status_desc')
+                TextColumn::make('status')
                     ->label(__('Status'))
                     ->sortable(['status'])
                     ->searchable(['status'])
                     ->toggleable()
+                    ->badge()
+                    ->formatStateUsing(fn (string $state): string => ContentManagementPlugin::get()->getModel('PostStatus')::where('name', $state)->first()?->label ?? $state)
                     ->tooltip(fn (Post $record): string => $record->published_at?->format('Y/m/d | H:i A') ?? __('Not published')),
 
                 SpatieTagsColumn::make('tags')
@@ -285,16 +290,6 @@ class PostResource extends BaseResource
     {
         $action = [
             EditAction::make('edit')->label(__('Edit')),
-            //            Action::make('Open')
-            //                ->color('warning')
-            //                ->icon('heroicon-o-arrow-top-right-on-square')
-            //                ->label(__('Open'))
-            //                ->visible(! config('noot-pro-content-management.headless'))
-            //                ->url(fn (Post $record): string => route(
-            //                    ContentManagementPlugin::get()->getRouteNamePrefix() . 'post',
-            //                    ['slug' => $record]
-            //                ))
-            //                ->openUrlInNewTab(),
             DeleteAction::make('delete'),
             ForceDeleteAction::make(),
             RestoreAction::make(),

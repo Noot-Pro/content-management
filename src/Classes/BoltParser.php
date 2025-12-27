@@ -2,9 +2,9 @@
 
 namespace NootPro\ContentManagement\Classes;
 
-use LaraZeus\Bolt\Facades\Bolt;
-use LaraZeus\Bolt\BoltPlugin;
 use Illuminate\Support\Facades\Blade;
+use LaraZeus\Bolt\BoltPlugin;
+use LaraZeus\Bolt\Facades\Bolt;
 
 class BoltParser
 {

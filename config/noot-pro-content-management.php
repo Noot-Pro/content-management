@@ -63,13 +63,4 @@ return [
     'skipHighlightingTerms' => ['iframe'],
 
     'defaultFeaturedImage' => null,
-
-    /**
-     * the default editor for pages and posts, Available:
-     * \NootPro\ContentManagement\Editors\TipTapEditor::class,
-     * \NootPro\ContentManagement\Editors\TinyEditor::class,
-     * \NootPro\ContentManagement\Editors\MarkdownEditor::class,
-     * \NootPro\ContentManagement\Editors\RichEditor::class,
-     */
-    'editor' => \NootPro\ContentManagement\Editors\RichEditor::class,
 ];

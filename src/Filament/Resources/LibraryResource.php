@@ -2,32 +2,31 @@
 
 namespace NootPro\ContentManagement\Filament\Resources;
 
-use Filament\Schemas\Schema;
-use Filament\Schemas\Components\Section;
-use Filament\Schemas\Components\Utilities\Set;
-use Filament\Schemas\Components\Utilities\Get;
-use NootPro\ContentManagement\Filament\Resources\LibraryResource\Pages\ListLibrary;
-use NootPro\ContentManagement\Filament\Resources\LibraryResource\Pages\CreateLibrary;
-use NootPro\ContentManagement\Filament\Resources\LibraryResource\Pages\EditLibrary;
-use Filament\Actions\EditAction;
 use Filament\Actions\Action;
-use Filament\Actions\DeleteAction;
-use LaraZeus\Helen\HelenServiceProvider;
-use LaraZeus\Helen\Actions\ShortUrlAction;
 use Filament\Actions\ActionGroup;
+use Filament\Actions\DeleteAction;
+use Filament\Actions\EditAction;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Forms\Components\SpatieTagsInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\ToggleButtons;
+use Filament\Schemas\Components\Section;
+use Filament\Schemas\Components\Utilities\Get;
+use Filament\Schemas\Components\Utilities\Set;
+use Filament\Schemas\Schema;
 use Filament\Tables\Columns\SpatieTagsColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Support\Str;
+use LaraZeus\Helen\Actions\ShortUrlAction;
+use LaraZeus\Helen\HelenServiceProvider;
 use NootPro\ContentManagement\ContentManagementPlugin;
-use NootPro\ContentManagement\Filament\Resources\LibraryResource\Pages;
+use NootPro\ContentManagement\Filament\Resources\LibraryResource\Pages\CreateLibrary;
+use NootPro\ContentManagement\Filament\Resources\LibraryResource\Pages\EditLibrary;
+use NootPro\ContentManagement\Filament\Resources\LibraryResource\Pages\ListLibrary;
 use NootPro\ContentManagement\Models\Library;
 
 class LibraryResource extends BaseResource
@@ -111,7 +110,7 @@ class LibraryResource extends BaseResource
                             ->multiple()
                             ->reorderable()
                             ->visible(fn (Get $get) => $get('upload_or_url') === 'upload')
-                            ->label(''),
+                            ->label(__('Library file upload')),
 
                         TextInput::make('file_path')
                             ->label(__('file url'))
@@ -133,7 +132,11 @@ class LibraryResource extends BaseResource
                     ->searchable()
                     ->sortable()
                     ->visible(ContentManagementPlugin::get()->getLibraryTypes() !== null)
-                    ->formatStateUsing(fn (string $state): string => str($state)->title())
+                    ->formatStateUsing(function (string $state): string {
+                        $libraryTypes = ContentManagementPlugin::get()->getLibraryTypes();
+
+                        return $libraryTypes[$state] ?? str($state)->title();
+                    })
                     ->color('')
                     ->color(fn (string $state) => match ($state) {
                         'IMAGE' => 'primary',

@@ -2,33 +2,29 @@
 
 namespace NootPro\ContentManagement\Filament\Resources;
 
-use Filament\Schemas\Schema;
-use Filament\Schemas\Components\Tabs;
-use Filament\Schemas\Components\Tabs\Tab;
-use Filament\Schemas\Components\Utilities\Set;
-use Filament\Schemas\Components\Utilities\Get;
-use Filament\Actions\DeleteBulkAction;
-use Filament\Actions\ForceDeleteBulkAction;
-use Filament\Actions\RestoreBulkAction;
-use NootPro\ContentManagement\Filament\Resources\PageResource\Pages\ListPage;
-use NootPro\ContentManagement\Filament\Resources\PageResource\Pages\CreatePage;
-use NootPro\ContentManagement\Filament\Resources\PageResource\Pages\EditPage;
-use Filament\Actions\EditAction;
 use Filament\Actions\Action;
-use Filament\Actions\DeleteAction;
-use Filament\Actions\ForceDeleteAction;
-use Filament\Actions\RestoreAction;
-use LaraZeus\Helen\HelenServiceProvider;
-use LaraZeus\Helen\Actions\ShortUrlAction;
 use Filament\Actions\ActionGroup;
+use Filament\Actions\DeleteAction;
+use Filament\Actions\DeleteBulkAction;
+use Filament\Actions\EditAction;
+use Filament\Actions\ForceDeleteAction;
+use Filament\Actions\ForceDeleteBulkAction;
+use Filament\Actions\RestoreAction;
+use Filament\Actions\RestoreBulkAction;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Placeholder;
+use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\ToggleButtons;
+use Filament\Schemas\Components\Tabs;
+use Filament\Schemas\Components\Tabs\Tab;
+use Filament\Schemas\Components\Utilities\Get;
+use Filament\Schemas\Components\Utilities\Set;
+use Filament\Schemas\Schema;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\Filter;
 use Filament\Tables\Filters\SelectFilter;
@@ -37,8 +33,12 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Str;
+use LaraZeus\Helen\Actions\ShortUrlAction;
+use LaraZeus\Helen\HelenServiceProvider;
 use NootPro\ContentManagement\ContentManagementPlugin;
-use NootPro\ContentManagement\Filament\Resources\PageResource\Pages;
+use NootPro\ContentManagement\Filament\Resources\PageResource\Pages\CreatePage;
+use NootPro\ContentManagement\Filament\Resources\PageResource\Pages\EditPage;
+use NootPro\ContentManagement\Filament\Resources\PageResource\Pages\ListPage;
 use NootPro\ContentManagement\Models\Post;
 
 class PageResource extends BaseResource
@@ -78,7 +78,8 @@ class PageResource extends BaseResource
                         ->afterStateUpdated(function (Set $set, $state) {
                             $set('slug', Str::slug($state));
                         }),
-                    config('noot-pro-content-management.editor')::component(),
+                    RichEditor::make('content')
+                        ->label(__('Page Content')),
                 ]),
                 Tab::make(__('SEO'))->schema([
                     Hidden::make('user_id')
@@ -166,10 +167,6 @@ class PageResource extends BaseResource
     {
         return $table
             ->columns([
-                TextColumn::make('id')
-                    ->sortable()
-                    ->searchable()
-                    ->toggleable(),
                 TextColumn::make('title')
                     ->label(__('Title'))
                     ->sortable(['title'])
@@ -181,7 +178,8 @@ class PageResource extends BaseResource
                     ->sortable(['status'])
                     ->searchable(['status'])
                     ->toggleable()
-//                    ->view('zeus::filament.columns.status-desc')
+                    ->badge()
+                    ->formatStateUsing(fn (string $state): string => ContentManagementPlugin::get()->getModel('PostStatus')::where('name', $state)->first()?->label ?? $state)
                     ->tooltip(fn (Post $record): string => $record->published_at->format('Y/m/d | H:i A')),
 
                 TextColumn::make('parent.title'),

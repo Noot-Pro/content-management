@@ -2,8 +2,8 @@
 
 namespace NootPro\ContentManagement\Filament\Resources;
 
-use LaraZeus\SpatieTranslatable\Resources\Concerns\Translatable;
 use Filament\Resources\Resource;
+use LaraZeus\SpatieTranslatable\Resources\Concerns\Translatable;
 use NootPro\ContentManagement\ContentManagementPlugin;
 
 class BaseResource extends Resource

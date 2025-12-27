@@ -2,8 +2,8 @@
 
 namespace NootPro\ContentManagement\Livewire;
 
-use NootPro\ContentManagement\Models\Post;
 use Illuminate\Database\Eloquent\Collection;
+use NootPro\ContentManagement\Models\Post;
 
 trait SearchHelpers
 {

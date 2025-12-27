@@ -2,9 +2,9 @@
 
 namespace NootPro\ContentManagement\Filament\Resources\PostResource\Pages;
 
-use LaraZeus\SpatieTranslatable\Resources\Pages\CreateRecord\Concerns\Translatable;
-use LaraZeus\SpatieTranslatable\Actions\LocaleSwitcher;
 use Filament\Resources\Pages\CreateRecord;
+use LaraZeus\SpatieTranslatable\Actions\LocaleSwitcher;
+use LaraZeus\SpatieTranslatable\Resources\Pages\CreateRecord\Concerns\Translatable;
 use NootPro\ContentManagement\Filament\Resources\PostResource;
 
 class CreatePost extends CreateRecord
