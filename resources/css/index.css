@@ -8,6 +8,23 @@
 @theme {
     --default-ring-width: 3px;
     --default-ring-color: var(--color-blue-500);
+    
+    /* Custom theme colors */
+    --color-primary: #189cd8;
+    --color-secondary: #132524;
+    --color-hover-bg: #ecf1f4;
+}
+
+/* CSS Custom Properties for backward compatibility */
+:root {
+    --primary-color: #189cd8;
+    --secondary-color: #132524;
+    --hover-bg-color: #ecf1f4;
+}
+
+/* Custom background utilities */
+.bg-circle-check-black {
+    background-image: url('/vendor/noot-pro/content-management/images/theme-2/circle-check-black.svg');
 }
 
 @import '../../vendor/filament/filament/resources/css/theme.css';

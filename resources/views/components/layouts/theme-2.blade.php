@@ -28,7 +28,7 @@
         :root {
             --primary-color: #189cd8;
             --secondary-color: #132524;
-            --hover-bg-color: #ecf1f4
+            --hover-bg-color: #ecf1f4;
         }
         * {font-family: 'Noto Kufi Arabic', sans-serif;}
         [x-cloak] {display: none !important;}
@@ -186,7 +186,7 @@
         </a>
         <div class="xl:hidden">
             <button @click="mobileMenuOpen = !mobileMenuOpen" type="button" class="relative group">
-                <div class="relative flex overflow-hidden items-center justify-center rounded-full w-[50px] h-[50px] transform transition-all bg-(--primary-color) ring-0 ring-gray-300 hover:ring-8 group-focus:ring-4 ring-opacity-30 duration-200 shadow-md">
+                <div class="relative flex overflow-hidden items-center justify-center rounded-full w-[50px] h-[50px] transform transition-all bg-[var(--primary-color)] ring-0 ring-gray-300 hover:ring-8 group-focus:ring-4 ring-opacity-30 duration-200 shadow-md">
                     <div class="flex flex-col justify-between w-[20px] h-[20px] transform transition-all duration-300 origin-center overflow-hidden">
                         <div class="bg-white h-[2px] w-7 transform transition-all duration-300 origin-left" :class="mobileMenuOpen ? 'translate-y-6 delay-100' : ''"></div>
                         <div class="bg-white h-[2px] w-7 rounded transform transition-all duration-300" :class="mobileMenuOpen ? 'translate-y-6 delay-75' : ''"></div>
@@ -237,7 +237,7 @@
         <div class="actions hidden xl:block">
             <ul class="flex justify-between gap-x-4">
                 <li><a href="{{ filament()->getLoginUrl() }}" class="px-4 py-2.5 text-sm border-2 rounded-xl border-[#E8E8E8] hover:bg-[#E8E8E8] transition ease-in-out">{{ __('noot-pro-content-management::site.login') }}</a></li>
-                <li><a href="{{ url('/contact') }}" class="px-4 py-2.5 text-sm border-2 rounded-xl border-(--primary-color) bg-(--primary-color) hover:bg-(--secondary-color) hover:border-(--secondary-color) text-white transition ease-in-out">{{ __('noot-pro-content-management::site.contact_us') }}</a></li>
+                <li><a href="{{ url('/contact') }}" class="px-4 py-2.5 text-sm border-2 rounded-xl border-[var(--primary-color)] bg-[var(--primary-color)] hover:bg-[var(--secondary-color)] hover:border-[var(--secondary-color)] text-white transition ease-in-out">{{ __('noot-pro-content-management::site.contact_us') }}</a></li>
             </ul>
         </div>
     </div>
@@ -247,7 +247,7 @@
 <div x-show="mobileMenuOpen" x-cloak @click.away="mobileMenuOpen = false" class="responsive-menu overflow-y-auto pt-28 pb-12">
     <div class="fixed top-11 left-4 z-1001">
         <button @click="mobileMenuOpen = false" type="button" class="relative">
-            <div class="relative flex overflow-hidden items-center justify-center rounded-full w-[50px] h-[50px] transform transition-all bg-(--primary-color) ring-gray-300 hover:ring-8 ring-4 ring-opacity-30 duration-200 shadow-md">
+            <div class="relative flex overflow-hidden items-center justify-center rounded-full w-[50px] h-[50px] transform transition-all bg-[var(--primary-color)] ring-gray-300 hover:ring-8 ring-4 ring-opacity-30 duration-200 shadow-md">
                 <div class="flex flex-col justify-between w-[20px] h-[20px] transform transition-all duration-300 origin-center overflow-hidden">
                     <div class="bg-white h-[2px] w-7 transform transition-all duration-300 origin-left translate-y-6 delay-100"></div>
                     <div class="bg-white h-[2px] w-7 rounded transform transition-all duration-300 translate-y-6 delay-75"></div>
@@ -271,7 +271,7 @@
         <li>
             <details class="group">
                 <summary class="flex items-center justify-between gap-2 p-2 font-medium marker:content-none hover:cursor-pointer hover:bg-[#F7F7F7] rounded-lg transition ease-in-out">
-                    <span class="flex gap-2 group-open:text-(--primary-color)">
+                    <span class="flex gap-2 group-open:text-[var(--primary-color)]">
                         {{ __('noot-pro-content-management::site.products') }}
                     </span>
                     <svg class="w-5 h-5 rotate-180 text-gray-500 transition group-open:rotate-90" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -291,7 +291,7 @@
         <li>
             <details class="group">
                 <summary class="flex items-center justify-between gap-2 p-2 font-medium marker:content-none hover:cursor-pointer hover:bg-[#F7F7F7] rounded-lg transition ease-in-out">
-                    <span class="flex gap-2 group-open:text-(--primary-color)">
+                    <span class="flex gap-2 group-open:text-[var(--primary-color)]">
                         {{ __('noot-pro-content-management::site.contents') }}
                     </span>
                     <svg class="w-5 h-5 rotate-180 text-gray-500 transition group-open:rotate-90" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -323,7 +323,7 @@
     <div class="actions max-w-[280px] mx-auto">
         <ul class="flex flex-col gap-4">
             <li><a href="{{ filament()->getLoginUrl() }}" class="block text-center px-4 py-2.5 text-sm border-2 rounded-xl border-[#E8E8E8] hover:bg-[#E8E8E8] transition ease-in-out" @click="mobileMenuOpen = false">{{ __('noot-pro-content-management::site.login') }}</a></li>
-            <li><a href="{{ url('/contact') }}" class="block text-center px-4 py-2.5 text-sm border-2 rounded-xl border-(--primary-color) bg-(--primary-color) hover:bg-(--secondary-color) hover:border-(--secondary-color) text-white transition ease-in-out" @click="mobileMenuOpen = false">{{ __('noot-pro-content-management::site.contact_us') }}</a></li>
+            <li><a href="{{ url('/contact') }}" class="block text-center px-4 py-2.5 text-sm border-2 rounded-xl border-[var(--primary-color)] bg-[var(--primary-color)] hover:bg-[var(--secondary-color)] hover:border-[var(--secondary-color)] text-white transition ease-in-out" @click="mobileMenuOpen = false">{{ __('noot-pro-content-management::site.contact_us') }}</a></li>
         </ul>
     </div>
 </div>
@@ -345,17 +345,17 @@
                         </div>
                         <div class="mb-4 text-white">{{ __('noot-pro-content-management::site.footer_text') }}.</div>
                         <div>
-                            <a href="{{ filament()->getRegistrationUrl() }}" class="inline-block px-6 py-3.5 border-2 rounded-xl border-(--primary-color) bg-(--primary-color) hover:bg-(--secondary-color) hover:border-(--secondary-color) text-white transition ease-in-out">{{ __('noot-pro-content-management::site.start_free_test') }}</a>
+                            <a href="{{ filament()->getRegistrationUrl() }}" class="inline-block px-6 py-3.5 border-2 rounded-xl border-[var(--primary-color)] bg-[var(--primary-color)] hover:bg-[var(--secondary-color)] hover:border-[var(--secondary-color)] text-white transition ease-in-out">{{ __('noot-pro-content-management::site.start_free_test') }}</a>
                         </div>
                     </div>
                 </div>
                 <div class="lg:col-span-6 xl:col-span-2 col-span-full mb-12 xl:mb-0">
                     <div class="mb-6 text-[#969696]">{{ __('noot-pro-content-management::site.about_company') }}</div>
                     <ul>
-                        <li class="mb-6"><a href="{{ route('page', \NootPro\ContentManagement\Models\Post::find(12)?->slug ?? "nothing") }}" class="text-white hover:text-(--primary-color) transition ease-in-out">{{ __('noot-pro-content-management::site.about_us') }}</a></li>
-                        <li class="mb-6"><a href="{{ route('page', \NootPro\ContentManagement\Models\Post::find(13)?->slug ?? "nothing") }}" class="text-white hover:text-(--primary-color) transition ease-in-out">{{ __('noot-pro-content-management::site.privacy') }}</a></li>
-                        <li class="mb-6"><a href="{{ route('page', \NootPro\ContentManagement\Models\Post::find(14)?->slug ?? "nothing") }}" class="text-white hover:text-(--primary-color) transition ease-in-out">{{ __('noot-pro-content-management::site.term') }}</a></li>
-                        <li class="mb-6"><a href="{{ url('faq') }}" class="text-white hover:text-(--primary-color) transition ease-in-out">{{ __('noot-pro-content-management::site.faq') }}</a></li>
+                        <li class="mb-6"><a href="{{ route('page', \NootPro\ContentManagement\Models\Post::find(12)?->slug ?? "nothing") }}" class="text-white hover:text-[var(--primary-color)] transition ease-in-out">{{ __('noot-pro-content-management::site.about_us') }}</a></li>
+                        <li class="mb-6"><a href="{{ route('page', \NootPro\ContentManagement\Models\Post::find(13)?->slug ?? "nothing") }}" class="text-white hover:text-[var(--primary-color)] transition ease-in-out">{{ __('noot-pro-content-management::site.privacy') }}</a></li>
+                        <li class="mb-6"><a href="{{ route('page', \NootPro\ContentManagement\Models\Post::find(14)?->slug ?? "nothing") }}" class="text-white hover:text-[var(--primary-color)] transition ease-in-out">{{ __('noot-pro-content-management::site.term') }}</a></li>
+                        <li class="mb-6"><a href="{{ url('faq') }}" class="text-white hover:text-[var(--primary-color)] transition ease-in-out">{{ __('noot-pro-content-management::site.faq') }}</a></li>
                     </ul>
                 </div>
                 <div class="lg:col-span-6 xl:col-span-2 col-span-full mb-12 xl:mb-0">
@@ -369,8 +369,8 @@
                 <div class="lg:col-span-12 xl:col-span-2 col-span-full">
                     <div class="mb-6 text-[#969696]">{{ __('noot-pro-content-management::site.contact_us') }}</div>
                     <ul class="mb-6">
-                        <li class="mb-6"><a href="mailto:info@noot.co" class="text-white hover:text-(--primary-color) transition ease-in-out">info@noot.co</a></li>
-                        <li class="mb-6"><a href="tel:0575811311" class="text-white hover:text-(--primary-color) transition ease-in-out">0575811311</a></li>
+                        <li class="mb-6"><a href="mailto:info@noot.co" class="text-white hover:text-[var(--primary-color)] transition ease-in-out">info@noot.co</a></li>
+                        <li class="mb-6"><a href="tel:0575811311" class="text-white hover:text-[var(--primary-color)] transition ease-in-out">0575811311</a></li>
                     </ul>
                     <div>
                         <ul class="flex items-center">
