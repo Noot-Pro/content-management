@@ -242,7 +242,7 @@
         </div>
         <div class="actions hidden xl:block">
             <ul class="flex justify-between gap-x-4">
-                <li><a href="{{ filament()->getLoginUrl() }}" class="px-4 py-2.5 text-sm border-2 rounded-xl border-[#E8E8E8] hover:bg-[#E8E8E8] transition ease-in-out">{{ __('noot-pro-content-management::site.login') }}</a></li>
+                <li><a href="{{ \Filament\Facades\Filament::getPanel('app')->getLoginUrl() }}" class="px-4 py-2.5 text-sm border-2 rounded-xl border-[#E8E8E8] hover:bg-[#E8E8E8] transition ease-in-out">{{ __('noot-pro-content-management::site.login') }}</a></li>
                 <li><a href="{{ url('/contact') }}" class="px-4 py-2.5 text-sm border-2 rounded-xl border-[var(--primary-color)] bg-[var(--primary-color)] hover:bg-[var(--secondary-color)] hover:border-[var(--secondary-color)] text-white transition ease-in-out">{{ __('noot-pro-content-management::site.contact_us') }}</a></li>
             </ul>
         </div>
@@ -328,7 +328,7 @@
     </ul>
     <div class="actions max-w-[280px] mx-auto">
         <ul class="flex flex-col gap-4">
-            <li><a href="{{ filament()->getLoginUrl() }}" class="block text-center px-4 py-2.5 text-sm border-2 rounded-xl border-[#E8E8E8] hover:bg-[#E8E8E8] transition ease-in-out" @click="mobileMenuOpen = false">{{ __('noot-pro-content-management::site.login') }}</a></li>
+            <li><a href="{{ \Filament\Facades\Filament::getPanel('app')->getLoginUrl() }}" class="block text-center px-4 py-2.5 text-sm border-2 rounded-xl border-[#E8E8E8] hover:bg-[#E8E8E8] transition ease-in-out" @click="mobileMenuOpen = false">{{ __('noot-pro-content-management::site.login') }}</a></li>
             <li><a href="{{ url('/contact') }}" class="block text-center px-4 py-2.5 text-sm border-2 rounded-xl border-[var(--primary-color)] bg-[var(--primary-color)] hover:bg-[var(--secondary-color)] hover:border-[var(--secondary-color)] text-white transition ease-in-out" @click="mobileMenuOpen = false">{{ __('noot-pro-content-management::site.contact_us') }}</a></li>
         </ul>
     </div>
@@ -351,7 +351,7 @@
                         </div>
                         <div class="mb-4 text-white">{{ __('noot-pro-content-management::site.footer_text') }}.</div>
                         <div>
-                            <a href="{{ filament()->getRegistrationUrl() }}" class="inline-block px-6 py-3.5 border-2 rounded-xl border-[var(--primary-color)] bg-[var(--primary-color)] hover:bg-[var(--secondary-color)] hover:border-[var(--secondary-color)] text-white transition ease-in-out">{{ __('noot-pro-content-management::site.start_free_test') }}</a>
+                            <a href="{{ \Filament\Facades\Filament::getPanel('app')->getRegistrationUrl() }}" class="inline-block px-6 py-3.5 border-2 rounded-xl border-[var(--primary-color)] bg-[var(--primary-color)] hover:bg-[var(--secondary-color)] hover:border-[var(--secondary-color)] text-white transition ease-in-out">{{ __('noot-pro-content-management::site.start_free_test') }}</a>
                         </div>
                     </div>
                 </div>
