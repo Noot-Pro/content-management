@@ -132,6 +132,7 @@ return [
     'for_more_details' => 'For more details, contact us through:',
     'method_name' => 'Available Payment Method',
     'faq' => 'Frequently Asked Questions',
+    'help_center' => 'Help Center',
 
     'page_not_found' => 'This Page is Not Found',
     'return_to_home_page' => 'Return To Home Page',
