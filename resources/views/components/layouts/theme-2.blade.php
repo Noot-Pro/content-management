@@ -362,6 +362,7 @@
                         <li class="mb-6"><a href="{{ route('page', \NootPro\ContentManagement\Models\Post::find(13)?->slug ?? "nothing") }}" class="text-white hover:text-[var(--primary-color)] transition ease-in-out">{{ __('noot-pro-content-management::site.privacy') }}</a></li>
                         <li class="mb-6"><a href="{{ route('page', \NootPro\ContentManagement\Models\Post::find(14)?->slug ?? "nothing") }}" class="text-white hover:text-[var(--primary-color)] transition ease-in-out">{{ __('noot-pro-content-management::site.term') }}</a></li>
                         <li class="mb-6"><a href="{{ url('faq') }}" class="text-white hover:text-[var(--primary-color)] transition ease-in-out">{{ __('noot-pro-content-management::site.faq') }}</a></li>
+                        <li class="mb-6"><a href="{{ url('help') }}" class="text-white hover:text-[var(--primary-color)] transition ease-in-out">{{ __('noot-pro-content-management::site.help_center') }}</a></li>
                     </ul>
                 </div>
                 <div class="lg:col-span-6 xl:col-span-2 col-span-full mb-12 xl:mb-0">
