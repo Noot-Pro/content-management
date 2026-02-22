@@ -1,6 +1,6 @@
 @unless($tags->isEmpty())
     <div class="my-4 bg-white shadow-md p-4 rounded-4xl ltr:rounded-br-none rtl:rounded-bl-none">
-        <h4 class="mb-4 text-xl font-bold text-gray-700">{{ __('noot-pro-content-management::site.categories') }}</h4>
+        <h4 class="mb-4 text-xl font-bold text-gray-700">{{ __('noot-pro-content-management::noot-web.categories') }}</h4>
         <ul class="space-y-2">
             @foreach($tags as $tag)
                 <li class="py-2 border-b border-gray-100 last:border-b-0">
