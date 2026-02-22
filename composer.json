@@ -39,6 +39,7 @@
         "lara-zeus/core": "^4.0",
         "spatie/laravel-medialibrary": "^11.0",
         "spatie/laravel-sluggable": "^3.3",
+        "calebporzio/sushi": "^2.5",
         "spatie/laravel-tags": "^4.6"
     },
     "require-dev": {
