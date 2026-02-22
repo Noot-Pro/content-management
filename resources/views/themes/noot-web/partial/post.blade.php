@@ -26,6 +26,6 @@
         </p>
     @endif
     <div class="mt-4">
-        <a href="{{ route('post',$post->slug) }}" class="text-(--primary-color) hover:underline font-medium">{{ __('noot-pro-content-management::site.read_more') }}</a>
+        <a href="{{ route('post',$post->slug) }}" class="text-(--primary-color) hover:underline font-medium">{{ __('noot-pro-content-management::noot-web.read_more') }}</a>
     </div>
 </article>

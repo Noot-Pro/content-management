@@ -209,25 +209,25 @@
         <div class="links hidden xl:block">
             <ul class="flex justify-between">
                 <li class="links__item">
-                    <a href="{{ url('/') }}">{{ __('noot-pro-content-management::site.home') }}</a>
+                    <a href="{{ url('/') }}">{{ __('noot-pro-content-management::noot-web.home') }}</a>
                 </li>
                 <li class="links__item links__item--has-dropdown">
-                    <a href="#">{{ __('noot-pro-content-management::site.products') }}</a>
+                    <a href="#">{{ __('noot-pro-content-management::noot-web.products') }}</a>
                     <div class="links__dropdown">
                         @livewire(\NootPro\ContentManagement\Livewire\MenuPages::class, ['parent_id' => 3,'type' => 'header'])
                     </div>
                 </li>
                 <li class="links__item">
-                    <a href="{{ url('/#plans') }}">{{ __('noot-pro-content-management::site.plans') }}</a>
+                    <a href="{{ url('/#plans') }}">{{ __('noot-pro-content-management::noot-web.plans') }}</a>
                 </li>
                 <li class="links__item links__item--has-dropdown">
-                    <a href="#">{{ __('noot-pro-content-management::site.contents') }}</a>
+                    <a href="#">{{ __('noot-pro-content-management::noot-web.contents') }}</a>
                     <div class="links__dropdown">
                         @livewire(\NootPro\ContentManagement\Livewire\MenuPages::class, ['parent_id' => 15,'type' => 'header'])
                     </div>
                 </li>
                 <li class="links__item">
-                    <a href="{{ route('posts') }}">{{ __('noot-pro-content-management::site.blog') }}</a>
+                    <a href="{{ route('posts') }}">{{ __('noot-pro-content-management::noot-web.blog') }}</a>
                 </li>
                 @if(app()->getLocale() === 'ar')
                     <li class="links__item">
@@ -242,8 +242,8 @@
         </div>
         <div class="actions hidden xl:block">
             <ul class="flex justify-between gap-x-4">
-                <li><a href="{{ \Filament\Facades\Filament::getPanel('app')->getLoginUrl() }}" class="px-4 py-2.5 text-sm border-2 rounded-xl border-[#E8E8E8] hover:bg-[#E8E8E8] transition ease-in-out">{{ __('noot-pro-content-management::site.login') }}</a></li>
-                <li><a href="{{ url('/contact') }}" class="px-4 py-2.5 text-sm border-2 rounded-xl border-[var(--primary-color)] bg-[var(--primary-color)] hover:bg-[var(--secondary-color)] hover:border-[var(--secondary-color)] text-white transition ease-in-out">{{ __('noot-pro-content-management::site.contact_us') }}</a></li>
+                <li><a href="{{ \Filament\Facades\Filament::getPanel('app')->getLoginUrl() }}" class="px-4 py-2.5 text-sm border-2 rounded-xl border-[#E8E8E8] hover:bg-[#E8E8E8] transition ease-in-out">{{ __('noot-pro-content-management::noot-web.login') }}</a></li>
+                <li><a href="{{ url('/contact') }}" class="px-4 py-2.5 text-sm border-2 rounded-xl border-[var(--primary-color)] bg-[var(--primary-color)] hover:bg-[var(--secondary-color)] hover:border-[var(--secondary-color)] text-white transition ease-in-out">{{ __('noot-pro-content-management::noot-web.contact_us') }}</a></li>
             </ul>
         </div>
     </div>
@@ -271,14 +271,14 @@
     <ul class="flex flex-col gap-2 max-w-[280px] mx-auto">
         <li>
             <a href="{{ url('/') }}" class="flex items-center justify-between gap-2 p-2 font-medium hover:bg-[#F7F7F7] rounded-lg transition ease-in-out" @click="mobileMenuOpen = false">
-                {{ __('noot-pro-content-management::site.home') }}
+                {{ __('noot-pro-content-management::noot-web.home') }}
             </a>
         </li>
         <li>
             <details class="group">
                 <summary class="flex items-center justify-between gap-2 p-2 font-medium marker:content-none hover:cursor-pointer hover:bg-[#F7F7F7] rounded-lg transition ease-in-out">
                     <span class="flex gap-2 group-open:text-[var(--primary-color)]">
-                        {{ __('noot-pro-content-management::site.products') }}
+                        {{ __('noot-pro-content-management::noot-web.products') }}
                     </span>
                     <svg class="w-5 h-5 rotate-180 text-gray-500 transition group-open:rotate-90" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"></path>
@@ -291,14 +291,14 @@
         </li>
         <li>
             <a href="{{ url('/#plans') }}" class="flex items-center justify-between gap-2 p-2 font-medium hover:bg-[#F7F7F7] rounded-lg transition ease-in-out" @click="mobileMenuOpen = false">
-                {{ __('noot-pro-content-management::site.plans') }}
+                {{ __('noot-pro-content-management::noot-web.plans') }}
             </a>
         </li>
         <li>
             <details class="group">
                 <summary class="flex items-center justify-between gap-2 p-2 font-medium marker:content-none hover:cursor-pointer hover:bg-[#F7F7F7] rounded-lg transition ease-in-out">
                     <span class="flex gap-2 group-open:text-[var(--primary-color)]">
-                        {{ __('noot-pro-content-management::site.contents') }}
+                        {{ __('noot-pro-content-management::noot-web.contents') }}
                     </span>
                     <svg class="w-5 h-5 rotate-180 text-gray-500 transition group-open:rotate-90" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"></path>
@@ -311,7 +311,7 @@
         </li>
         <li>
             <a href="{{ route('posts') }}" class="flex items-center justify-between gap-2 p-2 font-medium hover:bg-[#F7F7F7] rounded-lg transition ease-in-out" @click="mobileMenuOpen = false">
-                {{ __('noot-pro-content-management::site.blog') }}
+                {{ __('noot-pro-content-management::noot-web.blog') }}
             </a>
         </li>
         <li>
@@ -328,8 +328,8 @@
     </ul>
     <div class="actions max-w-[280px] mx-auto">
         <ul class="flex flex-col gap-4">
-            <li><a href="{{ \Filament\Facades\Filament::getPanel('app')->getLoginUrl() }}" class="block text-center px-4 py-2.5 text-sm border-2 rounded-xl border-[#E8E8E8] hover:bg-[#E8E8E8] transition ease-in-out" @click="mobileMenuOpen = false">{{ __('noot-pro-content-management::site.login') }}</a></li>
-            <li><a href="{{ url('/contact') }}" class="block text-center px-4 py-2.5 text-sm border-2 rounded-xl border-[var(--primary-color)] bg-[var(--primary-color)] hover:bg-[var(--secondary-color)] hover:border-[var(--secondary-color)] text-white transition ease-in-out" @click="mobileMenuOpen = false">{{ __('noot-pro-content-management::site.contact_us') }}</a></li>
+            <li><a href="{{ \Filament\Facades\Filament::getPanel('app')->getLoginUrl() }}" class="block text-center px-4 py-2.5 text-sm border-2 rounded-xl border-[#E8E8E8] hover:bg-[#E8E8E8] transition ease-in-out" @click="mobileMenuOpen = false">{{ __('noot-pro-content-management::noot-web.login') }}</a></li>
+            <li><a href="{{ url('/contact') }}" class="block text-center px-4 py-2.5 text-sm border-2 rounded-xl border-[var(--primary-color)] bg-[var(--primary-color)] hover:bg-[var(--secondary-color)] hover:border-[var(--secondary-color)] text-white transition ease-in-out" @click="mobileMenuOpen = false">{{ __('noot-pro-content-management::noot-web.contact_us') }}</a></li>
         </ul>
     </div>
 </div>
@@ -349,32 +349,32 @@
                                 <img class="w-32" src="{{ asset('vendor/noot-pro/content-management/images/noot-web/logo-white.png') }}" alt="">
                             </a>
                         </div>
-                        <div class="mb-4 text-white">{{ __('noot-pro-content-management::site.footer_text') }}.</div>
+                        <div class="mb-4 text-white">{{ __('noot-pro-content-management::noot-web.footer_text') }}.</div>
                         <div>
-                            <a href="{{ \Filament\Facades\Filament::getPanel('app')->getRegistrationUrl() }}" class="inline-block px-6 py-3.5 border-2 rounded-xl border-[var(--primary-color)] bg-[var(--primary-color)] hover:bg-[var(--secondary-color)] hover:border-[var(--secondary-color)] text-white transition ease-in-out">{{ __('noot-pro-content-management::site.start_free_test') }}</a>
+                            <a href="{{ \Filament\Facades\Filament::getPanel('app')->getRegistrationUrl() }}" class="inline-block px-6 py-3.5 border-2 rounded-xl border-[var(--primary-color)] bg-[var(--primary-color)] hover:bg-[var(--secondary-color)] hover:border-[var(--secondary-color)] text-white transition ease-in-out">{{ __('noot-pro-content-management::noot-web.start_free_test') }}</a>
                         </div>
                     </div>
                 </div>
                 <div class="lg:col-span-6 xl:col-span-2 col-span-full mb-12 xl:mb-0">
-                    <div class="mb-6 text-[#969696]">{{ __('noot-pro-content-management::site.about_company') }}</div>
+                    <div class="mb-6 text-[#969696]">{{ __('noot-pro-content-management::noot-web.about_company') }}</div>
                     <ul>
-                        <li class="mb-6"><a href="{{ route('page', \NootPro\ContentManagement\Models\Post::find(12)?->slug ?? "nothing") }}" class="text-white hover:text-[var(--primary-color)] transition ease-in-out">{{ __('noot-pro-content-management::site.about_us') }}</a></li>
-                        <li class="mb-6"><a href="{{ route('page', \NootPro\ContentManagement\Models\Post::find(13)?->slug ?? "nothing") }}" class="text-white hover:text-[var(--primary-color)] transition ease-in-out">{{ __('noot-pro-content-management::site.privacy') }}</a></li>
-                        <li class="mb-6"><a href="{{ route('page', \NootPro\ContentManagement\Models\Post::find(14)?->slug ?? "nothing") }}" class="text-white hover:text-[var(--primary-color)] transition ease-in-out">{{ __('noot-pro-content-management::site.term') }}</a></li>
-                        <li class="mb-6"><a href="{{ url('faq') }}" class="text-white hover:text-[var(--primary-color)] transition ease-in-out">{{ __('noot-pro-content-management::site.faq') }}</a></li>
-                        <li class="mb-6"><a href="{{ url('help') }}" class="text-white hover:text-[var(--primary-color)] transition ease-in-out">{{ __('noot-pro-content-management::site.help_center') }}</a></li>
+                        <li class="mb-6"><a href="{{ route('page', \NootPro\ContentManagement\Models\Post::find(12)?->slug ?? "nothing") }}" class="text-white hover:text-[var(--primary-color)] transition ease-in-out">{{ __('noot-pro-content-management::noot-web.about_us') }}</a></li>
+                        <li class="mb-6"><a href="{{ route('page', \NootPro\ContentManagement\Models\Post::find(13)?->slug ?? "nothing") }}" class="text-white hover:text-[var(--primary-color)] transition ease-in-out">{{ __('noot-pro-content-management::noot-web.privacy') }}</a></li>
+                        <li class="mb-6"><a href="{{ route('page', \NootPro\ContentManagement\Models\Post::find(14)?->slug ?? "nothing") }}" class="text-white hover:text-[var(--primary-color)] transition ease-in-out">{{ __('noot-pro-content-management::noot-web.term') }}</a></li>
+                        <li class="mb-6"><a href="{{ url('faq') }}" class="text-white hover:text-[var(--primary-color)] transition ease-in-out">{{ __('noot-pro-content-management::noot-web.faq') }}</a></li>
+                        <li class="mb-6"><a href="{{ url('help') }}" class="text-white hover:text-[var(--primary-color)] transition ease-in-out">{{ __('noot-pro-content-management::noot-web.help_center') }}</a></li>
                     </ul>
                 </div>
                 <div class="lg:col-span-6 xl:col-span-2 col-span-full mb-12 xl:mb-0">
-                    <div class="mb-6 text-[#969696]">{{ __('noot-pro-content-management::site.our_solutions') }}</div>
+                    <div class="mb-6 text-[#969696]">{{ __('noot-pro-content-management::noot-web.our_solutions') }}</div>
                     @livewire(\NootPro\ContentManagement\Livewire\MenuPages::class, ['parent_id' => 3,'type' => 'footer'])
                 </div>
                 <div class="lg:col-span-6 xl:col-span-2 col-span-full mb-12 xl:mb-0">
-                    <div class="mb-6 text-[#969696]">{{ __('noot-pro-content-management::site.contents') }}</div>
+                    <div class="mb-6 text-[#969696]">{{ __('noot-pro-content-management::noot-web.contents') }}</div>
                     @livewire(\NootPro\ContentManagement\Livewire\MenuPages::class, ['parent_id' => 15,'type' => 'footer'])
                 </div>
                 <div class="lg:col-span-12 xl:col-span-2 col-span-full">
-                    <div class="mb-6 text-[#969696]">{{ __('noot-pro-content-management::site.contact_us') }}</div>
+                    <div class="mb-6 text-[#969696]">{{ __('noot-pro-content-management::noot-web.contact_us') }}</div>
                     <ul class="mb-6">
                         <li class="mb-6"><a href="mailto:info@noot.co" class="text-white hover:text-[var(--primary-color)] transition ease-in-out">info@noot.co</a></li>
                         <li class="mb-6"><a href="tel:0575811311" class="text-white hover:text-[var(--primary-color)] transition ease-in-out">0575811311</a></li>
@@ -446,7 +446,7 @@
     </div>
     <div class="bg-black py-4">
         <div class="container mx-auto px-4 flex justify-between text-sm text-[#969696]">
-            <div>{{ __('noot-pro-content-management::site.copy_write') }} © {{ now()->format('Y') }}</div>
+            <div>{{ __('noot-pro-content-management::noot-web.copy_write') }} © {{ now()->format('Y') }}</div>
             <div style="direction: ltr;">© {{ now()->format('Y') }} Noot Inc.</div>
         </div>
     </div>
