@@ -3,11 +3,12 @@
 namespace NootPro\ContentManagement\Livewire;
 
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 use NootPro\ContentManagement\Models\Post;
 
 trait SearchHelpers
 {
-    private function highlightSearchResults(Collection $collection, ?string $search = null): Collection
+    private function highlightSearchResults(Collection | LengthAwarePaginator $collection, ?string $search = null): Collection | LengthAwarePaginator
     {
         if (! $search) {
             return $collection;
