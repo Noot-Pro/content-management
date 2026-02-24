@@ -4,10 +4,13 @@ namespace NootPro\ContentManagement\Livewire;
 
 use Illuminate\View\View;
 use Livewire\Component;
+use Livewire\WithPagination;
 use NootPro\ContentManagement\Models\Tag;
 
 class Tags extends Component
 {
+    use WithPagination;
+
     public string $type;
 
     public string $slug;
@@ -36,7 +39,7 @@ class Tags extends Component
 
         return view(app('themePath') . '.category')
             ->with([
-                'posts' => $this->tag->postsPublished,
+                'posts' => $this->tag->postsPublished()->paginate(config('noot-pro-content-management.postsPerPage', 10)),
             ])
             ->layout(config('noot-pro-content-management.layout'));
     }
