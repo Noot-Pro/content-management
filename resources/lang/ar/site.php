@@ -189,4 +189,16 @@ return [
     'advanced_package_feature_5' => 'إدارة الإجازات وتقييمات الأداء',
     'advanced_package_feature_6' => 'صلاحيات متقدمة للإدارة',
     'advanced_package_feature_7' => 'تقارير ولوحات متابعة تفصيلية',
+
+    'posts' => 'المقالات',
+    'tags' => 'الوسوم',
+    'related_posts' => 'مقالات ذات صلة',
+    'view_all' => 'عرض الكل',
+    'showing_search_result_of' => 'عرض نتائج البحث عن',
+    'clear' => 'مسح',
+    'category' => 'التصنيف',
+    'no_posts_found' => 'لم يتم العثور على مقالات',
+    'no_posts_available' => 'لا توجد مقالات متاحة في هذا التصنيف حالياً. يرجى التحقق لاحقاً.',
+    'recent_post' => 'أحدث المقالات',
+    'no_posts_available_here' => 'لا توجد مقالات متاحة هنا حالياً. يرجى التحقق لاحقاً.',
 ];

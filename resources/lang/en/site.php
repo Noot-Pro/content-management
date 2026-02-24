@@ -188,4 +188,16 @@ return [
     'advanced_package_feature_5' => 'Leave and Performance Evaluations Management',
     'advanced_package_feature_6' => 'Advanced Management Permissions',
     'advanced_package_feature_7' => 'Detailed Reports and Monitoring Dashboards',
+
+    'posts' => 'Posts',
+    'tags' => 'Tags',
+    'related_posts' => 'Related Posts',
+    'view_all' => 'View All',
+    'showing_search_result_of' => 'Showing Search result of',
+    'clear' => 'Clear',
+    'category' => 'Category',
+    'no_posts_found' => 'No posts found',
+    'no_posts_available' => 'There are currently no posts available in this category. Please check back later.',
+    'recent_post' => 'Recent Post',
+    'no_posts_available_here' => 'There are currently no posts available here. Please check back later.',
 ];
