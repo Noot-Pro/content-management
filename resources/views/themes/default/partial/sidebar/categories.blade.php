@@ -1,14 +1,22 @@
 @unless($tags->isEmpty())
-    <div class="my-4">
-        <h4 class="mb-4 text-xl font-bold text-gray-700 dark:text-gray-200">Categories</h4>
-        <div class="flex flex-col max-w-sm px-4 py-6 mx-auto bg-white dark:bg-gray-800 rounded-4xl ltr:rounded-br-none rtl:rounded-bl-none shadow-md">
-            <ul>
+    <div class="mb-8">
+        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700/50 p-6">
+            <h4 class="mb-5 text-lg font-bold text-gray-900 dark:text-white flex items-center gap-3">
+                <span class="w-1.5 h-6 bg-[#E86F44] rounded-full inline-block"></span>
+                {{ __('site.categories') }}
+            </h4>
+            <ul class="flex flex-col gap-2">
                 @foreach($tags as $tag)
-                    <li class="px-1 py-4 border-b border-t border-white hover:border-primary-600 transition duration-300">
-                        <a href="{{ route('tags',['category',$tag->slug]) }}" class="flex items-center text-gray-600 cursor-pointer">
-                            {{ $tag->name }}
-                            <span class="text-gray-500 ltr:ml-auto rtl:mr-auto">{{ $tag->posts_published_count }} <span class="text-xs">Post</span></span>
-                            <i class='text-gray-500 bx bx-right-arrow-alt ltr:ml-1 rtl:mr-1'></i>
+                    <li>
+                        <a href="{{ route('tags',['category',$tag->slug]) }}"
+                           class="group flex items-center justify-between p-3 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors border border-transparent hover:border-gray-100 dark:hover:border-gray-600">
+                            <span class="font-medium text-sm text-gray-700 dark:text-gray-300 group-hover:text-[#E86F44] transition-colors">
+                                {{ $tag->name }}
+                            </span>
+                            <div class="flex items-center text-gray-400 dark:text-gray-500 group-hover:text-[#E86F44] transition-colors gap-2">
+                                <span class="bg-gray-100 dark:bg-gray-700/50 text-gray-600 dark:text-gray-400 text-xs px-2.5 py-1 rounded-lg group-hover:bg-[#E86F44]/10 group-hover:text-[#E86F44] transition-colors font-semibold">{{ $tag->posts_published_count }}</span>
+                                @svg('heroicon-m-chevron-right', 'w-4 h-4 rtl:-scale-x-100')
+                            </div>
                         </a>
                     </li>
                 @endforeach

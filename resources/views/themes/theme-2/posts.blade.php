@@ -1,36 +1,49 @@
-<div>
+<div class="mt-8 container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
     @unless($stickies->isEmpty())
-        <section class="mt-10 grid @if($stickies->count() > 1) grid-cols-3 @endif gap-4">
+        <section class="mb-12 grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
             @foreach($stickies as $post)
                 @include($themePath.'.partial.sticky')
             @endforeach
         </section>
     @endunless
 
-    <main class="container mx-auto px-4 py-8">
-        <div class="flex flex-col lg:flex-row gap-6 lg:gap-8">
-            <section class="w-full lg:w-2/3">
-                @if(request()->filled('search'))
-                    <div class="mb-6 py-4">
-                        {{ __('Showing Search result of') }}: <span class="highlight">{{ request('search') }}</span>
-                        <a title="{{ __('clear') }}" href="{{ route('posts') }}" class="ml-2 text-(--primary-color) hover:underline">
-                            @svg('heroicon-o-backspace','w-4 h-4 inline-flex align-middle')
-                        </a>
-                    </div>
-                @endif
-
-                @unless ($posts->isEmpty())
-                    <h1 class="text-2xl md:text-3xl font-bold text-gray-800 mb-6">{{ __('Posts') }}</h1>
+    <main class="flex flex-col lg:flex-row justify-between gap-8 py-4 md:py-8 lg:mt-8">
+        <section class="w-full lg:w-3/4">
+            @if(request()->filled('search'))
+                <div class="py-4 mb-8 font-semibold text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 rounded-2xl px-6 border border-gray-100 dark:border-gray-700/50 shadow-sm flex items-center justify-between">
                     <div>
-                        @each($themePath.'.partial.post', $posts, 'post')
+                        {{ __('Showing Search result of') }}: <span class="highlight text-[#E86F44]">{{ request('search') }}</span>
                     </div>
-                @else
-                    @include($themePath.'.partial.empty')
-                @endunless
-            </section>
-            <aside class="w-full lg:w-1/3">
+                    <a title="{{ __('clear') }}" href="{{ route('posts') }}" class="inline-flex items-center justify-center p-1.5 rounded-full bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 transition-colors">
+                        @svg('heroicon-o-x-mark','text-gray-500 dark:text-gray-300 w-5 h-5')
+                    </a>
+                </div>
+            @endif
+
+            @unless ($posts->isEmpty())
+                <div class="flex items-center mb-8">
+                    <h1 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white flex items-center gap-3">
+                        <span class="w-8 h-1 bg-[#E86F44] rounded-full inline-block"></span>
+                        {{ __('Posts') }}
+                    </h1>
+                </div>
+                
+                <div class="space-y-8">
+                    @each($themePath.'.partial.post', $posts, 'post')
+                </div>
+                
+                <div class="mt-12 pagination custom-pagination w-full flex justify-center">
+                    {{ $posts->links() }}
+                </div>
+            @else
+                @include($themePath.'.partial.empty')
+            @endunless
+        </section>
+        
+        <aside class="w-full lg:w-1/4">
+            <div class="sticky top-8 space-y-8">
                 @include($themePath.'.partial.sidebar')
-            </aside>
-        </div>
+            </div>
+        </aside>
     </main>
 </div>
