@@ -10,21 +10,21 @@
     <main class="flex flex-col lg:flex-row justify-between gap-8 py-4 md:py-8 lg:mt-8">
         <section class="w-full lg:w-3/4">
             @if(request()->filled('search'))
-                <div class="py-4 mb-8 font-semibold text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 rounded-2xl px-6 border border-gray-100 dark:border-gray-700/50 shadow-sm flex items-center justify-between">
+                <div class="py-4 mb-8 font-semibold text-gray-700 bg-white rounded-2xl px-6 border border-gray-100 shadow-sm flex items-center justify-between">
                     <div>
-                        {{ __('Showing Search result of') }}: <span class="highlight text-[#E86F44]">{{ request('search') }}</span>
+                        {{ __('noot-pro-content-management::site.showing_search_result_of') }}: <span class="highlight text-[#E86F44]">{{ request('search') }}</span>
                     </div>
-                    <a title="{{ __('clear') }}" href="{{ route('posts') }}" class="inline-flex items-center justify-center p-1.5 rounded-full bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 transition-colors">
-                        @svg('heroicon-o-x-mark','text-gray-500 dark:text-gray-300 w-5 h-5')
+                    <a title="{{ __('noot-pro-content-management::site.clear') }}" href="{{ route('posts') }}" class="inline-flex items-center justify-center p-1.5 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors">
+                        @svg('heroicon-o-x-mark','text-gray-500 w-5 h-5')
                     </a>
                 </div>
             @endif
 
             @unless ($posts->isEmpty())
                 <div class="flex items-center mb-8">
-                    <h1 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white flex items-center gap-3">
+                    <h1 class="text-2xl md:text-3xl font-bold text-gray-900 flex items-center gap-3">
                         <span class="w-8 h-1 bg-[#E86F44] rounded-full inline-block"></span>
-                        {{ __('Posts') }}
+                        {{ __('noot-pro-content-management::site.posts') }}
                     </h1>
                 </div>
                 
