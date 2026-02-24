@@ -58,6 +58,8 @@ return [
 
     'recentPostsLimit' => 5,
 
+    'postsPerPage' => 10,
+
     'searchResultHighlightCssClass' => 'highlight',
 
     'skipHighlightingTerms' => ['iframe'],

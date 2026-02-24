@@ -4,10 +4,12 @@ namespace NootPro\ContentManagement\Livewire;
 
 use Illuminate\View\View;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class Posts extends Component
 {
     use SearchHelpers;
+    use WithPagination;
 
     public function render(): View
     {
@@ -20,7 +22,7 @@ class Posts extends Component
             ->forCategory($category)
             ->published()
             ->orderBy('published_at', 'desc')
-            ->get();
+            ->paginate(config('noot-pro-content-management.postsPerPage', 10));
 
         $pages = config('noot-pro-content-management.models.Post')::query()
             ->page()
