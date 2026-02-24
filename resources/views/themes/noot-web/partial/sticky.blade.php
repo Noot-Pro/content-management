@@ -1,22 +1,25 @@
-<div class="flex sm:space-x-2 rtl:space-x-reverse px-2 lg:p-4 @if($loop->first) sm:col-span-2 @endif w-full">
-    <a class="mb-4 md:mb-0 w-full relative h-[16em] sm:h-[20em] md:h-[22em] lg:h-[24em]" href="{{ route('post',$post->slug) }}">
-        <div class="absolute inset-0 w-full h-full z-10 shadow-md rounded-4xl @if($loop->first) md:ltr:rounded-br-none md:rtl:rounded-bl-none @else md:ltr:rounded-bl-none md:rtl:rounded-br-none @endif bg-linear-to-b from-transparent to-gray-700"></div>
-
+<article class="group relative flex flex-col bg-white dark:bg-gray-800 rounded-[2.5rem] overflow-hidden border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-xl transition-all duration-300 @if($loop->first) md:col-span-2 @endif">
+    <a href="{{ route('post',$post->slug) }}" class="block w-full relative h-[20rem] md:h-[24rem] lg:h-[28rem] overflow-hidden">
+        <div class="absolute inset-0 bg-primary-600/0 group-hover:bg-[#E86F44]/10 transition-colors duration-300 z-10 pointer-events-none"></div>
+        
         @if($post->image() !== null)
-            <img alt="{{ $post->title }}" src="{{ $post->image() }}" class="absolute ltr:left-0 rtl:right-0 top-0 w-full h-full shadow-md rounded-4xl @if($loop->first) md:ltr:rounded-br-none md:rtl:rounded-bl-none @else md:ltr:rounded-bl-none md:rtl:rounded-br-none @endif z-0 object-cover"/>
+            <img alt="{{ $post->title }}" src="{{ $post->image() }}" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 z-0"/>
+        @else
+            <div class="absolute inset-0 bg-gray-100 dark:bg-gray-700 z-0"></div>
         @endif
-
-        <div class="p-4 absolute bottom-0 ltr:left-0 rtl:right-0 z-20">
-            <h2 class="text-2xl lg:text-4xl font-semibold text-gray-100 leading-tight">
-                {{ $post->title ?? '' }}
-            </h2>
-            <div class="flex mt-3">
-                <img src="{{ \Filament\Facades\Filament::getUserAvatarUrl($post->author) }}" class="h-10 w-10 rounded-full mx-2 object-cover"/>
-                <div>
-                    <p class="font-semibold text-gray-200 text-sm">{{ $post->author->name ?? '' }}</p>
-                    <p class="font-semibold text-gray-400 text-xs">{{ optional($post->published_at)->diffForHumans() ?? '' }}</p>
-                </div>
+        
+        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/40 to-transparent z-[5]"></div>
+        
+        <div class="absolute bottom-0 left-0 right-0 p-6 md:p-8 lg:p-10 z-20">
+            <div class="flex items-center gap-2 mb-3">
+                <span class="inline-flex items-center text-xs font-medium text-white/90 bg-white/20 backdrop-blur-md px-3 py-1.5 rounded-xl border border-white/10">
+                    @svg('heroicon-o-clock', 'w-3.5 h-3.5 mr-1.5 rtl:ml-1.5 rtl:mr-0')
+                    {{ optional($post->published_at)->diffForHumans() ?? '' }}
+                </span>
             </div>
+            <h3 class="@if($loop->first) text-3xl lg:text-5xl @else text-2xl lg:text-3xl @endif font-bold text-white leading-tight group-hover:text-[#EEAB43] transition-colors line-clamp-2 md:line-clamp-3">
+                {{ $post->title ?? '' }}
+            </h3>
         </div>
     </a>
-</div>
+</article>
