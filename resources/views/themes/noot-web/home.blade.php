@@ -282,7 +282,6 @@
                         <div class="text-[#8C9399] font-light mb-[26px]">{{ __('noot-pro-content-management::noot-web.main_package_text') }}</div>
                         <div class="mb-10 pb-10 border-b border-[#E8E8E8]">
                             <div class="flex items-end font-bold text-5xl pb-2">@if(app()->getLocale() === 'ar') 1500<img src="{{ asset('/vendor/noot-pro/content-management/images/noot-web/saudi-rial-symbol.svg') }}" class="mb-2 mx-2" width="34px" alt=""> @else <img src="{{ asset('/vendor/noot-pro/content-management/images/noot-web/saudi-rial-symbol.svg') }}" class="mb-2 mx-2" width="34px" alt="">1500 @endif<span class="plan-monthly ms-2 text-[#585757] font-light text-xl"> / {{ __('noot-pro-content-management::noot-web.monthly') }}</span></div>
-                            <div class="text-sm text-[#8C9399] font-light mb-4">{{ __('noot-pro-content-management::noot-web.monthly_per_employee') }}</div>
                             <div class="space-y-2 mb-4">
                                 <div class="flex items-center justify-between text-base">
                                     <span class="text-[#585757] font-light">{{ __('noot-pro-content-management::noot-web.discount_3_months') }}</span>
@@ -327,8 +326,6 @@
                             <li class="mb-6 ps-8 bg-circle-check-black bg-no-repeat {{ $bg_align }}">{{ __('noot-pro-content-management::noot-web.advanced_package_feature_3') }}</li>
                             <li class="mb-6 ps-8 bg-circle-check-black bg-no-repeat {{ $bg_align }}">{{ __('noot-pro-content-management::noot-web.advanced_package_feature_4') }}</li>
                             <li class="mb-6 ps-8 bg-circle-check-black bg-no-repeat {{ $bg_align }}">{{ __('noot-pro-content-management::noot-web.advanced_package_feature_5') }}</li>
-                            <li class="mb-6 ps-8 bg-circle-check-black bg-no-repeat {{ $bg_align }}">{{ __('noot-pro-content-management::noot-web.advanced_package_feature_6') }}</li>
-                            <li class="mb-6 ps-8 bg-circle-check-black bg-no-repeat {{ $bg_align }}">{{ __('noot-pro-content-management::noot-web.advanced_package_feature_7') }}</li>
                         </ul>
                     </div>
                     <div>
