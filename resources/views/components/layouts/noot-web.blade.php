@@ -27,7 +27,7 @@
     <style>
         /* CSS Custom Properties for Tailwind arbitrary values */
         :root {
-            --primary-color: #189cd8;
+            --primary-color: #e86f44;
             --secondary-color: #132524;
             --hover-bg-color: #ecf1f4;
         }
