@@ -1,6 +1,6 @@
 <div class="max-w-3xl mx-auto">
     <x-filament::section>
-        <x-filament-panels::form method="post" action="{{ route('passwordConfirmation',[$post]) }}">
+        <form method="post" action="{{ route('passwordConfirmation',[$post]) }}">
             @csrf
             <div class="flex flex-col gap-4">
                 <label for="password">{{ __('Password') }}:</label>
@@ -14,6 +14,6 @@
             <x-filament::button type="submit">
                 {{ __('Send') }}
             </x-filament::button>
-        </x-filament-panels::form>
+        </form>
     </x-filament::section>
 </div>
