@@ -9,10 +9,23 @@ use Filament\Support\Assets\Js;
 use Filament\Support\Facades\FilamentAsset;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\View;
+use Livewire\Livewire;
 use NootPro\ContentManagement\Console\InstallCommand;
 use NootPro\ContentManagement\Console\MigrateCommand;
 use NootPro\ContentManagement\Console\PublishCommand;
 use NootPro\ContentManagement\Console\ZeusEditorCommand;
+use NootPro\ContentManagement\Livewire\About;
+use NootPro\ContentManagement\Livewire\Contact;
+use NootPro\ContentManagement\Livewire\Faq;
+use NootPro\ContentManagement\Livewire\Home;
+use NootPro\ContentManagement\Livewire\Library;
+use NootPro\ContentManagement\Livewire\LibraryItem;
+use NootPro\ContentManagement\Livewire\LibraryTag;
+use NootPro\ContentManagement\Livewire\MenuPages;
+use NootPro\ContentManagement\Livewire\Page;
+use NootPro\ContentManagement\Livewire\Post;
+use NootPro\ContentManagement\Livewire\Posts;
+use NootPro\ContentManagement\Livewire\Tags;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -43,6 +56,24 @@ class ContentManagementServiceProvider extends PackageServiceProvider
         $this->publishes([
             __DIR__ . '/../resources/images' => public_path('vendor/noot-pro/content-management/images'),
         ], 'noot-pro-content-management-images');
+
+        $this->registerLivewireComponents();
+    }
+
+    protected function registerLivewireComponents(): void
+    {
+        Livewire::component('noot-pro.content-management.livewire.menu-pages', MenuPages::class);
+        Livewire::component('noot-pro.content-management.livewire.home', Home::class);
+        Livewire::component('noot-pro.content-management.livewire.posts', Posts::class);
+        Livewire::component('noot-pro.content-management.livewire.post', Post::class);
+        Livewire::component('noot-pro.content-management.livewire.page', Page::class);
+        Livewire::component('noot-pro.content-management.livewire.about', About::class);
+        Livewire::component('noot-pro.content-management.livewire.contact', Contact::class);
+        Livewire::component('noot-pro.content-management.livewire.faq', Faq::class);
+        Livewire::component('noot-pro.content-management.livewire.library', Library::class);
+        Livewire::component('noot-pro.content-management.livewire.library-item', LibraryItem::class);
+        Livewire::component('noot-pro.content-management.livewire.library-tag', LibraryTag::class);
+        Livewire::component('noot-pro.content-management.livewire.tags', Tags::class);
     }
 
     public function setThemePath(): void
