@@ -26,7 +26,7 @@ return [
     'about_noot' => 'About Noot Web',
     'about_us' => 'About Us',
     'privacy' => 'Privacy Policy',
-    'term' => 'Terms and Conditions',
+    'terms' => 'Terms and Conditions',
     'about_company' => 'About Company',
 
     'partner_text' => 'Used daily by over 100,00+ individual professionals, small businesses and large corporations.',
