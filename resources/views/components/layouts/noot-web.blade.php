@@ -358,9 +358,9 @@
                 <div class="lg:col-span-6 xl:col-span-2 col-span-full mb-12 xl:mb-0">
                     <div class="mb-6 text-[#969696]">{{ __('noot-pro-content-management::noot-web.about_company') }}</div>
                     <ul>
-                        <li class="mb-6"><a href="{{ url('about_us') }}" class="text-white hover:text-[var(--primary-color)] transition ease-in-out">{{ __('noot-pro-content-management::noot-web.about_us') }}</a></li>
+                        <li class="mb-6"><a href="{{ url('about-us') }}" class="text-white hover:text-[var(--primary-color)] transition ease-in-out">{{ __('noot-pro-content-management::noot-web.about_us') }}</a></li>
                         <li class="mb-6"><a href="{{ url('privacy') }}" class="text-white hover:text-[var(--primary-color)] transition ease-in-out">{{ __('noot-pro-content-management::noot-web.privacy') }}</a></li>
-                        <li class="mb-6"><a href="{{ url('terms') }}" class="text-white hover:text-[var(--primary-color)] transition ease-in-out">{{ __('noot-pro-content-management::noot-web.term') }}</a></li>
+                        <li class="mb-6"><a href="{{ url('terms') }}" class="text-white hover:text-[var(--primary-color)] transition ease-in-out">{{ __('noot-pro-content-management::noot-web.terms') }}</a></li>
                         <li class="mb-6"><a href="{{ url('faq') }}" class="text-white hover:text-[var(--primary-color)] transition ease-in-out">{{ __('noot-pro-content-management::noot-web.faq') }}</a></li>
                         <li class="mb-6"><a href="{{ url('help') }}" class="text-white hover:text-[var(--primary-color)] transition ease-in-out">{{ __('noot-pro-content-management::noot-web.help_center') }}</a></li>
                     </ul>
