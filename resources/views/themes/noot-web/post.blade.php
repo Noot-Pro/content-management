@@ -65,13 +65,13 @@
             </div>
 
             <div class="prose prose-lg md:prose-xl max-w-none relative z-10
-                        prose-headings:font-extrabold prose-headings:text-gray-900 prose-headings:tracking-tight
-                        prose-p:text-gray-600 prose-p:leading-loose
+                        prose-headings:font-extrabold prose-headings:text-gray-900 prose-headings:tracking-tight prose-headings:mb-6 prose-headings:mt-10
+                        prose-p:text-gray-600 prose-p:leading-loose prose-p:mb-6 prose-p:text-[1.1rem]
                         prose-a:text-[#E86F44] prose-a:font-semibold hover:prose-a:text-[#EEAB43] prose-a:decoration-[#E86F44]/30 hover:prose-a:decoration-[#EEAB43] transition-colors
-                        prose-img:rounded-2xl prose-img:shadow-md prose-img:border prose-img:border-gray-100
+                        prose-img:rounded-3xl prose-img:shadow-xl prose-img:border prose-img:border-gray-100/50 prose-img:my-10
                         prose-strong:text-gray-900 prose-strong:font-bold
-                        prose-blockquote:border-l-4 prose-blockquote:border-[#E86F44] prose-blockquote:bg-[#E86F44]/5 prose-blockquote:px-8 prose-blockquote:py-6 prose-blockquote:rounded-r-2xl prose-blockquote:italic prose-blockquote:text-gray-700
-                        prose-ul:list-disc prose-ul:pl-6 prose-li:text-gray-600 prose-li:marker:text-[#E86F44]">
+                        prose-blockquote:border-l-4 prose-blockquote:border-[#E86F44] prose-blockquote:bg-gray-50/80 prose-blockquote:px-8 prose-blockquote:py-6 prose-blockquote:rounded-3xl prose-blockquote:rounded-tl-none rtl:prose-blockquote:rounded-tr-none rtl:prose-blockquote:rounded-tl-3xl prose-blockquote:italic prose-blockquote:text-gray-700 prose-blockquote:my-8 prose-blockquote:shadow-sm
+                        prose-ul:list-disc prose-ol:list-decimal rtl:prose-ul:pr-8 rtl:prose-ol:pr-8 ltr:prose-ul:pl-8 ltr:prose-ol:pl-8 prose-li:text-gray-600 prose-li:marker:text-[#E86F44] prose-li:mb-3 leading-loose text-[1.1rem]">
                 {!! $post->getContent() !!}
             </div>
 
