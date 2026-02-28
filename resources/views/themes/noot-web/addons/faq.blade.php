@@ -15,9 +15,8 @@
                 <div class="text-center mb-16">
                     <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl text-gray-900 flex justify-center items-center gap-4">
                         <span class="w-10 h-1.5 bg-[#E86F44] rounded-full inline-block"></span>
-                        {{ __('Frequently asked questions') }}
+                        {{ __('frequently asked questions') }}
                     </h2>
-                    <p class="mt-4 text-lg text-gray-500">{{ __('Find answers to common questions below.') }}</p>
                 </div>
                 
                 <div class="space-y-4">
