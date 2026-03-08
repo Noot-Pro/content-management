@@ -53,6 +53,7 @@ class FaqResource extends BaseResource
                 Section::make(__('Library File'))
                     ->columns(2)
                     ->schema([
+                        TextColumn::make('id'),
                         Textarea::make('question')
                             ->label(__('Question'))
                             ->required()

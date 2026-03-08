@@ -182,6 +182,7 @@ class PostResource extends BaseResource
     {
         return $table
             ->columns([
+                TextColumn::make('id'),
                 TextColumn::make('title')
                     ->label(__('Title'))
                     ->sortable(['title'])
