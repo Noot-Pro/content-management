@@ -26,6 +26,7 @@ return [
     'about_noot' => 'About Noot Web',
     'about_us' => 'About Us',
     'privacy' => 'Privacy Policy',
+    'Term' => 'Terms and Conditions',
     'terms' => 'Terms and Conditions',
     'about_company' => 'About Company',
 
