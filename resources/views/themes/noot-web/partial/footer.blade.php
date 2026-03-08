@@ -26,11 +26,11 @@
                 </div>
                 <div class="lg:col-span-6 xl:col-span-2 col-span-full mb-12 xl:mb-0">
                     <div class="mb-6 text-[#969696]">{{ __('noot-pro-content-management::noot-web.our_solutions') }}</div>
-                    @livewire(\NootPro\ContentManagement\Livewire\MenuPages::class, ['parent_id' => 60,'type' => 'footer'])
+                    @livewire(\NootPro\ContentManagement\Livewire\MenuPages::class, ['parent_id' => 5,'type' => 'footer'])
                 </div>
                 <div class="lg:col-span-6 xl:col-span-2 col-span-full mb-12 xl:mb-0">
                     <div class="mb-6 text-[#969696]">{{ __('noot-pro-content-management::noot-web.contents') }}</div>
-                    @livewire(\NootPro\ContentManagement\Livewire\MenuPages::class, ['parent_id' => 61,'type' => 'footer'])
+                    @livewire(\NootPro\ContentManagement\Livewire\MenuPages::class, ['parent_id' => 6,'type' => 'footer'])
                 </div>
                 <div class="lg:col-span-12 xl:col-span-2 col-span-full">
                     <div class="mb-6 text-[#969696]">{{ __('noot-pro-content-management::noot-web.contact_us') }}</div>
