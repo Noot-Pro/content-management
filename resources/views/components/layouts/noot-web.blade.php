@@ -214,7 +214,7 @@
                 <li class="links__item links__item--has-dropdown">
                     <a href="#">{{ __('noot-pro-content-management::noot-web.products') }}</a>
                     <div class="links__dropdown">
-                        @livewire(\NootPro\ContentManagement\Livewire\MenuPages::class, ['parent_id' => 3,'type' => 'header'])
+                        @livewire(\NootPro\ContentManagement\Livewire\MenuPages::class, ['parent_id' => 7,'type' => 'header'])
                     </div>
                 </li>
                 <li class="links__item">
@@ -223,7 +223,7 @@
                 <li class="links__item links__item--has-dropdown">
                     <a href="#">{{ __('noot-pro-content-management::noot-web.contents') }}</a>
                     <div class="links__dropdown">
-                        @livewire(\NootPro\ContentManagement\Livewire\MenuPages::class, ['parent_id' => 15,'type' => 'header'])
+                        @livewire(\NootPro\ContentManagement\Livewire\MenuPages::class, ['parent_id' => 6,'type' => 'header'])
                     </div>
                 </li>
                 <li class="links__item">
@@ -285,7 +285,7 @@
                     </svg>
                 </summary>
                 <article class="px-4 pb-4">
-                    @livewire(\NootPro\ContentManagement\Livewire\MenuPages::class, ['parent_id' => 3,'type' => 'mobile'])
+                    @livewire(\NootPro\ContentManagement\Livewire\MenuPages::class, ['parent_id' => 7,'type' => 'mobile'])
                 </article>
             </details>
         </li>
@@ -305,7 +305,7 @@
                     </svg>
                 </summary>
                 <article class="px-4 pb-4">
-                    @livewire(\NootPro\ContentManagement\Livewire\MenuPages::class, ['parent_id' => 15,'type' => 'mobile'])
+                    @livewire(\NootPro\ContentManagement\Livewire\MenuPages::class, ['parent_id' => 6,'type' => 'mobile'])
                 </article>
             </details>
         </li>
@@ -367,11 +367,11 @@
                 </div>
                 <div class="lg:col-span-6 xl:col-span-2 col-span-full mb-12 xl:mb-0">
                     <div class="mb-6 text-[#969696]">{{ __('noot-pro-content-management::noot-web.our_solutions') }}</div>
-                    @livewire(\NootPro\ContentManagement\Livewire\MenuPages::class, ['parent_id' => 3,'type' => 'footer'])
+                    @livewire(\NootPro\ContentManagement\Livewire\MenuPages::class, ['parent_id' => 5,'type' => 'footer'])
                 </div>
                 <div class="lg:col-span-6 xl:col-span-2 col-span-full mb-12 xl:mb-0">
                     <div class="mb-6 text-[#969696]">{{ __('noot-pro-content-management::noot-web.contents') }}</div>
-                    @livewire(\NootPro\ContentManagement\Livewire\MenuPages::class, ['parent_id' => 15,'type' => 'footer'])
+                    @livewire(\NootPro\ContentManagement\Livewire\MenuPages::class, ['parent_id' => 6,'type' => 'footer'])
                 </div>
                 <div class="lg:col-span-12 xl:col-span-2 col-span-full">
                     <div class="mb-6 text-[#969696]">{{ __('noot-pro-content-management::noot-web.contact_us') }}</div>
