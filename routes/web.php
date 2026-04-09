@@ -14,6 +14,21 @@ use NootPro\ContentManagement\Livewire\Posts;
 use NootPro\ContentManagement\Livewire\Tags;
 use NootPro\ContentManagement\Middleware\SetLocale;
 
+Route::get('/noot-pro-content-management/prose.css', function () {
+    $path = __DIR__ . '/../resources/dist/prose.css';
+
+    abort_unless(is_file($path), 404);
+
+    return response(
+        file_get_contents($path),
+        200,
+        [
+            'Content-Type' => 'text/css; charset=UTF-8',
+            'Cache-Control' => 'public, max-age=86400',
+        ]
+    );
+})->name('noot-pro-content-management.prose-css');
+
 Route::domain(config('noot-pro-content-management.domain'))
     ->middleware(array_merge(config('noot-pro-content-management.middleware'), [SetLocale::class]))
     ->prefix(config('noot-pro-content-management.prefix'))

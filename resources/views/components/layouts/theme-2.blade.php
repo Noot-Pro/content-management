@@ -22,6 +22,7 @@
 
     @livewireStyles
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{{ route('noot-pro-content-management.prose-css') }}?v=20260409">
     @stack('styles')
 
     <style>
@@ -182,86 +183,6 @@
             border: solid 1px red;
         }
 
-        /* Restore readable typography for rich editor content */
-        .prose {
-            color: inherit;
-            line-height: 1.9;
-        }
-
-        .prose > :first-child {
-            margin-top: 0;
-        }
-
-        .prose > :last-child {
-            margin-bottom: 0;
-        }
-
-        .prose p {
-            margin-top: 1em;
-            margin-bottom: 1em;
-        }
-
-        .prose h1,
-        .prose h2,
-        .prose h3,
-        .prose h4,
-        .prose h5,
-        .prose h6 {
-            line-height: 1.35;
-            font-weight: 700;
-            margin-top: 1.35em;
-            margin-bottom: 0.6em;
-        }
-
-        .prose h1 { font-size: 2rem; }
-        .prose h2 { font-size: 1.75rem; }
-        .prose h3 { font-size: 1.5rem; }
-        .prose h4 { font-size: 1.25rem; }
-        .prose h5 { font-size: 1.125rem; }
-        .prose h6 { font-size: 1rem; }
-
-        .prose ul {
-            list-style: disc;
-            margin-top: 1em;
-            margin-bottom: 1em;
-            padding-inline-start: 1.5rem;
-        }
-
-        .prose ol {
-            list-style: decimal;
-            margin-top: 1em;
-            margin-bottom: 1em;
-            padding-inline-start: 1.5rem;
-        }
-
-        .prose li {
-            margin-top: 0.35em;
-            margin-bottom: 0.35em;
-        }
-
-        .prose ul ul {
-            list-style: circle;
-            margin-top: 0.35em;
-            margin-bottom: 0.35em;
-        }
-
-        .prose ol ol {
-            list-style: lower-alpha;
-            margin-top: 0.35em;
-            margin-bottom: 0.35em;
-        }
-
-        .prose blockquote {
-            margin: 1.25em 0;
-            padding-inline-start: 1rem;
-            border-inline-start: 4px solid #d1d5db;
-            color: #4b5563;
-        }
-
-        .prose hr {
-            margin: 1.5em 0;
-            border-color: #e5e7eb;
-        }
     </style>
 </head>
 <body x-data="{ mobileMenuOpen: false }" x-effect="document.body.style.overflow = mobileMenuOpen ? 'hidden' : ''" class="font-sans antialiased text-gray-900 @if(app()->isLocal()) debug-screens @endif">
