@@ -16,6 +16,7 @@
     @livewireStyles
     @filamentStyles
     @stack('styles')
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
 
     @if(request()->is('/'))
         @vite(['resources/css/landing/landing.css'])
