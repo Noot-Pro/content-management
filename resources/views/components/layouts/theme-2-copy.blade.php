@@ -16,6 +16,7 @@
     @livewireStyles
     @filamentStyles
     @stack('styles')
+    <link rel="stylesheet" href="{{ route('noot-pro-content-management.prose-css') }}?v=20260409">
 
     @if(request()->is('/'))
         @vite(['resources/css/landing/landing.css'])
