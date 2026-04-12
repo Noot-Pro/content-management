@@ -13,17 +13,17 @@
         </div>
     </section>
 
-    <section class="w-full">
-        <div class="container px-4 text-center">
-            <div class="w-full text-center">
-                @if(app()->getLocale() === 'ar')
-                    <img src="{{ url('/vendor/noot-pro/content-management/images/noot-web/bued-apps.png') }}" class="mx-auto md:w-full lg:w-[60%]" alt="">
-                @else
-                    <img src="{{ asset('/vendor/noot-pro/content-management/images/noot-web/bued-apps.png') }}" class="mx-auto md:w-full lg:w-[60%]" alt="">
-                @endif
-            </div>
-        </div>
-    </section>
+{{--    <section class="w-full">--}}
+{{--        <div class="container px-4 text-center">--}}
+{{--            <div class="w-full text-center">--}}
+{{--                @if(app()->getLocale() === 'ar')--}}
+{{--                    <img src="{{ url('/vendor/noot-pro/content-management/images/noot-web/bued-apps.png') }}" class="mx-auto md:w-full lg:w-[60%]" alt="">--}}
+{{--                @else--}}
+{{--                    <img src="{{ asset('/vendor/noot-pro/content-management/images/noot-web/bued-apps.png') }}" class="mx-auto md:w-full lg:w-[60%]" alt="">--}}
+{{--                @endif--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </section>--}}
 
     <section class="w-full">
         <div class="container px-4 pt-12 xl:pt-14 mb-2">
