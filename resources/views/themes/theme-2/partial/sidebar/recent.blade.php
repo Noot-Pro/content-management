@@ -2,7 +2,7 @@
     <div class="mb-8">
         <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
             <h4 class="mb-5 text-lg font-bold text-gray-900 flex items-center gap-3">
-                <span class="w-1.5 h-6 bg-[#E86F44] rounded-full inline-block"></span>
+                <span class="w-1.5 h-6 bg-[var(--primary-color)] rounded-full inline-block"></span>
                 {{ __('noot-pro-content-management::site.recent_post') }}
             </h4>
             <div class="flex flex-col gap-4">
@@ -12,7 +12,7 @@
                             <img alt="{{ $post->title }}" src="{{ $post->image() }}" class="h-16 w-16 shrink-0 rounded-lg object-cover shadow-sm group-hover:opacity-90 transition-opacity border border-gray-100"/>
                         @endif
                         <div class="flex-1">
-                            <h5 class="font-semibold text-sm text-gray-800 group-hover:text-[#E86F44] transition-colors line-clamp-2 leading-snug">{{ $post->title ?? '' }}</h5>
+                            <h5 class="font-semibold text-sm text-gray-800 group-hover:text-[var(--primary-color)] transition-colors line-clamp-2 leading-snug">{{ $post->title ?? '' }}</h5>
                             <span class="text-xs text-gray-500 mt-1.5 block flex items-center gap-1">
                                 @svg('heroicon-o-clock', 'w-3.5 h-3.5')
                                 {{ optional($post->published_at)->diffForHumans() ?? '' }}

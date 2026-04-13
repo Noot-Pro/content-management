@@ -1,23 +1,23 @@
-<article class="group relative flex flex-col bg-white rounded-[2.5rem] overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 @if($loop->first) md:col-span-2 @endif">
-    <a href="{{ route('post',$post->slug) }}" class="block w-full relative h-[20rem] md:h-[24rem] lg:h-[28rem] overflow-hidden">
-        <div class="absolute inset-0 bg-primary-600/0 group-hover:bg-[#E86F44]/10 transition-colors duration-300 z-10 pointer-events-none"></div>
-        
+<article class="group relative flex flex-col bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-1 @if($loop->first) md:col-span-2 @endif border border-gray-100/50">
+    <a href="{{ route('post',$post->slug) }}" class="block w-full relative h-[24rem] md:h-[28rem] lg:h-[32rem] overflow-hidden">
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500 z-10 pointer-events-none"></div>
+
         @if($post->image() !== null)
-            <img alt="{{ $post->title }}" src="{{ $post->image() }}" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 z-0"/>
+            <img alt="{{ $post->title }}" src="{{ $post->image() }}" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 z-0"/>
         @else
-            <div class="absolute inset-0 bg-gray-100 z-0"></div>
+            <div class="absolute inset-0 bg-gradient-to-br from-[var(--primary-color)]/20 to-[var(--primary-color)]/10 z-0"></div>
         @endif
-        
-        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/40 to-transparent z-[5]"></div>
-        
-        <div class="absolute bottom-0 left-0 right-0 p-6 md:p-8 lg:p-10 z-20">
-            <div class="flex items-center gap-2 mb-3">
-                <span class="inline-flex items-center text-xs font-medium text-white/90 bg-white/20 backdrop-blur-md px-3 py-1.5 rounded-xl border border-white/10">
-                    @svg('heroicon-o-clock', 'w-3.5 h-3.5 mr-1.5 rtl:ml-1.5 rtl:mr-0')
+
+        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/95 via-gray-900/40 to-transparent z-[5]"></div>
+
+        <div class="absolute bottom-0 left-0 right-0 p-8 md:p-10 lg:p-12 z-20 transform transition-transform duration-500 translate-y-2 group-hover:translate-y-0">
+            <div class="flex items-center gap-2 mb-4">
+                <span class="inline-flex items-center text-xs font-bold uppercase tracking-wider text-white/90 bg-white/20 backdrop-blur-md px-4 py-2 rounded-full border border-white/20">
+                    @svg('heroicon-o-calendar', 'w-4 h-4 ltr:mr-2 rtl:ml-2')
                     {{ optional($post->published_at)->diffForHumans() ?? '' }}
                 </span>
             </div>
-            <h3 class="@if($loop->first) text-3xl lg:text-5xl @else text-2xl lg:text-3xl @endif font-bold text-white leading-tight group-hover:text-[#EEAB43] transition-colors line-clamp-2 md:line-clamp-3">
+            <h3 class="@if($loop->first) text-4xl lg:text-5xl @else text-3xl lg:text-4xl @endif font-extrabold text-white leading-tight group-hover:text-amber-200 transition-colors duration-300 line-clamp-2 md:line-clamp-3 drop-shadow-sm">
                 {{ $post->title ?? '' }}
             </h3>
         </div>
