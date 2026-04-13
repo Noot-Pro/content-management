@@ -25,7 +25,7 @@
         </div>
     </section>
 
-    <section class="w-full">
+    <section class="w-full pt-32">
         <div class="container px-4 pt-12 xl:pt-14 mb-2">
             <div class="text-[32px] xl:text-[48px] font-bold mb-10 xl:mb-20 text-center">{{ __('noot-pro-content-management::site.features_title') }} <span class="block text-[var(--primary-color)]">{{ __('noot-pro-content-management::site.one_place') }}</span></div>
             <div class="grid grid-cols-12  gap-x-4">

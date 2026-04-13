@@ -126,7 +126,7 @@
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
-            background: #FF9873;
+            background: var(--primary-color);
         }
 
         @media screen and (max-width: 1024px) {
@@ -149,7 +149,7 @@
             width: 8px;
             height: 8px;
             border-radius: 50%;
-            background: #FF9873;
+            background: var(--primary-color);
             box-shadow: 0 0 0 6px #fff;
             transition: all 0.2s ease-in-out;
         }

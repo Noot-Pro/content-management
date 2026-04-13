@@ -1,7 +1,7 @@
 <div class="mt-8 container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl lg:py-8 lg:mb-12">
     <div class="flex items-center mb-12">
         <h1 class="text-3xl md:text-4xl font-bold text-gray-900 flex items-center gap-4">
-            <span class="w-10 h-1.5 bg-[#E86F44] rounded-full inline-block"></span>
+            <span class="w-10 h-1.5 bg-[var(--primary-color)] rounded-full inline-block"></span>
             {{ $category->name ?? __('noot-pro-content-management::site.category') }}
         </h1>
     </div>
